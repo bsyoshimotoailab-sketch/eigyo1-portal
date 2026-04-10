@@ -120,27 +120,13 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 </head>
 <body>
 <script>
-(function(){
-  var PASS = 'eigyo1GP';
-  var KEY  = 'eigyo1_auth';
-  if (sessionStorage.getItem(KEY) === '1') return;
-  document.documentElement.style.visibility = 'hidden';
-  var attempt = function(){
-    var input = window.prompt('🔐 パスワードを入力してください');
-    if (input === null) {
-      document.documentElement.style.visibility = 'hidden';
-      return;
+  (function() {
+    const password = "BSeigyo";
+    const input = prompt("パスワードを入力してください");
+    if (input !== password) {
+      document.body.innerHTML = "<div style='text-align:center;padding:100px;font-family:sans-serif;'><p>パスワードが違います。</p></div>";
     }
-    if (input === PASS) {
-      sessionStorage.setItem(KEY, '1');
-      document.documentElement.style.visibility = 'visible';
-    } else {
-      alert('パスワードが違います。もう一度入力してください。');
-      attempt();
-    }
-  };
-  document.addEventListener('DOMContentLoaded', attempt);
-})();
+  })();
 </script>
 <header>
   <div class="container">
