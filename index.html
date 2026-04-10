@@ -119,6 +119,29 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 </style>
 </head>
 <body>
+<script>
+(function(){
+  var PASS = 'eigyo1GP';
+  var KEY  = 'eigyo1_auth';
+  if (sessionStorage.getItem(KEY) === '1') return;
+  document.documentElement.style.visibility = 'hidden';
+  var attempt = function(){
+    var input = window.prompt('🔐 パスワードを入力してください');
+    if (input === null) {
+      document.documentElement.style.visibility = 'hidden';
+      return;
+    }
+    if (input === PASS) {
+      sessionStorage.setItem(KEY, '1');
+      document.documentElement.style.visibility = 'visible';
+    } else {
+      alert('パスワードが違います。もう一度入力してください。');
+      attempt();
+    }
+  };
+  document.addEventListener('DOMContentLoaded', attempt);
+})();
+</script>
 <header>
   <div class="container">
     <a href="#hero" class="logo"><img src="" data-candidates="assets/logos/eigyo1_logo.png|assets/logos/eigyo1_logo.jpg|assets/logos/eigyo1_logo.jpeg|assets/logos/eigyo1_logo.webp|営業-1ロゴ透明.png|営業-1ロゴ透明.jpg|営業-1ロゴ透明.jpeg|営業-1ロゴ透明.webp" alt="営業-1グランプリ ロゴ" class="auto-img logo-img" onerror="this.style.display='none'"></a>
