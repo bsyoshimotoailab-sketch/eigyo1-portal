@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>名場面ギャラリー｜営業-1グランプリ 公式アーカイブ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+<style>
+/* ── 変数・リセット ── */
+:root{
+  --white:#fff;--bg:#faf9f6;--bg-warm:#f5f2ec;
+  --text:#222;--text-sub:#555;--text-light:#888;
+  --gold:#b8922e;--gold-light:#f0d77b;--gold-dark:#8a6d1a;
+  --red:#d72631;--red-dark:#b51d26;--black:#1a1a1a;
+  --border:#e8e4dc;--shadow:rgba(0,0,0,.08);
+  --font:'Noto Sans JP',sans-serif;--font-a:'Zen Kaku Gothic New',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ── ヘッダー ── */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.h-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center}
+.logo img{height:52px;width:auto;object-fit:contain}
+nav{display:flex;align-items:center;gap:16px}
+nav a{color:var(--text-sub);font-size:.74rem;font-weight:700;transition:color .3s}
+nav a:hover{color:var(--red)}
+.ncta{background:var(--red);color:#fff!important;padding:8px 18px;font-weight:700!important;font-size:.72rem!important;border-radius:4px;transition:background .3s!important}
+.ncta:hover{background:var(--red-dark)!important}
+.hbr{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.hbr span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0}
+.mnav{display:none;position:fixed;top:68px;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:16px 24px;border-bottom:1px solid var(--border)}
+.mnav.open{display:block}
+.mnav a{display:block;padding:12px 0;color:var(--text-sub);font-size:.85rem;border-bottom:1px solid #eee}
+
+/* ── パンくず ── */
+.breadcrumb{background:var(--white);border-bottom:1px solid var(--border);padding:10px 0}
+.bc-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bc-inner a,.bc-inner span{font-size:.72rem;color:var(--text-light)}
+.bc-inner a:hover{color:var(--red)}
+.bc-sep{color:#ccc}
+.bc-inner .current{color:var(--text-sub);font-weight:700}
+
+/* ── ページヒーロー ── */
+.page-hero{background:var(--black);padding:clamp(40px,7vw,72px) 0 clamp(32px,5vw,56px)}
+.page-hero-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.page-hero-label{font-size:.64rem;letter-spacing:.24em;color:var(--gold-light);font-weight:700;margin-bottom:12px}
+.page-hero-title{font-family:var(--font-a);font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:var(--white);line-height:1.2;margin-bottom:14px}
+.page-hero-desc{font-size:.9rem;color:#999;max-width:580px;line-height:1.85}
+.page-hero-count{margin-top:16px;font-size:.72rem;color:#666;font-weight:700;letter-spacing:.06em}
+.page-hero-count span{color:var(--gold-light);font-size:1rem;font-family:var(--font-a)}
+
+/* ── フィルターバー ── */
+.filter-bar{background:var(--white);border-bottom:1px solid var(--border);padding:14px 0;position:sticky;top:68px;z-index:900}
+.filter-bar-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;flex-direction:column;gap:10px}
+.filter-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.filter-label{font-size:.62rem;font-weight:700;letter-spacing:.12em;color:var(--text-light);min-width:36px}
+.ftag{font-size:.72rem;font-weight:700;padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--white);color:var(--text-sub);cursor:pointer;transition:all .2s;white-space:nowrap}
+.ftag:hover{border-color:var(--text);color:var(--black)}
+.ftag.active{background:var(--black);color:var(--white);border-color:var(--black)}
+.ftag.tag-laugh.active{background:#92400e;border-color:#92400e;color:#fff}
+.ftag.tag-feel.active{background:#1e40af;border-color:#1e40af;color:#fff}
+.ftag.tag-shock.active{background:#991b1b;border-color:#991b1b;color:#fff}
+.ftag.tag-legend.active{background:#6b21a8;border-color:#6b21a8;color:#fff}
+.ftag.tag-skill.active{background:#065f46;border-color:#065f46;color:#fff}
+.filter-divider{width:1px;height:18px;background:var(--border);margin:0 4px}
+
+/* ── メイン ── */
+.page-wrap{padding-top:68px}
+.main-area{max-width:1180px;margin:0 auto;padding:clamp(32px,5vw,56px) clamp(16px,4vw,40px) clamp(60px,10vw,100px)}
+
+/* ── 件数表示 ── */
+.result-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:8px}
+.result-count{font-size:.78rem;color:var(--text-sub)}
+.result-count strong{color:var(--black);font-family:var(--font-a);font-size:1rem}
+.view-toggle{display:flex;gap:4px}
+.vt-btn{background:none;border:1.5px solid var(--border);border-radius:4px;padding:5px 10px;cursor:pointer;color:var(--text-light);transition:all .2s;font-size:.8rem}
+.vt-btn.active{background:var(--black);color:#fff;border-color:var(--black)}
+
+/* ── カードグリッド ── */
+.scene-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.scene-grid.view-2col{grid-template-columns:repeat(2,1fr)}
+
+/* ── 名場面カード ── */
+.scene-card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .3s,transform .3s;cursor:pointer}
+.scene-card:hover{box-shadow:0 10px 36px var(--shadow);transform:translateY(-3px)}
+.scene-card.hidden{display:none}
+
+/* サムネイル */
+.sc-thumb{aspect-ratio:16/9;background:#ece9e2;position:relative;overflow:hidden}
+.sc-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.scene-card:hover .sc-thumb img{transform:scale(1.04)}
+.sc-thumb .sc-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--text-light);font-size:.72rem}
+.sc-thumb .sc-fallback .ico{font-size:2.2rem;opacity:.25}
+
+/* オーバーレイ */
+.sc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,rgba(0,0,0,.1) 50%,transparent 100%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:14px}
+.scene-card:hover .sc-overlay{opacity:1}
+.sc-play{display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;padding:8px 16px;border-radius:4px;font-size:.72rem;font-weight:700}
+
+/* タグ群（サムネイル上） */
+.sc-thumb-tags{position:absolute;top:10px;left:10px;display:flex;gap:6px;flex-wrap:wrap}
+.sc-ttag{font-size:.58rem;font-weight:700;padding:3px 8px;border-radius:3px;letter-spacing:.04em;backdrop-filter:blur(4px)}
+.sc-ttag.laugh{background:rgba(254,243,199,.9);color:#92400e}
+.sc-ttag.feel{background:rgba(219,234,254,.9);color:#1e40af}
+.sc-ttag.shock{background:rgba(254,226,226,.9);color:#991b1b}
+.sc-ttag.legend{background:rgba(243,232,255,.9);color:#6b21a8}
+.sc-ttag.skill{background:rgba(209,250,229,.9);color:#065f46}
+
+/* カード本文 */
+.sc-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.sc-ep-info{font-size:.62rem;font-weight:700;letter-spacing:.1em;color:var(--gold-dark)}
+.sc-title{font-family:var(--font-a);font-size:.96rem;font-weight:900;color:var(--black);line-height:1.4}
+.sc-desc{font-size:.76rem;color:var(--text-sub);line-height:1.75;margin-top:2px}
+.sc-cta{margin-top:auto;padding-top:14px;display:flex;align-items:center;justify-content:space-between}
+.sc-cta-link{font-size:.74rem;font-weight:700;color:var(--red);display:flex;align-items:center;gap:5px;transition:gap .2s}
+.scene-card:hover .sc-cta-link{gap:8px}
+.sc-cta-link .arrow{font-size:.8rem}
+.sc-artist{font-size:.66rem;color:var(--text-light);background:var(--bg);padding:3px 10px;border-radius:12px;border:1px solid var(--border)}
+
+/* ── 空状態 ── */
+.empty-state{display:none;text-align:center;padding:60px 20px;color:var(--text-light)}
+.empty-state.show{display:block}
+.empty-state .ico{font-size:2.4rem;margin-bottom:12px;opacity:.35}
+.empty-state p{font-size:.85rem}
+
+/* ── 下部導線 ── */
+.bottom-nav{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px) clamp(60px,10vw,90px);display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.bottom-link{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:6px;font-size:.8rem;font-weight:700;border:1.5px solid var(--border);color:var(--text-sub);background:var(--white);transition:all .25s}
+.bottom-link:hover{border-color:var(--text);color:var(--black)}
+
+/* ── フッター ── */
+footer{background:var(--black);color:#888;padding:32px 0}
+.ft-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
+footer p{font-size:.68rem}
+footer a{color:#888;transition:color .3s}
+footer a:hover{color:var(--gold-light)}
+
+/* ── フェードイン ── */
+.fi{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
+.fi.v{opacity:1;transform:translateY(0)}
+
+/* ── レスポンシブ ── */
+@media(max-width:960px){
+  nav a:not(.ncta){display:none}
+  .hbr{display:block}
+  .filter-bar{position:static}
+  .scene-grid{grid-template-columns:repeat(2,1fr)}
+  .scene-grid.view-2col{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .scene-grid,.scene-grid.view-2col{grid-template-columns:1fr}
+  .result-bar{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header>
+  <div class="h-inner">
+    <a href="index.html" class="logo">
+      <img src="assets/logos/eigyo1_logo.png" alt="営業-1グランプリ ロゴ" onerror="this.style.display='none'">
+    </a>
+    <nav>
+      <a href="index.html">TOP</a>
+      <a href="timeline.html">年表</a>
+      <a href="episodes.html">エピソード</a>
+      <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ncta">イベント出演依頼</a>
+      <button class="hbr" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<div class="mnav" id="mn">
+  <a href="index.html">TOP</a>
+  <a href="timeline.html">シリーズ年表</a>
+  <a href="episodes.html">エピソード一覧</a>
+  <a href="scenes.html">名場面</a>
+  <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
+</div>
+
+<div class="page-wrap">
+
+  <!-- パンくず -->
+  <div class="breadcrumb">
+    <div class="bc-inner">
+      <a href="index.html">TOP</a>
+      <span class="bc-sep">›</span>
+      <span class="current">名場面ギャラリー</span>
+    </div>
+  </div>
+
+  <!-- ページヒーロー -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-label">BEST SCENES</div>
+      <h1 class="page-hero-title">名場面ギャラリー</h1>
+      <p class="page-hero-desc">シリーズを彩った爆笑・感動・伝説のシーンを一覧で。気になるシーンをクリックして、その回の詳細ページへ。</p>
+      <div class="page-hero-count">全 <span id="total-count">8</span> 件</div>
+    </div>
+  </div>
+
+  <!-- フィルターバー -->
+  <div class="filter-bar">
+    <div class="filter-bar-inner">
+      <!-- 年フィルター -->
+      <div class="filter-row">
+        <span class="filter-label">年</span>
+        <button class="ftag active" data-filter-type="year" data-filter-val="all" onclick="applyFilter('year','all',this)">すべて</button>
+        <button class="ftag" data-filter-type="year" data-filter-val="2025" onclick="applyFilter('year','2025',this)">2025年</button>
+        <button class="ftag" data-filter-type="year" data-filter-val="2024" onclick="applyFilter('year','2024',this)">2024年</button>
+        <button class="ftag" data-filter-type="year" data-filter-val="2023" onclick="applyFilter('year','2023',this)">2023年</button>
+      </div>
+      <!-- 芸人フィルター -->
+      <div class="filter-row">
+        <span class="filter-label">芸人</span>
+        <button class="ftag active" data-filter-type="artist" data-filter-val="all" onclick="applyFilter('artist','all',this)">すべて</button>
+        <button class="ftag" data-filter-type="artist" data-filter-val="joyman" onclick="applyFilter('artist','joyman',this)">ジョイマン</button>
+        <button class="ftag" data-filter-type="artist" data-filter-val="sukachan" onclick="applyFilter('artist','sukachan',this)">スカチャン</button>
+        <button class="ftag" data-filter-type="artist" data-filter-val="yagi" onclick="applyFilter('artist','yagi',this)">八木真澄</button>
+        <button class="ftag" data-filter-type="artist" data-filter-val="onigoe" onclick="applyFilter('artist','onigoe',this)">鬼越トマホーク</button>
+      </div>
+      <!-- タグフィルター -->
+      <div class="filter-row">
+        <span class="filter-label">タグ</span>
+        <button class="ftag active" data-filter-type="tag" data-filter-val="all" onclick="applyFilter('tag','all',this)">すべて</button>
+        <button class="ftag tag-laugh" data-filter-type="tag" data-filter-val="laugh" onclick="applyFilter('tag','laugh',this)">爆笑</button>
+        <button class="ftag tag-feel" data-filter-type="tag" data-filter-val="feel" onclick="applyFilter('tag','feel',this)">感動</button>
+        <button class="ftag tag-shock" data-filter-type="tag" data-filter-val="shock" onclick="applyFilter('tag','shock',this)">衝撃</button>
+        <button class="ftag tag-legend" data-filter-type="tag" data-filter-val="legend" onclick="applyFilter('tag','legend',this)">伝説</button>
+        <button class="ftag tag-skill" data-filter-type="tag" data-filter-val="skill" onclick="applyFilter('tag','skill',this)">神対応</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- メインエリア -->
+  <div class="main-area">
+
+    <!-- 件数 + 表示切替 -->
+    <div class="result-bar">
+      <div class="result-count"><strong id="visible-count">8</strong> 件を表示中</div>
+      <div class="view-toggle">
+        <button class="vt-btn" onclick="setView(3,this)" title="3カラム">▦</button>
+        <button class="vt-btn active" onclick="setView(2,this)" title="2カラム">▥</button>
+      </div>
+    </div>
+
+    <!-- 名場面グリッド -->
+    <!--
+      データ属性:
+        data-year="2025"       … 年フィルター
+        data-artist="joyman"  … 芸人フィルター（スペース区切りで複数可）
+        data-tags="laugh legend" … タグフィルター（スペース区切りで複数可）
+    -->
+    <div class="scene-grid view-2col" id="scene-grid">
+
+      <!-- 01 ジョイマン3連覇 -->
+      <a href="episode-detail.html?id=5" class="scene-card fi"
+         data-year="2025" data-artist="joyman" data-tags="legend">
+        <div class="sc-thumb">
+          <img src="scenes/22.png" alt="ジョイマン3連覇の瞬間"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+          <div class="sc-thumb-tags">
+            <span class="sc-ttag legend">伝説</span>
+          </div>
+          <div class="sc-overlay">
+            <span class="sc-play">▶ このシーンを見る</span>
+          </div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-ep-info">第5回 ― 2025 総決算スペシャル</div>
+          <div class="sc-title">ジョイマンが3連覇を達成した瞬間</div>
+          <div class="sc-desc">114回出演でシリーズ史上初の3連覇。スタジオ全員が立ち上がった、番組最大の名場面。</div>
+          <div class="sc-cta">
+            <span class="sc-cta-link">このシーンを見る <span class="arrow">→</span></span>
+            <span class="sc-artist">ジョイマン</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 02 スカチャン初制覇 -->
+      <a href="episode-detail.html?id=5" class="scene-card fi"
+         data-year="2025" data-artist="sukachan" data-tags="feel">
+        <div class="sc-thumb">
+          <img src="scenes/21.png" alt="スカチャン初制覇コメント"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+          <div class="sc-thumb-tags">
+            <span class="sc-ttag feel">感動</span>
+          </div>
+          <div class="sc-overlay">
+            <span class="sc-play">▶ このシーンを見る</span>
+          </div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-ep-info">第5回 ― 2025 総決算スペシャル</div>
+          <div class="sc-title">スカチャン、芸歴18年目の優勝コメント</div>
+          <div class="sc-desc">「若い学生の前に立てることが一番の喜びです」。学園祭部門を定義し直した言葉として語り継がれる。</div>
+          <div class="sc-cta">
+            <span class="sc-cta-link">このシーンを見る <span class="arrow">→</span></span>
+            <span class="sc-artist">スカチャン</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 03 ガチギレ疑惑 -->
+      <a href="episode-detail.html?id=5" class="scene-card fi"
+         data-year="2025" data-artist="onigoe" data-tags="shock laugh">
+        <div class="sc-thumb">
+          <img src="scenes/20.png" alt="ガチギレ疑惑の一幕"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+          <div class="sc-thumb-tags">
+            <span class="sc-ttag shock">衝撃</span>
+            <span class="sc-ttag laugh">爆笑</span>
+          </div>
+          <div class="sc-overlay">
+            <span class="sc-play">▶ このシーンを見る</span>
+          </div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-ep-info">第5回 ― 2025 総決算スペシャル</div>
+          <div class="sc-title">「ガチギレ」疑惑が生まれた瞬間</div>
+          <div class="sc-desc">リアルな空気感が物議を醸し、SNSで大拡散。本人も後の生配信で弁明した2025年最大の問題シーン。</div>
+          <div class="sc-cta">
+            <span class="sc-cta-link">このシーンを見る <span class="arrow">→</span></span>
+            <span class="sc-artist">鬼越トマホーク</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 04 八木マニュアル書籍化発表 -->
+      <a href="episode-detail.html?id=5" class="scene-card fi"
+         data-year="2025" data-artist="yagi" data-tags="laugh legend">
+        <div class="sc-thumb">
+          <img src="scenes/19.png" alt="書籍化発表の瞬間"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+          <div class="sc-thumb-tags">
+            <span class="sc-ttag laugh">爆笑</span>
+          </div>
+          <div class="sc-overlay">
+            <span class="sc-play">▶ このシーンを見る</span>
+          </div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-ep-info">第5回 ― 2025 総決算スペシャル</div>
+          <div class="sc-title">「このマニュアル、本になります」の衝撃発表</div>
+          <div class="sc-desc">八木真澄が究極版マニュアルの書籍化を電撃発表。スタジオが爆笑から驚愕に変わる完璧なひと言。</div>
+          <div class="sc-cta">
+            <span class="sc-cta-link">このシーンを見る <span class="arrow">→</span></span>
+            <span class="sc-artist">八木真澄</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 05 2024 ジョイマン連覇 -->
+      <a href="episode-detail.html?id=3" class="scene-card fi"
+         data-year="2024" data-artist="joyman" data-tags="legend feel">
+        <div class="sc-thumb">
+          <img src="scenes/18.png" alt="2024ジョイマン2連覇"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+          <div class="sc-thumb-tags">
+            <span class="sc-ttag legend">伝説</span>
+            <span class="sc-ttag feel">感動</span>
+          </div>
+          <div class="sc-overlay">
+            <span class="sc-play">▶ このシーンを見る</span>
+          </div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-ep-info">第3回 ― 2024 総決算スペシャル</div>
+          <div class="sc-title">ジョイマン、前人未到の2連覇へ</div>
+          <div class="sc-desc">この回での連覇が翌年の3連覇への布石に。「まだ終わっていない」という王者の言葉が重く残る。</div>
+          <div class="sc-cta">
+            <span class="sc-cta-link">このシーンを見る <span class="arrow">→</span></span>
+            <span class="sc-artist">ジョイマン</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 06 2024 MC神対応 -->
+      <a href="episode-detail.html?id=3" class="scene-card fi"
+         data-year="2024" data-artist="yagi" data-tags="skill laugh">
+        <div class="sc-thumb">
+          <img src="scenes/17.png" alt="八木真澄の神対応"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+          <div class="sc-thumb-tags">
+            <span class="sc-ttag skill">神対応</span>
+            <span class="sc-ttag laugh">爆笑</span>
+          </div>
+          <div class="sc-overlay">
+            <span class="sc-play">▶ このシーンを見る</span>
+          </div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-ep-info">第3回 ― 2024 総決算スペシャル</div>
+          <div class="sc-title">八木真澄、まさかのアクシデントを神対応</div>
+          <div class="sc-desc">本番中のトラブルを笑いに変えた八木真澄のMC技。「これがプロか」と語り継がれる一幕。</div>
+          <div class="sc-cta">
+            <span class="sc-cta-link">このシーンを見る <span class="arrow">→</span></span>
+            <span class="sc-artist">八木真澄</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 07 2023 初代王者 -->
+      <a href="episode-detail.html?id=1" class="scene-card fi"
+         data-year="2023" data-artist="joyman" data-tags="legend feel">
+        <div class="sc-thumb">
+          <img src="scenes/9.png" alt="初代営業王者誕生"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+          <div class="sc-thumb-tags">
+            <span class="sc-ttag legend">伝説</span>
+          </div>
+          <div class="sc-overlay">
+            <span class="sc-play">▶ このシーンを見る</span>
+          </div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-ep-info">第1回 ― 2023（DC版）</div>
+          <div class="sc-title">初代・営業-1グランプリ王者の誕生</div>
+          <div class="sc-desc">すべての始まり。「営業が一番うまい芸人」という称号が初めてこの世界に生まれた夜。</div>
+          <div class="sc-cta">
+            <span class="sc-cta-link">このシーンを見る <span class="arrow">→</span></span>
+            <span class="sc-artist">ジョイマン</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 08 2023 八木マニュアル初登場 -->
+      <a href="episode-detail.html?id=1" class="scene-card fi"
+         data-year="2023" data-artist="yagi" data-tags="laugh shock">
+        <div class="sc-thumb">
+          <img src="scenes/8.png" alt="八木マニュアル初お披露目"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+          <div class="sc-thumb-tags">
+            <span class="sc-ttag laugh">爆笑</span>
+            <span class="sc-ttag shock">衝撃</span>
+          </div>
+          <div class="sc-overlay">
+            <span class="sc-play">▶ このシーンを見る</span>
+          </div>
+        </div>
+        <div class="sc-body">
+          <div class="sc-ep-info">第1回 ― 2023（DC版）</div>
+          <div class="sc-title">「八木マニュアル」初公開の瞬間</div>
+          <div class="sc-desc">「は？これ本当に使えるの？」という疑念が笑いに変わり、最終的に書籍化まで至るすべての原点。</div>
+          <div class="sc-cta">
+            <span class="sc-cta-link">このシーンを見る <span class="arrow">→</span></span>
+            <span class="sc-artist">八木真澄</span>
+          </div>
+        </div>
+      </a>
+
+    </div><!-- /scene-grid -->
+
+    <!-- 空状態 -->
+    <div class="empty-state" id="empty-state">
+      <div class="ico">🎬</div>
+      <p>該当する名場面がありません。<br>フィルターを変えて試してみてください。</p>
+    </div>
+
+  </div><!-- /main-area -->
+
+  <!-- 下部導線 -->
+  <div class="bottom-nav">
+    <a href="episodes.html" class="bottom-link">← エピソード一覧へ</a>
+    <a href="timeline.html" class="bottom-link">シリーズ年表を見る</a>
+    <a href="index.html" class="bottom-link">TOPへ戻る</a>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<footer>
+  <div class="ft-inner">
+    <p>© 営業-1グランプリ 公式アーカイブ｜BSよしもと</p>
+    <div style="display:flex;gap:20px">
+      <a href="index.html">TOP</a>
+      <a href="episodes.html">エピソード一覧</a>
+      <a href="timeline.html">シリーズ年表</a>
+      <a href="scenes.html">名場面</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── フィルター状態管理 ── */
+const state = { year: 'all', artist: 'all', tag: 'all' };
+
+function applyFilter(type, val, btn) {
+  state[type] = val;
+
+  // ボタンのアクティブ切り替え（同タイプ内のみ）
+  document.querySelectorAll(`[data-filter-type="${type}"]`).forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  runFilter();
+}
+
+function runFilter() {
+  const cards = document.querySelectorAll('.scene-card');
+  let visible = 0;
+
+  cards.forEach(card => {
+    const yearMatch  = state.year   === 'all' || card.dataset.year === state.year;
+    const artistMatch= state.artist === 'all' || card.dataset.artist.split(' ').includes(state.artist);
+    const tagMatch   = state.tag    === 'all' || card.dataset.tags.split(' ').includes(state.tag);
+
+    if (yearMatch && artistMatch && tagMatch) {
+      card.classList.remove('hidden');
+      visible++;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+
+  document.getElementById('visible-count').textContent = visible;
+  document.getElementById('empty-state').classList.toggle('show', visible === 0);
+}
+
+/* ── 表示列数切替 ── */
+function setView(cols, btn) {
+  const grid = document.getElementById('scene-grid');
+  document.querySelectorAll('.vt-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (cols === 3) {
+    grid.classList.remove('view-2col');
+  } else {
+    grid.classList.add('view-2col');
+  }
+}
+
+/* ── フェードイン ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('v'); });
+}, { threshold: .06, rootMargin: '0px 0px -16px 0px' });
+document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+/* ── ハンバーガー ── */
+document.querySelectorAll('.mnav a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('mn').classList.remove('open'));
+});
+</script>
+
+</body>
+</html>
