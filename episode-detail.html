@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>営業-1グランプリ 2025 総決算スペシャル｜詳細</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+<style>
+/* ── 変数・リセット ── */
+:root{
+  --white:#fff;--bg:#faf9f6;--bg-warm:#f5f2ec;
+  --text:#222;--text-sub:#555;--text-light:#888;
+  --gold:#b8922e;--gold-light:#f0d77b;--gold-dark:#8a6d1a;
+  --red:#d72631;--red-dark:#b51d26;--black:#1a1a1a;
+  --border:#e8e4dc;--shadow:rgba(0,0,0,.08);
+  --font:'Noto Sans JP',sans-serif;--font-a:'Zen Kaku Gothic New',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ── ヘッダー ── */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.h-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center}
+.logo img{height:52px;width:auto;object-fit:contain}
+nav{display:flex;align-items:center;gap:16px}
+nav a{color:var(--text-sub);font-size:.74rem;font-weight:700;transition:color .3s}
+nav a:hover{color:var(--red)}
+.ncta{background:var(--red);color:#fff!important;padding:8px 18px;font-weight:700!important;font-size:.72rem!important;border-radius:4px;transition:background .3s!important}
+.ncta:hover{background:var(--red-dark)!important}
+.hbr{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.hbr span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0}
+.mnav{display:none;position:fixed;top:68px;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:16px 24px;border-bottom:1px solid var(--border)}
+.mnav.open{display:block}
+.mnav a{display:block;padding:12px 0;color:var(--text-sub);font-size:.85rem;border-bottom:1px solid #eee}
+
+/* ── パンくず ── */
+.breadcrumb{background:var(--white);border-bottom:1px solid var(--border);padding:10px 0}
+.bc-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bc-inner a,.bc-inner span{font-size:.72rem;color:var(--text-light)}
+.bc-inner a:hover{color:var(--red)}
+.bc-sep{color:#ccc;font-size:.72rem}
+.bc-inner .current{color:var(--text-sub);font-weight:700}
+
+/* ── ページ本体 ── */
+.page-wrap{padding-top:68px}
+
+/* ── エピソードヒーロー ── */
+.ep-hero{background:var(--white);border-bottom:1px solid var(--border)}
+.ep-hero-inner{max-width:1180px;margin:0 auto;padding:clamp(36px,6vw,64px) clamp(16px,4vw,40px) clamp(28px,5vw,48px);display:grid;grid-template-columns:1fr 380px;gap:36px;align-items:start}
+
+/* メタ・タイトルブロック */
+.ep-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.badge{font-size:.62rem;font-weight:700;padding:4px 12px;border-radius:3px;letter-spacing:.04em}
+.badge-ep{background:var(--red);color:#fff}
+.badge-year{background:var(--black);color:#fff}
+.badge-new{background:#16a34a;color:#fff}
+.badge-sp{border:1.5px solid var(--gold);color:var(--gold-dark);background:#fdf9f0}
+.ep-title{font-family:var(--font-a);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;line-height:1.3;color:var(--black);margin-bottom:14px}
+.ep-facts{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.fact{font-size:.76rem;color:var(--text-sub);display:flex;align-items:center;gap:5px}
+.fact-label{font-size:.64rem;font-weight:700;letter-spacing:.08em;color:var(--text-light)}
+.ep-desc-lead{font-size:.97rem;color:var(--text-sub);line-height:1.95;max-width:640px}
+
+/* サムネイルブロック */
+.ep-thumb{border-radius:10px;overflow:hidden;background:#ece9e2;aspect-ratio:16/9;position:relative}
+.ep-thumb img{width:100%;height:100%;object-fit:cover}
+.ep-thumb .placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--text-light);font-size:.78rem;text-align:center;padding:16px}
+.ep-thumb .placeholder .ico{font-size:2.6rem;opacity:.35}
+
+/* ── CTAバー ── */
+.cta-bar{background:var(--black);padding:clamp(20px,4vw,28px) 0}
+.cta-bar-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.cta-bar .lead{color:#ccc;font-size:.85rem;line-height:1.6}
+.cta-bar .lead strong{color:#fff;display:block;font-size:1rem;margin-bottom:2px}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;padding:13px 28px;font-size:.84rem;font-weight:700;border-radius:6px;transition:background .3s;white-space:nowrap}
+.btn-primary:hover{background:var(--red-dark)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(255,255,255,.3);color:#ccc;padding:12px 22px;font-size:.8rem;font-weight:700;border-radius:6px;transition:all .3s;white-space:nowrap}
+.btn-ghost:hover{border-color:#fff;color:#fff}
+
+/* ── メインコンテンツ（2カラム） ── */
+.main-wrap{max-width:1180px;margin:0 auto;padding:clamp(40px,6vw,64px) clamp(16px,4vw,40px);display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:start}
+
+/* ── セクション共通 ── */
+.section{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:clamp(24px,4vw,36px);margin-bottom:24px}
+.sec-label{font-size:.64rem;letter-spacing:.22em;color:var(--gold);font-weight:700;margin-bottom:8px}
+.sec-title{font-family:var(--font-a);font-size:1.15rem;font-weight:900;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+
+/* ── 企画一覧 ── */
+.plan-list{display:flex;flex-direction:column;gap:14px}
+.plan-item{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start}
+.plan-num{font-family:var(--font-a);font-size:.8rem;font-weight:900;color:var(--red);padding-top:2px}
+.plan-content h4{font-size:.92rem;font-weight:700;margin-bottom:3px;color:var(--black)}
+.plan-content p{font-size:.8rem;color:var(--text-sub);line-height:1.8}
+
+/* ── 出演者 ── */
+.cast-group{margin-bottom:20px}
+.cast-group:last-child{margin-bottom:0}
+.cast-group-label{font-size:.64rem;font-weight:700;letter-spacing:.15em;color:var(--gold-dark);border-bottom:1px solid var(--border);padding-bottom:6px;margin-bottom:12px}
+.cast-grid{display:flex;flex-wrap:wrap;gap:8px}
+.cast-chip{font-size:.78rem;padding:5px 14px;border-radius:20px;border:1px solid var(--border);background:var(--bg);color:var(--text-sub);font-weight:500}
+.cast-chip.main{border-color:var(--gold);color:var(--gold-dark);background:#fdf9f0;font-weight:700}
+
+/* ── 見どころ・名場面 ── */
+.highlight-list{display:flex;flex-direction:column;gap:16px}
+.hl-item{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:16px;background:var(--bg);border-radius:8px;border:1px solid var(--border)}
+.hl-tag{font-size:.6rem;font-weight:700;padding:3px 8px;border-radius:3px;white-space:nowrap;height:fit-content;margin-top:2px}
+.hl-tag.laugh{background:#fef3c7;color:#92400e}
+.hl-tag.feel{background:#dbeafe;color:#1e40af}
+.hl-tag.shock{background:#fee2e2;color:#991b1b}
+.hl-tag.legend{background:#f3e8ff;color:#6b21a8}
+.hl-body h4{font-size:.88rem;font-weight:700;margin-bottom:4px;color:var(--black)}
+.hl-body p{font-size:.79rem;color:var(--text-sub);line-height:1.8}
+
+/* ── 結果・受賞 ── */
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.result-card{background:var(--bg);border-radius:8px;padding:16px 18px;border:1px solid var(--border)}
+.result-card .division{font-size:.62rem;font-weight:700;letter-spacing:.12em;color:var(--text-light);margin-bottom:6px}
+.result-card .winner{font-family:var(--font-a);font-size:1.2rem;font-weight:900;color:var(--black);margin-bottom:2px}
+.result-card .detail{font-size:.74rem;color:var(--text-sub)}
+.result-card .crown{font-size:1.4rem;float:right;margin-top:-2px}
+
+/* ── サイドバー ── */
+.sidebar{}
+.side-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.side-card-title{font-size:.74rem;font-weight:700;letter-spacing:.1em;color:var(--text-light);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.side-nav{display:flex;flex-direction:column;gap:2px}
+.side-nav a{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:6px;font-size:.8rem;font-weight:700;color:var(--text-sub);transition:all .25s}
+.side-nav a:hover{background:var(--bg);color:var(--red)}
+.side-nav a .ic{font-size:.9rem;opacity:.6}
+.side-nav a.active{background:var(--bg);color:var(--red)}
+
+.related-eps{display:flex;flex-direction:column;gap:10px}
+.rel-ep{display:flex;gap:12px;align-items:center;padding:10px;border-radius:8px;transition:background .25s}
+.rel-ep:hover{background:var(--bg)}
+.rel-thumb{width:72px;height:40px;border-radius:4px;background:#ece9e2;flex-shrink:0;overflow:hidden;position:relative}
+.rel-thumb img{width:100%;height:100%;object-fit:cover}
+.rel-thumb .ep-no{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;color:var(--text-light)}
+.rel-info .rel-title{font-size:.76rem;font-weight:700;color:var(--black);line-height:1.4}
+.rel-info .rel-year{font-size:.66rem;color:var(--text-light);margin-top:2px}
+
+/* ── 下部導線 ── */
+.bottom-nav{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px) clamp(60px,10vw,90px);display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.nav-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:20px 22px;transition:box-shadow .3s,transform .3s}
+.nav-card:hover{box-shadow:0 6px 24px var(--shadow);transform:translateY(-2px)}
+.nav-card .nav-arrow{font-size:.7rem;color:var(--text-light);margin-bottom:6px}
+.nav-card .nav-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;color:var(--text-light);margin-bottom:4px}
+.nav-card .nav-text{font-size:.88rem;font-weight:700;color:var(--black);line-height:1.4}
+
+/* ── フッター ── */
+footer{background:var(--black);color:#888;padding:32px 0}
+.ft-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
+footer p{font-size:.68rem}
+footer a{color:#888;transition:color .3s}
+footer a:hover{color:var(--gold-light)}
+
+/* ── フェードイン ── */
+.fi{opacity:0;transform:translateY(18px);transition:opacity .55s,transform .55s}
+.fi.v{opacity:1;transform:translateY(0)}
+
+/* ── レスポンシブ ── */
+@media(max-width:960px){
+  nav a:not(.ncta){display:none}
+  .hbr{display:block}
+  .ep-hero-inner{grid-template-columns:1fr}
+  .ep-thumb{max-width:560px}
+  .main-wrap{grid-template-columns:1fr}
+  .sidebar{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .result-grid{grid-template-columns:1fr}
+  .bottom-nav{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .cta-bar-inner{flex-direction:column;align-items:flex-start}
+  .sidebar{grid-template-columns:1fr}
+  .bottom-nav{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header>
+  <div class="h-inner">
+    <a href="index.html" class="logo">
+      <img src="assets/logos/eigyo1_logo.png" alt="営業-1グランプリ ロゴ" onerror="this.style.display='none'">
+    </a>
+    <nav>
+      <a href="index.html">TOP</a>
+      <a href="timeline.html">年表</a>
+      <a href="episodes.html">エピソード</a>
+      <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ncta">イベント出演依頼</a>
+      <button class="hbr" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<div class="mnav" id="mn">
+  <a href="index.html">TOP</a>
+  <a href="timeline.html">シリーズ年表</a>
+  <a href="episodes.html">エピソード一覧</a>
+  <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
+</div>
+
+<div class="page-wrap">
+
+  <!-- パンくず -->
+  <div class="breadcrumb">
+    <div class="bc-inner">
+      <a href="index.html">TOP</a>
+      <span class="bc-sep">›</span>
+      <a href="episodes.html">エピソード一覧</a>
+      <span class="bc-sep">›</span>
+      <span class="current">2025 総決算スペシャル</span>
+    </div>
+  </div>
+
+  <!-- ── エピソードヒーロー ── -->
+  <!--
+    =============================================
+    量産ガイド（1ページ1エピソード）
+    =============================================
+    このファイルをコピーして ep-2024-final.html などにリネームし
+    以下のデータ部分を各回に合わせて書き換えてください。
+    サムネイル: .ep-thumb img の src を差し替え
+    動画リンク: .btn-primary の href を差し替え
+    =============================================
+  -->
+  <div class="ep-hero">
+    <div class="ep-hero-inner">
+      <!-- 左：テキスト情報 -->
+      <div>
+        <div class="ep-badges">
+          <span class="badge badge-ep">第5回</span>
+          <span class="badge badge-year">2025年</span>
+          <span class="badge badge-new">最新回</span>
+          <span class="badge badge-sp">総決算SP</span>
+        </div>
+        <h1 class="ep-title">営業-1グランプリ<br>2025 総決算スペシャル</h1>
+        <div class="ep-facts">
+          <div class="fact"><span class="fact-label">放送日</span> 2025年12月20日</div>
+          <div class="fact"><span class="fact-label">尺</span> 120分</div>
+          <div class="fact"><span class="fact-label">完全版</span> 同日YouTube配信</div>
+          <div class="fact"><span class="fact-label">出演</span> 45名超</div>
+        </div>
+        <p class="ep-desc-lead">
+          シリーズ5年目の集大成。ジョイマンが前人未到の3連覇（114回）、スカチャンが芸歴18年目で学園祭部門の悲願初制覇。4企画構成で、営業芸人のリアルなスケジュール・現場写真・衝撃動画・究極版八木マニュアル・未来予想まで一挙放送した。
+        </p>
+      </div>
+      <!-- 右：サムネイル -->
+      <div class="ep-thumb fi">
+        <!-- サムネイル差し替え: src に画像パスを入れる -->
+        <img src="" alt="営業-1グランプリ 2025 総決算スペシャル"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="placeholder" style="display:none">
+          <span class="ico">🎬</span>
+          <span>サムネイル準備中<br><small>src に画像パスを入れると表示されます</small></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CTAバー ── -->
+  <div class="cta-bar">
+    <div class="cta-bar-inner">
+      <div class="lead">
+        <strong>この回を見る</strong>
+        YouTube または BSよしもと公式から視聴できます
+      </div>
+      <div class="cta-btns">
+        <!-- 動画URL差し替え: href を実際の動画URLに変更 -->
+        <a href="https://www.youtube.com/watch?v=68utLC3Inf4" target="_blank" rel="noopener" class="btn-primary">▶ YouTubeで見る</a>
+        <a href="https://bsy.co.jp/programs/by0000023095" target="_blank" rel="noopener" class="btn-ghost">BSよしもと番組ページ</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 本文 2カラム ── -->
+  <div class="main-wrap">
+
+    <!-- メイン -->
+    <div class="main-col">
+
+      <!-- 番組概要 -->
+      <div class="section fi">
+        <div class="sec-label">OVERVIEW</div>
+        <div class="sec-title">番組概要</div>
+        <p style="font-size:.9rem;color:var(--text-sub);line-height:1.95;">
+          2025年の営業-1グランプリ総決算スペシャルは、シリーズ最長・最大規模の2時間放送。4つの企画を柱に構成し、2025年の現場の熱量をそのまま届ける内容となった。ジョイマンの3連覇というシリーズ史上前人未到の記録と、スカチャンの学園祭部門初制覇という感動ドラマが交差した一夜。番組終了後すぐに完全版がYouTube配信され、放送当日からSNSでの拡散が続いた。
+        </p>
+      </div>
+
+      <!-- 企画一覧 -->
+      <div class="section fi">
+        <div class="sec-label">PROGRAM</div>
+        <div class="sec-title">主な企画</div>
+        <div class="plan-list">
+          <div class="plan-item">
+            <span class="plan-num">01</span>
+            <div class="plan-content">
+              <h4>営業芸人の2025年スケジュール公開</h4>
+              <p>実際の営業現場の密度と広がりを数字で可視化。年間を通じた動き方の全貌を初公開した。</p>
+            </div>
+          </div>
+          <div class="plan-item">
+            <span class="plan-num">02</span>
+            <div class="plan-content">
+              <h4>営業現場写真・衝撃動画</h4>
+              <p>テレビには映らないリアルな現場の写真と動画を一挙公開。芸人それぞれの現場力と個性が際立つ企画。</p>
+            </div>
+          </div>
+          <div class="plan-item">
+            <span class="plan-num">03</span>
+            <div class="plan-content">
+              <h4>究極版 八木マニュアル</h4>
+              <p>2023年の初版から進化し続けてきた「よしもと営業マニュアル」の集大成版。書籍化も発表され最大の反響を呼んだ。</p>
+            </div>
+          </div>
+          <div class="plan-item">
+            <span class="plan-num">04</span>
+            <div class="plan-content">
+              <h4>八木真澄の未来予想</h4>
+              <p>営業という切り口から吉本興業・芸能界の未来像に踏み込んだ発言。番組の資料性を象徴する締めのパート。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 結果・受賞 -->
+      <div class="section fi">
+        <div class="sec-label">RESULTS</div>
+        <div class="sec-title">ランキング結果</div>
+        <div class="result-grid">
+          <div class="result-card">
+            <span class="crown">👑</span>
+            <div class="division">営業部門 / 2025年王者</div>
+            <div class="winner">ジョイマン</div>
+            <div class="detail">114回 ― 3連覇・シリーズ史上初の偉業</div>
+          </div>
+          <div class="result-card">
+            <span class="crown">🏅</span>
+            <div class="division">学園祭部門 / 2025年王者</div>
+            <div class="winner">スカチャン</div>
+            <div class="detail">20回 ― 芸歴18年目の悲願・初制覇</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 見どころ・名場面 -->
+      <div class="section fi">
+        <div class="sec-label">HIGHLIGHTS</div>
+        <div class="sec-title">見どころ・名場面</div>
+        <div class="highlight-list">
+          <div class="hl-item">
+            <span class="hl-tag legend">伝説</span>
+            <div class="hl-body">
+              <h4>ジョイマン 前人未到の3連覇達成</h4>
+              <p>営業出演114回で3連覇。シリーズ初代王者から頂点を守り続けた記録はシリーズ最大の見どころ。</p>
+            </div>
+          </div>
+          <div class="hl-item">
+            <span class="hl-tag feel">感動</span>
+            <div class="hl-body">
+              <h4>スカチャン 芸歴18年目の初制覇コメント</h4>
+              <p>若い学生の前に立てることへの喜びを語った優勝コメントが、学園祭部門の意味を一気に深くした。</p>
+            </div>
+          </div>
+          <div class="hl-item">
+            <span class="hl-tag shock">注目</span>
+            <div class="hl-body">
+              <h4>「ガチギレ」疑惑の一幕</h4>
+              <p>ある場面のリアルな空気感が物議を醸し、SNSで拡散。放送後の生配信大反省会でも語られた2025年最大のシーン。</p>
+            </div>
+          </div>
+          <div class="hl-item">
+            <span class="hl-tag laugh">爆笑</span>
+            <div class="hl-body">
+              <h4>究極版マニュアル × 書籍化発表</h4>
+              <p>笑いと実用性を兼ねたマニュアルパートで最大の笑いを生みつつ、書籍化という大きなニュースを投下。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /main-col -->
+
+    <!-- サイドバー -->
+    <aside class="sidebar">
+
+      <!-- ページ内ナビ -->
+      <div class="side-card fi">
+        <div class="side-card-title">このページの内容</div>
+        <nav class="side-nav">
+          <a href="#" class="active"><span class="ic">📋</span> 番組概要</a>
+          <a href="#"><span class="ic">🎯</span> 主な企画</a>
+          <a href="#"><span class="ic">🏆</span> 結果・受賞</a>
+          <a href="#"><span class="ic">🎬</span> 見どころ</a>
+          <a href="#"><span class="ic">👥</span> 出演者</a>
+        </nav>
+      </div>
+
+      <!-- 出演者 -->
+      <div class="side-card fi">
+        <div class="side-card-title">出演者</div>
+        <div class="cast-group">
+          <div class="cast-group-label">MC / NAVIGATOR</div>
+          <div class="cast-grid">
+            <span class="cast-chip main">サバンナ 高橋茂雄</span>
+            <span class="cast-chip main">サバンナ 八木真澄</span>
+          </div>
+        </div>
+        <div class="cast-group" style="margin-top:14px">
+          <div class="cast-group-label">受賞者</div>
+          <div class="cast-grid">
+            <span class="cast-chip main">ジョイマン（王者）</span>
+            <span class="cast-chip main">スカチャン（学園祭王者）</span>
+          </div>
+        </div>
+        <div class="cast-group" style="margin-top:14px">
+          <div class="cast-group-label">主な出演芸人</div>
+          <div class="cast-grid">
+            <span class="cast-chip">鬼越トマホーク</span>
+            <span class="cast-chip">グランジ 大</span>
+            <span class="cast-chip">おばたのお兄さん</span>
+            <span class="cast-chip">石川ことみ</span>
+            <span class="cast-chip">レギュラー</span>
+            <span class="cast-chip">バンビーノ</span>
+            <span class="cast-chip">女と男</span>
+            <span class="cast-chip">ほか</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 関連エピソード -->
+      <div class="side-card fi">
+        <div class="side-card-title">関連エピソード</div>
+        <div class="related-eps">
+          <a href="episode-detail.html?id=4" class="rel-ep">
+            <div class="rel-thumb"><div class="ep-no">第4回</div></div>
+            <div class="rel-info">
+              <div class="rel-title">2025 上半期スペシャル</div>
+              <div class="rel-year">2025.7.6 ／ 120分</div>
+            </div>
+          </a>
+          <a href="episode-detail.html?id=3" class="rel-ep">
+            <div class="rel-thumb"><div class="ep-no">第3回</div></div>
+            <div class="rel-info">
+              <div class="rel-title">2024 総決算スペシャル</div>
+              <div class="rel-year">2024.12.14 ／ 120分</div>
+            </div>
+          </a>
+          <a href="episode-detail.html?id=2" class="rel-ep">
+            <div class="rel-thumb"><div class="ep-no">第2回</div></div>
+            <div class="rel-info">
+              <div class="rel-title">2024 上半期SP（DC版）</div>
+              <div class="rel-year">2024.6.30 ／ 90分</div>
+            </div>
+          </a>
+          <a href="episode-detail.html?id=1" class="rel-ep">
+            <div class="rel-thumb"><div class="ep-no">第1回</div></div>
+            <div class="rel-info">
+              <div class="rel-title">2023（DC版）</div>
+              <div class="rel-year">2023.12.17 ／ 60分</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </aside>
+  </div><!-- /main-wrap -->
+
+  <!-- ── 下部導線 ── -->
+  <div class="bottom-nav">
+    <a href="episodes.html" class="nav-card fi">
+      <div class="nav-arrow">←</div>
+      <div class="nav-label">BACK</div>
+      <div class="nav-text">エピソード一覧へ戻る</div>
+    </a>
+    <a href="timeline.html" class="nav-card fi">
+      <div class="nav-arrow">↗</div>
+      <div class="nav-label">TIMELINE</div>
+      <div class="nav-text">シリーズ年表を見る</div>
+    </a>
+    <a href="index.html#scenes" class="nav-card fi">
+      <div class="nav-arrow">↗</div>
+      <div class="nav-label">SCENES</div>
+      <div class="nav-text">関連名場面を見る</div>
+    </a>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<footer>
+  <div class="ft-inner">
+    <p>© 営業-1グランプリ 公式アーカイブ｜BSよしもと</p>
+    <div style="display:flex;gap:20px">
+      <a href="index.html">TOP</a>
+      <a href="episodes.html">エピソード一覧</a>
+      <a href="timeline.html">シリーズ年表</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* フェードイン */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('v'); });
+}, {threshold:.06, rootMargin:'0px 0px -16px 0px'});
+document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+/* ハンバーガー */
+document.querySelectorAll('.mnav a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('mn').classList.remove('open'));
+});
+</script>
+
+</body>
+</html>

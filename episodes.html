@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全エピソード一覧｜営業-1グランプリ 公式アーカイブ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+<style>
+/* ── 変数・リセット ── */
+:root{
+  --white:#fff;--bg:#faf9f6;--bg-warm:#f5f2ec;
+  --text:#222;--text-sub:#555;--text-light:#888;
+  --gold:#b8922e;--gold-light:#f0d77b;--gold-dark:#8a6d1a;
+  --red:#d72631;--red-dark:#b51d26;--black:#1a1a1a;
+  --border:#e8e4dc;--shadow:rgba(0,0,0,.08);
+  --font:'Noto Sans JP',sans-serif;--font-a:'Zen Kaku Gothic New',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ── ヘッダー ── */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.h-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center}
+.logo img{height:52px;width:auto;object-fit:contain}
+nav{display:flex;align-items:center;gap:16px}
+nav a{color:var(--text-sub);font-size:.74rem;font-weight:700;transition:color .3s}
+nav a:hover,nav a.on{color:var(--red)}
+.ncta{background:var(--red);color:#fff!important;padding:8px 18px;font-weight:700!important;font-size:.72rem!important;border-radius:4px;transition:background .3s!important}
+.ncta:hover{background:var(--red-dark)!important}
+.hbr{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.hbr span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0}
+.mnav{display:none;position:fixed;top:68px;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:16px 24px;border-bottom:1px solid var(--border)}
+.mnav.open{display:block}
+.mnav a{display:block;padding:12px 0;color:var(--text-sub);font-size:.85rem;border-bottom:1px solid #eee}
+
+/* ── ページヘッダー ── */
+.page-wrap{padding-top:68px}
+.page-hero{background:var(--white);border-bottom:1px solid var(--border);padding:clamp(48px,7vw,80px) 0 clamp(32px,5vw,52px)}
+.ph-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.label{display:inline-block;font-size:.7rem;letter-spacing:.25em;color:var(--gold);font-weight:700;border:1.5px solid var(--gold);padding:4px 14px;margin-bottom:14px}
+.page-hero h1{font-family:var(--font-a);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;line-height:1.3;margin-bottom:10px}
+.page-hero p{font-size:.93rem;color:var(--text-sub);max-width:640px;line-height:1.9}
+
+/* ── フィルターバー ── */
+.filter-bar{background:var(--white);border-bottom:1px solid var(--border);padding:14px 0;position:sticky;top:68px;z-index:900}
+.fb-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.fb-label{font-size:.68rem;font-weight:700;color:var(--text-light);letter-spacing:.1em;margin-right:4px}
+.ftag{padding:6px 16px;font-size:.72rem;font-weight:700;border:1.5px solid var(--border);border-radius:999px;background:var(--white);color:var(--text-sub);cursor:pointer;transition:all .25s;font-family:var(--font)}
+.ftag:hover,.ftag.active{background:var(--red);border-color:var(--red);color:#fff}
+
+/* ── グリッド ── */
+.content{max-width:1180px;margin:0 auto;padding:clamp(36px,5vw,60px) clamp(16px,4vw,40px) clamp(60px,10vw,100px)}
+.ep-count{font-size:.78rem;color:var(--text-light);margin-bottom:24px;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+
+/* ── エピソードカード ── */
+.ep-card{background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .3s,transform .3s}
+.ep-card:hover{box-shadow:0 12px 40px var(--shadow);transform:translateY(-3px)}
+
+/* サムネイル */
+.ep-thumb{position:relative;aspect-ratio:16/9;background:#ece9e2;overflow:hidden}
+.ep-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.ep-card:hover .ep-thumb img{transform:scale(1.03)}
+.ep-thumb .placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--text-light);font-size:.75rem;text-align:center;padding:12px}
+.ep-thumb .placeholder .ico{font-size:2.2rem;opacity:.4}
+/* 後からサムネ差し替えに備えたコメント: img[src] が空でない場合に placeholder を非表示 */
+
+/* バッジ類 */
+.badges{position:absolute;top:12px;left:12px;display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:3px;letter-spacing:.04em}
+.badge-ep{background:var(--red);color:#fff}
+.badge-year{background:rgba(0,0,0,.55);color:#fff}
+.badge-new{background:#16a34a;color:#fff}
+
+/* 再生ボタン（ホバー時） */
+.play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.28);opacity:0;transition:opacity .3s}
+.ep-card:hover .play-overlay{opacity:1}
+.play-icon{width:52px;height:52px;background:rgba(255,255,255,.92);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.play-icon::after{content:'';border-style:solid;border-width:10px 0 10px 18px;border-color:transparent transparent transparent var(--red);margin-left:4px}
+
+/* 本文 */
+.ep-body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.ep-meta{display:flex;flex-wrap:wrap;gap:6px}
+.meta-chip{font-size:.64rem;font-weight:700;padding:3px 9px;border-radius:20px;border:1px solid var(--border);color:var(--text-sub);background:var(--bg)}
+.meta-chip.sp{border-color:var(--gold);color:var(--gold-dark);background:#fdf9f0}
+.ep-title{font-family:var(--font-a);font-size:clamp(.95rem,1.8vw,1.2rem);font-weight:900;line-height:1.45;color:var(--black)}
+.ep-desc{font-size:.83rem;color:var(--text-sub);line-height:1.85;flex:1}
+.ep-cast{font-size:.74rem;color:var(--text-light);line-height:1.7;padding-top:6px;border-top:1px solid var(--border)}
+.ep-cast strong{color:var(--text-sub)}
+
+/* CTAボタン */
+.ep-cta{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--red);color:#fff;padding:13px 20px;font-size:.82rem;font-weight:700;border-radius:6px;margin-top:4px;transition:background .3s}
+.ep-cta:hover{background:var(--red-dark)}
+.ep-cta .arrow{font-size:1rem;transition:transform .3s}
+.ep-card:hover .ep-cta .arrow{transform:translateX(3px)}
+
+/* ── フェードイン ── */
+.fi{opacity:0;transform:translateY(20px);transition:opacity .55s,transform .55s}
+.fi.v{opacity:1;transform:translateY(0)}
+
+/* ── フッター ── */
+footer{background:var(--black);color:#888;padding:32px 0}
+.ft-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
+footer p{font-size:.68rem}
+footer a{color:#888;transition:color .3s}
+footer a:hover{color:var(--gold-light)}
+
+/* ── レスポンシブ ── */
+@media(max-width:900px){
+  nav a:not(.ncta){display:none}
+  .hbr{display:block}
+  .grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .ep-body{padding:16px 18px 20px}
+  .filter-bar{position:static}
+}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header>
+  <div class="h-inner">
+    <a href="index.html" class="logo">
+      <img src="assets/logos/eigyo1_logo.png" alt="営業-1グランプリ ロゴ" onerror="this.style.display='none'">
+    </a>
+    <nav>
+      <a href="index.html">TOP</a>
+      <a href="timeline.html">年表</a>
+      <a href="episodes.html" class="on">エピソード</a>
+      <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ncta">イベント出演依頼</a>
+      <button class="hbr" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<div class="mnav" id="mn">
+  <a href="index.html">TOP</a>
+  <a href="timeline.html">シリーズ年表</a>
+  <a href="episodes.html">エピソード一覧</a>
+  <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
+</div>
+
+<div class="page-wrap">
+
+  <!-- ページヘッダー -->
+  <div class="page-hero">
+    <div class="ph-inner">
+      <div class="label">EPISODES</div>
+      <h1>エピソード一覧</h1>
+      <p>見たい回を選んでください。各カードの「この回を見る」から詳細ページへ進めます。</p>
+    </div>
+  </div>
+
+  <!-- フィルターバー -->
+  <div class="filter-bar">
+    <div class="fb-inner">
+      <span class="fb-label">絞り込み</span>
+      <button class="ftag active" onclick="filter('all',this)">すべて</button>
+      <button class="ftag" onclick="filter('2025',this)">2025年</button>
+      <button class="ftag" onclick="filter('2024',this)">2024年</button>
+      <button class="ftag" onclick="filter('2023',this)">2023年</button>
+      <button class="ftag" onclick="filter('kessan',this)">総決算SP</button>
+      <button class="ftag" onclick="filter('dc',this)">DC版</button>
+    </div>
+  </div>
+
+  <!-- エピソードグリッド -->
+  <div class="content">
+    <p class="ep-count" id="ep-count">全 5 エピソード</p>
+    <div class="grid" id="grid">
+
+      <!--
+        ==============================
+        データ差し替えガイド
+        ==============================
+        各 .ep-card の data-* 属性で絞り込みが動きます。
+          data-year="2025"  … 年フィルター
+          data-tags="kessan dc" … スペース区切りで複数タグ可
+        サムネイル差し替え: <img src=""> の src に画像パスを入れるだけ。
+        詳細ページリンク: href="episode-detail.html?id=5" の id を各回に合わせて変更。
+        ==============================
+      -->
+
+      <!-- ① 第5回 2025 総決算 -->
+      <div class="ep-card fi" data-year="2025" data-tags="kessan">
+        <div class="ep-thumb">
+          <!-- サムネイル差し替え: src に画像パスを入れる -->
+          <img src="" alt="2025 総決算スペシャル"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="placeholder" style="display:none">
+            <span class="ico">🎬</span>
+            <span>サムネイル準備中</span>
+          </div>
+          <div class="badges">
+            <span class="badge badge-ep">第5回</span>
+            <span class="badge badge-year">2025</span>
+            <span class="badge badge-new">最新回</span>
+          </div>
+          <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+        <div class="ep-body">
+          <div class="ep-meta">
+            <span class="meta-chip sp">総決算SP</span>
+            <span class="meta-chip">2025.12.20</span>
+            <span class="meta-chip">120分</span>
+            <span class="meta-chip">完全版同日配信</span>
+          </div>
+          <div class="ep-title">営業-1グランプリ 2025 総決算スペシャル</div>
+          <div class="ep-desc">ジョイマンが前人未到の3連覇（114回）、スカチャンが学園祭部門で芸歴18年目の悲願・初制覇。4企画構成で営業芸人の2025年スケジュール公開、現場写真・衝撃動画、究極版八木マニュアル、八木の未来予想まで一挙放送。完全版は同日YouTube配信。</div>
+          <div class="ep-cast"><strong>出演：</strong>サバンナ（高橋茂雄・八木真澄）、ジョイマン、スカチャン、鬼越トマホーク ほか</div>
+          <!-- リンク先: episode-detail.html?id=5 に変更可 -->
+          <a href="episode-detail.html?id=5" class="ep-cta">この回を見る <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <!-- ② 第4回 2025 上半期 -->
+      <div class="ep-card fi" data-year="2025" data-tags="">
+        <div class="ep-thumb">
+          <img src="" alt="2025 上半期スペシャル"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="placeholder" style="display:none">
+            <span class="ico">🎬</span>
+            <span>サムネイル準備中</span>
+          </div>
+          <div class="badges">
+            <span class="badge badge-ep">第4回</span>
+            <span class="badge badge-year">2025</span>
+          </div>
+          <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+        <div class="ep-body">
+          <div class="ep-meta">
+            <span class="meta-chip sp">上半期SP</span>
+            <span class="meta-chip">2025.7.6</span>
+            <span class="meta-chip">120分</span>
+            <span class="meta-chip">収録5時間30分</span>
+          </div>
+          <div class="ep-title">営業-1グランプリ 2025 上半期スペシャル</div>
+          <div class="ep-desc">90分ぶっ通し収録。FUJIWARA・とろサーモン久保田が初登場。「給料自慢SNS投稿」問題をめぐる激論がスタジオ騒然となり、2025年最大の話題を生んだ。YouTube完全版は89.3万回再生を記録した注目回。</div>
+          <div class="ep-cast"><strong>出演：</strong>サバンナ（高橋茂雄・八木真澄）、ジョイマン、FUJIWARA、とろサーモン久保田 ほか</div>
+          <a href="episode-detail.html?id=4" class="ep-cta">この回を見る <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <!-- ③ 第3回 2024 総決算 -->
+      <div class="ep-card fi" data-year="2024" data-tags="kessan">
+        <div class="ep-thumb">
+          <img src="" alt="2024 総決算スペシャル"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="placeholder" style="display:none">
+            <span class="ico">🎬</span>
+            <span>サムネイル準備中</span>
+          </div>
+          <div class="badges">
+            <span class="badge badge-ep">第3回</span>
+            <span class="badge badge-year">2024</span>
+          </div>
+          <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+        <div class="ep-body">
+          <div class="ep-meta">
+            <span class="meta-chip sp">総決算SP</span>
+            <span class="meta-chip">2024.12.14</span>
+            <span class="meta-chip">120分</span>
+            <span class="meta-chip">45名出演</span>
+          </div>
+          <div class="ep-title">営業-1グランプリ 2024 総決算スペシャル</div>
+          <div class="ep-desc">初の2時間SP。ジョイマンが2連覇、EXITが学園祭部門で初優勝（18回）。営業史・スポーツ事業部・ランキングTOP10・最新版八木マニュアルを詰め込んだシリーズの転換点。ジャンポケ太田の感動エピソードとRGのモノマネも話題に。</div>
+          <div class="ep-cast"><strong>出演：</strong>サバンナ、ジョイマン、EXIT、ジャンポケ太田、RG ほか 45名</div>
+          <a href="episode-detail.html?id=3" class="ep-cta">この回を見る <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <!-- ④ 第2回 2024 上半期 DC版 -->
+      <div class="ep-card fi" data-year="2024" data-tags="dc">
+        <div class="ep-thumb">
+          <img src="" alt="2024 上半期SP ディレクターズカット版"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="placeholder" style="display:none">
+            <span class="ico">🎬</span>
+            <span>サムネイル準備中</span>
+          </div>
+          <div class="badges">
+            <span class="badge badge-ep">第2回</span>
+            <span class="badge badge-year">2024</span>
+          </div>
+          <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+        <div class="ep-body">
+          <div class="ep-meta">
+            <span class="meta-chip sp">上半期SP</span>
+            <span class="meta-chip sp">DC版</span>
+            <span class="meta-chip">2024.6.30</span>
+            <span class="meta-chip">90分</span>
+          </div>
+          <div class="ep-title">営業-1グランプリ 2024 上半期SP（ディレクターズカット版）</div>
+          <div class="ep-desc">「東京進出組」特集回。各営業ジャンルの攻略法を現役芸人が解説し、営業戦国時代の空気が強く出た。ディレクターズカット版では未公開パートを多数補足。初の上半期SPとして、総決算に向けた期待感を高めた。</div>
+          <div class="ep-cast"><strong>出演：</strong>サバンナ（高橋茂雄・八木真澄）、ジョイマン ほか</div>
+          <a href="episode-detail.html?id=2" class="ep-cta">この回を見る <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <!-- ⑤ 第1回 2023 DC版 -->
+      <div class="ep-card fi" data-year="2023" data-tags="dc">
+        <div class="ep-thumb">
+          <img src="" alt="2023 ディレクターズカット版"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="placeholder" style="display:none">
+            <span class="ico">🎬</span>
+            <span>サムネイル準備中</span>
+          </div>
+          <div class="badges">
+            <span class="badge badge-ep">第1回</span>
+            <span class="badge badge-year">2023</span>
+          </div>
+          <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+        <div class="ep-body">
+          <div class="ep-meta">
+            <span class="meta-chip sp">DC版</span>
+            <span class="meta-chip">2023.12.17</span>
+            <span class="meta-chip">60分</span>
+            <span class="meta-chip">32名出演</span>
+          </div>
+          <div class="ep-title">営業-1グランプリ 2023（ディレクターズカット版）</div>
+          <div class="ep-desc">シリーズ原点。ジョイマンが初代王者（112回）に輝き、「よしもと営業マニュアル」が初公開された伝説の第1回。SNSで拡散し吉本内の営業ルール再整備のきっかけにもなった。ジョイマン高木の「おばあちゃん」エピソードも必見。</div>
+          <div class="ep-cast"><strong>出演：</strong>サバンナ（高橋茂雄・八木真澄）、ジョイマン、祇園 ほか 32名</div>
+          <a href="episode-detail.html?id=1" class="ep-cta">この回を見る <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+    </div><!-- /grid -->
+  </div><!-- /content -->
+</div><!-- /page-wrap -->
+
+<footer>
+  <div class="ft-inner">
+    <p>© 営業-1グランプリ 公式アーカイブ｜BSよしもと</p>
+    <div style="display:flex;gap:20px">
+      <a href="index.html">TOP</a>
+      <a href="timeline.html">シリーズ年表</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── フェードイン ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('v'); });
+}, {threshold:.06, rootMargin:'0px 0px -16px 0px'});
+document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+/* ── ハンバーガー ── */
+document.querySelectorAll('.mnav a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('mn').classList.remove('open'));
+});
+
+/* ── フィルター ── */
+function filter(key, btn) {
+  // ボタン状態
+  document.querySelectorAll('.ftag').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const cards = document.querySelectorAll('.ep-card');
+  let shown = 0;
+  cards.forEach(card => {
+    const year  = card.dataset.year  || '';
+    const tags  = (card.dataset.tags || '').split(' ');
+    const match =
+      key === 'all'   ? true :
+      key === year    ? true :
+      tags.includes(key);
+    card.style.display = match ? '' : 'none';
+    if(match) shown++;
+  });
+  document.getElementById('ep-count').textContent = `${shown} エピソード表示中`;
+}
+</script>
+
+</body>
+</html>

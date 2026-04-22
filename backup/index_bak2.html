@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>営業-1グランプリ 公式アーカイブ｜BSよしもと</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{--white:#fff;--bg:#faf9f6;--bg-warm:#f5f2ec;--text:#222;--text-sub:#555;--text-light:#888;--gold:#b8922e;--gold-bright:#d4a72c;--gold-light:#f0d77b;--gold-dark:#8a6d1a;--red:#d72631;--red-dark:#b51d26;--black:#1a1a1a;--border:#e8e4dc;--shadow:rgba(0,0,0,.08);--font:'Noto Sans JP',sans-serif;--font-a:'Zen Kaku Gothic New',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold-light);color:var(--black)}
+img{max-width:100%;display:block}
+a{color:inherit}
+.container{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.sp{padding:clamp(80px,11vw,140px) 0}
+.small{font-size:.76rem;color:var(--text-light)}
+@keyframes gs{0%{background-position:-200% center}100%{background-position:200% center}}
+.gt{background:linear-gradient(105deg,var(--gold-dark) 0%,var(--gold) 20%,var(--gold-light) 40%,#fff8dc 50%,var(--gold-light) 60%,var(--gold) 80%,var(--gold-dark) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gs 4s linear infinite}
+.gs{background:linear-gradient(135deg,var(--gold-dark),var(--gold-bright),var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sl{display:inline-block;font-size:.7rem;letter-spacing:.25em;color:var(--gold);font-weight:700;border:1.5px solid var(--gold);padding:4px 14px;margin-bottom:14px}
+.st{font-family:var(--font-a);font-size:clamp(1.8rem,4vw,2.9rem);font-weight:900;line-height:1.3;margin-bottom:14px}
+.ss{font-size:.95rem;color:var(--text-sub);max-width:720px;line-height:1.9}
+.fi{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.fi.v{opacity:1;transform:translateY(0)}
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+header .container{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{text-decoration:none;display:flex;align-items:center}.logo-img{width:auto;height:60px;object-fit:contain}
+nav{display:flex;align-items:center;gap:18px}
+nav a{color:var(--text-sub);text-decoration:none;font-size:.74rem;font-weight:700;transition:color .3s}nav a:hover{color:var(--red)}
+.ncta{background:var(--red);color:#fff!important;padding:8px 18px;font-weight:700!important;font-size:.72rem!important;border-radius:4px;transition:background .3s!important}.ncta:hover{background:var(--red-dark)!important}
+.hbr{display:none;background:none;border:none;cursor:pointer;padding:6px}.hbr span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0}
+.mnav{display:none;position:fixed;top:68px;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:16px 24px;border-bottom:1px solid var(--border)}.mnav.open{display:block}.mnav a{display:block;padding:12px 0;color:var(--text-sub);text-decoration:none;font-size:.85rem;border-bottom:1px solid #eee}
+#hero{padding-top:68px;background:var(--white);overflow:hidden}
+.hero-photo{position:relative;width:100%;min-height:560px;max-height:none;background:linear-gradient(135deg,#e8e0d0,#d4cabb,#c8bfaf);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:contain;object-position:center top;background:linear-gradient(135deg,#e8e0d0,#d4cabb,#c8bfaf)}
+.media-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--text-light);font-size:.85rem;padding:24px;text-align:center;background:linear-gradient(135deg,#e8e0d0,#d4cabb,#c8bfaf)}
+.media-fallback .ic{font-size:3rem;margin-bottom:10px;opacity:.5}
+.hero-ov{position:absolute;inset:auto 0 0 0;padding:clamp(28px,6vw,60px) 0;background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.2) 50%,rgba(0,0,0,.65) 100%)}
+.hero-inner{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:140px}
+.hero-copy{font-family:var(--font-a);font-size:clamp(2.6rem,7vw,5.5rem);font-weight:900;line-height:1.1;letter-spacing:-.03em;color:#fff}
+.hero-sub{font-size:clamp(.9rem,1.7vw,1.08rem);color:rgba(255,255,255,.88);margin-top:14px;font-weight:500;max-width:760px}
+.hero-note{background:rgba(255,255,255,.84);border:1px solid rgba(184,146,46,.25);border-radius:10px;padding:18px 18px 16px;backdrop-filter:blur(10px);align-self:start}
+.hero-note h3{font-size:.82rem;letter-spacing:.14em;color:var(--gold-dark);margin-bottom:8px}
+.hero-note p{font-size:.8rem;line-height:1.8;color:var(--text-sub)}
+.hero-bar{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;padding:32px clamp(20px,5vw,60px);background:var(--white);border-top:1px solid var(--border)}
+.hero-sr{display:flex;gap:clamp(18px,3vw,42px);flex-wrap:wrap}
+.hs-n{font-family:var(--font-a);font-size:clamp(1.4rem,3vw,2rem);font-weight:900}
+.hs-l{font-size:.66rem;color:var(--text-light);letter-spacing:.06em}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
+.br{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;padding:12px 28px;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-decoration:none;border-radius:4px;transition:all .3s}.br:hover{background:var(--red-dark);transform:translateY(-2px)}
+.bg{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--gold);color:var(--gold-dark);padding:10px 28px;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-decoration:none;border-radius:4px;transition:all .3s}.bg:hover{background:var(--gold);color:#fff}
+.qg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:34px}
+.qc{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:22px 20px;box-shadow:0 8px 24px var(--shadow)}
+.qc h3{font-size:.85rem;letter-spacing:.12em;color:var(--gold-dark);margin-bottom:8px}
+.qc p{font-size:.82rem;line-height:1.85;color:var(--text-sub)}
+#lv{background:var(--black);padding:clamp(40px,6vw,80px) 0}
+.video-grid{display:grid;grid-template-columns:minmax(0,1.2fr) 320px;gap:24px;align-items:start}
+.vew{margin-top:30px;position:relative;width:100%;aspect-ratio:16/9;border:3px solid var(--gold);box-shadow:0 0 40px rgba(184,146,46,.25);border-radius:6px;overflow:hidden}
+.vew iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-side{margin-top:30px;background:rgba(255,255,255,.06);border:1px solid rgba(240,215,123,.16);border-radius:10px;padding:22px}
+.video-side h3{font-size:.86rem;letter-spacing:.14em;color:var(--gold-light);margin-bottom:12px}
+.video-side ul{list-style:none;display:flex;flex-direction:column;gap:12px}.video-side li{padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.08)}.video-side li:last-child{border-bottom:none;padding-bottom:0}
+.video-side a{font-size:.8rem;color:#fff;text-decoration:none;font-weight:700}.video-side a:hover{text-decoration:underline}
+.video-side p{font-size:.72rem;color:#bbb;line-height:1.7;margin-top:4px}
+#about{background:var(--white)}
+.ag{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:40px}
+.ac{background:var(--bg);border-radius:8px;padding:28px 22px;border:1px solid var(--border);transition:transform .3s,box-shadow .3s}.ac:hover{transform:translateY(-4px);box-shadow:0 12px 30px var(--shadow)}
+.ac-n{font-family:var(--font-a);font-size:2rem;font-weight:900;line-height:1;margin-bottom:10px}
+.ac h3{font-size:1rem;font-weight:900;margin-bottom:8px}.ac p{font-size:.8rem;color:var(--text-sub);line-height:1.8}
+#gallery{background:var(--bg-warm)}
+.scenebar{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;margin-bottom:24px}.scenebar span{font-size:.72rem;font-weight:700;padding:7px 12px;border-radius:999px;background:#fff;border:1px solid var(--border);color:var(--text-sub)}
+.gg{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.gi{aspect-ratio:4/3;background:#d8d0c4;border-radius:6px;overflow:hidden;position:relative;transition:transform .3s;cursor:pointer}.gi:hover{transform:scale(1.03);z-index:2}
+.gi img{width:100%;height:100%;object-fit:cover}.gi .media-fallback{font-size:.7rem;padding:12px;background:#ddd5c9}
+.gi.tall{grid-row:span 2;aspect-ratio:auto}.gi.wide{grid-column:span 2}
+.gnote{margin-top:18px;font-size:.74rem;color:var(--text-light)}
+#timeline{background:var(--white)}
+.tt{margin-top:40px;position:relative}.tt::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--gold),var(--gold-light),var(--gold));border-radius:3px}
+.ti{display:grid;grid-template-columns:40px 1fr;gap:24px;margin-bottom:32px}.td{width:14px;height:14px;background:var(--gold-bright);border:3px solid var(--white);border-radius:50%;justify-self:center;margin-top:6px;box-shadow:0 0 0 3px var(--gold-bright),0 0 12px rgba(184,146,46,.3);z-index:1}
+.tc{background:var(--bg);border-radius:10px;padding:28px;border:1px solid var(--border);transition:transform .3s}.tc:hover{transform:translateX(4px)}
+.ty{font-family:var(--font-a);font-size:1.5rem;font-weight:900}.te{font-weight:700;font-size:.95rem;margin-bottom:8px}
+.tm,.tw{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}.tm span{font-size:.68rem;color:var(--text-sub);background:var(--white);padding:3px 10px;border-radius:20px;border:1px solid var(--border)}
+.wb{font-size:.72rem;font-weight:700;padding:5px 14px;border-radius:4px}.wb.we{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--black)}.wb.wg{background:var(--red);color:#fff}
+.tde{font-size:.82rem;color:var(--text-sub);line-height:1.8}.th{margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}.th h4{font-size:.68rem;color:var(--gold-dark);letter-spacing:.15em;margin-bottom:6px}.th p{font-size:.78rem;color:var(--text-sub);line-height:1.8}
+#ranking{background:var(--bg)}
+.cb{margin-top:30px;background:linear-gradient(135deg,#1a1a1a,#2a2520,#1a1a1a);border-radius:12px;padding:40px;color:#fff;position:relative;overflow:hidden;border:2px solid var(--gold)}
+.cb::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(212,167,44,.15),transparent 60%)}
+.champ-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px;align-items:center}
+.cbl{font-size:.65rem;letter-spacing:.3em;color:var(--gold-light);margin-bottom:8px}.cbn{font-family:var(--font-a);font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:1.15}.cbd{font-size:.85rem;color:#ccc;margin-top:8px;max-width:600px;line-height:1.8}.cbs{margin-top:16px;display:inline-flex;align-items:baseline;gap:8px}.cbs strong{font-family:var(--font-a);font-size:3rem;font-weight:900}.cbs span{font-size:.85rem;color:#aaa}
+.champ-media{aspect-ratio:4/5;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);position:relative}
+.champ-media img{width:100%;height:100%;object-fit:contain;object-position:center center;background:#fff}.champ-media .media-fallback{background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(212,167,44,.08));color:#d9d9d9}
+.split-highlights{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}.split-box{background:var(--white);border-radius:10px;padding:20px;border:1px solid var(--border)}.split-box h3{font-size:.92rem;font-weight:900;margin-bottom:4px}.split-box p{font-size:.78rem;color:var(--text-sub);line-height:1.8}
+.rtabs{display:flex;gap:4px;margin-top:30px;margin-bottom:20px;flex-wrap:wrap}.rtab{padding:10px 22px;font-size:.75rem;font-weight:700;background:var(--white);border:1px solid var(--border);color:var(--text-sub);cursor:pointer;border-radius:4px;transition:all .3s;font-family:var(--font)}.rtab.active,.rtab:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
+.rp{display:none}.rp.active{display:block}.rst{font-family:var(--font-a);font-size:1.2rem;font-weight:900;margin-bottom:4px}.rss{font-size:.72rem;color:var(--text-light);margin-bottom:16px}.rl{list-style:none}
+.ri{display:grid;grid-template-columns:50px 1fr auto;align-items:center;gap:16px;padding:14px 16px;border-bottom:1px solid var(--border);transition:background .3s;border-radius:6px}.ri:hover{background:var(--white)}
+.ri.t1{background:linear-gradient(90deg,rgba(212,167,44,.1),transparent);border-left:4px solid var(--gold-bright)}.ri.t2{border-left:4px solid #aaa}.ri.t3{border-left:4px solid #b07540}.rn{font-family:var(--font-a);font-size:1.3rem;font-weight:900;text-align:center}.t1 .rn{color:var(--gold-bright)}.t2 .rn{color:#aaa}.t3 .rn{color:#b07540}
+.rin h4{font-size:.9rem;font-weight:700}.rin .rnt{font-size:.68rem;color:var(--gold-dark);font-weight:700;margin-top:1px}.rc{font-family:var(--font-a);font-size:1.2rem;font-weight:900;color:var(--gold-dark)}.rc small{font-size:.6rem;color:var(--text-light);font-weight:400}.r2c{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:20px}
+#scenes{background:var(--white)}
+.scl{margin-top:40px;display:flex;flex-direction:column;gap:12px}.sc{background:var(--bg);border-radius:10px;padding:28px;border:1px solid var(--border);display:grid;grid-template-columns:90px 1fr;gap:20px;transition:transform .3s}.sc:hover{transform:translateX(4px)}.scb{text-align:center}.scy{font-family:var(--font-a);font-size:.9rem;font-weight:900;color:var(--gold-dark)}.scc{font-size:.58rem;color:var(--text-light);display:block;margin-top:2px}.scbd h3{font-size:1rem;font-weight:900;margin-bottom:8px;line-height:1.5}.scbd p{font-size:.82rem;color:var(--text-sub);line-height:1.9}
+#highlights{background:var(--bg-warm)}
+.hlg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:40px}.hlc{background:var(--white);border-radius:10px;padding:28px;border:1px solid var(--border);transition:transform .3s,box-shadow .3s}.hlc:hover{transform:translateY(-4px);box-shadow:0 16px 40px var(--shadow)}.hlt{font-size:.62rem;color:var(--red);font-weight:700;letter-spacing:.15em;margin-bottom:10px}.hlc h3{font-size:1.05rem;font-weight:900;margin-bottom:8px}.hlc p{font-size:.8rem;color:var(--text-sub);line-height:1.8}
+#manual{background:var(--white)}
+.manual-lead{display:grid;grid-template-columns:300px 1fr;gap:22px;align-items:stretch;margin-top:28px}.manual-media{position:relative;border-radius:12px;overflow:hidden;background:#ddd5c9;min-height:280px}.manual-media img{width:100%;height:100%;object-fit:cover}.manual-copy{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:26px}.manual-copy h3{font-size:1.06rem;font-weight:900;margin-bottom:10px}.manual-copy p{font-size:.84rem;color:var(--text-sub);line-height:1.9}.mg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}.mc{background:var(--bg);border-radius:10px;padding:28px;border-top:4px solid var(--gold);border-left:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:transform .3s}.mc:hover{transform:translateY(-4px)}.my{font-family:var(--font-a);font-size:1.8rem;font-weight:900;color:var(--gold-dark);margin-bottom:4px}.me{font-weight:700;margin-bottom:8px;font-size:.9rem}.md{font-size:.8rem;color:var(--text-sub);line-height:1.8}
+#history{background:var(--bg)}
+.history-wrap{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:22px;align-items:start}.hg{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:40px}.ec{background:var(--white);border-radius:10px;padding:28px;border:1px solid var(--border);border-bottom:3px solid var(--gold);transition:transform .3s}.ec:hover{transform:translateY(-4px)}.ep{font-size:.65rem;letter-spacing:.15em;color:var(--gold-dark);font-weight:700;margin-bottom:8px}.ec h3{font-size:1.05rem;font-weight:900;margin-bottom:8px}.ec p{font-size:.8rem;color:var(--text-sub);line-height:1.8}.history-side{margin-top:40px;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:22px}.history-side h3{font-size:.88rem;letter-spacing:.12em;color:var(--gold-dark);margin-bottom:10px}.history-side p{font-size:.78rem;color:var(--text-sub);line-height:1.85}.history-side a{color:var(--red);font-weight:700;text-decoration:none}.history-side a:hover{text-decoration:underline}
+#cast{background:var(--white)}
+.csg{margin-top:40px}.csgi{margin-bottom:32px}.cgl{font-size:.65rem;letter-spacing:.2em;font-weight:700;color:var(--gold-dark);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--gold);display:inline-block}.cgr{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}.cc{background:var(--bg);border-radius:10px;padding:20px;display:flex;gap:14px;align-items:flex-start;border:1px solid var(--border);transition:transform .3s}.cc:hover{transform:translateY(-3px)}.ca{width:44px;height:44px;flex-shrink:0;background:linear-gradient(135deg,var(--gold-dark),var(--gold-bright));border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem;color:#fff}.ci h4{font-size:.88rem;font-weight:700}.ci .cr{font-size:.65rem;color:var(--gold-dark);font-weight:700;margin-bottom:4px}.ci p{font-size:.73rem;color:var(--text-sub);line-height:1.7}
+#video{background:var(--bg)}.vg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:40px}.vc{background:var(--white);border-radius:10px;padding:24px;border:1px solid var(--border);transition:transform .3s}.vc:hover{transform:translateY(-3px)}.vc h4{font-size:.9rem;font-weight:700;margin-bottom:6px}.vc p{font-size:.76rem;color:var(--text-sub);line-height:1.7;margin-bottom:10px}.vl{font-size:.72rem;color:var(--red);text-decoration:none;font-weight:700}.vl:hover{text-decoration:underline}
+#faq{background:var(--white)}.fl{margin-top:40px;max-width:760px}.fqi{border-bottom:1px solid var(--border)}.fq{width:100%;background:none;border:none;font-family:var(--font);font-size:.92rem;font-weight:700;text-align:left;padding:20px 0;cursor:pointer;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .3s}.fq:hover{color:var(--red)}.fq::after{content:'+';font-size:1.3rem;color:var(--gold);transition:transform .3s;flex-shrink:0}.fqi.open .fq::after{transform:rotate(45deg)}.fa{max-height:0;overflow:hidden;transition:max-height .4s}.fqi.open .fa{max-height:300px;padding-bottom:20px}.fa p{font-size:.82rem;color:var(--text-sub);line-height:1.9}
+#cta{background:linear-gradient(135deg,#1a1a1a,#2a2218,#1a1a1a);padding:clamp(60px,10vw,120px) 0;position:relative;overflow:hidden}
+#cta::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.04),transparent 15%,transparent 85%,rgba(255,255,255,.04))}
+.cta-grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:26px;align-items:center}.cta-copy{text-align:left}.ctah{font-family:var(--font-a);font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:#fff;margin-bottom:14px}.ctas{font-size:.9rem;color:#bbb;margin-bottom:28px;max-width:520px;line-height:1.9}.ctab{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;padding:18px 44px;font-size:.88rem;font-weight:700;letter-spacing:.06em;text-decoration:none;border-radius:6px;transition:all .3s}.ctab:hover{background:var(--red-dark);transform:translateY(-3px);box-shadow:0 16px 40px rgba(215,38,49,.3)}
+.cta-media{position:relative;border-radius:12px;overflow:hidden;min-height:260px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}.cta-media img{width:100%;height:100%;object-fit:cover}.cta-media .media-fallback{background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(212,167,44,.08));color:#ddd}
+footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;margin-bottom:30px}.ftl{font-family:var(--font-a);font-weight:900;font-size:1rem;color:#fff;margin-bottom:8px}.ftl .g{color:var(--gold-bright)}.ftd{font-size:.7rem;color:#888;max-width:280px;line-height:1.7}.ftk{display:flex;gap:36px}.ftc h4{font-size:.62rem;letter-spacing:.2em;color:var(--gold);margin-bottom:10px}.ftc a{display:block;font-size:.72rem;color:#888;text-decoration:none;margin-bottom:6px;transition:color .3s}.ftc a:hover{color:var(--gold-light)}.ftb{border-top:1px solid #333;padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}.ftb p{font-size:.6rem;color:#555}
+@media(max-width:980px){nav a:not(.ncta){display:none}.hbr{display:block}.hero-inner,.video-grid,.manual-lead,.history-wrap,.cta-grid,.champ-grid{grid-template-columns:1fr}.hero-inner{padding-top:120px}.r2c,.split-highlights{grid-template-columns:1fr}.qg{grid-template-columns:repeat(2,minmax(0,1fr))}.ftk{flex-direction:column;gap:20px}}
+@media(max-width:640px){.hero-sr{gap:12px}.hero-photo{min-height:460px}.hero-inner{padding-top:110px}.qg{grid-template-columns:1fr}.gg{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}.ri{grid-template-columns:36px 1fr auto;gap:10px;padding:12px 10px}.sc{grid-template-columns:1fr}.gi.wide{grid-column:span 1}.hero-note{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="#hero" class="logo"><img src="" data-candidates="assets/logos/eigyo1_logo.png|assets/logos/eigyo1_logo.jpg|assets/logos/eigyo1_logo.jpeg|assets/logos/eigyo1_logo.webp|営業-1ロゴ透明.png|営業-1ロゴ透明.jpg|営業-1ロゴ透明.jpeg|営業-1ロゴ透明.webp" alt="営業-1グランプリ ロゴ" class="auto-img logo-img" onerror="this.style.display='none'"></a>
+    <nav>
+      <a href="#about">営業-1グランプリとは</a>
+      <a href="#timeline">年表</a>
+      <a href="#ranking">ランキング</a>
+      <a href="#manual">八木マニュアル</a>
+      <a href="#history">営業史</a>
+      <a href="#cast">出演者</a>
+      <a href="#video">動画</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ncta">イベント出演依頼</a>
+      <button class="hbr" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<div class="mnav" id="mn">
+  <a href="#about" onclick="this.parentElement.classList.remove('open')">営業-1グランプリとは</a>
+  <a href="#gallery" onclick="this.parentElement.classList.remove('open')">営業現場写真</a>
+  <a href="#timeline" onclick="this.parentElement.classList.remove('open')">シリーズ年表</a>
+  <a href="#ranking" onclick="this.parentElement.classList.remove('open')">ランキング</a>
+  <a href="#manual" onclick="this.parentElement.classList.remove('open')">八木マニュアル</a>
+  <a href="#history" onclick="this.parentElement.classList.remove('open')">吉本営業の歴史</a>
+  <a href="#cast" onclick="this.parentElement.classList.remove('open')">出演者図鑑</a>
+  <a href="#video" onclick="this.parentElement.classList.remove('open')">動画一覧</a>
+  <a href="#faq" onclick="this.parentElement.classList.remove('open')">FAQ</a>
+  <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
+</div>
+<section id="hero">
+  <div class="hero-photo">
+    <img src="" data-candidates="hero/hero_group.jpg|hero/hero_group.jpeg|hero/hero_group.png|hero/hero_group.webp|assets/hero/hero_group.jpg|assets/hero/hero_group.jpeg|assets/hero/hero_group.png|assets/hero/hero_group.webp|営業-1グランプリ集合写真TOP画像.png|営業-1グランプリ集合写真TOP画像.jpg|営業-1グランプリ集合写真TOP画像.jpeg|営業-1グランプリ集合写真TOP画像.webp" alt="営業-1グランプリ 集合ビジュアル" class="auto-img hero-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+    <div class="media-fallback" style="display:none"><div class="ic">📸</div>集合写真を here に配置<br><small>推奨: assets/hero/hero_group.jpg</small></div>
+    <div class="hero-ov">
+      <div class="container hero-inner">
+        <div>
+          <h1 class="hero-copy">ノールック契約</h1>
+          <p class="hero-sub">営業-１グランプリのオフィシャルホームページです。営業現場のリアル写真、秘蔵のスタジオ写真、番組資料など、営業-１グランプリのすべてがここでみることができます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bar">
+    <div class="hero-ctas">
+      <a href="#timeline" class="br">シリーズを見る ↓</a>
+      <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="bg">イベント出演依頼へ →</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="qg fi">
+      <div class="qc"><h3>営業芸人のリアル</h3><p>テレビとは別の主戦場で、年間100本単位の現場をこなす芸人たち。その強さを数字とエピソードで見せます。</p></div>
+      <div class="qc"><h3>ランキングで見る現場力</h3><p>出演回数、学園祭、連覇、逆転。最も検索されやすい核を、年次比較しやすい構造で整理します。</p></div>
+      <div class="qc"><h3>八木マニュアルの変遷</h3><p>看板企画であり、営業知の蓄積でもあるコーナー。年ごとの主題と反響を独立して見られるようにします。</p></div>
+      <div class="qc"><h3>吉本110年の営業史</h3><p>寄席からイベント営業へ。番組だけで終わらず、吉本興業の歴史と接続した読み物として設計しています。</p></div>
+    </div>
+  </div>
+</section>
+<section id="lv">
+  <div class="container">
+    <div class="sl fi" style="border-color:var(--gold-light);color:var(--gold-light)">最新情報</div>
+    <h2 class="st fi" style="color:#fff">最新作と、シリーズ導線をまとめて見る</h2>
+    <p class="ss fi" style="color:#aaa">2025総決算ではジョイマンが3連覇、スカチャンが学園祭初制覇。最新回の熱量と、過去回への回遊をここから始める構成にしています。</p>
+    <div class="video-grid fi">
+      <div class="vew">
+        <iframe src="https://www.youtube.com/embed/68utLC3Inf4?si=6DS6f3hwPM5qZuqJ" title="営業-1グランプリ最新作" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <aside class="video-side">
+        <h3>VIDEO LINKS</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/playlist?list=PLt2i7M9QRINzPIZ3vF9zJ2-jTt5ybmZUs" target="_blank" rel="noopener">営業-1グランプリ公式プレイリスト</a><p>本編・完全版・再編集版の一覧導線。</p></li>
+          <li><a href="https://www.youtube.com/watch?v=2QzfVhMM7CQ" target="_blank" rel="noopener">2023 ディレクターズカット</a><p>年表・都市伝説・学園祭＆営業ランキング・永久保存版マニュアルを確認。</p></li>
+          <li><a href="https://www.youtube.com/watch?v=xg2Dfmhz4-U" target="_blank" rel="noopener">2024前半戦 ディレクターズカット</a><p>東京進出組編、営業ジャンル解説、未公開パートの導線。</p></li>
+          <li><a href="https://bsy.co.jp/programs/by0000023095" target="_blank" rel="noopener">BSよしもと番組ページ</a><p>放送・配信の公式情報に戻れるように設置。</p></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+<section id="about" class="sp">
+  <div class="container">
+    <div class="sl fi">ABOUT</div>
+    <h2 class="st fi"><span class="gs">営業-1グランプリ</span>とは？</h2>
+    <p class="ss fi">吉本興業の芸人たちが全国各地のイベント・学園祭・企業パーティーなどで行う「営業」の出演回数をランキング形式で競う、BSよしもとのリアルドキュメンタリー特番。看板コーナーは、八木真澄による「よしもと営業マニュアル」。</p>
+    <div class="ag">
+      <div class="ac fi"><div class="ac-n gs">01</div><h3>営業芸人</h3><p>全国のイベント・学園祭・企業パーティーに駆けつける芸人たち。年間100回超の出演をこなす「営業のプロ」を可視化。</p></div>
+      <div class="ac fi"><div class="ac-n gs">02</div><h3>ランキング</h3><p>年間営業出演回数をガチ集計。学園祭部門も導入され、現場での強さが数字で見える。</p></div>
+      <div class="ac fi"><div class="ac-n gs">03</div><h3>現場エピソード</h3><p>誰も見ていないスーパーの営業、学園祭での総立ち応援。笑いと感動の現場ドキュメント。</p></div>
+      <div class="ac fi"><div class="ac-n gs">04</div><h3>八木マニュアル</h3><p>八木真澄が伝授する吉本流営業の鉄則。SNSバズりから書籍化まで、この番組の象徴的な知識資産。</p></div>
+      <div class="ac fi"><div class="ac-n gs">05</div><h3>営業の歴史</h3><p>1912年の吉本興業創業から令和まで。寄席から現代イベント営業への変遷を、番組企画と接続して読ませる。</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="gallery" class="sp">
+  <div class="container">
+    <div class="sl fi">SCENES</div>
+    <h2 class="st fi">営業現場写真アーカイブ</h2>
+    <p class="ss fi">営業現場写真を、そのまま一覧でアーカイブします。<span id="sceneCountLabel">利用可能な scenes 写真を自動で検出中…</span></p>
+    <div class="gg" id="autoSceneGallery"></div>
+    <p class="gnote">この版は <code>scenes</code> フォルダ、<code>営業現場写真</code> フォルダ、<code>assets/scenes</code> フォルダを順番に見て、存在する画像だけを自動表示します。画像が20枚でも22枚でも、そのまま反映します。</p>
+  </div>
+</section>
+
+
+<section id="timeline" class="sp">
+  <div class="container">
+    <div class="sl fi">TIMELINE</div>
+    <h2 class="st fi"><span class="gs">シリーズ年表</span></h2>
+    <p class="ss fi">2023年の第1回から2025年の生配信大反省会まで。上半期SPと総決算SPを軸に、営業-1グランプリを時系列で追える背骨のページです。</p>
+    <div class="tt">
+      <div class="ti fi"><div class="td"></div><div class="tc"><div class="ty gs">2023</div><div class="te">第1回 営業-1グランプリ2023</div><div class="tm"><span>2023.12.17</span><span>60分</span><span>32名出演</span></div><div class="tw"><span class="wb we">★ ジョイマン（112回）</span><span class="wb wg">● 祇園（3連覇）</span></div><div class="tde">「よしもと営業マニュアル」誕生。吉本営業年表、東西営業都市伝説、ニューカマー紹介。シリーズの核がこの回で出揃った。</div><div class="th"><h4>HIGHLIGHT</h4><p>八木マニュアルがSNSで広がり、営業ルール再整備のきっかけになった。ジョイマン高木の“おばあちゃん”エピソードも象徴的。</p></div></div></div>
+      <div class="ti fi"><div class="td"></div><div class="tc"><div class="ty gs">2024 前半</div><div class="te">第2回 前半戦〜吉本営業最前線〜</div><div class="tm"><span>2024.6.30</span><span>90分</span><span>上半期SP</span></div><div class="tw"><span class="wb we">中間：ジョイマン2位タイ</span></div><div class="tde">「東京進出組」特集。各ジャンルの攻略法を現役営業芸人が解説し、営業戦国時代の空気が強く出た回。</div><div class="th"><h4>HIGHLIGHT</h4><p>東京進出組編として八木が攻略法を伝授。ディレクターズカットで未公開パートが補強されている。</p></div></div></div>
+      <div class="ti fi"><div class="td"></div><div class="tc"><div class="ty gs">2024 総決算</div><div class="te">第3回 総決算スペシャル</div><div class="tm"><span>2024.12.14</span><span>120分</span><span>45名・初登場19名</span></div><div class="tw"><span class="wb we">★ ジョイマン（2連覇）</span><span class="wb wg">● EXIT（初優勝・18回）</span></div><div class="tde">初の2時間SP。営業史、スポーツ事業部、ランキングTOP10、最新版マニュアルまで詰め込んだ転換点。</div><div class="th"><h4>HIGHLIGHT</h4><p>ジャンポケ太田の感動エピソード、RGの藤田モノマネ、学園祭ランキング導入など、シリーズの厚みが一段増した。</p></div></div></div>
+      <div class="ti fi"><div class="td"></div><div class="tc"><div class="ty gs">2025 上半期</div><div class="te">第4回 上半期スペシャル</div><div class="tm"><span>2025.7.6</span><span>120分</span><span>収録5時間30分</span></div><div class="tw"><span class="wb we">中間：ジョイマン首位キープ</span></div><div class="tde">90分ぶっ通し収録。FUJIWARA・とろサーモン久保田初登場。SNS給料自慢問題が最大の論点になった。</div><div class="th"><h4>HIGHLIGHT</h4><p>給料自慢SNS投稿を巡る激論でスタジオ騒然。完全版はYouTubeプレミアで89.3万回再生を記録。</p></div></div></div>
+      <div class="ti fi"><div class="td"></div><div class="tc"><div class="ty gs">2025 総決算</div><div class="te">第5回 総決算スペシャル</div><div class="tm"><span>2025.12.20</span><span>120分</span><span>完全版同日配信</span></div><div class="tw"><span class="wb we">★ ジョイマン（3連覇・114回）</span><span class="wb wg">● スカチャン（初優勝・20回）</span></div><div class="tde">4企画構成。営業芸人の2025スケジュール公開、営業現場写真・衝撃動画、究極版マニュアル、八木の未来予想まで展開。</div><div class="th"><h4>HIGHLIGHT</h4><p>ジョイマンの前人未到3連覇、スカチャンの初制覇、そして“ガチギレかノリか”の場面が強く話題になった。</p></div></div></div>
+      <div class="ti fi"><div class="td"></div><div class="tc"><div class="ty gs">BONUS</div><div class="te">生配信！営業-1グランプリ2025 大反省会</div><div class="tm"><span>2025.12.28</span><span>180分生配信</span><span>YouTube特別企画</span></div><div class="tde">2025年を振り返る特別回。ランキング発表ではなく、総決算SPの余波と“あのシーン”の真相解説が主軸。</div><div class="th"><h4>HIGHLIGHT</h4><p>当事者による“ガチギレ疑惑”検証と、八木の3時間ノンストップ解説が生配信ならではの熱量を生んだ。</p></div></div></div>
+    </div>
+  </div>
+</section>
+<section id="ranking" class="sp">
+  <div class="container">
+    <div class="sl fi">RANKINGS</div>
+    <h2 class="st fi"><span class="gt">ランキング</span>まとめ</h2>
+    <p class="ss fi">このシリーズで最も検索されやすい核。営業出演回数と学園祭出演回数を、年別に見返せる構造にしています。</p>
+    <div class="cb fi">
+      <div class="champ-grid">
+        <div>
+          <div class="cbl">REIGNING CHAMPION ── 営業部門 3連覇</div>
+          <div class="cbn gt">ジョイマン</div>
+          <div class="cbd">高木晋哉・池谷和志。2023初代王者、2024年2連覇、2025年3連覇。守備範囲の広さと現場対応力で、シリーズを象徴する存在になった。</div>
+          <div class="cbs"><strong class="gt">114</strong><span>回（2025年）</span></div>
+        </div>
+        <div class="champ-media">
+          <img src="" data-candidates="ランキング/ジョイマン.png|ランキング/ジョイマン.jpg|ランキング/ジョイマン.jpeg|ranking/ジョイマン.png|ranking/ジョイマン.jpg|ranking/ジョイマン.jpeg|ジョイマン.png|ジョイマン.jpg|ジョイマン.jpeg|ジョイマン.webp|assets/ranking/joyman.jpg|assets/ranking/joyman.png" alt="ジョイマン写真" class="auto-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="media-fallback" style="display:none"><div class="ic">🏆</div>assets/ranking/joyman.jpg</div>
+        </div>
+      </div>
+    </div>
+    <div class="split-highlights fi">
+      <div class="split-box"><h3>営業部門の文脈</h3><p>2023初代王者、2024逆転優勝、2025前人未到の3連覇。数字だけでなく、連覇・逆転・僅差などのストーリーを見せるのが重要。</p></div>
+      <div class="split-box"><h3>学園祭部門の文脈</h3><p>祇園の連覇、EXITの初優勝、スカチャンの悲願達成。若い観客にどう刺さるかという別軸の面白さがある。</p></div>
+    </div>
+    <div class="rtabs">
+      <button class="rtab active" onclick="sR('2025e',this)">2025 営業</button>
+      <button class="rtab" onclick="sR('2025g',this)">2025 学園祭</button>
+      <button class="rtab" onclick="sR('2024',this)">2024</button>
+      <button class="rtab" onclick="sR('2023',this)">2023</button>
+    </div>
+    <div class="rp active" id="p-2025e"><div class="rst">2025年 営業出演回数 TOP10</div><div class="rss">ジョイマン 114回、八木 94回、グランジ大 84回。</div><ul class="rl">
+      <li class="ri t1"><span class="rn">1</span><div class="rin"><h4>ジョイマン</h4><div class="rnt">★ 3連覇</div></div><div class="rc">114<small>回</small></div></li>
+      <li class="ri t2"><span class="rn">2</span><div class="rin"><h4>サバンナ 八木真澄</h4></div><div class="rc">94<small>回</small></div></li>
+      <li class="ri t3"><span class="rn">3</span><div class="rin"><h4>グランジ 大</h4></div><div class="rc">84<small>回</small></div></li>
+      <li class="ri"><span class="rn">4</span><div class="rin"><h4>鬼越トマホーク</h4></div><div class="rc">78<small>回</small></div></li>
+      <li class="ri"><span class="rn">5</span><div class="rin"><h4>おばたのお兄さん</h4></div><div class="rc">68<small>回</small></div></li>
+      <li class="ri"><span class="rn">6</span><div class="rin"><h4>石川ことみ</h4></div><div class="rc">66<small>回</small></div></li>
+      <li class="ri"><span class="rn">6</span><div class="rin"><h4>レギュラー</h4></div><div class="rc">66<small>回</small></div></li>
+      <li class="ri"><span class="rn">8</span><div class="rin"><h4>バンビーノ</h4></div><div class="rc">63<small>回</small></div></li>
+      <li class="ri"><span class="rn">9</span><div class="rin"><h4>スカチャン</h4></div><div class="rc">62<small>回</small></div></li>
+      <li class="ri"><span class="rn">10</span><div class="rin"><h4>女と男</h4></div><div class="rc">53<small>回</small></div></li>
+    </ul></div>
+    <div class="rp" id="p-2025g"><div class="rst">2025年 学園祭出演回数 TOP10</div><div class="rss">スカチャンが芸歴18年で念願の初優勝。</div><ul class="rl">
+      <li class="ri t1"><span class="rn">1</span><div class="rin"><h4>スカチャン</h4><div class="rnt">★ 初優勝</div></div><div class="rc">20<small>回</small></div></li>
+      <li class="ri t2"><span class="rn">2</span><div class="rin"><h4>金魚番長</h4></div><div class="rc">19<small>回</small></div></li>
+      <li class="ri t3"><span class="rn">3</span><div class="rin"><h4>ヘンダーソン</h4></div><div class="rc">17<small>回</small></div></li>
+      <li class="ri"><span class="rn">4</span><div class="rin"><h4>ジェラードン</h4></div><div class="rc">15<small>回</small></div></li>
+      <li class="ri"><span class="rn">5</span><div class="rin"><h4>相席スタート</h4></div><div class="rc">14<small>回</small></div></li>
+      <li class="ri"><span class="rn">6</span><div class="rin"><h4>ZAZY</h4></div><div class="rc">13<small>回</small></div></li>
+      <li class="ri"><span class="rn">7</span><div class="rin"><h4>ヨネダ2000</h4></div><div class="rc">12<small>回</small></div></li>
+      <li class="ri"><span class="rn">7</span><div class="rin"><h4>エレガント人生</h4></div><div class="rc">12<small>回</small></div></li>
+      <li class="ri"><span class="rn">9</span><div class="rin"><h4>おたまじゃくし中西</h4></div><div class="rc">11<small>回</small></div></li>
+      <li class="ri"><span class="rn">9</span><div class="rin"><h4>家族チャーハン</h4></div><div class="rc">11<small>回</small></div></li>
+    </ul></div>
+    <div class="rp" id="p-2024"><div class="rst">2024年 ランキング</div><div class="rss">営業部門の全順位・全回数は非公開。文脈で見せる年。</div><div class="r2c"><div><h4 style="font-size:.8rem;color:var(--gold-dark);margin-bottom:12px;font-weight:700">営業部門</h4><ul class="rl"><li class="ri t1"><span class="rn">1</span><div class="rin"><h4>ジョイマン</h4><div class="rnt">★ 2連覇</div></div><div class="rc">—</div></li><li class="ri t2"><span class="rn">2</span><div class="rin"><h4>（逆転劇）</h4></div><div class="rc">—</div></li></ul><p class="small" style="margin-top:10px;padding-left:12px">3位以下：おばたのお兄さん、グランジ大、石川ことみ 他</p></div><div><h4 style="font-size:.8rem;color:var(--red);margin-bottom:12px;font-weight:700">学園祭部門</h4><ul class="rl"><li class="ri t1"><span class="rn">1</span><div class="rin"><h4>EXIT</h4><div class="rnt">★ 初優勝</div></div><div class="rc">18<small>回</small></div></li><li class="ri t2"><span class="rn">2</span><div class="rin"><h4>祇園</h4></div><div class="rc">16<small>回</small></div></li><li class="ri t3"><span class="rn">3</span><div class="rin"><h4>真喜志</h4></div><div class="rc">15<small>回</small></div></li></ul></div></div></div>
+    <div class="rp" id="p-2023"><div class="rst">2023年（第1回）営業出演回数 TOP10</div><div class="rss">初代王者ジョイマン。学園祭1位は祇園（3連覇）。</div><ul class="rl">
+      <li class="ri t1"><span class="rn">1</span><div class="rin"><h4>ジョイマン</h4><div class="rnt">★ 初代王者</div></div><div class="rc">112<small>回</small></div></li>
+      <li class="ri t2"><span class="rn">2</span><div class="rin"><h4>グランジ 大</h4></div><div class="rc">67<small>回</small></div></li>
+      <li class="ri t3"><span class="rn">3</span><div class="rin"><h4>サバンナ 八木真澄</h4></div><div class="rc">66<small>回</small></div></li>
+      <li class="ri"><span class="rn">4</span><div class="rin"><h4>おばたのお兄さん</h4></div><div class="rc">58<small>回</small></div></li>
+      <li class="ri"><span class="rn">5</span><div class="rin"><h4>石川ことみ</h4></div><div class="rc">51<small>回</small></div></li>
+      <li class="ri"><span class="rn">5</span><div class="rin"><h4>ヘンダーソン</h4></div><div class="rc">51<small>回</small></div></li>
+      <li class="ri"><span class="rn">7</span><div class="rin"><h4>スマイル</h4></div><div class="rc">50<small>回</small></div></li>
+      <li class="ri"><span class="rn">8</span><div class="rin"><h4>スカチャン</h4></div><div class="rc">47<small>回</small></div></li>
+      <li class="ri"><span class="rn">9</span><div class="rin"><h4>祇園</h4></div><div class="rc">45<small>回</small></div></li>
+      <li class="ri"><span class="rn">9</span><div class="rin"><h4>レギュラー</h4></div><div class="rc">45<small>回</small></div></li>
+    </ul></div>
+  </div>
+</section>
+<section id="scenes" class="sp">
+  <div class="container">
+    <div class="sl fi">HIGHLIGHTS</div>
+    <h2 class="st fi">名場面ハイライト</h2>
+    <p class="ss fi">笑い・感動・衝撃の瞬間を、年ごとに拾い直せる構造にしています。</p>
+    <div class="scl">
+      <div class="sc fi"><div class="scb"><div class="scy">2023</div><span class="scc">業界を変えた一言</span></div><div class="scbd"><h3>よしもと営業マニュアル 誕生の瞬間</h3><p>八木真澄が吉本流営業の鉄則を初公開。SNSバズりを起点に、吉本内の営業ルールが再整備されるほどの影響を持った。</p></div></div>
+      <div class="sc fi"><div class="scb"><div class="scy">2023</div><span class="scc">感動の告白</span></div><div class="scbd"><h3>ジョイマン高木「大した人間じゃない」おばあちゃんの呪い</h3><p>スーパー営業の苦さと、その先の執念を象徴するエピソード。シリーズの“リアル”を一言で伝える場面。</p></div></div>
+      <div class="sc fi"><div class="scb"><div class="scy">2024</div><span class="scc">最大の爆笑</span></div><div class="scbd"><h3>RG、藤田憲右のトラブルを完コピ</h3><p>本人から「風化させてくれない」と苦笑クレームが入るほどの再現力。番組のバラエティ性を象徴する場面。</p></div></div>
+      <div class="sc fi"><div class="scb"><div class="scy">2024</div><span class="scc">感動</span></div><div class="scbd"><h3>ジャンポケ太田「根こそぎバラし」からの総立ち応援</h3><p>ただ面白いだけではなく、営業の現場が人に支えられていることを見せた2024年屈指の名シーン。</p></div></div>
+      <div class="sc fi"><div class="scb"><div class="scy">2025</div><span class="scc">白熱の激論</span></div><div class="scbd"><h3>「給料自慢SNS投稿」論争でスタジオ騒然</h3><p>営業の価値、芸人の見せ方、現代のSNS感覚まで含めて議論が噴出。シリーズが時代と接続している証拠でもある。</p></div></div>
+      <div class="sc fi"><div class="scb"><div class="scy">2025</div><span class="scc">最大の感動</span></div><div class="scbd"><h3>スカチャン 芸歴18年目の学園祭初制覇</h3><p>若い学生の前に立てる嬉しさを語った優勝コメントが、学園祭部門の意味を一気に深くした。</p></div></div>
+      <div class="sc fi"><div class="scb"><div class="scy">2025</div><span class="scc">業界震撼</span></div><div class="scbd"><h3>八木真澄「吉本興業の未来」大胆予想</h3><p>営業という切り口から企業の未来像に踏み込んだ発言。番組の資料性を象徴する場面でもある。</p></div></div>
+      <div class="sc fi"><div class="scb"><div class="scy">BONUS</div><span class="scc">生配信</span></div><div class="scbd"><h3>「ガチギレ疑惑」の真相、当事者が初告白</h3><p>総決算後の余韻を配信で回収し、視聴導線を広げた特別回。アーカイブサイト上でも回遊起点になりやすい。</p></div></div>
+    </div>
+  </div>
+</section>
+<section id="highlights" class="sp">
+  <div class="container">
+    <div class="sl fi">FEATURES</div>
+    <h2 class="st fi">企画単位で見どころを拾う</h2>
+    <div class="hlg">
+      <div class="hlc fi"><div class="hlt">CORNER</div><h3>八木マニュアル</h3><p>営業の基本、東京進出、立ち回り、未来提言。年ごとに主題が変わるから独立ページ相当で見せる価値がある。</p></div>
+      <div class="hlc fi"><div class="hlt">DOCUMENTARY</div><h3>営業の歴史</h3><p>1912年創業から令和までの長い時間軸を、番組独自の整理と吉本公式ヒストリーの両方から見せる。</p></div>
+      <div class="hlc fi"><div class="hlt">EPISODE</div><h3>東西営業都市伝説</h3><p>現場でしか生まれない逸話群。営業芸人のリアルを、最も軽やかに伝えられる企画。</p></div>
+      <div class="hlc fi"><div class="hlt">EXPANSION</div><h3>スポーツ事業部</h3><p>営業の新しい広がりを示す重要テーマ。番組が単なるランキング番組で終わらない理由の一つ。</p></div>
+    </div>
+  </div>
+</section>
+<section id="manual" class="sp">
+  <div class="container">
+    <div class="sl fi">MANUAL</div>
+    <h2 class="st fi">サバンナ八木の<span class="gt">営業マニュアル</span>変遷</h2>
+    <p class="ss fi">単独コーナーとして独立させるべき強い資産。誕生、進化、書籍化までの流れを年表的に見せます。</p>
+    <div class="manual-lead fi">
+      <div class="manual-media">
+        <img src="" data-candidates="manual/八木マニュアル.png|manual/八木マニュアル.jpg|manual/八木マニュアル.jpeg|manual/yagi_manual_main.jpg|assets/manual/yagi_manual_main.jpg|assets/manual/yagi_manual_main.png|八木マニュアル.png|八木マニュアル.jpg|八木マニュアル.jpeg|営業-1グランプリ集合写真TOP画像.png|営業-1グランプリ集合写真TOP画像.jpg" alt="八木マニュアル素材" class="auto-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="media-fallback" style="display:none"><div class="ic">📘</div>assets/manual/yagi_manual_main.jpg</div>
+      </div>
+      <div class="manual-copy">
+        <h3>営業知を“企画”から“資料”へ変えたコーナー</h3>
+        <p>2023年の永久保存版から、東京進出組編、最新版、未来提言まで。視聴者が何度も戻って来られるよう、年度・版名・主題・要旨の粒度で整理するのが有効です。番組の象徴的な価値は、ここに最も濃く出ています。</p>
+      </div>
+    </div>
+    <div class="mg">
+      <div class="mc fi"><div class="my">2023</div><div class="me">永久保存版</div><div class="md">吉本流営業の鉄則を初公開。SNSで広がり、営業ルール再整備のきっかけにもなった伝説の初版。</div></div>
+      <div class="mc fi"><div class="my">2024前半</div><div class="me">東京進出組編</div><div class="md">東京進出の攻略法と営業ジャンルごとの立ち回りを整理。前半戦の主題そのものだった版。</div></div>
+      <div class="mc fi"><div class="my">2024総決算</div><div class="me">最新版</div><div class="md">営業史やスポーツ事業部を含むより広い文脈に接続。マニュアルが“世界観の中心”に入った時期。</div></div>
+      <div class="mc fi"><div class="my">2025</div><div class="me">究極版 / 書籍化決定</div><div class="md">SNS給料自慢問題、未来予想、禁断領域への踏み込み。番組の知識資産化が明確になった段階。</div></div>
+    </div>
+  </div>
+</section>
+<section id="history" class="sp">
+  <div class="container">
+    <div class="sl fi">HISTORY</div>
+    <h2 class="st fi"><span class="gs">吉本営業の歴史</span></h2>
+    <p class="ss fi">番組内の「営業の歴史」「よしもと営業年表」をベースに、吉本興業の正式ヒストリーへ接続する読み物パートです。</p>
+    <div class="history-wrap fi">
+      <div class="hg" style="margin-top:0">
+        <div class="ec"><div class="ep">1912–1945｜創業期</div><h3>寄席の時代</h3><p>1912年4月、吉本の第一歩は寄席から始まる。現場に人を呼び、場をつくるという意味で、営業の原型がここにある。</p></div>
+        <div class="ec"><div class="ep">1945–1989｜昭和</div><h3>テレビと営業の二足のわらじ</h3><p>テレビが広がっても、現場営業は芸人の生命線であり続けた。地方との結びつきもこの時代に強くなる。</p></div>
+        <div class="ec"><div class="ep">1989–2019｜平成</div><h3>営業の多様化</h3><p>学園祭、企業イベント、地域催事へと場が拡大。営業の場数と専門性が一気に増した時代。</p></div>
+        <div class="ec"><div class="ep">2019–｜令和</div><h3>営業芸人の可視化</h3><p>『営業-1グランプリ』によって、営業回数がランキングとして見えるようになり、価値の再定義が起きた。</p></div>
+      </div>
+      <aside class="history-side">
+        <h3>COMPANY HISTORY</h3>
+        <p>ここは将来的に、営業史に関わる写真や年表素材を差し込み、<a href="https://www.yoshimoto.co.jp/history/" target="_blank" rel="noopener">吉本興業ヒストリー</a>への補助導線として強化できます。</p>
+      </aside>
+    </div>
+  </div>
+</section>
+<section id="cast" class="sp">
+  <div class="container">
+    <div class="sl fi">CAST</div>
+    <h2 class="st fi">出演者図鑑</h2>
+    <div class="csg">
+      <div class="csgi fi"><div class="cgl">MC / NAVIGATOR</div><div class="cgr"><div class="cc"><div class="ca">S</div><div class="ci"><h4>サバンナ</h4><div class="cr">高橋茂雄 / 八木真澄</div><p>高橋は安定感のあるMC、八木は営業マニュアルと営業史プレゼンの中心人物。番組の顔であり、営業文化のナビゲーター。</p></div></div></div></div>
+      <div class="csgi fi"><div class="cgl">CHAMPION / RECORD</div><div class="cgr">
+        <div class="cc"><div class="ca">J</div><div class="ci"><h4>ジョイマン</h4><div class="cr">営業王者</div><p>2023〜2025で3連覇。シリーズの象徴的存在。ランキングページの主役として見せるべき芸人。</p></div></div>
+        <div class="cc"><div class="ca">ス</div><div class="ci"><h4>スカチャン</h4><div class="cr">学園祭 2025王者</div><p>芸歴18年で悲願の初優勝。学園祭部門のドラマを最も象徴する存在。</p></div></div>
+        <div class="cc"><div class="ca">E</div><div class="ci"><h4>EXIT</h4><div class="cr">学園祭 2024王者</div><p>多忙な中でつかんだ初優勝。学園祭ランキング導線の顔として機能する。</p></div></div>
+      </div></div>
+      <div class="csgi fi"><div class="cgl">REGULARS / THEMES</div><div class="cgr">
+        <div class="cc"><div class="ca">鬼</div><div class="ci"><h4>鬼越トマホーク</h4><div class="cr">常連営業芸人</div><p>営業部門上位の常連。毒舌コメントでスタジオの温度を上げる。</p></div></div>
+        <div class="cc"><div class="ca">G</div><div class="ci"><h4>グランジ 大</h4><div class="cr">営業部門</div><p>ボートレース営業の文脈で語られることが多い、専門性の高い営業芸人。</p></div></div>
+        <div class="cc"><div class="ca">R</div><div class="ci"><h4>レイザーラモン</h4><div class="cr">テーマ芸人</div><p>ひな壇トーク・再現・モノマネで要所を締める。テーマ回との相性が強い。</p></div></div>
+        <div class="cc"><div class="ca">祇</div><div class="ci"><h4>祇園</h4><div class="cr">学園祭3連覇</div><p>EXIT以前の学園祭王者文脈を支える重要存在。シリーズの前史としても機能する。</p></div></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+<section id="video" class="sp">
+  <div class="container">
+    <div class="sl fi">WATCH</div>
+    <h2 class="st fi">動画一覧 / 視聴ガイド</h2>
+    <div class="vg">
+      <div class="vc fi"><h4>放送本編</h4><p>BSよしもとの個別番組ページへ。総決算、前半戦、特別編の公式導線。</p><a href="https://bsy.co.jp/programs/by0000021293" target="_blank" rel="noopener" class="vl">公式番組ページ →</a></div>
+      <div class="vc fi"><h4>ディレクターズカット</h4><p>本編に収まりきらない未公開パートや補足情報を見るための導線。</p><a href="https://www.youtube.com/watch?v=2QzfVhMM7CQ" target="_blank" rel="noopener" class="vl">2023 DC →</a></div>
+      <div class="vc fi"><h4>プレイリスト</h4><p>シリーズ全体を通しで追いたい人向け。最も使いやすい入口の一つ。</p><a href="https://www.youtube.com/playlist?list=PLt2i7M9QRINzPIZ3vF9zJ2-jTt5ybmZUs" target="_blank" rel="noopener" class="vl">プレイリスト →</a></div>
+      <div class="vc fi"><h4>ショート / 切り抜き</h4><p>八木マニュアルや名場面の短尺導線。将来的にここへ集約しやすい構造。</p><a href="https://www.youtube.com/@bsyoshimoto" target="_blank" rel="noopener" class="vl">公式YouTube →</a></div>
+      <div class="vc fi"><h4>TVer</h4><p>見逃し視聴。放送日以降の視聴導線として補助的に残す。</p><a href="https://tver.jp" target="_blank" rel="noopener" class="vl">TVerで見る →</a></div>
+      <div class="vc fi"><h4>書籍化決定</h4><p>「よしもと営業マニュアル」の派生価値を示す補助導線。</p><a href="https://www.yoshimoto.co.jp/" target="_blank" rel="noopener" class="vl">吉本興業公式 →</a></div>
+    </div>
+  </div>
+</section>
+<section id="faq" class="sp">
+  <div class="container">
+    <div class="sl fi">FAQ</div>
+    <h2 class="st fi">よくある質問</h2>
+    <div class="fl">
+      <div class="fqi fi"><button class="fq">「営業」とは何ですか？</button><div class="fa"><p>テレビ以外のイベント・学園祭・企業パーティー・地域催事などへの出演のことです。『営業-1グランプリ』では、その現場を芸人目線で記録し、出演回数をランキング化しています。</p></div></div>
+      <div class="fqi fi"><button class="fq">何を競う番組ですか？</button><div class="fa"><p>年間の営業出演回数が主軸です。2024年以降は学園祭部門も導入され、現場力の見え方が二層になりました。</p></div></div>
+      <div class="fqi fi"><button class="fq">どこで見られますか？</button><div class="fa"><p>BSよしもと（BS265ch）、公式YouTube、TVerなどで視聴できます。プレイリスト導線も設置しています。</p></div></div>
+      <div class="fqi fi"><button class="fq">ランキングの基準は？</button><div class="fa"><p>吉本興業が集計した年間営業出演回数を基準に、総決算スペシャル等で正式発表されます。年度によって公開粒度は異なります。</p></div></div>
+      <div class="fqi fi"><button class="fq">芸人をイベントに呼びたい場合は？</button><div class="fa"><p>吉本興業のイベント出演依頼ページから問い合わせできます。企業イベント、学園祭、地域催事など幅広く対応しています。</p></div></div>
+    </div>
+  </div>
+</section>
+<section id="cta">
+  <div class="container cta-grid">
+    <div class="cta-copy">
+      <div class="sl fi" style="border-color:var(--gold-light);color:var(--gold-light)">EVENT BOOKING</div>
+      <h2 class="ctah fi"><span class="gt">この熱量を、</span><br>あなたの現場へ。</h2>
+      <p class="ctas fi">学園祭、企業イベント、地域催事。営業芸人たちが磨いてきた“場を温める力”は、番組の中だけの話ではありません。アーカイブを読んだ先に、自然に出演依頼へ進める設計にしています。</p>
+      <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ctab fi">吉本興業へのイベント出演依頼はこちら →</a>
+    </div>
+    <div class="cta-media fi">
+      <img src="" data-candidates="scenes/22.jpg|scenes/22.jpeg|scenes/22.png|scenes/022.jpg|scenes/scene_22.jpg|営業現場写真/22.jpg|営業現場写真/022.jpg|営業現場写真/22.jpeg|営業現場写真/22.png|営業現場写真/scene_22.jpg|assets/scenes/scene_cta.jpg" alt="営業依頼導線用の現場写真" class="auto-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="media-fallback" style="display:none"><div class="ic">🎪</div>assets/scenes/scene_cta.jpg<br>CTA向け横長写真</div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="ftt">
+      <div><div class="ftl"><span class="g">営業-1</span>グランプリ</div><p class="ftd">BSよしもと公式アーカイブ。営業芸人のリアル、ランキング、マニュアル、営業史を振り返るための総合ポータル。</p></div>
+      <div class="ftk">
+        <div class="ftc"><h4>ARCHIVE</h4><a href="#about">番組とは</a><a href="#timeline">年表</a><a href="#ranking">ランキング</a><a href="#scenes">名場面</a></div>
+        <div class="ftc"><h4>CONTENTS</h4><a href="#manual">八木マニュアル</a><a href="#history">営業史</a><a href="#cast">出演者</a><a href="#video">動画</a></div>
+        <div class="ftc"><h4>LINKS</h4><a href="https://bsy.co.jp" target="_blank" rel="noopener">BSよしもと</a><a href="https://www.youtube.com/@bsyoshimoto" target="_blank" rel="noopener">公式YouTube</a><a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a></div>
+      </div>
+    </div>
+    <div class="ftb"><p>© BSよしもと 営業-1グランプリ 公式アーカイブ</p><p>本サイトの記載は公開情報に基づきます。</p></div>
+  </div>
+</footer>
+
+<script>
+function tryCandidates(cands, ok, fail){
+  const list = cands.split('|').map(s=>s.trim()).filter(Boolean);
+  let idx = 0;
+  const testNext = ()=>{
+    if(idx >= list.length){ if(fail) fail(); return; }
+    const src = list[idx++];
+    const img = new Image();
+    img.onload = ()=> ok(src);
+    img.onerror = testNext;
+    img.src = src;
+  };
+  testNext();
+}
+
+function buildSceneCandidates(n){
+  const pad = String(n).padStart(2,'0');
+  return [
+    `scenes/${n}.jpg`,`scenes/${n}.jpeg`,`scenes/${n}.png`,`scenes/${n}.webp`,
+    `scenes/${pad}.jpg`,`scenes/${pad}.jpeg`,`scenes/${pad}.png`,`scenes/${pad}.webp`,
+    `scenes/scene_${pad}.jpg`,`scenes/scene_${pad}.jpeg`,`scenes/scene_${pad}.png`,`scenes/scene_${pad}.webp`,
+    `営業現場写真/${n}.jpg`,`営業現場写真/${n}.jpeg`,`営業現場写真/${n}.png`,`営業現場写真/${n}.webp`,
+    `営業現場写真/${pad}.jpg`,`営業現場写真/${pad}.jpeg`,`営業現場写真/${pad}.png`,`営業現場写真/${pad}.webp`,
+    `営業現場写真/scene_${pad}.jpg`,`営業現場写真/scene_${pad}.jpeg`,`営業現場写真/scene_${pad}.png`,`営業現場写真/scene_${pad}.webp`,
+    `assets/scenes/${n}.jpg`,`assets/scenes/${n}.jpeg`,`assets/scenes/${n}.png`,`assets/scenes/${n}.webp`,
+    `assets/scenes/${pad}.jpg`,`assets/scenes/${pad}.jpeg`,`assets/scenes/${pad}.png`,`assets/scenes/${pad}.webp`,
+    `assets/scenes/scene_${pad}.jpg`,`assets/scenes/scene_${pad}.jpeg`,`assets/scenes/scene_${pad}.png`,`assets/scenes/scene_${pad}.webp`
+  ].join('|');
+}
+
+function initAutoImages(){
+  document.querySelectorAll('img.auto-img[data-candidates]').forEach(img=>{
+    const fallback = img.nextElementSibling && img.nextElementSibling.classList.contains('media-fallback') ? img.nextElementSibling : null;
+    tryCandidates(img.dataset.candidates,
+      src=>{ img.src = src; img.style.display = ''; if(fallback) fallback.style.display='none'; },
+      ()=>{ img.style.display='none'; if(fallback) fallback.style.display='flex'; }
+    );
+  });
+}
+
+function makeSceneCard(src, idx){
+  const classes = ['gi','fi'];
+  if(idx === 0) classes.push('wide');
+  if(idx === 4) classes.push('tall');
+  if(idx === 7) classes.push('wide');
+  const labels = ['学園祭','学園祭','学園祭','企業','企業','企業','地域','地域','地域','ステージ','ステージ','ステージ','SPECIAL','SPECIAL','SPECIAL'];
+  return `
+    <div class="${classes.join(' ')} v">
+      <img src="${src}" alt="営業現場写真 ${idx+1}">
+      <span class="gc">${labels[idx % labels.length]}</span>
+    </div>
+  `;
+}
+
+async function buildSceneGallery(){
+  const host = document.getElementById('autoSceneGallery');
+  const countLabel = document.getElementById('sceneCountLabel');
+  if(!host) return;
+  const found = [];
+  for(let i=1;i<=30;i++){
+    const cands = buildSceneCandidates(i);
+    const src = await new Promise(resolve => tryCandidates(cands, resolve, ()=>resolve(null)));
+    if(src) found.push(src);
+  }
+  if(found.length === 0){
+    host.innerHTML = `
+      <div class="gi wide">
+        <div class="media-fallback" style="display:flex">
+          <div class="ic">📁</div>scenes フォルダ内の画像がまだ見つかっていません
+        </div>
+      </div>`;
+    if(countLabel) countLabel.textContent = '利用可能な scenes 写真がまだ見つかっていません。';
+    return;
+  }
+  host.innerHTML = found.map((src, idx)=>makeSceneCard(src, idx)).join('');
+  if(countLabel) countLabel.textContent = `利用可能な scenes 写真を ${found.length} 枚検出しました。`;
+  const cta = document.querySelector('#cta .auto-img');
+  if(cta && !cta.getAttribute('src')) cta.src = found[found.length-1];
+}
+
+function sR(id,b){
+  document.querySelectorAll('.rp').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('p-'+id).classList.add('active');
+  b.classList.add('active');
+}
+
+document.querySelectorAll('.fq').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const i=b.parentElement,o=i.classList.contains('open');
+    document.querySelectorAll('.fqi').forEach(x=>x.classList.remove('open'));
+    if(!o)i.classList.add('open');
+  });
+});
+
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})
+},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+    document.getElementById('mn').classList.remove('open');
+  });
+});
+
+initAutoImages();
+buildSceneGallery();
+</script>
+
+</body>
+</html>

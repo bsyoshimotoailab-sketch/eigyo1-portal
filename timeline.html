@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>シリーズ年表・動画一覧｜営業-1グランプリ 公式アーカイブ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+<style>
+/* ── 共通変数・リセット ── */
+:root{
+  --white:#fff;--bg:#faf9f6;--bg-warm:#f5f2ec;
+  --text:#222;--text-sub:#555;--text-light:#888;
+  --gold:#b8922e;--gold-bright:#d4a72c;--gold-light:#f0d77b;--gold-dark:#8a6d1a;
+  --red:#d72631;--red-dark:#b51d26;--black:#1a1a1a;
+  --border:#e8e4dc;--shadow:rgba(0,0,0,.08);
+  --font:'Noto Sans JP',sans-serif;--font-a:'Zen Kaku Gothic New',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ── ヘッダー（TOPと統一） ── */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+header .inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center}
+.logo img{height:52px;width:auto;object-fit:contain}
+.logo-text{font-family:var(--font-a);font-size:1rem;font-weight:900;color:var(--black)}
+nav{display:flex;align-items:center;gap:16px}
+nav a{color:var(--text-sub);font-size:.74rem;font-weight:700;transition:color .3s}
+nav a:hover{color:var(--red)}
+nav a.current{color:var(--red)}
+.ncta{background:var(--red);color:#fff!important;padding:8px 18px;font-weight:700!important;font-size:.72rem!important;border-radius:4px}
+.ncta:hover{background:var(--red-dark)!important}
+.hbr{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.hbr span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0}
+.mnav{display:none;position:fixed;top:68px;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:16px 24px;border-bottom:1px solid var(--border)}
+.mnav.open{display:block}
+.mnav a{display:block;padding:12px 0;color:var(--text-sub);font-size:.85rem;border-bottom:1px solid #eee}
+
+/* ── ページ本体 ── */
+.page-wrap{padding-top:68px}
+
+/* ── ページヘッダー ── */
+.page-hero{background:var(--white);border-bottom:1px solid var(--border);padding:clamp(48px,7vw,80px) 0 clamp(32px,5vw,56px)}
+.page-hero .inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.label{display:inline-block;font-size:.7rem;letter-spacing:.25em;color:var(--gold);font-weight:700;border:1.5px solid var(--gold);padding:4px 14px;margin-bottom:14px}
+.page-hero h1{font-family:var(--font-a);font-size:clamp(1.8rem,4vw,2.9rem);font-weight:900;line-height:1.3;margin-bottom:12px}
+.page-hero p{font-size:.95rem;color:var(--text-sub);max-width:680px;line-height:1.9}
+
+/* ── メインコンテンツ ── */
+.content{max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,80px) clamp(16px,4vw,40px)}
+
+/* ── 年グループ ── */
+.year-group{margin-bottom:clamp(48px,7vw,80px)}
+.year-label{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:14px;border-bottom:2px solid var(--border)}
+.year-num{font-family:var(--font-a);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--black)}
+.year-count{font-size:.78rem;color:var(--text-light);font-weight:700;letter-spacing:.06em}
+
+/* ── 動画カード ── */
+.card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:20px;display:grid;grid-template-columns:300px 1fr;transition:box-shadow .3s}
+.card:hover{box-shadow:0 8px 32px var(--shadow)}
+.card-thumb{position:relative;background:#e8e4dc;aspect-ratio:16/9;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:168px}
+.card-thumb img{width:100%;height:100%;object-fit:cover}
+.card-thumb .thumb-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--text-light);font-size:.75rem;text-align:center;padding:16px;width:100%;height:100%;background:#ece9e2}
+.card-thumb .thumb-placeholder .ico{font-size:2rem;opacity:.5}
+.card-thumb .ep-badge{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.08em;padding:3px 10px;border-radius:3px}
+.card-thumb .yt-link{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.3);opacity:0;transition:opacity .3s}
+.card-thumb:hover .yt-link{opacity:1}
+.yt-link svg{width:48px;height:48px;fill:#fff}
+.card-body{padding:24px 28px;display:flex;flex-direction:column;gap:10px}
+.card-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.meta-tag{font-size:.65rem;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid var(--border);color:var(--text-sub);background:var(--bg)}
+.meta-tag.special{border-color:var(--gold);color:var(--gold-dark);background:#fdf9f0}
+.card-title{font-family:var(--font-a);font-size:clamp(1rem,2vw,1.3rem);font-weight:900;line-height:1.4;color:var(--black)}
+.card-desc{font-size:.84rem;color:var(--text-sub);line-height:1.85}
+.card-highlight{background:var(--bg);border-radius:6px;padding:10px 14px;font-size:.78rem;color:var(--text-sub);line-height:1.75}
+.card-highlight strong{color:var(--text);font-weight:700}
+.card-cast{font-size:.75rem;color:var(--text-light);line-height:1.7}
+.card-cast strong{color:var(--text-sub);font-weight:700}
+.card-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.btn-watch{display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;padding:10px 22px;font-size:.78rem;font-weight:700;border-radius:4px;transition:background .3s}
+.btn-watch:hover{background:var(--red-dark)}
+.btn-sub{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--border);color:var(--text-sub);padding:9px 18px;font-size:.76rem;font-weight:700;border-radius:4px;transition:all .3s}
+.btn-sub:hover{border-color:var(--gold);color:var(--gold-dark)}
+
+/* ── プレイリスト案内バナー ── */
+.playlist-banner{background:var(--black);color:#fff;border-radius:12px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:clamp(40px,6vw,64px)}
+.playlist-banner .txt h3{font-family:var(--font-a);font-size:1.1rem;font-weight:900;margin-bottom:4px}
+.playlist-banner .txt p{font-size:.82rem;color:#aaa;line-height:1.7}
+.btn-playlist{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;padding:12px 28px;font-size:.8rem;font-weight:700;border-radius:4px;white-space:nowrap;transition:background .3s}
+.btn-playlist:hover{background:var(--red-dark)}
+
+/* ── フッター ── */
+footer{background:var(--black);color:#888;padding:32px 0;margin-top:clamp(60px,10vw,100px)}
+footer .inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+footer p{font-size:.68rem}
+footer a{color:#888;transition:color .3s}
+footer a:hover{color:var(--gold-light)}
+
+/* ── フェードイン ── */
+.fi{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.fi.v{opacity:1;transform:translateY(0)}
+
+/* ── レスポンシブ ── */
+@media(max-width:900px){
+  nav a:not(.ncta){display:none}
+  .hbr{display:block}
+  .card{grid-template-columns:1fr}
+  .card-thumb{min-height:200px;aspect-ratio:16/9}
+}
+@media(max-width:640px){
+  .card-body{padding:18px}
+  .playlist-banner{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header>
+  <div class="inner">
+    <a href="index.html" class="logo">
+      <img src="assets/logos/eigyo1_logo.png" alt="営業-1グランプリ ロゴ" onerror="this.style.display='none'">
+    </a>
+    <nav>
+      <a href="index.html">TOP</a>
+      <a href="#" class="current">シリーズ年表</a>
+      <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ncta">イベント出演依頼</a>
+      <button class="hbr" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<div class="mnav" id="mn">
+  <a href="index.html" onclick="this.parentElement.classList.remove('open')">TOP</a>
+  <a href="#2025" onclick="this.parentElement.classList.remove('open')">2025年</a>
+  <a href="#2024" onclick="this.parentElement.classList.remove('open')">2024年</a>
+  <a href="#2023" onclick="this.parentElement.classList.remove('open')">2023年</a>
+  <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
+</div>
+
+<div class="page-wrap">
+
+  <!-- ページヘッダー -->
+  <div class="page-hero">
+    <div class="inner">
+      <div class="label">SERIES TIMELINE</div>
+      <h1>シリーズ年表・動画一覧</h1>
+      <p>「営業-1グランプリ」の全放送回を、新しい順に一覧で見ることができます。<br>各回の概要・企画・出演者・動画リンクをまとめています。</p>
+    </div>
+  </div>
+
+  <!-- メインコンテンツ -->
+  <div class="content">
+
+    <!-- ── 2025年 ── -->
+    <div class="year-group fi" id="2025">
+      <div class="year-label">
+        <span class="year-num">2025</span>
+        <span class="year-count">2回放送</span>
+      </div>
+
+      <!-- 第5回 2025 総決算 -->
+      <div class="card fi">
+        <div class="card-thumb">
+          <!-- サムネイル：後から差し替え → src に画像パスを入れる -->
+          <img src="" alt="営業-1グランプリ 2025 総決算スペシャル サムネイル"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="thumb-placeholder">
+            <span class="ico">🎬</span>
+            <span>サムネイル準備中<br><small>（差し替え可能）</small></span>
+          </div>
+          <span class="ep-badge">第5回</span>
+          <a href="https://www.youtube.com/watch?v=68utLC3Inf4" target="_blank" rel="noopener" class="yt-link" aria-label="動画を見る">
+            <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.5 7.8A8.5 8.5 0 0 0 60.7 2C55.4.5 34 .5 34 .5S12.6.5 7.3 2A8.5 8.5 0 0 0 1.5 7.8C0 13.1 0 24 0 24s0 10.9 1.5 16.2A8.5 8.5 0 0 0 7.3 46C12.6 47.5 34 47.5 34 47.5s21.4 0 26.7-1.5a8.5 8.5 0 0 0 5.8-5.8C68 34.9 68 24 68 24s0-10.9-1.5-16.2z"/><polygon fill="#d72631" points="45,24 27,14 27,34"/></svg>
+          </a>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="meta-tag">2025.12.20</span>
+            <span class="meta-tag">120分</span>
+            <span class="meta-tag special">総決算SP</span>
+            <span class="meta-tag special">完全版同日配信</span>
+          </div>
+          <div class="card-title">営業-1グランプリ 2025 総決算スペシャル</div>
+          <div class="card-desc">4企画構成。営業芸人の2025スケジュール公開、営業現場写真・衝撃動画、究極版マニュアル、八木の未来予想まで展開。ジョイマンが前人未到の3連覇、スカチャンが学園祭部門で悲願の初制覇。</div>
+          <div class="card-highlight">
+            <strong>企画：</strong>営業スケジュール公開 / 現場写真・衝撃動画 / 究極版八木マニュアル / 未来予想<br>
+            <strong>結果：</strong>ジョイマン 3連覇（114回）／スカチャン 学園祭初優勝（20回）
+          </div>
+          <div class="card-cast"><strong>出演：</strong>サバンナ（高橋茂雄・八木真澄）、ジョイマン、スカチャン、鬼越トマホーク ほか</div>
+          <div class="card-links">
+            <a href="https://www.youtube.com/watch?v=68utLC3Inf4" target="_blank" rel="noopener" class="btn-watch">▶ 動画を見る</a>
+            <a href="https://bsy.co.jp/programs/by0000023095" target="_blank" rel="noopener" class="btn-sub">BSよしもと番組ページ</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第4回 2025 上半期 -->
+      <div class="card fi">
+        <div class="card-thumb">
+          <img src="" alt="営業-1グランプリ 2025 上半期スペシャル サムネイル"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="thumb-placeholder">
+            <span class="ico">🎬</span>
+            <span>サムネイル準備中<br><small>（差し替え可能）</small></span>
+          </div>
+          <span class="ep-badge">第4回</span>
+          <a href="https://bsy.co.jp/programs/by0000021293" target="_blank" rel="noopener" class="yt-link" aria-label="番組ページへ">
+            <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.5 7.8A8.5 8.5 0 0 0 60.7 2C55.4.5 34 .5 34 .5S12.6.5 7.3 2A8.5 8.5 0 0 0 1.5 7.8C0 13.1 0 24 0 24s0 10.9 1.5 16.2A8.5 8.5 0 0 0 7.3 46C12.6 47.5 34 47.5 34 47.5s21.4 0 26.7-1.5a8.5 8.5 0 0 0 5.8-5.8C68 34.9 68 24 68 24s0-10.9-1.5-16.2z"/><polygon fill="#d72631" points="45,24 27,14 27,34"/></svg>
+          </a>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="meta-tag">2025.7.6</span>
+            <span class="meta-tag">120分</span>
+            <span class="meta-tag special">上半期SP</span>
+            <span class="meta-tag">収録5時間30分</span>
+          </div>
+          <div class="card-title">営業-1グランプリ 2025 上半期スペシャル</div>
+          <div class="card-desc">90分ぶっ通し収録。FUJIWARA・とろサーモン久保田が初登場。「給料自慢SNS投稿」問題をめぐる激論がスタジオ騒然となり、2025年最大の話題を生んだ。完全版はYouTubeプレミアで89.3万回再生を記録。</div>
+          <div class="card-highlight">
+            <strong>企画：</strong>上半期ランキング発表 / 東京進出組特集 / SNS給料自慢論争<br>
+            <strong>注目：</strong>FUJIWARA・とろサーモン久保田 初登場
+          </div>
+          <div class="card-cast"><strong>出演：</strong>サバンナ（高橋茂雄・八木真澄）、ジョイマン、FUJIWARA、とろサーモン久保田 ほか</div>
+          <div class="card-links">
+            <a href="https://bsy.co.jp/programs/by0000021293" target="_blank" rel="noopener" class="btn-watch">▶ 動画を見る</a>
+            <a href="https://www.youtube.com/playlist?list=PLt2i7M9QRINzPIZ3vF9zJ2-jTt5ybmZUs" target="_blank" rel="noopener" class="btn-sub">公式プレイリスト</a>
+          </div>
+        </div>
+      </div>
+    </div><!-- /2025 -->
+
+    <!-- ── 2024年 ── -->
+    <div class="year-group fi" id="2024">
+      <div class="year-label">
+        <span class="year-num">2024</span>
+        <span class="year-count">2回放送</span>
+      </div>
+
+      <!-- 第3回 2024 総決算 -->
+      <div class="card fi">
+        <div class="card-thumb">
+          <img src="" alt="営業-1グランプリ 2024 総決算スペシャル サムネイル"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="thumb-placeholder">
+            <span class="ico">🎬</span>
+            <span>サムネイル準備中<br><small>（差し替え可能）</small></span>
+          </div>
+          <span class="ep-badge">第3回</span>
+          <a href="https://bsy.co.jp/programs/by0000021293" target="_blank" rel="noopener" class="yt-link" aria-label="番組ページへ">
+            <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.5 7.8A8.5 8.5 0 0 0 60.7 2C55.4.5 34 .5 34 .5S12.6.5 7.3 2A8.5 8.5 0 0 0 1.5 7.8C0 13.1 0 24 0 24s0 10.9 1.5 16.2A8.5 8.5 0 0 0 7.3 46C12.6 47.5 34 47.5 34 47.5s21.4 0 26.7-1.5a8.5 8.5 0 0 0 5.8-5.8C68 34.9 68 24 68 24s0-10.9-1.5-16.2z"/><polygon fill="#d72631" points="45,24 27,14 27,34"/></svg>
+          </a>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="meta-tag">2024.12.14</span>
+            <span class="meta-tag">120分</span>
+            <span class="meta-tag special">総決算SP</span>
+            <span class="meta-tag">45名出演 / 初登場19名</span>
+          </div>
+          <div class="card-title">営業-1グランプリ 2024 総決算スペシャル</div>
+          <div class="card-desc">初の2時間SP。営業史、スポーツ事業部、ランキングTOP10、最新版マニュアルまで詰め込んだシリーズの転換点。ジョイマンが2連覇、EXIT（18回）が学園祭部門で初優勝を果たした。</div>
+          <div class="card-highlight">
+            <strong>企画：</strong>営業史 / スポーツ事業部特集 / ランキングTOP10 / 最新版八木マニュアル<br>
+            <strong>結果：</strong>ジョイマン 2連覇 ／ EXIT 学園祭初優勝（18回）
+          </div>
+          <div class="card-cast"><strong>出演：</strong>サバンナ、ジョイマン、EXIT、ジャンポケ太田、RG ほか 45名</div>
+          <div class="card-links">
+            <a href="https://bsy.co.jp/programs/by0000021293" target="_blank" rel="noopener" class="btn-watch">▶ 動画を見る</a>
+            <a href="https://www.youtube.com/playlist?list=PLt2i7M9QRINzPIZ3vF9zJ2-jTt5ybmZUs" target="_blank" rel="noopener" class="btn-sub">公式プレイリスト</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第2回 2024 前半戦 DC版 -->
+      <div class="card fi">
+        <div class="card-thumb">
+          <img src="" alt="営業-1グランプリ 2024 上半期SP ディレクターズカット サムネイル"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="thumb-placeholder">
+            <span class="ico">🎬</span>
+            <span>サムネイル準備中<br><small>（差し替え可能）</small></span>
+          </div>
+          <span class="ep-badge">第2回</span>
+          <a href="https://www.youtube.com/watch?v=xg2Dfmhz4-U" target="_blank" rel="noopener" class="yt-link" aria-label="動画を見る">
+            <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.5 7.8A8.5 8.5 0 0 0 60.7 2C55.4.5 34 .5 34 .5S12.6.5 7.3 2A8.5 8.5 0 0 0 1.5 7.8C0 13.1 0 24 0 24s0 10.9 1.5 16.2A8.5 8.5 0 0 0 7.3 46C12.6 47.5 34 47.5 34 47.5s21.4 0 26.7-1.5a8.5 8.5 0 0 0 5.8-5.8C68 34.9 68 24 68 24s0-10.9-1.5-16.2z"/><polygon fill="#d72631" points="45,24 27,14 27,34"/></svg>
+          </a>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="meta-tag">2024.6.30</span>
+            <span class="meta-tag">90分</span>
+            <span class="meta-tag special">上半期SP</span>
+            <span class="meta-tag special">ディレクターズカット版</span>
+          </div>
+          <div class="card-title">営業-1グランプリ 2024 上半期SP（ディレクターズカット版）</div>
+          <div class="card-desc">「東京進出組」特集。各ジャンルの攻略法を現役営業芸人が解説し、営業戦国時代の空気が強く出た回。ディレクターズカット版では未公開パートを多数収録。</div>
+          <div class="card-highlight">
+            <strong>企画：</strong>東京進出組特集 / ジャンル別営業攻略法 / 上半期ランキング中間発表<br>
+            <strong>DC版追加：</strong>未公開パート多数収録
+          </div>
+          <div class="card-cast"><strong>出演：</strong>サバンナ（高橋茂雄・八木真澄）、ジョイマン ほか</div>
+          <div class="card-links">
+            <a href="https://www.youtube.com/watch?v=xg2Dfmhz4-U" target="_blank" rel="noopener" class="btn-watch">▶ DC版を見る（YouTube）</a>
+            <a href="https://www.youtube.com/playlist?list=PLt2i7M9QRINzPIZ3vF9zJ2-jTt5ybmZUs" target="_blank" rel="noopener" class="btn-sub">公式プレイリスト</a>
+          </div>
+        </div>
+      </div>
+    </div><!-- /2024 -->
+
+    <!-- ── 2023年 ── -->
+    <div class="year-group fi" id="2023">
+      <div class="year-label">
+        <span class="year-num">2023</span>
+        <span class="year-count">1回放送</span>
+      </div>
+
+      <!-- 第1回 2023 DC版 -->
+      <div class="card fi">
+        <div class="card-thumb">
+          <img src="" alt="営業-1グランプリ 2023 ディレクターズカット サムネイル"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="thumb-placeholder">
+            <span class="ico">🎬</span>
+            <span>サムネイル準備中<br><small>（差し替え可能）</small></span>
+          </div>
+          <span class="ep-badge">第1回</span>
+          <a href="https://www.youtube.com/watch?v=2QzfVhMM7CQ" target="_blank" rel="noopener" class="yt-link" aria-label="動画を見る">
+            <svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.5 7.8A8.5 8.5 0 0 0 60.7 2C55.4.5 34 .5 34 .5S12.6.5 7.3 2A8.5 8.5 0 0 0 1.5 7.8C0 13.1 0 24 0 24s0 10.9 1.5 16.2A8.5 8.5 0 0 0 7.3 46C12.6 47.5 34 47.5 34 47.5s21.4 0 26.7-1.5a8.5 8.5 0 0 0 5.8-5.8C68 34.9 68 24 68 24s0-10.9-1.5-16.2z"/><polygon fill="#d72631" points="45,24 27,14 27,34"/></svg>
+          </a>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="meta-tag">2023.12.17</span>
+            <span class="meta-tag">60分</span>
+            <span class="meta-tag special">第1回 / 初代王者決定</span>
+            <span class="meta-tag special">ディレクターズカット版</span>
+          </div>
+          <div class="card-title">営業-1グランプリ 2023（ディレクターズカット版）</div>
+          <div class="card-desc">シリーズ第1回。「よしもと営業マニュアル」が誕生した伝説の初回。32名が出演し、吉本営業年表・東西営業都市伝説・ニューカマー紹介など、シリーズの核となる企画がすべてこの回で出揃った。</div>
+          <div class="card-highlight">
+            <strong>企画：</strong>よしもと営業マニュアル（初版）/ 吉本営業年表 / 東西営業都市伝説 / ニューカマー紹介<br>
+            <strong>結果：</strong>ジョイマン 初代王者（112回）/ 祇園 学園祭3連覇
+          </div>
+          <div class="card-cast"><strong>出演：</strong>サバンナ（高橋茂雄・八木真澄）、ジョイマン、祇園 ほか 32名</div>
+          <div class="card-links">
+            <a href="https://www.youtube.com/watch?v=2QzfVhMM7CQ" target="_blank" rel="noopener" class="btn-watch">▶ DC版を見る（YouTube）</a>
+            <a href="https://www.youtube.com/playlist?list=PLt2i7M9QRINzPIZ3vF9zJ2-jTt5ybmZUs" target="_blank" rel="noopener" class="btn-sub">公式プレイリスト</a>
+          </div>
+        </div>
+      </div>
+    </div><!-- /2023 -->
+
+    <!-- プレイリストバナー -->
+    <div class="playlist-banner fi">
+      <div class="txt">
+        <h3>公式プレイリストで全シリーズを見る</h3>
+        <p>本編・完全版・ディレクターズカット版・再編集版をまとめて確認できます。</p>
+      </div>
+      <a href="https://www.youtube.com/playlist?list=PLt2i7M9QRINzPIZ3vF9zJ2-jTt5ybmZUs" target="_blank" rel="noopener" class="btn-playlist">▶ プレイリストを見る</a>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /page-wrap -->
+
+<footer>
+  <div class="inner">
+    <p>© 営業-1グランプリ 公式アーカイブ｜BSよしもと</p>
+    <p><a href="index.html">TOPへ戻る</a></p>
+  </div>
+</footer>
+
+<script>
+/* フェードイン */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('v'); });
+}, {threshold: .08, rootMargin: '0px 0px -20px 0px'});
+document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+/* ハンバーガーメニュー：リンクをクリックしたら閉じる */
+document.querySelectorAll('.mnav a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('mn').classList.remove('open'));
+});
+</script>
+
+</body>
+</html>
