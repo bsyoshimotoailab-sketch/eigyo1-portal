@@ -52,12 +52,10 @@ nav a{color:var(--text-sub);text-decoration:none;font-size:.74rem;font-weight:70
 .hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
 .br{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;padding:12px 28px;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-decoration:none;border-radius:4px;transition:all .3s}.br:hover{background:var(--red-dark);transform:translateY(-2px)}
 .bg{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--gold);color:var(--gold-dark);padding:10px 28px;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-decoration:none;border-radius:4px;transition:all .3s}.bg:hover{background:var(--gold);color:#fff}
-.qg{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:34px}
-.qc{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:22px 18px 20px;box-shadow:0 4px 16px var(--shadow);transition:box-shadow .25s,transform .25s;cursor:pointer;display:flex;flex-direction:column;gap:8px}
-.qc:hover{box-shadow:0 12px 36px rgba(0,0,0,.13);transform:translateY(-3px)}
-.qc-ico{font-size:1.5rem;line-height:1}
-.qc h3{font-size:.82rem;font-weight:900;color:var(--black);line-height:1.4;margin:0}
-.qc-arrow{font-size:.7rem;font-weight:700;color:var(--red);margin-top:auto;padding-top:4px}
+.qg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:34px}
+.qc{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:22px 20px;box-shadow:0 8px 24px var(--shadow)}
+.qc h3{font-size:.85rem;letter-spacing:.12em;color:var(--gold-dark);margin-bottom:8px}
+.qc p{font-size:.82rem;line-height:1.85;color:var(--text-sub)}
 #lv{background:var(--black);padding:clamp(40px,6vw,80px) 0}
 .video-grid{display:grid;grid-template-columns:minmax(0,1.2fr) 320px;gap:24px;align-items:start}
 .vew{margin-top:30px;position:relative;width:100%;aspect-ratio:16/9;border:3px solid var(--gold);box-shadow:0 0 40px rgba(184,146,46,.25);border-radius:6px;overflow:hidden}
@@ -170,31 +168,10 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
   </div>
   <div class="container">
     <div class="qg fi">
-      <a href="#" class="qc">
-        <span class="qc-ico">🎬</span>
-        <h3>番組スタッフが選ぶバズり動画ベスト100</h3>
-        <span class="qc-arrow">見る →</span>
-      </a>
-      <a href="#" class="qc">
-        <span class="qc-ico">📋</span>
-        <h3>吉本営業マニュアルベスト10 &amp; 番組企画ベスト5</h3>
-        <span class="qc-arrow">見る →</span>
-      </a>
-      <a href="#scenes" class="qc">
-        <span class="qc-ico">📸</span>
-        <h3>営業-1写真館</h3>
-        <span class="qc-arrow">見る →</span>
-      </a>
-      <a href="#" class="qc">
-        <span class="qc-ico">🗂️</span>
-        <h3>営業-1資料館</h3>
-        <span class="qc-arrow">見る →</span>
-      </a>
-      <a href="#" class="qc">
-        <span class="qc-ico">🛍️</span>
-        <h3>番組関連グッズ</h3>
-        <span class="qc-arrow">見る →</span>
-      </a>
+      <div class="qc"><h3>営業芸人のリアル</h3><p>テレビとは別の主戦場で、年間100本単位の現場をこなす芸人たち。その強さを数字とエピソードで見せます。</p></div>
+      <div class="qc"><h3>ランキングで見る現場力</h3><p>出演回数、学園祭、連覇、逆転。最も検索されやすい核を、年次比較しやすい構造で整理します。</p></div>
+      <div class="qc"><h3>八木マニュアルの変遷</h3><p>看板企画であり、営業知の蓄積でもあるコーナー。年ごとの主題と反響を独立して見られるようにします。</p></div>
+      <div class="qc"><h3>吉本110年の営業史</h3><p>寄席からイベント営業へ。番組だけで終わらず、吉本興業の歴史と接続した読み物として設計しています。</p></div>
     </div>
   </div>
 </section>
