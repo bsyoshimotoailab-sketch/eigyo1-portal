@@ -58,7 +58,6 @@ nav a{color:var(--text-sub);text-decoration:none;font-size:.74rem;font-weight:70
 .qc-ico{font-size:1.5rem;line-height:1}
 .qc h3{font-size:.82rem;font-weight:900;color:var(--black);line-height:1.4;margin:0}
 .qc-arrow{font-size:.7rem;font-weight:700;color:var(--red);margin-top:auto;padding-top:4px}
-.qc-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;margin-bottom:2px}
 #lv{background:var(--black);padding:clamp(40px,6vw,80px) 0}
 .video-grid{display:grid;grid-template-columns:minmax(0,1.2fr) 320px;gap:24px;align-items:start}
 .vew{margin-top:30px;position:relative;width:100%;aspect-ratio:16/9;border:3px solid var(--gold);box-shadow:0 0 40px rgba(184,146,46,.25);border-radius:6px;overflow:hidden}
@@ -127,22 +126,29 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
   <div class="container">
     <a href="#hero" class="logo"><img src="" data-candidates="assets/logos/eigyo1_logo.png|assets/logos/eigyo1_logo.jpg|assets/logos/eigyo1_logo.jpeg|assets/logos/eigyo1_logo.webp|営業-1ロゴ透明.png|営業-1ロゴ透明.jpg|営業-1ロゴ透明.jpeg|営業-1ロゴ透明.webp" alt="営業-1グランプリ ロゴ" class="auto-img logo-img" onerror="this.style.display='none'"></a>
     <nav>
-      <a href="#lv">最新情報</a>
-      <a href="#about">営業-１グランプリとは？</a>
-      <a href="#video">番組動画</a>
-      <a href="goods.html">番組関連グッズ</a>
-      <a href="timeline.html">シリーズ年表</a>
+      <a href="#about">営業-1グランプリとは</a>
+      <a href="#timeline">年表</a>
+      <a href="#ranking">ランキング</a>
+      <a href="#manual">八木マニュアル</a>
+      <a href="#history">営業史</a>
+      <a href="#cast">出演者</a>
+      <a href="#video">動画</a>
+      <a href="#faq">FAQ</a>
       <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ncta">イベント出演依頼</a>
       <button class="hbr" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="メニュー"><span></span><span></span><span></span></button>
     </nav>
   </div>
 </header>
 <div class="mnav" id="mn">
-  <a href="#lv" onclick="this.parentElement.classList.remove('open')">最新情報</a>
-  <a href="#about" onclick="this.parentElement.classList.remove('open')">営業-１グランプリとは？</a>
-  <a href="#video" onclick="this.parentElement.classList.remove('open')">番組動画</a>
-  <a href="goods.html" onclick="this.parentElement.classList.remove('open')">番組関連グッズ</a>
-  <a href="timeline.html" onclick="this.parentElement.classList.remove('open')">シリーズ年表</a>
+  <a href="#about" onclick="this.parentElement.classList.remove('open')">営業-1グランプリとは</a>
+  <a href="#gallery" onclick="this.parentElement.classList.remove('open')">営業現場写真</a>
+  <a href="#timeline" onclick="this.parentElement.classList.remove('open')">シリーズ年表</a>
+  <a href="#ranking" onclick="this.parentElement.classList.remove('open')">ランキング</a>
+  <a href="#manual" onclick="this.parentElement.classList.remove('open')">八木マニュアル</a>
+  <a href="#history" onclick="this.parentElement.classList.remove('open')">吉本営業の歴史</a>
+  <a href="#cast" onclick="this.parentElement.classList.remove('open')">出演者図鑑</a>
+  <a href="#video" onclick="this.parentElement.classList.remove('open')">動画一覧</a>
+  <a href="#faq" onclick="this.parentElement.classList.remove('open')">FAQ</a>
   <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
 </div>
 <section id="hero">
@@ -164,31 +170,27 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
   </div>
   <div class="container">
     <div class="qg fi">
-      <a href="buzz100.html" class="qc">
-        <img src="images/buzz/2023buzz01.jpg" alt="バズり動画" class="qc-img" onerror="this.style.display='none'">
+      <a href="#" class="qc">
         <span class="qc-ico">🎬</span>
         <h3>番組スタッフが選ぶバズり動画ベスト100</h3>
         <span class="qc-arrow">見る →</span>
       </a>
-      <a href="manual-best.html" class="qc">
-        <img src="images/buzz/2023buzz10.jpg" alt="マニュアル・企画" class="qc-img" onerror="this.style.display='none'">
+      <a href="#" class="qc">
         <span class="qc-ico">📋</span>
         <h3>吉本営業マニュアルベスト10 &amp; 番組企画ベスト5</h3>
         <span class="qc-arrow">見る →</span>
       </a>
-      <a href="photo-gallery.html" class="qc">
-        <img src="scenes/22.png" alt="営業-1写真館" class="qc-img" onerror="this.style.display='none'">
+      <a href="#scenes" class="qc">
         <span class="qc-ico">📸</span>
         <h3>営業-1写真館</h3>
         <span class="qc-arrow">見る →</span>
       </a>
-      <a href="archive-docs.html" class="qc">
-        <img src="images/archive/shiryoukan001.jpg" alt="営業-1資料館" class="qc-img" onerror="this.style.display='none'">
+      <a href="#" class="qc">
         <span class="qc-ico">🗂️</span>
         <h3>営業-1資料館</h3>
         <span class="qc-arrow">見る →</span>
       </a>
-      <a href="goods.html" class="qc">
+      <a href="#" class="qc">
         <span class="qc-ico">🛍️</span>
         <h3>番組関連グッズ</h3>
         <span class="qc-arrow">見る →</span>
@@ -221,7 +223,7 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
   <div class="container">
     <div class="sl fi">ABOUT</div>
     <h2 class="st fi"><span class="gs">営業-1グランプリ</span>とは？</h2>
-    <p class="ss fi">「営業」にスポットを当てた年2回の吉本興業リアルドキュメンタリー特番（BSよしもと）。<br>営業現場で起きたハプニングを全公開、年間の営業出演回数ランキングを発表。<br>創業１１０年を超える吉本興業の歴史を芸人目線で斬るなど<br>吉本でしか出来ない企画にこだわります。<br>吉本興業の「今」をお伝えします。<br>このホームページをみれば「営業-１グランプリ」の全てがわかります。</p>
+    <p class="ss fi">吉本興業の芸人たちが全国各地のイベント・学園祭・企業パーティーなどで行う「営業」の出演回数をランキング形式で競う、BSよしもとのリアルドキュメンタリー特番。看板コーナーは、八木真澄による「よしもと営業マニュアル」。</p>
     <div class="ag">
       <div class="ac fi"><div class="ac-n gs">01</div><h3>営業芸人</h3><p>全国のイベント・学園祭・企業パーティーに駆けつける芸人たち。年間100回超の出演をこなす「営業のプロ」を可視化。</p></div>
       <div class="ac fi"><div class="ac-n gs">02</div><h3>ランキング</h3><p>年間営業出演回数をガチ集計。学園祭部門も導入され、現場での強さが数字で見える。</p></div>
