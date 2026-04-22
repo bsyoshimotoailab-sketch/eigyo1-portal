@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ランキング｜営業-1グランプリ 公式アーカイブ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+<style>
+/* ── 変数・リセット ── */
+:root{
+  --white:#fff;--bg:#faf9f6;--bg-warm:#f5f2ec;
+  --text:#222;--text-sub:#555;--text-light:#888;
+  --gold:#b8922e;--gold-light:#f0d77b;--gold-dark:#8a6d1a;
+  --red:#d72631;--red-dark:#b51d26;--black:#1a1a1a;
+  --border:#e8e4dc;--shadow:rgba(0,0,0,.08);
+  --font:'Noto Sans JP',sans-serif;--font-a:'Zen Kaku Gothic New',sans-serif;
+
+  /* 順位カラー */
+  --rank1:#c8a84b;--rank2:#9baab5;--rank3:#b87333;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ── ヘッダー ── */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.h-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center}
+.logo img{height:52px;width:auto;object-fit:contain}
+nav{display:flex;align-items:center;gap:16px}
+nav a{color:var(--text-sub);font-size:.74rem;font-weight:700;transition:color .3s}
+nav a:hover{color:var(--red)}
+.ncta{background:var(--red);color:#fff!important;padding:8px 18px;font-weight:700!important;font-size:.72rem!important;border-radius:4px;transition:background .3s!important}
+.ncta:hover{background:var(--red-dark)!important}
+.hbr{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.hbr span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0}
+.mnav{display:none;position:fixed;top:68px;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:16px 24px;border-bottom:1px solid var(--border)}
+.mnav.open{display:block}
+.mnav a{display:block;padding:12px 0;color:var(--text-sub);font-size:.85rem;border-bottom:1px solid #eee}
+
+/* ── パンくず ── */
+.breadcrumb{background:var(--white);border-bottom:1px solid var(--border);padding:10px 0}
+.bc-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bc-inner a,.bc-inner span{font-size:.72rem;color:var(--text-light)}
+.bc-inner a:hover{color:var(--red)}
+.bc-sep{color:#ccc}
+.bc-inner .current{color:var(--text-sub);font-weight:700}
+
+/* ── ページヒーロー ── */
+.page-hero{background:var(--black);padding:clamp(36px,6vw,64px) 0 clamp(28px,5vw,48px)}
+.page-hero-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.page-hero-label{font-size:.64rem;letter-spacing:.24em;color:var(--gold-light);font-weight:700;margin-bottom:12px}
+.page-hero-title{font-family:var(--font-a);font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:var(--white);line-height:1.2;margin-bottom:12px}
+.page-hero-desc{font-size:.88rem;color:#999;max-width:540px;line-height:1.85}
+
+/* ── タブバー ── */
+.tab-bar{background:var(--white);border-bottom:1px solid var(--border);padding:0;position:sticky;top:68px;z-index:900}
+.tab-bar-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;gap:0}
+.tab{display:inline-flex;align-items:center;gap:8px;padding:16px 24px;font-size:.82rem;font-weight:700;color:var(--text-light);border-bottom:2px solid transparent;cursor:pointer;transition:color .2s,border-color .2s;white-space:nowrap}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--red);border-bottom-color:var(--red)}
+.tab .tab-ico{font-size:.9rem}
+
+/* ── メイン ── */
+.page-wrap{padding-top:68px}
+.main-area{max-width:1180px;margin:0 auto;padding:clamp(36px,5vw,56px) clamp(16px,4vw,40px) clamp(60px,10vw,100px)}
+
+/* ── ランキングパネル ── */
+.ranking-panel{display:none}
+.ranking-panel.active{display:block}
+
+/* パネルヘッダー */
+.panel-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:10px}
+.panel-head-text{}
+.panel-label{font-size:.62rem;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:4px}
+.panel-title{font-family:var(--font-a);font-size:1.4rem;font-weight:900;color:var(--black)}
+.panel-desc{font-size:.78rem;color:var(--text-sub);margin-top:4px}
+.panel-img{border-radius:8px;overflow:hidden;max-width:260px;border:1px solid var(--border)}
+.panel-img img{width:100%;display:block}
+
+/* ── ランキングリスト ── */
+.rank-list{display:flex;flex-direction:column;gap:12px}
+
+/* 1位カード（大） */
+.rank-item{display:flex;align-items:stretch;gap:0;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:box-shadow .3s,transform .3s}
+.rank-item:hover{box-shadow:0 8px 32px var(--shadow);transform:translateY(-2px)}
+
+/* 順位帯 */
+.rank-num{display:flex;align-items:center;justify-content:center;min-width:64px;flex-shrink:0;padding:0 8px;position:relative}
+.rank-num .num{font-family:var(--font-a);font-size:2rem;font-weight:900;line-height:1}
+.rank-num .num-label{font-size:.5rem;font-weight:700;letter-spacing:.12em;position:absolute;bottom:14px;left:50%;transform:translateX(-50%);white-space:nowrap;color:inherit;opacity:.7}
+
+/* 順位別カラー */
+.rank-item[data-rank="1"] .rank-num{background:linear-gradient(135deg,#f7e98e,#c8a84b);color:var(--black)}
+.rank-item[data-rank="2"] .rank-num{background:linear-gradient(135deg,#d4dde4,#9baab5);color:var(--black)}
+.rank-item[data-rank="3"] .rank-num{background:linear-gradient(135deg,#e8c4a0,#b87333);color:var(--white)}
+.rank-item[data-rank="4"] .rank-num,
+.rank-item[data-rank="5"] .rank-num,
+.rank-item[data-rank="6"] .rank-num,
+.rank-item[data-rank="7"] .rank-num,
+.rank-item[data-rank="8"] .rank-num,
+.rank-item[data-rank="9"] .rank-num,
+.rank-item[data-rank="10"] .rank-num{background:var(--bg);color:var(--text-light)}
+
+/* サムネイル */
+.rank-thumb{width:120px;min-height:68px;flex-shrink:0;background:#ece9e2;position:relative;overflow:hidden}
+.rank-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.rank-item:hover .rank-thumb img{transform:scale(1.05)}
+.rank-thumb .no-img{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.3rem;opacity:.2}
+
+/* 本文 */
+.rank-body{flex:1;padding:16px 20px;display:flex;align-items:center;gap:16px;min-width:0}
+.rank-content{flex:1;min-width:0}
+.rank-ep{font-size:.62rem;font-weight:700;letter-spacing:.1em;color:var(--gold-dark);margin-bottom:4px}
+.rank-title{font-family:var(--font-a);font-size:1.02rem;font-weight:900;color:var(--black);line-height:1.35;margin-bottom:6px}
+.rank-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rank-artist{font-size:.72rem;padding:3px 12px;border-radius:12px;border:1px solid var(--border);color:var(--text-sub);background:var(--bg)}
+.rank-tag{font-size:.6rem;font-weight:700;padding:3px 8px;border-radius:3px}
+.rank-tag.laugh{background:#fef3c7;color:#92400e}
+.rank-tag.feel{background:#dbeafe;color:#1e40af}
+.rank-tag.shock{background:#fee2e2;color:#991b1b}
+.rank-tag.legend{background:#f3e8ff;color:#6b21a8}
+.rank-tag.skill{background:#d1fae5;color:#065f46}
+
+/* CTA矢印 */
+.rank-cta{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 4px}
+.rank-cta-link{display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;padding:9px 18px;border-radius:5px;font-size:.74rem;font-weight:700;white-space:nowrap;transition:background .25s}
+.rank-item:hover .rank-cta-link{background:var(--red-dark)}
+.rank-cta-year{font-size:.6rem;color:var(--text-light);margin-top:2px}
+
+/* ── 下部導線 ── */
+.bottom-nav{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px) clamp(60px,10vw,90px);display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.bottom-link{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:6px;font-size:.8rem;font-weight:700;border:1.5px solid var(--border);color:var(--text-sub);background:var(--white);transition:all .25s}
+.bottom-link:hover{border-color:var(--text);color:var(--black)}
+
+/* ── フッター ── */
+footer{background:var(--black);color:#888;padding:32px 0}
+.ft-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
+footer p{font-size:.68rem}
+footer a{color:#888;transition:color .3s}
+footer a:hover{color:var(--gold-light)}
+
+/* ── フェードイン ── */
+.fi{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
+.fi.v{opacity:1;transform:translateY(0)}
+
+/* ── レスポンシブ ── */
+@media(max-width:960px){
+  nav a:not(.ncta){display:none}
+  .hbr{display:block}
+  .tab-bar{position:static}
+  .rank-thumb{width:90px}
+  .rank-cta-link{padding:8px 12px;font-size:.7rem}
+  .panel-img{max-width:180px}
+}
+@media(max-width:640px){
+  .tab .tab-label{display:none}
+  .rank-num{min-width:48px}
+  .rank-num .num{font-size:1.5rem}
+  .rank-thumb{width:72px}
+  .rank-body{padding:12px 14px;gap:10px}
+  .rank-title{font-size:.92rem}
+  .rank-cta-link{display:none}
+  .rank-item{cursor:pointer}
+  .panel-head{flex-direction:column;align-items:flex-start}
+  .panel-img{max-width:100%;width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header>
+  <div class="h-inner">
+    <a href="index.html" class="logo">
+      <img src="assets/logos/eigyo1_logo.png" alt="営業-1グランプリ ロゴ" onerror="this.style.display='none'">
+    </a>
+    <nav>
+      <a href="index.html">TOP</a>
+      <a href="timeline.html">年表</a>
+      <a href="episodes.html">エピソード</a>
+      <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ncta">イベント出演依頼</a>
+      <button class="hbr" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<div class="mnav" id="mn">
+  <a href="index.html">TOP</a>
+  <a href="timeline.html">シリーズ年表</a>
+  <a href="episodes.html">エピソード一覧</a>
+  <a href="scenes.html">名場面</a>
+  <a href="ranking.html">ランキング</a>
+  <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
+</div>
+
+<div class="page-wrap">
+
+  <!-- パンくず -->
+  <div class="breadcrumb">
+    <div class="bc-inner">
+      <a href="index.html">TOP</a>
+      <span class="bc-sep">›</span>
+      <span class="current">ランキング</span>
+    </div>
+  </div>
+
+  <!-- ページヒーロー -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-label">RANKING</div>
+      <h1 class="page-hero-title">ランキング</h1>
+      <p class="page-hero-desc">出演回数・再生数・名場面の3つのランキングで、営業-1グランプリのすごさを数字で実感できます。</p>
+    </div>
+  </div>
+
+  <!-- タブバー -->
+  <div class="tab-bar">
+    <div class="tab-bar-inner">
+      <button class="tab active" onclick="switchTab('eigyo',this)">
+        <span class="tab-ico">🏆</span>
+        <span class="tab-label">営業出演回数</span>
+      </button>
+      <button class="tab" onclick="switchTab('gakuen',this)">
+        <span class="tab-ico">🎓</span>
+        <span class="tab-label">学園祭出演回数</span>
+      </button>
+      <button class="tab" onclick="switchTab('scenes',this)">
+        <span class="tab-ico">🎬</span>
+        <span class="tab-label">名場面ランキング</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- メインエリア -->
+  <div class="main-area">
+
+    <!-- ===========================
+         ① 営業出演回数ランキング
+         =========================== -->
+    <div class="ranking-panel active" id="panel-eigyo">
+      <div class="panel-head fi">
+        <div class="panel-head-text">
+          <div class="panel-label">RANKING 01</div>
+          <div class="panel-title">営業出演回数 TOP 10</div>
+          <div class="panel-desc">2023〜2025年シーズンの合計営業出演回数。ジョイマンが3年連続で首位を独走。</div>
+        </div>
+        <div class="panel-img">
+          <img src="ranking/営業出演回数ランキングTOP10.jpg" alt="営業出演回数ランキングTOP10"
+               onerror="this.style.display='none'">
+        </div>
+      </div>
+      <div class="rank-list">
+
+        <a href="episode-detail.html?id=5" class="rank-item fi" data-rank="1">
+          <div class="rank-num"><span class="num">1</span><span class="num-label">位</span></div>
+          <div class="rank-thumb">
+            <img src="ranking/ジョイマン.jpg" alt="ジョイマン" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="no-img" style="display:none">🎤</div>
+          </div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">3年連続王者 ／ 2023・2024・2025</div>
+              <div class="rank-title">ジョイマン</div>
+              <div class="rank-meta">
+                <span class="rank-artist">ジョイマン</span>
+                <span class="rank-tag legend">伝説</span>
+              </div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">114回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=3" class="rank-item fi" data-rank="2">
+          <div class="rank-num"><span class="num">2</span><span class="num-label">位</span></div>
+          <div class="rank-thumb">
+            <img src="" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="no-img">🎤</div>
+          </div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2023・2024・2025シーズン</div>
+              <div class="rank-title">鬼越トマホーク</div>
+              <div class="rank-meta">
+                <span class="rank-artist">鬼越トマホーク</span>
+                <span class="rank-tag laugh">爆笑</span>
+              </div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">87回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=5" class="rank-item fi" data-rank="3">
+          <div class="rank-num"><span class="num">3</span><span class="num-label">位</span></div>
+          <div class="rank-thumb">
+            <img src="" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="no-img">🎤</div>
+          </div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2023・2024・2025シーズン</div>
+              <div class="rank-title">グランジ 大</div>
+              <div class="rank-meta">
+                <span class="rank-artist">グランジ</span>
+                <span class="rank-tag skill">神対応</span>
+              </div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">76回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=3" class="rank-item fi" data-rank="4">
+          <div class="rank-num"><span class="num">4</span><span class="num-label">位</span></div>
+          <div class="rank-thumb"><div class="no-img">🎤</div></div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2024・2025シーズン</div>
+              <div class="rank-title">おばたのお兄さん</div>
+              <div class="rank-meta"><span class="rank-artist">おばたのお兄さん</span></div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">63回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=5" class="rank-item fi" data-rank="5">
+          <div class="rank-num"><span class="num">5</span><span class="num-label">位</span></div>
+          <div class="rank-thumb"><div class="no-img">🎤</div></div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2024・2025シーズン</div>
+              <div class="rank-title">バンビーノ</div>
+              <div class="rank-meta"><span class="rank-artist">バンビーノ</span></div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">58回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=3" class="rank-item fi" data-rank="6">
+          <div class="rank-num"><span class="num">6</span><span class="num-label">位</span></div>
+          <div class="rank-thumb"><div class="no-img">🎤</div></div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2023・2024シーズン</div>
+              <div class="rank-title">レギュラー</div>
+              <div class="rank-meta"><span class="rank-artist">レギュラー</span></div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">52回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=1" class="rank-item fi" data-rank="7">
+          <div class="rank-num"><span class="num">7</span><span class="num-label">位</span></div>
+          <div class="rank-thumb"><div class="no-img">🎤</div></div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2023・2025シーズン</div>
+              <div class="rank-title">女と男</div>
+              <div class="rank-meta"><span class="rank-artist">女と男</span></div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">44回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=4" class="rank-item fi" data-rank="8">
+          <div class="rank-num"><span class="num">8</span><span class="num-label">位</span></div>
+          <div class="rank-thumb"><div class="no-img">🎤</div></div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2025シーズン</div>
+              <div class="rank-title">石川ことみ</div>
+              <div class="rank-meta"><span class="rank-artist">石川ことみ</span></div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">38回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=2" class="rank-item fi" data-rank="9">
+          <div class="rank-num"><span class="num">9</span><span class="num-label">位</span></div>
+          <div class="rank-thumb"><div class="no-img">🎤</div></div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2024シーズン</div>
+              <div class="rank-title">ダイアン</div>
+              <div class="rank-meta"><span class="rank-artist">ダイアン</span></div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">31回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=1" class="rank-item fi" data-rank="10">
+          <div class="rank-num"><span class="num">10</span><span class="num-label">位</span></div>
+          <div class="rank-thumb"><div class="no-img">🎤</div></div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2023シーズン</div>
+              <div class="rank-title">かまいたち</div>
+              <div class="rank-meta"><span class="rank-artist">かまいたち</span></div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">24回出演</span>
+            </div>
+          </div>
+        </a>
+
+      </div><!-- /rank-list -->
+    </div><!-- /panel-eigyo -->
+
+
+    <!-- ===========================
+         ② 学園祭出演回数ランキング
+         =========================== -->
+    <div class="ranking-panel" id="panel-gakuen">
+      <div class="panel-head fi">
+        <div class="panel-head-text">
+          <div class="panel-label">RANKING 02</div>
+          <div class="panel-title">学園祭出演回数 TOP 10</div>
+          <div class="panel-desc">学園祭部門の累計出演回数。2025年にスカチャンが悲願の初制覇を果たした。</div>
+        </div>
+        <div class="panel-img">
+          <img src="ranking/学園祭出演回数ランキングTOP10.jpg" alt="学園祭出演回数ランキングTOP10"
+               onerror="this.style.display='none'">
+        </div>
+      </div>
+      <div class="rank-list">
+
+        <a href="episode-detail.html?id=5" class="rank-item fi" data-rank="1">
+          <div class="rank-num"><span class="num">1</span><span class="num-label">位</span></div>
+          <div class="rank-thumb">
+            <img src="ranking/スカチャン　一位.jpg" alt="スカチャン" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="no-img" style="display:none">🎓</div>
+          </div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2025年 学園祭部門王者</div>
+              <div class="rank-title">スカチャン</div>
+              <div class="rank-meta">
+                <span class="rank-artist">スカチャン</span>
+                <span class="rank-tag feel">感動</span>
+              </div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">20回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=4" class="rank-item fi" data-rank="2">
+          <div class="rank-num"><span class="num">2</span><span class="num-label">位</span></div>
+          <div class="rank-thumb"><div class="no-img">🎓</div></div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2024・2025シーズン</div>
+              <div class="rank-title">おばたのお兄さん</div>
+              <div class="rank-meta"><span class="rank-artist">おばたのお兄さん</span></div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">17回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=3" class="rank-item fi" data-rank="3">
+          <div class="rank-num"><span class="num">3</span><span class="num-label">位</span></div>
+          <div class="rank-thumb"><div class="no-img">🎓</div></div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2023・2024シーズン</div>
+              <div class="rank-title">ダイアン</div>
+              <div class="rank-meta"><span class="rank-artist">ダイアン</span></div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">14回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=5" class="rank-item fi" data-rank="4">
+          <div class="rank-num"><span class="num">4</span><span class="num-label">位</span></div>
+          <div class="rank-thumb"><div class="no-img">🎓</div></div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2025シーズン</div>
+              <div class="rank-title">バンビーノ</div>
+              <div class="rank-meta"><span class="rank-artist">バンビーノ</span></div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">12回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=4" class="rank-item fi" data-rank="5">
+          <div class="rank-num"><span class="num">5</span><span class="num-label">位</span></div>
+          <div class="rank-thumb"><div class="no-img">🎓</div></div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2024・2025シーズン</div>
+              <div class="rank-title">石川ことみ</div>
+              <div class="rank-meta"><span class="rank-artist">石川ことみ</span></div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">10回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=3" class="rank-item fi" data-rank="6">
+          <div class="rank-num"><span class="num">6</span><span class="num-label">位</span></div>
+          <div class="rank-thumb"><div class="no-img">🎓</div></div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2023・2024シーズン</div>
+              <div class="rank-title">ジョイマン</div>
+              <div class="rank-meta"><span class="rank-artist">ジョイマン</span></div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">9回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=2" class="rank-item fi" data-rank="7">
+          <div class="rank-num"><span class="num">7</span><span class="num-label">位</span></div>
+          <div class="rank-thumb"><div class="no-img">🎓</div></div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2024シーズン</div>
+              <div class="rank-title">かまいたち</div>
+              <div class="rank-meta"><span class="rank-artist">かまいたち</span></div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">8回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=1" class="rank-item fi" data-rank="8">
+          <div class="rank-num"><span class="num">8</span><span class="num-label">位</span></div>
+          <div class="rank-thumb"><div class="no-img">🎓</div></div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2023シーズン</div>
+              <div class="rank-title">鬼越トマホーク</div>
+              <div class="rank-meta"><span class="rank-artist">鬼越トマホーク</span></div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">7回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=3" class="rank-item fi" data-rank="9">
+          <div class="rank-num"><span class="num">9</span><span class="num-label">位</span></div>
+          <div class="rank-thumb"><div class="no-img">🎓</div></div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2024シーズン</div>
+              <div class="rank-title">グランジ 大</div>
+              <div class="rank-meta"><span class="rank-artist">グランジ</span></div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">6回出演</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=5" class="rank-item fi" data-rank="10">
+          <div class="rank-num"><span class="num">10</span><span class="num-label">位</span></div>
+          <div class="rank-thumb"><div class="no-img">🎓</div></div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">2025シーズン</div>
+              <div class="rank-title">女と男</div>
+              <div class="rank-meta"><span class="rank-artist">女と男</span></div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">5回出演</span>
+            </div>
+          </div>
+        </a>
+
+      </div><!-- /rank-list -->
+    </div><!-- /panel-gakuen -->
+
+
+    <!-- ===========================
+         ③ 名場面ランキング
+         =========================== -->
+    <div class="ranking-panel" id="panel-scenes">
+      <div class="panel-head fi">
+        <div class="panel-head-text">
+          <div class="panel-label">RANKING 03</div>
+          <div class="panel-title">名場面ランキング</div>
+          <div class="panel-desc">シリーズ全話を通じた名場面。SNS拡散数・スタッフ投票・視聴者アンケートをもとに選定。</div>
+        </div>
+      </div>
+      <div class="rank-list">
+
+        <a href="episode-detail.html?id=5" class="rank-item fi" data-rank="1">
+          <div class="rank-num"><span class="num">1</span><span class="num-label">位</span></div>
+          <div class="rank-thumb">
+            <img src="scenes/22.png" alt="ジョイマン3連覇" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="no-img" style="display:none">🎬</div>
+          </div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">第5回 ― 2025 総決算スペシャル</div>
+              <div class="rank-title">ジョイマンが3連覇を達成した瞬間</div>
+              <div class="rank-meta">
+                <span class="rank-artist">ジョイマン</span>
+                <span class="rank-tag legend">伝説</span>
+              </div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">2025年</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=5" class="rank-item fi" data-rank="2">
+          <div class="rank-num"><span class="num">2</span><span class="num-label">位</span></div>
+          <div class="rank-thumb">
+            <img src="scenes/19.png" alt="書籍化発表" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="no-img" style="display:none">🎬</div>
+          </div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">第5回 ― 2025 総決算スペシャル</div>
+              <div class="rank-title">「このマニュアル、本になります」の衝撃発表</div>
+              <div class="rank-meta">
+                <span class="rank-artist">八木真澄</span>
+                <span class="rank-tag laugh">爆笑</span>
+              </div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">2025年</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=5" class="rank-item fi" data-rank="3">
+          <div class="rank-num"><span class="num">3</span><span class="num-label">位</span></div>
+          <div class="rank-thumb">
+            <img src="scenes/21.png" alt="スカチャン" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="no-img" style="display:none">🎬</div>
+          </div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">第5回 ― 2025 総決算スペシャル</div>
+              <div class="rank-title">スカチャン、芸歴18年目の優勝コメント</div>
+              <div class="rank-meta">
+                <span class="rank-artist">スカチャン</span>
+                <span class="rank-tag feel">感動</span>
+              </div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">2025年</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=5" class="rank-item fi" data-rank="4">
+          <div class="rank-num"><span class="num">4</span><span class="num-label">位</span></div>
+          <div class="rank-thumb">
+            <img src="scenes/20.png" alt="ガチギレ疑惑" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="no-img" style="display:none">🎬</div>
+          </div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">第5回 ― 2025 総決算スペシャル</div>
+              <div class="rank-title">「ガチギレ」疑惑が生まれた瞬間</div>
+              <div class="rank-meta">
+                <span class="rank-artist">鬼越トマホーク</span>
+                <span class="rank-tag shock">衝撃</span>
+              </div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">2025年</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=3" class="rank-item fi" data-rank="5">
+          <div class="rank-num"><span class="num">5</span><span class="num-label">位</span></div>
+          <div class="rank-thumb">
+            <img src="scenes/18.png" alt="2024ジョイマン" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="no-img" style="display:none">🎬</div>
+          </div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">第3回 ― 2024 総決算スペシャル</div>
+              <div class="rank-title">ジョイマン、前人未到の2連覇へ</div>
+              <div class="rank-meta">
+                <span class="rank-artist">ジョイマン</span>
+                <span class="rank-tag legend">伝説</span>
+              </div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">2024年</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=3" class="rank-item fi" data-rank="6">
+          <div class="rank-num"><span class="num">6</span><span class="num-label">位</span></div>
+          <div class="rank-thumb">
+            <img src="scenes/17.png" alt="八木神対応" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="no-img" style="display:none">🎬</div>
+          </div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">第3回 ― 2024 総決算スペシャル</div>
+              <div class="rank-title">八木真澄、まさかのアクシデントを神対応</div>
+              <div class="rank-meta">
+                <span class="rank-artist">八木真澄</span>
+                <span class="rank-tag skill">神対応</span>
+              </div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">2024年</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=1" class="rank-item fi" data-rank="7">
+          <div class="rank-num"><span class="num">7</span><span class="num-label">位</span></div>
+          <div class="rank-thumb">
+            <img src="scenes/9.png" alt="初代王者" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="no-img" style="display:none">🎬</div>
+          </div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">第1回 ― 2023（DC版）</div>
+              <div class="rank-title">初代・営業-1グランプリ王者の誕生</div>
+              <div class="rank-meta">
+                <span class="rank-artist">ジョイマン</span>
+                <span class="rank-tag legend">伝説</span>
+              </div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">2023年</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=1" class="rank-item fi" data-rank="8">
+          <div class="rank-num"><span class="num">8</span><span class="num-label">位</span></div>
+          <div class="rank-thumb">
+            <img src="scenes/8.png" alt="八木マニュアル初公開" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="no-img" style="display:none">🎬</div>
+          </div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">第1回 ― 2023（DC版）</div>
+              <div class="rank-title">「八木マニュアル」初公開の瞬間</div>
+              <div class="rank-meta">
+                <span class="rank-artist">八木真澄</span>
+                <span class="rank-tag laugh">爆笑</span>
+              </div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">2023年</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=4" class="rank-item fi" data-rank="9">
+          <div class="rank-num"><span class="num">9</span><span class="num-label">位</span></div>
+          <div class="rank-thumb">
+            <img src="scenes/15.png" alt="上半期名場面" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="no-img" style="display:none">🎬</div>
+          </div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">第4回 ― 2025 上半期スペシャル</div>
+              <div class="rank-title">上半期No.1が確定した瞬間の大逆転劇</div>
+              <div class="rank-meta">
+                <span class="rank-artist">鬼越トマホーク</span>
+                <span class="rank-tag shock">衝撃</span>
+              </div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">2025年</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="episode-detail.html?id=2" class="rank-item fi" data-rank="10">
+          <div class="rank-num"><span class="num">10</span><span class="num-label">位</span></div>
+          <div class="rank-thumb">
+            <img src="scenes/6.png" alt="2024上半期" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="no-img" style="display:none">🎬</div>
+          </div>
+          <div class="rank-body">
+            <div class="rank-content">
+              <div class="rank-ep">第2回 ― 2024 上半期SP（DC版）</div>
+              <div class="rank-title">スタジオが静まり返った「沈黙10秒」</div>
+              <div class="rank-meta">
+                <span class="rank-artist">グランジ 大</span>
+                <span class="rank-tag feel">感動</span>
+              </div>
+            </div>
+            <div class="rank-cta">
+              <span class="rank-cta-link">この回を見る →</span>
+              <span class="rank-cta-year">2024年</span>
+            </div>
+          </div>
+        </a>
+
+      </div><!-- /rank-list -->
+    </div><!-- /panel-scenes -->
+
+  </div><!-- /main-area -->
+
+  <!-- 下部導線 -->
+  <div class="bottom-nav">
+    <a href="scenes.html" class="bottom-link">名場面ギャラリー</a>
+    <a href="episodes.html" class="bottom-link">エピソード一覧</a>
+    <a href="timeline.html" class="bottom-link">シリーズ年表</a>
+    <a href="index.html" class="bottom-link">TOPへ戻る</a>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<footer>
+  <div class="ft-inner">
+    <p>© 営業-1グランプリ 公式アーカイブ｜BSよしもと</p>
+    <div style="display:flex;gap:20px">
+      <a href="index.html">TOP</a>
+      <a href="episodes.html">エピソード一覧</a>
+      <a href="scenes.html">名場面</a>
+      <a href="ranking.html">ランキング</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── タブ切替 ── */
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+
+  document.querySelectorAll('.ranking-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+
+  /* パネル切り替え時にフェードインを再トリガー */
+  document.querySelectorAll('#panel-' + id + ' .fi').forEach(el => {
+    el.classList.remove('v');
+    obs.observe(el);
+  });
+}
+
+/* ── フェードイン ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); obs.unobserve(e.target); } });
+}, { threshold: .06, rootMargin: '0px 0px -16px 0px' });
+document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+/* ── スマホ：カード全体タップで遷移 ── */
+document.querySelectorAll('.rank-item').forEach(item => {
+  item.addEventListener('click', function(e) {
+    if (e.target.closest('a') && e.target.closest('a') !== this) return;
+    const href = this.getAttribute('href');
+    if (href) window.location.href = href;
+  });
+});
+
+/* ── ハンバーガー ── */
+document.querySelectorAll('.mnav a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('mn').classList.remove('open'));
+});
+</script>
+
+</body>
+</html>
