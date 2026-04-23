@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>番組スタッフが選ぶバズり動画ベスト100｜営業-1グランプリ 公式アーカイブ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+<style>
+/* ── 変数・リセット ── */
+:root{
+  --white:#fff;--bg:#faf9f6;--bg-warm:#f5f2ec;
+  --text:#222;--text-sub:#555;--text-light:#888;
+  --gold:#b8922e;--gold-light:#f0d77b;--gold-dark:#8a6d1a;
+  --red:#d72631;--red-dark:#b51d26;--black:#1a1a1a;
+  --border:#e8e4dc;--shadow:rgba(0,0,0,.08);
+  --font:'Noto Sans JP',sans-serif;--font-a:'Zen Kaku Gothic New',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ── ヘッダー ── */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.h-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center}
+.logo img{height:52px;width:auto;object-fit:contain}
+nav{display:flex;align-items:center;gap:16px}
+nav a{color:var(--text-sub);font-size:.74rem;font-weight:700;transition:color .3s}
+nav a:hover{color:var(--red)}
+.ncta{background:var(--red);color:#fff!important;padding:8px 18px;font-weight:700!important;font-size:.72rem!important;border-radius:4px;transition:background .3s!important}
+.ncta:hover{background:var(--red-dark)!important}
+.hbr{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.hbr span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0}
+.mnav{display:none;position:fixed;top:68px;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:16px 24px;border-bottom:1px solid var(--border)}
+.mnav.open{display:block}
+.mnav a{display:block;padding:12px 0;color:var(--text-sub);font-size:.85rem;border-bottom:1px solid #eee}
+
+/* ── パンくず ── */
+.breadcrumb{background:var(--white);border-bottom:1px solid var(--border);padding:10px 0}
+.bc-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bc-inner a,.bc-inner span{font-size:.72rem;color:var(--text-light)}
+.bc-inner a:hover{color:var(--red)}
+.bc-sep{color:#ccc}
+.bc-inner .current{color:var(--text-sub);font-weight:700}
+
+/* ── ページヒーロー ── */
+.page-hero{background:var(--black);padding:clamp(36px,6vw,64px) 0 clamp(28px,5vw,48px)}
+.page-hero-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.page-hero-label{font-size:.64rem;letter-spacing:.24em;color:var(--gold-light);font-weight:700;margin-bottom:12px}
+.page-hero-title{font-family:var(--font-a);font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;color:var(--white);line-height:1.25;margin-bottom:12px}
+.page-hero-desc{font-size:.88rem;color:#999;max-width:600px;line-height:1.85}
+
+/* ── 年セクション切替タブ ── */
+.year-tabs{background:var(--white);border-bottom:2px solid var(--border);position:sticky;top:68px;z-index:900}
+.year-tabs-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;gap:0}
+.ytab{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;font-size:.84rem;font-weight:700;color:var(--text-light);border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer;transition:color .2s,border-color .2s;white-space:nowrap}
+.ytab:hover{color:var(--text)}
+.ytab.active{color:var(--red);border-bottom-color:var(--red)}
+.ytab .ytab-count{font-size:.64rem;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:2px 8px;margin-left:4px;color:var(--text-light)}
+.ytab.active .ytab-count{background:rgba(215,38,49,.08);border-color:rgba(215,38,49,.25);color:var(--red)}
+
+/* ── メイン ── */
+.page-wrap{padding-top:68px}
+.main-area{max-width:1180px;margin:0 auto;padding:clamp(36px,5vw,56px) clamp(16px,4vw,40px) clamp(60px,10vw,100px)}
+
+/* ── 年セクション ── */
+.year-section{display:none}
+.year-section.active{display:block}
+.year-head{display:flex;align-items:baseline;gap:14px;margin-bottom:28px;padding-bottom:14px;border-bottom:2px solid var(--border)}
+.year-label{font-family:var(--font-a);font-size:2rem;font-weight:900;color:var(--black)}
+.year-sub{font-size:.8rem;color:var(--text-sub)}
+.year-count{font-size:.72rem;color:var(--text-light);margin-left:auto;font-weight:700}
+
+/* ── カードグリッド ── */
+/*
+  将来 2024 / 2025 を追加する際は、同じ .buzz-grid + .buzz-card 構造で
+  新しい .year-section を追加し、.ytab を1件追加するだけでOK。
+*/
+.buzz-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+/* ── バズりカード ── */
+.buzz-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:box-shadow .3s,transform .3s;
+}
+.buzz-card:hover{
+  box-shadow:0 10px 36px rgba(0,0,0,.13);
+  transform:translateY(-4px);
+}
+
+/* サムネイル */
+.bc-thumb{
+  position:relative;
+  aspect-ratio:16/9;
+  background:#ece9e2;
+  overflow:hidden;
+}
+.bc-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .4s;
+}
+.buzz-card:hover .bc-thumb img{transform:scale(1.04)}
+
+/* 番号バッジ */
+.bc-num{
+  position:absolute;
+  top:8px;left:8px;
+  font-family:var(--font-a);
+  font-size:.68rem;font-weight:900;
+  background:rgba(0,0,0,.65);
+  color:#fff;
+  padding:3px 9px;
+  border-radius:4px;
+  letter-spacing:.04em;
+  backdrop-filter:blur(4px);
+}
+
+/* プレイオーバーレイ */
+.bc-overlay{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,.35);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .3s;
+}
+.buzz-card:hover .bc-overlay{opacity:1}
+.bc-play{
+  width:48px;height:48px;
+  background:rgba(215,38,49,.9);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;
+  padding-left:3px; /* 三角のずれ補正 */
+}
+
+/* 画像なし時のフォールバック */
+.bc-fallback{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:6px;color:var(--text-light);font-size:.72rem;
+}
+.bc-fallback .ico{font-size:2rem;opacity:.2}
+
+/* カード本文 */
+.bc-body{
+  padding:14px 16px 16px;
+  display:flex;flex-direction:column;
+  gap:10px;flex:1;
+}
+.bc-title{
+  font-size:.88rem;font-weight:700;
+  color:var(--black);line-height:1.5;
+  /* 3行クランプ */
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+.bc-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  background:var(--red);color:#fff;
+  padding:9px 16px;
+  border-radius:5px;
+  font-size:.76rem;font-weight:700;
+  transition:background .25s;
+  margin-top:auto;
+}
+.bc-btn:hover{background:var(--red-dark)}
+
+/* ── 下部導線 ── */
+.bottom-nav{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px) clamp(60px,10vw,90px);display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.bottom-link{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:6px;font-size:.8rem;font-weight:700;border:1.5px solid var(--border);color:var(--text-sub);background:var(--white);transition:all .25s}
+.bottom-link:hover{border-color:var(--text);color:var(--black)}
+
+/* ── フッター ── */
+footer{background:var(--black);color:#888;padding:32px 0}
+.ft-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
+footer p{font-size:.68rem}
+footer a{color:#888;transition:color .3s}
+footer a:hover{color:var(--gold-light)}
+
+/* ── フェードイン ── */
+.fi{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
+.fi.v{opacity:1;transform:translateY(0)}
+
+/* ── レスポンシブ ── */
+@media(max-width:1100px){
+  .buzz-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:960px){
+  nav a:not(.ncta){display:none}
+  .hbr{display:block}
+  .year-tabs{position:static}
+  .buzz-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:540px){
+  .buzz-grid{grid-template-columns:1fr}
+  .ytab{padding:12px 18px;font-size:.78rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header>
+  <div class="h-inner">
+    <a href="index.html" class="logo">
+      <img src="assets/logos/eigyo1_logo.png" alt="営業-1グランプリ ロゴ" onerror="this.style.display='none'">
+    </a>
+    <nav>
+      <a href="index.html#lv">最新情報</a>
+      <a href="index.html#about">営業-１グランプリとは？</a>
+      <a href="index.html#video">番組動画</a>
+      <a href="goods.html">番組関連グッズ</a>
+      <a href="timeline.html">シリーズ年表</a>
+      <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ncta">イベント出演依頼</a>
+      <button class="hbr" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<div class="mnav" id="mn">
+  <a href="index.html">TOP</a>
+  <a href="index.html#about">営業-１グランプリとは？</a>
+  <a href="index.html#video">番組動画</a>
+  <a href="goods.html">番組関連グッズ</a>
+  <a href="timeline.html">シリーズ年表</a>
+  <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
+</div>
+
+<div class="page-wrap">
+
+  <!-- パンくず -->
+  <div class="breadcrumb">
+    <div class="bc-inner">
+      <a href="index.html">TOP</a>
+      <span class="bc-sep">›</span>
+      <span class="current">番組スタッフが選ぶバズり動画ベスト100</span>
+    </div>
+  </div>
+
+  <!-- ページヒーロー -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-label">BUZZ VIDEOS</div>
+      <h1 class="page-hero-title">番組スタッフが選ぶ<br>バズり動画ベスト100</h1>
+      <p class="page-hero-desc">【ディレクターズカット版】営業-1グランプリ2023 より厳選。現場でしか生まれなかった名場面・名言・爆笑シーンを全公開。</p>
+    </div>
+  </div>
+
+  <!-- 年切替タブ -->
+  <div class="year-tabs">
+    <div class="year-tabs-inner">
+      <button class="ytab active" onclick="switchYear('2023',this)">
+        2023年
+        <span class="ytab-count">22件</span>
+      </button>
+      <!-- 将来追加: 2024年・2025年タブをここに追加 -->
+      <!--
+      <button class="ytab" onclick="switchYear('2024',this)">
+        2024年
+        <span class="ytab-count">準備中</span>
+      </button>
+      -->
+    </div>
+  </div>
+
+  <!-- メインエリア -->
+  <div class="main-area">
+
+    <!-- ════════════════════════════
+         2023年セクション
+         ════════════════════════════
+         将来2024・2025を追加する場合:
+         同じ構造の .year-section を id="sec-2024" で追加し
+         タブボタンを year-tabs に追加するだけ。
+         ════════════════════════════ -->
+    <div class="year-section active" id="sec-2023">
+
+      <div class="year-head fi">
+        <span class="year-label">2023</span>
+        <span class="year-sub">ディレクターズカット版 バズりシーン</span>
+        <span class="year-count">全22件</span>
+      </div>
+
+      <div class="buzz-grid">
+
+
+        <!-- 01 -->
+        <a href="https://youtu.be/QnpCrXuogpw?si=1eUAX6z4rNizPXYh" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz01.jpg" alt="バズり動画01"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#01</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「八木さんが後輩たちのガヤに負けてます」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 02 -->
+        <a href="https://youtu.be/U9Vf_NRCwSw?si=HGYHiOues3NTPoPK" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz02.jpg" alt="バズり動画02"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#02</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「全然違うやつ撮ってた」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 03 -->
+        <a href="https://youtu.be/ooPsIZVo5DE?si=_6ZGNLY4mSXZ9H-G" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz03.jpg" alt="バズり動画03"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#03</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「苦悩と自由のブルース魂 犬井ヒロシ」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 04 -->
+        <a href="https://youtu.be/Yg2g-fpaLuA?si=ev9gjq0qc-vHlV8p" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz04.jpg" alt="バズり動画04"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#04</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「ちゃんと犬!!」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 05 -->
+        <a href="https://youtu.be/9CSC8e9rtLc?si=uS5PPFCjwSfNOlQ7" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz05.jpg" alt="バズり動画05"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#05</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「楽屋のたちふるまい」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 06 -->
+        <a href="https://youtu.be/WbbQns7GR1E?si=L8EMGDNvCaoGMuXL" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz06.jpg" alt="バズり動画06"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#06</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「お前ボッコボコだよ」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 07 -->
+        <a href="https://youtu.be/oVtmAPVs6Sw?si=HMcIH9jUyuZjwjGl" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz07.jpg" alt="バズり動画07"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#07</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「僕の顔ファンの人が」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 08 -->
+        <a href="https://youtu.be/WQtga3IAOS8?si=BVN9EDce1SZ-xuCl" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz08.jpg" alt="バズり動画08"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#08</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「全然間に合わなかった」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 09 -->
+        <a href="https://youtu.be/qSrONQDlPGA?si=LvPdTY2ysaRIAHhe" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz09.jpg" alt="バズり動画09"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#09</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「未来からきた俺なんすよ」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 10 -->
+        <a href="https://youtu.be/QFNizgoBkHE?si=zaVKKlST7GyIyfX_" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz10.jpg" alt="バズり動画10"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#10</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「同率がガォ〜ちゃん」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 11 -->
+        <a href="https://youtu.be/4ZP5RsnTr0I?si=4_K1xwez6cv8FQaj" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz11.jpg" alt="バズり動画11"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#11</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「やっぱPC管理が1番いい」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 12 -->
+        <a href="https://youtu.be/yPnA895K3Z8?si=i_hAAdK0u8z3tO1E" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz12.jpg" alt="バズり動画12"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#12</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「たいした人間じゃない」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 13 -->
+        <a href="https://youtu.be/c1giJ4dNi2M?si=7tB04gHzbeqtN0vJ" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz13.jpg" alt="バズり動画13"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#13</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「俺の出番、何分？」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 14 -->
+        <a href="https://youtu.be/rjRcK8z1zHw?si=fYk7VlWQSXnQHWd-" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz14.jpg" alt="バズり動画14"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#14</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「これ、一本前の電車で帰れるんちゃう？」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 15 -->
+        <a href="https://youtu.be/riYXMPG_QhQ?si=UA8B1XfLwbN6sRE7" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz15.jpg" alt="バズり動画15"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#15</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「帰りタクシー呼んどいて」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 16 -->
+        <a href="https://youtu.be/M8nAKpe9cJs?si=3OZW2fUh9n2zbT4b" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz16.jpg" alt="バズり動画16"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#16</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「サインをなかなか書かない。」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 17 -->
+        <a href="https://youtu.be/dwuSFi3XrDk?si=ssyryTLoWUKeLRjT" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz17.jpg" alt="バズり動画17"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#17</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「出番時間を巻いて降りてきてはいけない。」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 18 -->
+        <a href="https://youtu.be/dQ6_UvkJdyI?si=5RQyJ8uXsTwdF-nf" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz18.jpg" alt="バズり動画18"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#18</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「空港や駅の集合場所で気配を消さない」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 19 -->
+        <a href="https://youtu.be/sjKHRHyh5xk?si=N8Kt4Ur-E7qgTVdx" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz19.jpg" alt="バズり動画19"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#19</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「これはデカすぎる」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 20 -->
+        <a href="https://youtu.be/VaEWvaGE95U?si=tlMJMpcdfSdxmGhj" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz20.jpg" alt="バズり動画20"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#20</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「あそこはやっぱ本イキ」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 21 -->
+        <a href="https://youtu.be/H1-WW5lt65E?si=MckBV9kRPwEE5YQq" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz21.jpg" alt="バズり動画21"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#21</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「餅つきで餅が来なかった」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+        <!-- 22 -->
+        <a href="https://youtu.be/hzi2Po7TiEw?si=HeVzWopkbOq7sIML" target="_blank" rel="noopener" class="buzz-card fi">
+          <div class="bc-thumb">
+            <img src="images/buzz/2023buzz22.jpg" alt="バズり動画22"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.nextElementSibling.nextElementSibling.style.display='flex'">
+            <div class="bc-overlay"><div class="bc-play">▶</div></div>
+            <div class="bc-fallback" style="display:none"><span class="ico">🎬</span><span>画像準備中</span></div>
+            <span class="bc-num">#22</span>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title">「レンタサイクルで走ってた」</div>
+            <span class="bc-btn">▶ 動画を見る</span>
+          </div>
+        </a>
+
+      </div><!-- /buzz-grid -->
+    </div><!-- /sec-2023 -->
+
+    <!-- 将来追加: 2024年セクション（コメントアウト済み） -->
+    <!--
+    <div class="year-section" id="sec-2024">
+      <div class="year-head fi">
+        <span class="year-label">2024</span>
+        <span class="year-sub">準備中</span>
+      </div>
+      <div class="buzz-grid">
+        ... 2024buzz01〜 を同じ構造で追加 ...
+      </div>
+    </div>
+    -->
+
+  </div><!-- /main-area -->
+
+  <!-- 下部導線 -->
+  <div class="bottom-nav">
+    <a href="scenes.html" class="bottom-link">名場面ギャラリー</a>
+    <a href="episodes.html" class="bottom-link">エピソード一覧</a>
+    <a href="index.html" class="bottom-link">TOPへ戻る</a>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<footer>
+  <div class="ft-inner">
+    <p>© 営業-1グランプリ 公式アーカイブ｜BSよしもと</p>
+    <div style="display:flex;gap:20px">
+      <a href="index.html">TOP</a>
+      <a href="episodes.html">エピソード一覧</a>
+      <a href="timeline.html">シリーズ年表</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── 年タブ切替 ── */
+function switchYear(year, btn) {
+  document.querySelectorAll('.ytab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.year-section').forEach(s => s.classList.remove('active'));
+  const sec = document.getElementById('sec-' + year);
+  if (sec) {
+    sec.classList.add('active');
+    sec.querySelectorAll('.fi').forEach(el => { el.classList.remove('v'); obs.observe(el); });
+  }
+}
+
+/* ── フェードイン ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); obs.unobserve(e.target); } });
+}, { threshold: .04, rootMargin: '0px 0px -8px 0px' });
+document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+/* ── ハンバーガー ── */
+document.querySelectorAll('.mnav a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('mn').classList.remove('open'));
+});
+</script>
+
+</body>
+</html>

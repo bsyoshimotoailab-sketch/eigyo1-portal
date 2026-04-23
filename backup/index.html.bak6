@@ -87,6 +87,7 @@ nav a{color:var(--text-sub);text-decoration:none;font-size:.74rem;font-weight:70
 .tm,.tw{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}.tm span{font-size:.68rem;color:var(--text-sub);background:var(--white);padding:3px 10px;border-radius:20px;border:1px solid var(--border)}
 .wb{font-size:.72rem;font-weight:700;padding:5px 14px;border-radius:4px}.wb.we{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--black)}.wb.wg{background:var(--red);color:#fff}
 .tde{font-size:.82rem;color:var(--text-sub);line-height:1.8}.th{margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}.th h4{font-size:.68rem;color:var(--gold-dark);letter-spacing:.15em;margin-bottom:6px}.th p{font-size:.78rem;color:var(--text-sub);line-height:1.8}
+#ranking{background:var(--bg)}
 .cb{margin-top:30px;background:linear-gradient(135deg,#1a1a1a,#2a2520,#1a1a1a);border-radius:12px;padding:40px;color:#fff;position:relative;overflow:hidden;border:2px solid var(--gold)}
 .cb::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(212,167,44,.15),transparent 60%)}
 .champ-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px;align-items:center}
@@ -99,9 +100,11 @@ nav a{color:var(--text-sub);text-decoration:none;font-size:.74rem;font-weight:70
 .ri{display:grid;grid-template-columns:50px 1fr auto;align-items:center;gap:16px;padding:14px 16px;border-bottom:1px solid var(--border);transition:background .3s;border-radius:6px}.ri:hover{background:var(--white)}
 .ri.t1{background:linear-gradient(90deg,rgba(212,167,44,.1),transparent);border-left:4px solid var(--gold-bright)}.ri.t2{border-left:4px solid #aaa}.ri.t3{border-left:4px solid #b07540}.rn{font-family:var(--font-a);font-size:1.3rem;font-weight:900;text-align:center}.t1 .rn{color:var(--gold-bright)}.t2 .rn{color:#aaa}.t3 .rn{color:#b07540}
 .rin h4{font-size:.9rem;font-weight:700}.rin .rnt{font-size:.68rem;color:var(--gold-dark);font-weight:700;margin-top:1px}.rc{font-family:var(--font-a);font-size:1.2rem;font-weight:900;color:var(--gold-dark)}.rc small{font-size:.6rem;color:var(--text-light);font-weight:400}.r2c{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:20px}
+#scenes{background:var(--white)}
 .scl{margin-top:40px;display:flex;flex-direction:column;gap:12px}.sc{background:var(--bg);border-radius:10px;padding:28px;border:1px solid var(--border);display:grid;grid-template-columns:90px 1fr;gap:20px;transition:transform .3s}.sc:hover{transform:translateX(4px)}.scb{text-align:center}.scy{font-family:var(--font-a);font-size:.9rem;font-weight:900;color:var(--gold-dark)}.scc{font-size:.58rem;color:var(--text-light);display:block;margin-top:2px}.scbd h3{font-size:1rem;font-weight:900;margin-bottom:8px;line-height:1.5}.scbd p{font-size:.82rem;color:var(--text-sub);line-height:1.9}
 #highlights{background:var(--bg-warm)}
 .hlg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:40px}.hlc{background:var(--white);border-radius:10px;padding:28px;border:1px solid var(--border);transition:transform .3s,box-shadow .3s}.hlc:hover{transform:translateY(-4px);box-shadow:0 16px 40px var(--shadow)}.hlt{font-size:.62rem;color:var(--red);font-weight:700;letter-spacing:.15em;margin-bottom:10px}.hlc h3{font-size:1.05rem;font-weight:900;margin-bottom:8px}.hlc p{font-size:.8rem;color:var(--text-sub);line-height:1.8}
+#manual{background:var(--white)}
 .manual-lead{display:grid;grid-template-columns:300px 1fr;gap:22px;align-items:stretch;margin-top:28px}.manual-media{position:relative;border-radius:12px;overflow:hidden;background:#ddd5c9;min-height:280px}.manual-media img{width:100%;height:100%;object-fit:cover}.manual-copy{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:26px}.manual-copy h3{font-size:1.06rem;font-weight:900;margin-bottom:10px}.manual-copy p{font-size:.84rem;color:var(--text-sub);line-height:1.9}.mg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}.mc{background:var(--bg);border-radius:10px;padding:28px;border-top:4px solid var(--gold);border-left:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:transform .3s}.mc:hover{transform:translateY(-4px)}.my{font-family:var(--font-a);font-size:1.8rem;font-weight:900;color:var(--gold-dark);margin-bottom:4px}.me{font-weight:700;margin-bottom:8px;font-size:.9rem}.md{font-size:.8rem;color:var(--text-sub);line-height:1.8}
 #history{background:var(--bg)}
 .history-wrap{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:22px;align-items:start}.hg{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:40px}.ec{background:var(--white);border-radius:10px;padding:28px;border:1px solid var(--border);border-bottom:3px solid var(--gold);transition:transform .3s}.ec:hover{transform:translateY(-4px)}.ep{font-size:.65rem;letter-spacing:.15em;color:var(--gold-dark);font-weight:700;margin-bottom:8px}.ec h3{font-size:1.05rem;font-weight:900;margin-bottom:8px}.ec p{font-size:.8rem;color:var(--text-sub);line-height:1.8}.history-side{margin-top:40px;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:22px}.history-side h3{font-size:.88rem;letter-spacing:.12em;color:var(--gold-dark);margin-bottom:10px}.history-side p{font-size:.78rem;color:var(--text-sub);line-height:1.85}.history-side a{color:var(--red);font-weight:700;text-decoration:none}.history-side a:hover{text-decoration:underline}
@@ -154,7 +157,7 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
   </div>
   <div class="hero-bar">
     <div class="hero-ctas">
-      <a href="timeline.html" class="br">シリーズ年表を見る →</a>
+      <a href="#timeline" class="br">シリーズを見る ↓</a>
       <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="bg">イベント出演依頼へ →</a>
     </div>
   </div>
@@ -221,6 +224,131 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
   </div>
 </section>
 
+
+<section id="timeline" class="sp">
+  <div class="container">
+    <div class="sl fi">TIMELINE</div>
+    <h2 class="st fi"><span class="gs">シリーズ年表</span></h2>
+    <p class="ss fi">2023年の第1回から2025年の生配信大反省会まで。上半期SPと総決算SPを軸に、営業-1グランプリを時系列で追える背骨のページです。</p>
+    <div class="tt">
+      <div class="ti fi"><div class="td"></div><div class="tc"><div class="ty gs">2023</div><div class="te">第1回 営業-1グランプリ2023</div><div class="tm"><span>2023.12.17</span><span>60分</span><span>32名出演</span></div><div class="tw"><span class="wb we">★ ジョイマン（112回）</span><span class="wb wg">● 祇園（3連覇）</span></div><div class="tde">「よしもと営業マニュアル」誕生。吉本営業年表、東西営業都市伝説、ニューカマー紹介。シリーズの核がこの回で出揃った。</div><div class="th"><h4>HIGHLIGHT</h4><p>八木マニュアルがSNSで広がり、営業ルール再整備のきっかけになった。ジョイマン高木の“おばあちゃん”エピソードも象徴的。</p></div></div></div>
+      <div class="ti fi"><div class="td"></div><div class="tc"><div class="ty gs">2024 前半</div><div class="te">第2回 前半戦〜吉本営業最前線〜</div><div class="tm"><span>2024.6.30</span><span>90分</span><span>上半期SP</span></div><div class="tw"><span class="wb we">中間：ジョイマン2位タイ</span></div><div class="tde">「東京進出組」特集。各ジャンルの攻略法を現役営業芸人が解説し、営業戦国時代の空気が強く出た回。</div><div class="th"><h4>HIGHLIGHT</h4><p>東京進出組編として八木が攻略法を伝授。ディレクターズカットで未公開パートが補強されている。</p></div></div></div>
+      <div class="ti fi"><div class="td"></div><div class="tc"><div class="ty gs">2024 総決算</div><div class="te">第3回 総決算スペシャル</div><div class="tm"><span>2024.12.14</span><span>120分</span><span>45名・初登場19名</span></div><div class="tw"><span class="wb we">★ ジョイマン（2連覇）</span><span class="wb wg">● EXIT（初優勝・18回）</span></div><div class="tde">初の2時間SP。営業史、スポーツ事業部、ランキングTOP10、最新版マニュアルまで詰め込んだ転換点。</div><div class="th"><h4>HIGHLIGHT</h4><p>ジャンポケ太田の感動エピソード、RGの藤田モノマネ、学園祭ランキング導入など、シリーズの厚みが一段増した。</p></div></div></div>
+      <div class="ti fi"><div class="td"></div><div class="tc"><div class="ty gs">2025 上半期</div><div class="te">第4回 上半期スペシャル</div><div class="tm"><span>2025.7.6</span><span>120分</span><span>収録5時間30分</span></div><div class="tw"><span class="wb we">中間：ジョイマン首位キープ</span></div><div class="tde">90分ぶっ通し収録。FUJIWARA・とろサーモン久保田初登場。SNS給料自慢問題が最大の論点になった。</div><div class="th"><h4>HIGHLIGHT</h4><p>給料自慢SNS投稿を巡る激論でスタジオ騒然。完全版はYouTubeプレミアで89.3万回再生を記録。</p></div></div></div>
+      <div class="ti fi"><div class="td"></div><div class="tc"><div class="ty gs">2025 総決算</div><div class="te">第5回 総決算スペシャル</div><div class="tm"><span>2025.12.20</span><span>120分</span><span>完全版同日配信</span></div><div class="tw"><span class="wb we">★ ジョイマン（3連覇・114回）</span><span class="wb wg">● スカチャン（初優勝・20回）</span></div><div class="tde">4企画構成。営業芸人の2025スケジュール公開、営業現場写真・衝撃動画、究極版マニュアル、八木の未来予想まで展開。</div><div class="th"><h4>HIGHLIGHT</h4><p>ジョイマンの前人未到3連覇、スカチャンの初制覇、そして“ガチギレかノリか”の場面が強く話題になった。</p></div></div></div>
+      <div class="ti fi"><div class="td"></div><div class="tc"><div class="ty gs">BONUS</div><div class="te">生配信！営業-1グランプリ2025 大反省会</div><div class="tm"><span>2025.12.28</span><span>180分生配信</span><span>YouTube特別企画</span></div><div class="tde">2025年を振り返る特別回。ランキング発表ではなく、総決算SPの余波と“あのシーン”の真相解説が主軸。</div><div class="th"><h4>HIGHLIGHT</h4><p>当事者による“ガチギレ疑惑”検証と、八木の3時間ノンストップ解説が生配信ならではの熱量を生んだ。</p></div></div></div>
+    </div>
+  </div>
+</section>
+<section id="ranking" class="sp">
+  <div class="container">
+    <div class="sl fi">RANKINGS</div>
+    <h2 class="st fi"><span class="gt">ランキング</span>まとめ</h2>
+    <p class="ss fi">このシリーズで最も検索されやすい核。営業出演回数と学園祭出演回数を、年別に見返せる構造にしています。</p>
+    <div class="cb fi">
+      <div class="champ-grid">
+        <div>
+          <div class="cbl">REIGNING CHAMPION ── 営業部門 3連覇</div>
+          <div class="cbn gt">ジョイマン</div>
+          <div class="cbd">高木晋哉・池谷和志。2023初代王者、2024年2連覇、2025年3連覇。守備範囲の広さと現場対応力で、シリーズを象徴する存在になった。</div>
+          <div class="cbs"><strong class="gt">114</strong><span>回（2025年）</span></div>
+        </div>
+        <div class="champ-media">
+          <img src="" data-candidates="ランキング/ジョイマン.png|ランキング/ジョイマン.jpg|ランキング/ジョイマン.jpeg|ranking/ジョイマン.png|ranking/ジョイマン.jpg|ranking/ジョイマン.jpeg|ジョイマン.png|ジョイマン.jpg|ジョイマン.jpeg|ジョイマン.webp|assets/ranking/joyman.jpg|assets/ranking/joyman.png" alt="ジョイマン写真" class="auto-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="media-fallback" style="display:none"><div class="ic">🏆</div>assets/ranking/joyman.jpg</div>
+        </div>
+      </div>
+    </div>
+    <div class="split-highlights fi">
+      <div class="split-box"><h3>営業部門の文脈</h3><p>2023初代王者、2024逆転優勝、2025前人未到の3連覇。数字だけでなく、連覇・逆転・僅差などのストーリーを見せるのが重要。</p></div>
+      <div class="split-box"><h3>学園祭部門の文脈</h3><p>祇園の連覇、EXITの初優勝、スカチャンの悲願達成。若い観客にどう刺さるかという別軸の面白さがある。</p></div>
+    </div>
+    <div class="rtabs">
+      <button class="rtab active" onclick="sR('2025e',this)">2025 営業</button>
+      <button class="rtab" onclick="sR('2025g',this)">2025 学園祭</button>
+      <button class="rtab" onclick="sR('2024',this)">2024</button>
+      <button class="rtab" onclick="sR('2023',this)">2023</button>
+    </div>
+    <div class="rp active" id="p-2025e"><div class="rst">2025年 営業出演回数 TOP10</div><div class="rss">ジョイマン 114回、八木 94回、グランジ大 84回。</div><ul class="rl">
+      <li class="ri t1"><span class="rn">1</span><div class="rin"><h4>ジョイマン</h4><div class="rnt">★ 3連覇</div></div><div class="rc">114<small>回</small></div></li>
+      <li class="ri t2"><span class="rn">2</span><div class="rin"><h4>サバンナ 八木真澄</h4></div><div class="rc">94<small>回</small></div></li>
+      <li class="ri t3"><span class="rn">3</span><div class="rin"><h4>グランジ 大</h4></div><div class="rc">84<small>回</small></div></li>
+      <li class="ri"><span class="rn">4</span><div class="rin"><h4>鬼越トマホーク</h4></div><div class="rc">78<small>回</small></div></li>
+      <li class="ri"><span class="rn">5</span><div class="rin"><h4>おばたのお兄さん</h4></div><div class="rc">68<small>回</small></div></li>
+      <li class="ri"><span class="rn">6</span><div class="rin"><h4>石川ことみ</h4></div><div class="rc">66<small>回</small></div></li>
+      <li class="ri"><span class="rn">6</span><div class="rin"><h4>レギュラー</h4></div><div class="rc">66<small>回</small></div></li>
+      <li class="ri"><span class="rn">8</span><div class="rin"><h4>バンビーノ</h4></div><div class="rc">63<small>回</small></div></li>
+      <li class="ri"><span class="rn">9</span><div class="rin"><h4>スカチャン</h4></div><div class="rc">62<small>回</small></div></li>
+      <li class="ri"><span class="rn">10</span><div class="rin"><h4>女と男</h4></div><div class="rc">53<small>回</small></div></li>
+    </ul></div>
+    <div class="rp" id="p-2025g"><div class="rst">2025年 学園祭出演回数 TOP10</div><div class="rss">スカチャンが芸歴18年で念願の初優勝。</div><ul class="rl">
+      <li class="ri t1"><span class="rn">1</span><div class="rin"><h4>スカチャン</h4><div class="rnt">★ 初優勝</div></div><div class="rc">20<small>回</small></div></li>
+      <li class="ri t2"><span class="rn">2</span><div class="rin"><h4>金魚番長</h4></div><div class="rc">19<small>回</small></div></li>
+      <li class="ri t3"><span class="rn">3</span><div class="rin"><h4>ヘンダーソン</h4></div><div class="rc">17<small>回</small></div></li>
+      <li class="ri"><span class="rn">4</span><div class="rin"><h4>ジェラードン</h4></div><div class="rc">15<small>回</small></div></li>
+      <li class="ri"><span class="rn">5</span><div class="rin"><h4>相席スタート</h4></div><div class="rc">14<small>回</small></div></li>
+      <li class="ri"><span class="rn">6</span><div class="rin"><h4>ZAZY</h4></div><div class="rc">13<small>回</small></div></li>
+      <li class="ri"><span class="rn">7</span><div class="rin"><h4>ヨネダ2000</h4></div><div class="rc">12<small>回</small></div></li>
+      <li class="ri"><span class="rn">7</span><div class="rin"><h4>エレガント人生</h4></div><div class="rc">12<small>回</small></div></li>
+      <li class="ri"><span class="rn">9</span><div class="rin"><h4>おたまじゃくし中西</h4></div><div class="rc">11<small>回</small></div></li>
+      <li class="ri"><span class="rn">9</span><div class="rin"><h4>家族チャーハン</h4></div><div class="rc">11<small>回</small></div></li>
+    </ul></div>
+    <div class="rp" id="p-2024"><div class="rst">2024年 ランキング</div><div class="rss">営業部門の全順位・全回数は非公開。文脈で見せる年。</div><div class="r2c"><div><h4 style="font-size:.8rem;color:var(--gold-dark);margin-bottom:12px;font-weight:700">営業部門</h4><ul class="rl"><li class="ri t1"><span class="rn">1</span><div class="rin"><h4>ジョイマン</h4><div class="rnt">★ 2連覇</div></div><div class="rc">—</div></li><li class="ri t2"><span class="rn">2</span><div class="rin"><h4>（逆転劇）</h4></div><div class="rc">—</div></li></ul><p class="small" style="margin-top:10px;padding-left:12px">3位以下：おばたのお兄さん、グランジ大、石川ことみ 他</p></div><div><h4 style="font-size:.8rem;color:var(--red);margin-bottom:12px;font-weight:700">学園祭部門</h4><ul class="rl"><li class="ri t1"><span class="rn">1</span><div class="rin"><h4>EXIT</h4><div class="rnt">★ 初優勝</div></div><div class="rc">18<small>回</small></div></li><li class="ri t2"><span class="rn">2</span><div class="rin"><h4>祇園</h4></div><div class="rc">16<small>回</small></div></li><li class="ri t3"><span class="rn">3</span><div class="rin"><h4>真喜志</h4></div><div class="rc">15<small>回</small></div></li></ul></div></div></div>
+    <div class="rp" id="p-2023"><div class="rst">2023年（第1回）営業出演回数 TOP10</div><div class="rss">初代王者ジョイマン。学園祭1位は祇園（3連覇）。</div><ul class="rl">
+      <li class="ri t1"><span class="rn">1</span><div class="rin"><h4>ジョイマン</h4><div class="rnt">★ 初代王者</div></div><div class="rc">112<small>回</small></div></li>
+      <li class="ri t2"><span class="rn">2</span><div class="rin"><h4>グランジ 大</h4></div><div class="rc">67<small>回</small></div></li>
+      <li class="ri t3"><span class="rn">3</span><div class="rin"><h4>サバンナ 八木真澄</h4></div><div class="rc">66<small>回</small></div></li>
+      <li class="ri"><span class="rn">4</span><div class="rin"><h4>おばたのお兄さん</h4></div><div class="rc">58<small>回</small></div></li>
+      <li class="ri"><span class="rn">5</span><div class="rin"><h4>石川ことみ</h4></div><div class="rc">51<small>回</small></div></li>
+      <li class="ri"><span class="rn">5</span><div class="rin"><h4>ヘンダーソン</h4></div><div class="rc">51<small>回</small></div></li>
+      <li class="ri"><span class="rn">7</span><div class="rin"><h4>スマイル</h4></div><div class="rc">50<small>回</small></div></li>
+      <li class="ri"><span class="rn">8</span><div class="rin"><h4>スカチャン</h4></div><div class="rc">47<small>回</small></div></li>
+      <li class="ri"><span class="rn">9</span><div class="rin"><h4>祇園</h4></div><div class="rc">45<small>回</small></div></li>
+      <li class="ri"><span class="rn">9</span><div class="rin"><h4>レギュラー</h4></div><div class="rc">45<small>回</small></div></li>
+    </ul></div>
+  </div>
+</section>
+<section id="scenes" class="sp">
+  <div class="container">
+    <div class="sl fi">HIGHLIGHTS</div>
+    <h2 class="st fi">名場面ハイライト</h2>
+    <p class=”ss fi”>営業現場のリアルな瞬間を一部抜粋。笑い・感動・衝撃の名場面をシリーズ別に振り返れます。</p>
+    <div class=”scl”>
+      <div class=”sc fi”><div class=”scb”><div class=”scy”>2023</div><span class=”scc”>業界を変えた一言</span></div><div class=”scbd”><h3>よしもと営業マニュアル 誕生の瞬間</h3><p>八木真澄が吉本流営業の鉄則を初公開。SNSバズりを起点に、吉本内の営業ルールが再整備されるほどの影響を持った。</p></div></div>
+      <div class=”sc fi”><div class=”scb”><div class=”scy”>2023</div><span class=”scc”>感動の告白</span></div><div class=”scbd”><h3>ジョイマン高木「大した人間じゃない」おばあちゃんの呪い</h3><p>スーパー営業の苦さと、その先の執念を象徴するエピソード。シリーズの”リアル”を一言で伝える場面。</p></div></div>
+      <div class=”sc fi”><div class=”scb”><div class=”scy”>2024</div><span class=”scc”>最大の爆笑</span></div><div class=”scbd”><h3>RG、藤田憲右のトラブルを完コピ</h3><p>本人から「風化させてくれない」と苦笑クレームが入るほどの再現力。番組のバラエティ性を象徴する場面。</p></div></div>
+      <div class=”sc fi”><div class=”scb”><div class=”scy”>2024</div><span class=”scc”>感動</span></div><div class=”scbd”><h3>ジャンポケ太田「根こそぎバラし」からの総立ち応援</h3><p>ただ面白いだけではなく、営業の現場が人に支えられていることを見せた2024年屈指の名シーン。</p></div></div>
+      <div class=”sc fi”><div class=”scb”><div class=”scy”>2025</div><span class=”scc”>白熱の激論</span></div><div class=”scbd”><h3>「給料自慢SNS投稿」論争でスタジオ騒然</h3><p>営業の価値、芸人の見せ方、現代のSNS感覚まで含めて議論が噴出。シリーズが時代と接続している証拠でもある。</p></div></div>
+      <div class=”sc fi”><div class=”scb”><div class=”scy”>2025</div><span class=”scc”>最大の感動</span></div><div class=”scbd”><h3>スカチャン 芸歴18年目の学園祭初制覇</h3><p>若い学生の前に立てる嬉しさを語った優勝コメントが、学園祭部門の意味を一気に深くした。</p></div></div>
+    </div>
+    <div style=”text-align:center;margin-top:36px”>
+      <a href=”scenes.html” class=”card-btn” style=”display:inline-block;padding:14px 40px;font-size:.95rem”>▶ 名場面をすべて見る</a>
+    </div>
+  </div>
+</section>
+<section id="manual" class="sp">
+  <div class="container">
+    <div class="sl fi">MANUAL</div>
+    <h2 class="st fi">サバンナ八木の<span class="gt">営業マニュアル</span>変遷</h2>
+    <p class="ss fi">単独コーナーとして独立させるべき強い資産。誕生、進化、書籍化までの流れを年表的に見せます。</p>
+    <div class="manual-lead fi">
+      <div class="manual-media">
+        <img src="" data-candidates="manual/八木マニュアル.png|manual/八木マニュアル.jpg|manual/八木マニュアル.jpeg|manual/yagi_manual_main.jpg|assets/manual/yagi_manual_main.jpg|assets/manual/yagi_manual_main.png|八木マニュアル.png|八木マニュアル.jpg|八木マニュアル.jpeg|営業-1グランプリ集合写真TOP画像.png|営業-1グランプリ集合写真TOP画像.jpg" alt="八木マニュアル素材" class="auto-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="media-fallback" style="display:none"><div class="ic">📘</div>assets/manual/yagi_manual_main.jpg</div>
+      </div>
+      <div class="manual-copy">
+        <h3>営業知を“企画”から“資料”へ変えたコーナー</h3>
+        <p>2023年の永久保存版から、東京進出組編、最新版、未来提言まで。視聴者が何度も戻って来られるよう、年度・版名・主題・要旨の粒度で整理するのが有効です。番組の象徴的な価値は、ここに最も濃く出ています。</p>
+      </div>
+    </div>
+    <div class="mg">
+      <div class="mc fi"><div class="my">2023</div><div class="me">永久保存版</div><div class="md">吉本流営業の鉄則を初公開。SNSで広がり、営業ルール再整備のきっかけにもなった伝説の初版。</div></div>
+      <div class="mc fi"><div class="my">2024前半</div><div class="me">東京進出組編</div><div class="md">東京進出の攻略法と営業ジャンルごとの立ち回りを整理。前半戦の主題そのものだった版。</div></div>
+      <div class="mc fi"><div class="my">2024総決算</div><div class="me">最新版</div><div class="md">営業史やスポーツ事業部を含むより広い文脈に接続。マニュアルが“世界観の中心”に入った時期。</div></div>
+      <div class="mc fi"><div class="my">2025</div><div class="me">究極版 / 書籍化決定</div><div class="md">SNS給料自慢問題、未来予想、禁断領域への踏み込み。番組の知識資産化が明確になった段階。</div></div>
+    </div>
+  </div>
+</section>
 <section id="video" class="sp">
   <div class="container">
     <div class="sl fi">WATCH</div>
@@ -267,8 +395,8 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
     <div class="ftt">
       <div><div class="ftl"><span class="g">営業-1</span>グランプリ</div><p class="ftd">BSよしもと公式アーカイブ。営業芸人のリアル、ランキング、マニュアル、営業史を振り返るための総合ポータル。</p></div>
       <div class="ftk">
-        <div class="ftc"><h4>ARCHIVE</h4><a href="#about">番組とは</a><a href="timeline.html">年表</a><a href="ranking.html">ランキング</a><a href="scenes.html">名場面</a></div>
-        <div class="ftc"><h4>CONTENTS</h4><a href="manual-best.html">八木マニュアル</a><a href="#video">動画</a></div>
+        <div class="ftc"><h4>ARCHIVE</h4><a href="#about">番組とは</a><a href="#timeline">年表</a><a href="#ranking">ランキング</a><a href="#scenes">名場面</a></div>
+        <div class="ftc"><h4>CONTENTS</h4><a href="#manual">八木マニュアル</a><a href="#video">動画</a></div>
         <div class="ftc"><h4>LINKS</h4><a href="https://bsy.co.jp" target="_blank" rel="noopener">BSよしもと</a><a href="https://www.youtube.com/@bsyoshimoto" target="_blank" rel="noopener">公式YouTube</a><a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a></div>
       </div>
     </div>
@@ -303,6 +431,12 @@ function initAutoImages(){
 }
 
 
+function sR(id,b){
+  document.querySelectorAll('.rp').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('p-'+id).classList.add('active');
+  b.classList.add('active');
+}
 
 document.querySelectorAll('.fq').forEach(b=>{
   b.addEventListener('click',()=>{

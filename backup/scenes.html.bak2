@@ -168,11 +168,9 @@ footer a:hover{color:var(--gold-light)}
       <img src="assets/logos/eigyo1_logo.png" alt="営業-1グランプリ ロゴ" onerror="this.style.display='none'">
     </a>
     <nav>
-      <a href="index.html#lv">最新情報</a>
-      <a href="index.html#about">営業-１グランプリとは？</a>
-      <a href="index.html#video">番組動画</a>
-      <a href="goods.html">番組関連グッズ</a>
-      <a href="timeline.html">シリーズ年表</a>
+      <a href="index.html">TOP</a>
+      <a href="timeline.html">年表</a>
+      <a href="episodes.html">エピソード</a>
       <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ncta">イベント出演依頼</a>
       <button class="hbr" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="メニュー">
         <span></span><span></span><span></span>
@@ -182,10 +180,9 @@ footer a:hover{color:var(--gold-light)}
 </header>
 <div class="mnav" id="mn">
   <a href="index.html">TOP</a>
-  <a href="index.html#about">営業-１グランプリとは？</a>
-  <a href="index.html#video">番組動画</a>
-  <a href="goods.html">番組関連グッズ</a>
   <a href="timeline.html">シリーズ年表</a>
+  <a href="episodes.html">エピソード一覧</a>
+  <a href="scenes.html">名場面</a>
   <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
 </div>
 

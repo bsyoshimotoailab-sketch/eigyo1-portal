@@ -64,7 +64,7 @@ nav a:hover,nav a.on{color:var(--red)}
 
 /* サムネイル */
 .ep-thumb{position:relative;aspect-ratio:16/9;background:#ece9e2;overflow:hidden}
-.ep-thumb img{width:100%;height:100%;object-fit:contain;object-position:center;transition:transform .4s}
+.ep-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .ep-card:hover .ep-thumb img{transform:scale(1.03)}
 .ep-thumb .placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--text-light);font-size:.75rem;text-align:center;padding:12px}
 .ep-thumb .placeholder .ico{font-size:2.2rem;opacity:.4}
@@ -131,11 +131,9 @@ footer a:hover{color:var(--gold-light)}
       <img src="assets/logos/eigyo1_logo.png" alt="営業-1グランプリ ロゴ" onerror="this.style.display='none'">
     </a>
     <nav>
-      <a href="index.html#lv">最新情報</a>
-      <a href="index.html#about">営業-１グランプリとは？</a>
-      <a href="index.html#video">番組動画</a>
-      <a href="goods.html">番組関連グッズ</a>
-      <a href="timeline.html">シリーズ年表</a>
+      <a href="index.html">TOP</a>
+      <a href="timeline.html">年表</a>
+      <a href="episodes.html" class="on">エピソード</a>
       <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ncta">イベント出演依頼</a>
       <button class="hbr" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="メニュー">
         <span></span><span></span><span></span>
@@ -145,10 +143,8 @@ footer a:hover{color:var(--gold-light)}
 </header>
 <div class="mnav" id="mn">
   <a href="index.html">TOP</a>
-  <a href="index.html#about">営業-１グランプリとは？</a>
-  <a href="index.html#video">番組動画</a>
-  <a href="goods.html">番組関連グッズ</a>
   <a href="timeline.html">シリーズ年表</a>
+  <a href="episodes.html">エピソード一覧</a>
   <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
 </div>
 
@@ -196,8 +192,8 @@ footer a:hover{color:var(--gold-light)}
       <!-- ① 第5回 2025 総決算 -->
       <div class="ep-card fi" data-year="2025" data-tags="kessan">
         <div class="ep-thumb">
-          <!-- サムネイル：timeline/timeline-2025-final.jpg -->
-          <img src="timeline/timeline-2025-final.jpg" alt="2025 総決算スペシャル"
+          <!-- サムネイル差し替え: src に画像パスを入れる -->
+          <img src="" alt="2025 総決算スペシャル"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="placeholder" style="display:none">
             <span class="ico">🎬</span>
@@ -228,8 +224,7 @@ footer a:hover{color:var(--gold-light)}
       <!-- ② 第4回 2025 上半期 -->
       <div class="ep-card fi" data-year="2025" data-tags="">
         <div class="ep-thumb">
-          <!-- サムネイル：timeline/timeline-2025-h1.jpg -->
-          <img src="timeline/timeline-2025-h1.jpg" alt="2025 上半期スペシャル"
+          <img src="" alt="2025 上半期スペシャル"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="placeholder" style="display:none">
             <span class="ico">🎬</span>
@@ -258,8 +253,7 @@ footer a:hover{color:var(--gold-light)}
       <!-- ③ 第3回 2024 総決算 -->
       <div class="ep-card fi" data-year="2024" data-tags="kessan">
         <div class="ep-thumb">
-          <!-- サムネイル：timeline/timeline-2024-final.jpg -->
-          <img src="timeline/timeline-2024-final.jpg" alt="2024 総決算スペシャル"
+          <img src="" alt="2024 総決算スペシャル"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="placeholder" style="display:none">
             <span class="ico">🎬</span>
@@ -288,8 +282,7 @@ footer a:hover{color:var(--gold-light)}
       <!-- ④ 第2回 2024 上半期 DC版 -->
       <div class="ep-card fi" data-year="2024" data-tags="dc">
         <div class="ep-thumb">
-          <!-- サムネイル：timeline/timeline-2024-h1.jpg -->
-          <img src="timeline/timeline-2024-h1.jpg" alt="2024 上半期SP ディレクターズカット版"
+          <img src="" alt="2024 上半期SP ディレクターズカット版"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="placeholder" style="display:none">
             <span class="ico">🎬</span>
@@ -318,8 +311,7 @@ footer a:hover{color:var(--gold-light)}
       <!-- ⑤ 第1回 2023 DC版 -->
       <div class="ep-card fi" data-year="2023" data-tags="dc">
         <div class="ep-thumb">
-          <!-- サムネイル：timeline/timeline-2023.jpg -->
-          <img src="timeline/timeline-2023.jpg" alt="2023 ディレクターズカット版"
+          <img src="" alt="2023 ディレクターズカット版"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="placeholder" style="display:none">
             <span class="ico">🎬</span>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>写真館｜営業-1グランプリ 公式アーカイブ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+<style>
+/* ── 変数・リセット ── */
+:root{
+  --white:#fff;--bg:#faf9f6;--bg-warm:#f5f2ec;
+  --text:#222;--text-sub:#555;--text-light:#888;
+  --gold:#b8922e;--gold-light:#f0d77b;--gold-dark:#8a6d1a;
+  --red:#d72631;--red-dark:#b51d26;--black:#1a1a1a;
+  --border:#e8e4dc;--shadow:rgba(0,0,0,.08);
+  --font:'Noto Sans JP',sans-serif;--font-a:'Zen Kaku Gothic New',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ── ヘッダー ── */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.h-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center}
+.logo img{height:52px;width:auto;object-fit:contain}
+nav{display:flex;align-items:center;gap:16px}
+nav a{color:var(--text-sub);font-size:.74rem;font-weight:700;transition:color .3s}
+nav a:hover{color:var(--red)}
+.ncta{background:var(--red);color:#fff!important;padding:8px 18px;font-weight:700!important;font-size:.72rem!important;border-radius:4px;transition:background .3s!important}
+.ncta:hover{background:var(--red-dark)!important}
+.hbr{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.hbr span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0}
+.mnav{display:none;position:fixed;top:68px;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:16px 24px;border-bottom:1px solid var(--border)}
+.mnav.open{display:block}
+.mnav a{display:block;padding:12px 0;color:var(--text-sub);font-size:.85rem;border-bottom:1px solid #eee}
+
+/* ── パンくず ── */
+.breadcrumb{background:var(--white);border-bottom:1px solid var(--border);padding:10px 0}
+.bc-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bc-inner a,.bc-inner span{font-size:.72rem;color:var(--text-light)}
+.bc-inner a:hover{color:var(--red)}
+.bc-sep{color:#ccc}
+.bc-inner .current{color:var(--text-sub);font-weight:700}
+
+/* ── ページヒーロー ── */
+.page-hero{background:var(--black);padding:clamp(36px,6vw,64px) 0 clamp(28px,5vw,48px)}
+.page-hero-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.page-hero-label{font-size:.64rem;letter-spacing:.24em;color:var(--gold-light);font-weight:700;margin-bottom:12px}
+.page-hero-title{font-family:var(--font-a);font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;color:var(--white);line-height:1.25;margin-bottom:12px}
+.page-hero-desc{font-size:.88rem;color:#999;max-width:600px;line-height:1.85}
+
+/* ── メイン ── */
+.page-wrap{padding-top:68px}
+.main-area{max-width:1180px;margin:0 auto;padding:clamp(36px,5vw,56px) clamp(16px,4vw,40px) clamp(60px,10vw,100px)}
+
+/* ── セクション見出し ── */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:28px;padding-bottom:14px;border-bottom:2px solid var(--border)}
+.sec-label{font-family:var(--font-a);font-size:1.6rem;font-weight:900;color:var(--black)}
+.sec-sub{font-size:.8rem;color:var(--text-sub)}
+.sec-count{font-size:.72rem;color:var(--text-light);margin-left:auto;font-weight:700}
+
+/* ── 写真グリッド ── */
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+.photo-grid a{
+  display:block;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  background:#ece9e2;
+  border-radius:6px;
+}
+.photo-grid img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .35s;
+}
+.photo-grid a:hover img{transform:scale(1.05)}
+
+/* ── 下部導線 ── */
+.bottom-nav{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px) clamp(60px,10vw,90px);display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.bottom-link{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:6px;font-size:.8rem;font-weight:700;border:1.5px solid var(--border);color:var(--text-sub);background:var(--white);transition:all .25s}
+.bottom-link:hover{border-color:var(--text);color:var(--black)}
+
+/* ── フッター ── */
+footer{background:var(--black);color:#888;padding:32px 0}
+.ft-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
+footer p{font-size:.68rem}
+footer a{color:#888;transition:color .3s}
+footer a:hover{color:var(--gold-light)}
+
+/* ── フェードイン ── */
+.fi{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
+.fi.v{opacity:1;transform:translateY(0)}
+
+/* ── レスポンシブ ── */
+@media(max-width:960px){
+  nav a:not(.ncta){display:none}
+  .hbr{display:block}
+  .photo-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:540px){
+  .photo-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header>
+  <div class="h-inner">
+    <a href="index.html" class="logo">
+      <img src="assets/logos/eigyo1_logo.png" alt="営業-1グランプリ ロゴ" onerror="this.style.display='none'">
+    </a>
+    <nav>
+      <a href="index.html#lv">最新情報</a>
+      <a href="index.html#about">営業-１グランプリとは？</a>
+      <a href="index.html#video">番組動画</a>
+      <a href="goods.html">番組関連グッズ</a>
+      <a href="timeline.html">シリーズ年表</a>
+      <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ncta">イベント出演依頼</a>
+      <button class="hbr" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<div class="mnav" id="mn">
+  <a href="index.html">TOP</a>
+  <a href="index.html#about">営業-１グランプリとは？</a>
+  <a href="index.html#video">番組動画</a>
+  <a href="goods.html">番組関連グッズ</a>
+  <a href="timeline.html">シリーズ年表</a>
+  <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
+</div>
+
+<div class="page-wrap">
+
+  <!-- パンくず -->
+  <div class="breadcrumb">
+    <div class="bc-inner">
+      <a href="index.html">TOP</a>
+      <span class="bc-sep">›</span>
+      <span class="current">写真館</span>
+    </div>
+  </div>
+
+  <!-- ページヒーロー -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-label">PHOTO GALLERY</div>
+      <h1 class="page-hero-title">写真館</h1>
+      <p class="page-hero-desc">番組の舞台裏や収録現場の貴重な写真を公開しています。スタジオ、ロケ、表彰式など、営業-1グランプリの歴史の一コマをご覧ください。</p>
+    </div>
+  </div>
+
+  <!-- メインエリア -->
+  <div class="main-area">
+
+    <div class="sec-head fi">
+      <span class="sec-label">フォトギャラリー</span>
+      <span class="sec-sub">営業現場写真・収録風景・名場面スチール</span>
+      <span class="sec-count">全6件</span>
+    </div>
+
+    <section class="photo-grid fi">
+      <a href="hero/hero_group.png"><img src="hero/hero_group.png" alt="出演者集合写真"></a>
+      <a href="scenes/5.png"><img src="scenes/5.png" alt="収録現場の一コマ"></a>
+      <a href="scenes/3.png"><img src="scenes/3.png" alt="名場面スチール①"></a>
+      <a href="scenes/15.png"><img src="scenes/15.png" alt="スタジオ名場面③"></a>
+      <a href="scenes/20.png"><img src="scenes/20.png" alt="営業現場スナップ"></a>
+      <a href="scenes/10.png"><img src="scenes/10.png" alt="名場面スチール②"></a>
+    </section>
+
+  </div><!-- /main-area -->
+
+  <!-- 下部導線 -->
+  <div class="bottom-nav">
+    <a href="archive-docs.html" class="bottom-link">資料館</a>
+    <a href="scenes.html" class="bottom-link">名場面ギャラリー</a>
+    <a href="episodes.html" class="bottom-link">エピソード一覧</a>
+    <a href="index.html" class="bottom-link">TOPへ戻る</a>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<footer>
+  <div class="ft-inner">
+    <p>© 営業-1グランプリ 公式アーカイブ｜BSよしもと</p>
+    <div style="display:flex;gap:20px">
+      <a href="index.html">TOP</a>
+      <a href="episodes.html">エピソード一覧</a>
+      <a href="timeline.html">シリーズ年表</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── フェードイン ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); obs.unobserve(e.target); } });
+}, { threshold: .04, rootMargin: '0px 0px -8px 0px' });
+document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+/* ── ハンバーガー ── */
+document.querySelectorAll('.mnav a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('mn').classList.remove('open'));
+});
+</script>
+
+</body>
+</html>
