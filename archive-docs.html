@@ -141,6 +141,11 @@ footer a:hover{color:var(--gold-light)}
 .fi{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
 .fi.v{opacity:1;transform:translateY(0)}
 
+/* ── ランキングまとめ ── */
+.rank-year{margin-bottom:40px}
+.rank-year-head{font-family:var(--font-a);font-size:1rem;font-weight:900;color:var(--black);margin-bottom:14px;padding-bottom:8px;border-left:4px solid var(--gold);padding-left:12px}
+.rank-pending{background:var(--white);border:1px dashed var(--border);border-radius:4px;padding:24px;text-align:center;color:var(--text-light);font-size:.8rem;grid-column:1/-1}
+
 /* ── レスポンシブ ── */
 @media(max-width:960px){
   nav a:not(.ncta){display:none}
@@ -376,6 +381,45 @@ footer a:hover{color:var(--gold-light)}
         <div class="doc-cap">番組資料 No.039</div>
       </div>
     </section>
+
+    <!-- ランキングまとめ -->
+    <div class="sec-head fi" style="margin-top:64px">
+      <span class="sec-label">営業-1グランプリ ランキングまとめ</span>
+      <span class="sec-sub">営業出演回数・学園祭出演回数の記録</span>
+    </div>
+
+    <!-- 2025年 -->
+    <div class="rank-year fi">
+      <div class="rank-year-head">2025年</div>
+      <div class="doc-grid">
+        <div class="doc-item" onclick="openLB('ranking/営業出演回数ランキングTOP10.jpg','営業出演回数ランキング TOP10')">
+          <img src="ranking/営業出演回数ランキングTOP10.jpg" alt="営業出演回数ランキングTOP10">
+          <div class="doc-cap">営業出演回数ランキング｜ジョイマンが3連覇を達成した年</div>
+        </div>
+        <div class="doc-item" onclick="openLB('ranking/学園祭出演回数ランキングTOP10.jpg','学園祭出演回数ランキング TOP10')">
+          <img src="ranking/学園祭出演回数ランキングTOP10.jpg" alt="学園祭出演回数ランキングTOP10">
+          <div class="doc-cap">学園祭ランキング｜スカチャンが悲願の初制覇を達成</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2024年 -->
+    <div class="rank-year fi">
+      <div class="rank-year-head">2024年</div>
+      <div class="doc-grid">
+        <div class="rank-pending">2024年 営業出演回数ランキング画像（個別年度分は画像準備中）</div>
+        <div class="rank-pending">2024年 学園祭ランキング画像（個別年度分は画像準備中）</div>
+      </div>
+    </div>
+
+    <!-- 2023年 -->
+    <div class="rank-year fi">
+      <div class="rank-year-head">2023年</div>
+      <div class="doc-grid">
+        <div class="rank-pending">2023年 営業出演回数ランキング画像（個別年度分は画像準備中）</div>
+        <div class="rank-pending">2023年 学園祭ランキング画像（個別年度分は画像準備中）</div>
+      </div>
+    </div>
 
   </div>
 
