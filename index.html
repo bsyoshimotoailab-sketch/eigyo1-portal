@@ -116,6 +116,41 @@ nav a{color:var(--text-sub);text-decoration:none;font-size:.74rem;font-weight:70
 footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;margin-bottom:30px}.ftl{font-family:var(--font-a);font-weight:900;font-size:1rem;color:#fff;margin-bottom:8px}.ftl .g{color:var(--gold-bright)}.ftd{font-size:.7rem;color:#888;max-width:280px;line-height:1.7}.ftk{display:flex;gap:36px}.ftc h4{font-size:.62rem;letter-spacing:.2em;color:var(--gold);margin-bottom:10px}.ftc a{display:block;font-size:.72rem;color:#888;text-decoration:none;margin-bottom:6px;transition:color .3s}.ftc a:hover{color:var(--gold-light)}.ftb{border-top:1px solid #333;padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}.ftb p{font-size:.6rem;color:#555}
 @media(max-width:980px){nav a:not(.ncta){display:none}.hbr{display:block}.hero-inner,.video-grid,.manual-lead,.history-wrap,.cta-grid,.champ-grid{grid-template-columns:1fr}.hero-inner{padding-top:120px}.r2c,.split-highlights{grid-template-columns:1fr}.qg{grid-template-columns:repeat(2,minmax(0,1fr))}.ftk{flex-direction:column;gap:20px}}
 @media(max-width:640px){.hero-sr{gap:12px}.hero-photo{min-height:460px}.hero-inner{padding-top:110px}.qg{grid-template-columns:1fr}.gg{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}.ri{grid-template-columns:36px 1fr auto;gap:10px;padding:12px 10px}.sc{grid-template-columns:1fr}.gi.wide{grid-column:span 1}.hero-note{display:none}}
+/* ── 最新情報カード ── */
+.news-info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:20px}
+.news-info-box{background:rgba(255,255,255,.06);border-radius:8px;padding:16px}
+.news-info-label{font-size:.6rem;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:6px}
+.news-info-val{color:#fff;font-weight:700;font-size:.9rem}
+.news-info-sub{color:#aaa;font-size:.78rem;margin-top:3px}
+.news-cast{border-top:1px solid rgba(255,255,255,.1);margin-top:20px;padding-top:16px}
+.news-cast-label{font-size:.6rem;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:8px}
+/* ── コメントアコーディオン ── */
+.cmnt-wrap{margin-top:32px}
+.cmnt-sec-label{font-size:.6rem;letter-spacing:.25em;color:var(--gold);font-weight:700;margin-bottom:14px}
+.cmnt-block{border-bottom:1px solid rgba(255,255,255,.12);overflow:hidden}
+.cmnt-toggle{width:100%;background:none;border:none;font-family:var(--font);font-size:.88rem;font-weight:700;text-align:left;padding:16px 0;cursor:pointer;color:#ddd;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .3s}
+.cmnt-toggle:hover{color:var(--gold-light)}
+.cmnt-icon{font-size:1.2rem;color:var(--gold);flex-shrink:0;transition:transform .3s}
+.cmnt-block.open .cmnt-icon{transform:rotate(45deg)}
+.cmnt-body{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.cmnt-block.open .cmnt-body{max-height:1200px}
+.cmnt-inner{display:grid;grid-template-columns:180px 1fr;gap:22px;padding:4px 0 24px;align-items:start}
+.cmnt-photo{width:100%;border-radius:10px;object-fit:contain;background:rgba(255,255,255,.05)}
+.cmnt-person{margin-top:18px}.cmnt-person:first-child{margin-top:0}
+.cmnt-name{display:block;font-size:.7rem;font-weight:700;color:var(--gold-light);letter-spacing:.1em;margin-bottom:5px}
+.cmnt-body p{font-size:.82rem;color:#ccc;line-height:1.9}
+/* ── 書籍化ブロック ── */
+.book-block{background:rgba(255,255,255,.06);border:1px solid rgba(240,215,123,.2);border-radius:12px;padding:28px;margin-top:32px}
+.book-inner{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:start;margin-top:16px}
+.book-img{width:100%;border-radius:8px;object-fit:contain;background:#fff;padding:4px}
+.book-title{font-family:var(--font-a);font-size:1.15rem;font-weight:900;color:#fff;line-height:1.5;margin-bottom:6px}
+.book-sub{font-size:.82rem;color:var(--gold-light);margin-bottom:14px}
+.book-meta{font-size:.76rem;color:#aaa;line-height:2}
+.book-reserve{font-size:.8rem;color:var(--red);font-weight:700;margin-top:10px}
+.book-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.book-btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--gold);color:var(--gold-light);padding:8px 20px;font-size:.76rem;font-weight:700;border-radius:4px;text-decoration:none;transition:all .3s}
+.book-btn:hover{background:var(--gold);color:var(--black)}
+@media(max-width:640px){.cmnt-inner{grid-template-columns:1fr}.book-inner{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -124,7 +159,7 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
     <a href="#hero" class="logo"><img src="" data-candidates="assets/logos/eigyo1_logo.png|assets/logos/eigyo1_logo.jpg|assets/logos/eigyo1_logo.jpeg|assets/logos/eigyo1_logo.webp|営業-1ロゴ透明.png|営業-1ロゴ透明.jpg|営業-1ロゴ透明.jpeg|営業-1ロゴ透明.webp" alt="営業-1グランプリ ロゴ" class="auto-img logo-img" onerror="this.style.display='none'"></a>
     <nav>
       <a href="buzz100.html">バズり動画100</a>
-      <a href="manual-best.html">マニュアル&amp;企画</a>
+      <a href="manual-best.html">八木マニュアル＆ベスト企画</a>
       <a href="photo-gallery.html">写真館</a>
       <a href="archive-docs.html">資料館</a>
       <a href="goods.html">グッズ</a>
@@ -137,7 +172,7 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 <div class="mnav" id="mn">
   <a href="index.html">TOP</a>
   <a href="buzz100.html">バズり動画100</a>
-  <a href="manual-best.html">マニュアル&amp;企画</a>
+  <a href="manual-best.html">八木マニュアル＆ベスト企画</a>
   <a href="photo-gallery.html">写真館</a>
   <a href="archive-docs.html">資料館</a>
   <a href="goods.html">グッズ</a>
@@ -198,22 +233,121 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 <section id="lv">
   <div class="container">
     <div class="sl fi" style="border-color:var(--gold-light);color:var(--gold-light)">最新情報</div>
-    <h2 class="st fi" style="color:#fff">最新作と、シリーズ導線をまとめて見る</h2>
-    <p class="ss fi" style="color:#aaa">2025総決算ではジョイマンが3連覇、スカチャンが学園祭初制覇。最新回の熱量と、過去回への回遊をここから始める構成にしています。</p>
-    <div class="video-grid fi">
-      <div class="vew">
-        <iframe src="https://www.youtube.com/embed/68utLC3Inf4?si=6DS6f3hwPM5qZuqJ" title="営業-1グランプリ最新作" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <h2 class="st fi" style="color:#fff">最新作情報</h2>
+
+    <!-- 番組情報カード -->
+    <div class="fi" style="background:rgba(255,255,255,.06);border:1px solid rgba(240,215,123,.2);border-radius:12px;padding:28px 28px 24px;margin-top:24px">
+      <div class="sl" style="border-color:var(--gold-light);color:var(--gold-light);margin-bottom:14px">2026 上半期スペシャル</div>
+      <h3 style="font-family:var(--font-a);font-size:clamp(1.15rem,3vw,1.7rem);font-weight:900;color:#fff;line-height:1.45;margin-bottom:10px">『営業‐1グランプリ2026上半期スペシャル』</h3>
+      <p style="color:var(--gold-light);font-weight:700;font-size:.88rem;margin-bottom:20px">初参戦たくろう・ドンデコルテが吠える! サバンナ八木流「営業マニュアル」待望の書籍化も発表</p>
+      <div class="news-info-grid">
+        <div class="news-info-box">
+          <div class="news-info-label">放送情報</div>
+          <div class="news-info-val">2026年7月5日（日）13:00～15:00</div>
+          <div class="news-info-sub">BSよしもと（BS265ch）無料放送</div>
+        </div>
+        <div class="news-info-box">
+          <div class="news-info-label">配信情報</div>
+          <div class="news-info-val">YouTubeプレミア配信</div>
+          <div class="news-info-sub">TVer配信：同15:00～</div>
+        </div>
       </div>
-      <aside class="video-side">
-        <h3>VIDEO LINKS</h3>
-        <ul>
-          <li><a href="https://www.youtube.com/playlist?list=PLt2i7M9QRINzPIZ3vF9zJ2-jTt5ybmZUs" target="_blank" rel="noopener">営業-1グランプリ公式プレイリスト</a><p>本編・完全版・再編集版の一覧導線。</p></li>
-          <li><a href="https://www.youtube.com/watch?v=2QzfVhMM7CQ" target="_blank" rel="noopener">2023 ディレクターズカット</a><p>年表・都市伝説・学園祭＆営業ランキング・永久保存版マニュアルを確認。</p></li>
-          <li><a href="https://www.youtube.com/watch?v=xg2Dfmhz4-U" target="_blank" rel="noopener">2024前半戦 ディレクターズカット</a><p>東京進出組編、営業ジャンル解説、未公開パートの導線。</p></li>
-          <li><a href="https://bsy.co.jp/programs/by0000023095" target="_blank" rel="noopener">BSよしもと番組ページ</a><p>放送・配信の公式情報に戻れるように設置。</p></li>
-        </ul>
-      </aside>
+      <div class="news-cast">
+        <div class="news-cast-label">出演者</div>
+        <p style="color:#ccc;font-size:.8rem;line-height:1.95">サバンナ、かつみ♡さゆり・かつみ♡、トータルテンボス、椿鬼奴、平成ノブシコブシ、とにかく明るい安村、ミサイルマン・西代、グランジ・大、スリムクラブ、ガクテンソク、ジャングルポケット、ジェラードン、ツートライブ、鬼越トマホーク、コロコロチキチキペッパーズ、ダブルヒガシ、たくろう、フースーヤ、ドンデコルテ</p>
+      </div>
     </div>
+
+    <!-- 出演者コメント アコーディオン -->
+    <div class="cmnt-wrap fi">
+      <div class="cmnt-sec-label">出演者コメント</div>
+
+      <!-- サバンナ -->
+      <div class="cmnt-block">
+        <button class="cmnt-toggle" onclick="toggleCmnt(this)">サバンナ コメント<span class="cmnt-icon">＋</span></button>
+        <div class="cmnt-body">
+          <div class="cmnt-inner">
+            <img src="images/news/savanna.jpg" alt="サバンナ" class="cmnt-photo" onerror="this.style.display='none'">
+            <div>
+              <div class="cmnt-person">
+                <span class="cmnt-name">八木 真澄</span>
+                <p>営業-1グランプリ2026年上半期スペシャルの放送が決定しました。<br>すでに、ものすごい数の打ち合わせをして準備しています。もう営業マニュアルないかなと思うんですが、まだありました。<br>そして、書籍化決定しました。芸人だけでなく、皆さまにも使える内容になっています。<br>営業-1グランプリの最新をチェックしてくださいね。</p>
+              </div>
+              <div class="cmnt-person">
+                <span class="cmnt-name">高橋 茂雄</span>
+                <p>芸人のすごさ。芸人のつらさ。芸人のおもしろさ。<br>営業-1グランプリを見ると芸人の本当の姿がよくわかります。<br>今回もそんな芸人の素晴らしさが爆発することと思います。上半期に起こった事件の数々を楽しみましょう！</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- たくろう -->
+      <div class="cmnt-block">
+        <button class="cmnt-toggle" onclick="toggleCmnt(this)">たくろう コメント<span class="cmnt-icon">＋</span></button>
+        <div class="cmnt-body">
+          <div class="cmnt-inner">
+            <img src="images/news/takuro.jpg" alt="たくろう" class="cmnt-photo" onerror="this.style.display='none'">
+            <div>
+              <div class="cmnt-person">
+                <span class="cmnt-name">赤木 裕</span>
+                <p>M-1優勝後、難しい環境での漫才が増えています。なかなか厳しい結果になるところも多いのですが、歴戦の営業戦士だったら、ああいう場所でもウケる方法を持っているんだろうなと思います。<br>この営業-1グランプリで営業テクニックを学びたいです。</p>
+              </div>
+              <div class="cmnt-person">
+                <span class="cmnt-name">きむらバンド</span>
+                <p>ずっと見ていた営業-1グランプリに出られるとのことで光栄です！ 最初に知った時は営業でのおもしろ話を披露する楽しいトーク番組なのかなと思ってみたら、こんな濃いバラエティがあるのかと衝撃を受けました！ ベテラン勢の力強さが光る番組なので生で体験してきます！ くまださんのブチギレが見れるかどうかも楽しみです！！</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ドンデコルテ -->
+      <div class="cmnt-block">
+        <button class="cmnt-toggle" onclick="toggleCmnt(this)">ドンデコルテ コメント<span class="cmnt-icon">＋</span></button>
+        <div class="cmnt-body">
+          <div class="cmnt-inner">
+            <img src="images/news/dondekorute.jpg" alt="ドンデコルテ" class="cmnt-photo" onerror="this.style.display='none'">
+            <div>
+              <div class="cmnt-person">
+                <span class="cmnt-name">小橋 共作</span>
+                <p>いぇーい！！営業-1なんて初めての賞レース！！<br>営業はそんなに行った事はないけど賞レースは大好き！！何すればいいの！？<br>まぁなんかすればいいのか！！楽しめばいいのね！！多分！！得意！！</p>
+              </div>
+              <div class="cmnt-person">
+                <span class="cmnt-name">渡辺 銀次</span>
+                <p>栄えある賞レース、営業-1グランプリに初めてエントリーすることが叶いました。<br>漫才の賞レースで評価していただいたため、あまり知られていませんが私には自撮り棒、けん玉、LEDテープに散歩させるたわし（デコレーション可）など営業向きの武器もたくさんあります。持てる全てを駆使して盛り上げていく所存です。なぜなら普通に働くことが全くできないからです。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /cmnt-wrap -->
+
+    <!-- 書籍化情報 -->
+    <div class="book-block fi">
+      <div class="sl" style="border-color:var(--gold-light);color:var(--gold-light);margin-bottom:12px">書籍情報</div>
+      <h3 style="font-family:var(--font-a);font-size:1.3rem;font-weight:900;color:var(--gold-light)">待望の書籍化！</h3>
+      <div class="book-inner">
+        <img src="images/news/book.jpg" alt="ウケる現場のつくり方" class="book-img" onerror="this.style.display='none'">
+        <div>
+          <div class="book-title">ウケる現場のつくり方</div>
+          <div class="book-sub">どんなアウェイもホームに変えるサバンナ八木流「コミュ力」の教科書</div>
+          <div class="book-meta">
+            著者：サバンナ八木真澄<br>
+            監修：営業-1グランプリ製作委員会<br>
+            発売日：2026年7月1日（水）電子書籍同日配信予定<br>
+            定価：1,980円（本体1,800円＋税）<br>
+            発行：KADOKAWA
+          </div>
+          <div class="book-reserve">4月30日（木）11:00～予約受付中！</div>
+          <div class="book-links">
+            <a href="https://www.kadokawa.co.jp/product/322511000524/" target="_blank" rel="noopener" class="book-btn">KADOKAWA →</a>
+            <a href="https://www.amazon.co.jp/dp/4041172292" target="_blank" rel="noopener" class="book-btn">Amazon →</a>
+          </div>
+        </div>
+      </div>
+    </div><!-- /book-block -->
+
   </div>
 </section>
 <section id="about" class="sp">
@@ -221,58 +355,38 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
     <div class="sl fi">ABOUT</div>
     <h2 class="st fi"><span class="gs">営業-1グランプリ</span>とは？</h2>
     <p class="ss fi">「営業」にスポットを当てた年2回の吉本興業リアルドキュメンタリー特番（BSよしもと）。<br>営業現場で起きたハプニングを全公開、年間の営業出演回数ランキングを発表。<br>創業１１０年を超える吉本興業の歴史を芸人目線で斬るなど<br>吉本でしか出来ない企画にこだわります。<br>吉本興業の「今」をお伝えします。<br>このホームページをみれば「営業-１グランプリ」の全てがわかります。</p>
-  </div>
-</section>
-
-<section id="video" class="sp">
-  <div class="container">
-    <div class="sl fi">WATCH</div>
-    <h2 class="st fi">動画一覧 / 視聴ガイド</h2>
-    <div class="vg">
-      <div class="vc fi"><h4>放送本編</h4><p>BSよしもとの個別番組ページへ。総決算、前半戦、特別編の公式導線。</p><a href="https://bsy.co.jp/programs/by0000021293" target="_blank" rel="noopener" class="vl">公式番組ページ →</a></div>
-      <div class="vc fi"><h4>ディレクターズカット</h4><p>本編に収まりきらない未公開パートや補足情報を見るための導線。</p><a href="https://www.youtube.com/watch?v=2QzfVhMM7CQ" target="_blank" rel="noopener" class="vl">2023 DC →</a></div>
-      <div class="vc fi"><h4>プレイリスト</h4><p>シリーズ全体を通しで追いたい人向け。最も使いやすい入口の一つ。</p><a href="https://www.youtube.com/playlist?list=PLt2i7M9QRINzPIZ3vF9zJ2-jTt5ybmZUs" target="_blank" rel="noopener" class="vl">プレイリスト →</a></div>
-      <div class="vc fi"><h4>ショート / 切り抜き</h4><p>八木マニュアルや名場面の短尺導線。将来的にここへ集約しやすい構造。</p><a href="https://www.youtube.com/@bsyoshimoto" target="_blank" rel="noopener" class="vl">公式YouTube →</a></div>
-      <div class="vc fi"><h4>TVer</h4><p>見逃し視聴。放送日以降の視聴導線として補助的に残す。</p><a href="https://tver.jp" target="_blank" rel="noopener" class="vl">TVerで見る →</a></div>
-      <div class="vc fi"><h4>書籍化決定</h4><p>「よしもと営業マニュアル」の派生価値を示す補助導線。</p><a href="https://www.yoshimoto.co.jp/" target="_blank" rel="noopener" class="vl">吉本興業公式 →</a></div>
+    <div class="fi" style="margin-top:28px">
+      <a href="timeline.html" class="br">シリーズ年表を見る →</a>
     </div>
   </div>
 </section>
-<section id="faq" class="sp">
-  <div class="container">
-    <div class="sl fi">FAQ</div>
-    <h2 class="st fi">よくある質問</h2>
-    <div class="fl">
-      <div class="fqi fi"><button class="fq">「営業」とは何ですか？</button><div class="fa"><p>テレビ以外のイベント・学園祭・企業パーティー・地域催事などへの出演のことです。『営業-1グランプリ』では、その現場を芸人目線で記録し、出演回数をランキング化しています。</p></div></div>
-      <div class="fqi fi"><button class="fq">何を競う番組ですか？</button><div class="fa"><p>年間の営業出演回数が主軸です。2024年以降は学園祭部門も導入され、現場力の見え方が二層になりました。</p></div></div>
-      <div class="fqi fi"><button class="fq">どこで見られますか？</button><div class="fa"><p>BSよしもと（BS265ch）、公式YouTube、TVerなどで視聴できます。プレイリスト導線も設置しています。</p></div></div>
-      <div class="fqi fi"><button class="fq">ランキングの基準は？</button><div class="fa"><p>吉本興業が集計した年間営業出演回数を基準に、総決算スペシャル等で正式発表されます。年度によって公開粒度は異なります。</p></div></div>
-      <div class="fqi fi"><button class="fq">芸人をイベントに呼びたい場合は？</button><div class="fa"><p>吉本興業のイベント出演依頼ページから問い合わせできます。企業イベント、学園祭、地域催事など幅広く対応しています。</p></div></div>
-    </div>
-  </div>
-</section>
-<section id="cta">
-  <div class="container cta-grid">
-    <div class="cta-copy">
-      <div class="sl fi" style="border-color:var(--gold-light);color:var(--gold-light)">EVENT BOOKING</div>
-      <h2 class="ctah fi"><span class="gt">この熱量を、</span><br>あなたの現場へ。</h2>
-      <p class="ctas fi">学園祭、企業イベント、地域催事。営業芸人たちが磨いてきた“場を温める力”は、番組の中だけの話ではありません。アーカイブを読んだ先に、自然に出演依頼へ進める設計にしています。</p>
-      <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ctab fi">吉本興業へのイベント出演依頼はこちら →</a>
-    </div>
-    <div class="cta-media fi">
-      <img src="" data-candidates="scenes/22.jpg|scenes/22.jpeg|scenes/22.png|scenes/022.jpg|scenes/scene_22.jpg|営業現場写真/22.jpg|営業現場写真/022.jpg|営業現場写真/22.jpeg|営業現場写真/22.png|営業現場写真/scene_22.jpg|assets/scenes/scene_cta.jpg" alt="営業依頼導線用の現場写真" class="auto-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-      <div class="media-fallback" style="display:none"><div class="ic">🎪</div>assets/scenes/scene_cta.jpg<br>CTA向け横長写真</div>
+<section id=”cta”>
+  <div class=”container” style=”text-align:center;padding-top:clamp(60px,10vw,120px);padding-bottom:clamp(60px,10vw,120px)”>
+    <div class=”sl fi” style=”border-color:var(--gold-light);color:var(--gold-light)”>EVENT BOOKING</div>
+    <h2 class=”ctah fi” style=”text-align:center”><span class=”gt”>この熱量を、</span><br>あなたの現場へ。</h2>
+    <div style=”margin-top:28px”>
+      <a href=”https://www.yoshimoto.co.jp/kogyo-eigyo/” target=”_blank” rel=”noopener” class=”ctab fi”>吉本興業へのイベント出演依頼はこちら →</a>
     </div>
   </div>
 </section>
 <footer>
   <div class="container">
     <div class="ftt">
-      <div><div class="ftl"><span class="g">営業-1</span>グランプリ</div><p class="ftd">BSよしもと公式アーカイブ。営業芸人のリアル、ランキング、マニュアル、営業史を振り返るための総合ポータル。</p></div>
+      <div><div class="ftl"><span class="g">営業-1</span>グランプリ</div></div>
       <div class="ftk">
-        <div class="ftc"><h4>ARCHIVE</h4><a href="#about">番組とは</a><a href="timeline.html">年表</a><a href="photo-gallery.html">写真館</a><a href="archive-docs.html">資料館</a></div>
-        <div class="ftc"><h4>CONTENTS</h4><a href="manual-best.html">八木マニュアル</a><a href="#video">動画</a></div>
-        <div class="ftc"><h4>LINKS</h4><a href="https://bsy.co.jp" target="_blank" rel="noopener">BSよしもと</a><a href="https://www.youtube.com/@bsyoshimoto" target="_blank" rel="noopener">公式YouTube</a><a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a></div>
+        <div class="ftc"><h4>CONTENTS</h4>
+          <a href="buzz100.html">バズり動画100</a>
+          <a href="manual-best.html">八木マニュアル＆ベスト企画</a>
+          <a href="photo-gallery.html">写真館</a>
+          <a href="archive-docs.html">資料館</a>
+          <a href="goods.html">グッズ</a>
+          <a href="timeline.html">シリーズ年表</a>
+        </div>
+        <div class="ftc"><h4>LINKS</h4>
+          <a href="https://bsy.co.jp" target="_blank" rel="noopener">BSよしもと</a>
+          <a href="https://www.youtube.com/@bsyoshimoto" target="_blank" rel="noopener">公式YouTube</a>
+          <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
+        </div>
       </div>
     </div>
     <div class="ftb"><p>© BSよしもと 営業-1グランプリ 公式アーカイブ</p><p>本サイトの記載は公開情報に基づきます。</p></div>
@@ -307,13 +421,12 @@ function initAutoImages(){
 
 
 
-document.querySelectorAll('.fq').forEach(b=>{
-  b.addEventListener('click',()=>{
-    const i=b.parentElement,o=i.classList.contains('open');
-    document.querySelectorAll('.fqi').forEach(x=>x.classList.remove('open'));
-    if(!o)i.classList.add('open');
-  });
-});
+function toggleCmnt(btn){
+  const block=btn.parentElement;
+  const isOpen=block.classList.contains('open');
+  document.querySelectorAll('.cmnt-block').forEach(b=>b.classList.remove('open'));
+  if(!isOpen) block.classList.add('open');
+}
 
 const obs=new IntersectionObserver(e=>{
   e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})
