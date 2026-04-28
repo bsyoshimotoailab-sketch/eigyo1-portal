@@ -54,31 +54,56 @@ nav a:hover{color:var(--red)}
 .page-hero-desc{font-size:.88rem;color:#999;max-width:600px;line-height:1.85}
 
 /* ── 年セクション切替タブ ── */
-.year-tabs{background:var(--white);border-bottom:2px solid var(--border);position:sticky;top:68px;z-index:900}
-.year-tabs-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;gap:0}
-.ytab{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;font-size:.84rem;font-weight:700;color:var(--text-light);border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer;transition:color .2s,border-color .2s;white-space:nowrap}
+.year-tabs{
+  background:var(--white);
+  border-bottom:2px solid var(--border);
+  position:sticky;top:68px;z-index:900;
+  box-shadow:0 2px 10px var(--shadow);
+}
+.year-tabs-inner{
+  max-width:1180px;margin:0 auto;
+  padding:0 clamp(16px,4vw,40px);
+  display:flex;gap:0;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.year-tabs-inner::-webkit-scrollbar{display:none}
+.ytab{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:14px 22px;font-size:.84rem;font-weight:700;
+  color:var(--text-light);
+  border:none;border-bottom:3px solid transparent;
+  background:none;margin-bottom:-2px;cursor:pointer;
+  transition:color .2s,border-color .2s;
+  white-space:nowrap;flex-shrink:0;
+}
 .ytab:hover{color:var(--text)}
 .ytab.active{color:var(--red);border-bottom-color:var(--red)}
-.ytab .ytab-count{font-size:.64rem;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:2px 8px;margin-left:4px;color:var(--text-light)}
+.ytab .ytab-count{
+  font-size:.62rem;background:var(--bg);
+  border:1px solid var(--border);border-radius:10px;
+  padding:2px 7px;color:var(--text-light);
+}
 .ytab.active .ytab-count{background:rgba(215,38,49,.08);border-color:rgba(215,38,49,.25);color:var(--red)}
 
 /* ── メイン ── */
 .page-wrap{padding-top:68px}
-.main-area{max-width:1180px;margin:0 auto;padding:clamp(36px,5vw,56px) clamp(16px,4vw,40px) clamp(60px,10vw,100px)}
+.main-area{max-width:1180px;margin:0 auto;padding:clamp(32px,5vw,56px) clamp(16px,4vw,40px) clamp(60px,10vw,100px)}
 
 /* ── 年セクション ── */
 .year-section{display:none}
 .year-section.active{display:block}
-.year-head{display:flex;align-items:baseline;gap:14px;margin-bottom:28px;padding-bottom:14px;border-bottom:2px solid var(--border)}
+.year-head{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  margin-bottom:28px;padding-bottom:14px;
+  border-bottom:2px solid var(--border);
+}
 .year-label{font-family:var(--font-a);font-size:2rem;font-weight:900;color:var(--black)}
 .year-sub{font-size:.8rem;color:var(--text-sub)}
 .year-count{font-size:.72rem;color:var(--text-light);margin-left:auto;font-weight:700}
 
 /* ── カードグリッド ── */
-/*
-  将来 2024 / 2025 を追加する際は、同じ .buzz-grid + .buzz-card 構造で
-  新しい .year-section を追加し、.ytab を1件追加するだけでOK。
-*/
 .buzz-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -93,11 +118,11 @@ nav a:hover{color:var(--red)}
   overflow:hidden;
   display:flex;
   flex-direction:column;
-  transition:box-shadow .3s,transform .3s;
+  transition:box-shadow .28s,transform .28s;
 }
 .buzz-card:hover{
-  box-shadow:0 10px 36px rgba(0,0,0,.13);
-  transform:translateY(-4px);
+  box-shadow:0 8px 32px rgba(0,0,0,.14);
+  transform:translateY(-5px);
 }
 
 /* サムネイル */
@@ -108,45 +133,38 @@ nav a:hover{color:var(--red)}
   overflow:hidden;
 }
 .bc-thumb img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:transform .4s;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  transition:transform .35s ease;
 }
-.buzz-card:hover .bc-thumb img{transform:scale(1.04)}
+.buzz-card:hover .bc-thumb img{transform:scale(1.05)}
 
 /* 番号バッジ */
 .bc-num{
-  position:absolute;
-  top:8px;left:8px;
-  font-family:var(--font-a);
-  font-size:.68rem;font-weight:900;
-  background:rgba(0,0,0,.65);
-  color:#fff;
-  padding:3px 9px;
-  border-radius:4px;
-  letter-spacing:.04em;
+  position:absolute;top:8px;left:8px;
+  font-family:var(--font-a);font-size:.65rem;font-weight:900;
+  background:rgba(0,0,0,.6);color:#fff;
+  padding:2px 8px;border-radius:4px;letter-spacing:.04em;
   backdrop-filter:blur(4px);
 }
 
 /* プレイオーバーレイ */
 .bc-overlay{
   position:absolute;inset:0;
-  background:rgba(0,0,0,.35);
+  background:rgba(0,0,0,.32);
   display:flex;align-items:center;justify-content:center;
-  opacity:0;transition:opacity .3s;
+  opacity:0;transition:opacity .28s;
 }
 .buzz-card:hover .bc-overlay{opacity:1}
 .bc-play{
-  width:48px;height:48px;
-  background:rgba(215,38,49,.9);
-  border-radius:50%;
+  width:46px;height:46px;
+  background:rgba(215,38,49,.88);border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  font-size:1.1rem;
-  padding-left:3px; /* 三角のずれ補正 */
+  font-size:1rem;padding-left:3px;
+  box-shadow:0 2px 12px rgba(215,38,49,.5);
 }
 
-/* 画像なし時のフォールバック */
+/* 画像なし時フォールバック */
 .bc-fallback{
   position:absolute;inset:0;
   display:flex;flex-direction:column;
@@ -157,26 +175,49 @@ nav a:hover{color:var(--red)}
 
 /* カード本文 */
 .bc-body{
-  padding:14px 16px 16px;
+  padding:12px 14px 14px;
   display:flex;flex-direction:column;
   gap:10px;flex:1;
 }
 .bc-title{
-  font-size:.88rem;font-weight:700;
-  color:var(--black);line-height:1.5;
-  /* 3行クランプ */
-  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+  font-size:.86rem;font-weight:700;
+  color:var(--black);line-height:1.55;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
 }
 .bc-btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  display:inline-flex;align-items:center;justify-content:center;gap:5px;
   background:var(--red);color:#fff;
-  padding:9px 16px;
-  border-radius:5px;
-  font-size:.76rem;font-weight:700;
-  transition:background .25s;
+  padding:8px 14px;border-radius:5px;
+  font-size:.74rem;font-weight:700;
+  transition:background .2s,box-shadow .2s;
   margin-top:auto;
 }
-.bc-btn:hover{background:var(--red-dark)}
+.bc-btn:hover{background:var(--red-dark);box-shadow:0 2px 8px rgba(215,38,49,.35)}
+
+/* ── 次シリーズ導線 ── */
+.next-series{
+  margin-top:48px;padding:28px 0 4px;
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.next-series-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--black);color:#fff;
+  padding:12px 24px;border-radius:7px;
+  font-size:.82rem;font-weight:700;
+  cursor:pointer;border:none;
+  transition:background .22s,box-shadow .22s;
+  flex-shrink:0;
+}
+.next-series-btn:hover{background:#333;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.next-series-thumbs{
+  display:flex;gap:8px;flex:1;justify-content:flex-end;min-width:0;
+}
+.ns-thumb{
+  width:96px;aspect-ratio:16/9;border-radius:6px;
+  overflow:hidden;background:#ece9e2;flex-shrink:0;
+}
+.ns-thumb img{width:100%;height:100%;object-fit:cover;object-position:center}
 
 /* ── 下部導線 ── */
 .bottom-nav{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px) clamp(60px,10vw,90px);display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
@@ -190,12 +231,6 @@ footer p{font-size:.68rem}
 footer a{color:#888;transition:color .3s}
 footer a:hover{color:var(--gold-light)}
 
-/* ── 2024年 画像はみ出し防止 ── */
-#sec-2024 .bc-thumb img{object-fit:contain;background:#f5f5f5}
-#sec-2024s .bc-thumb img{object-fit:contain;background:#f5f5f5}
-#sec-2025k .bc-thumb img{object-fit:contain;background:#f5f5f5}
-#sec-2025s .bc-thumb img{object-fit:contain;background:#f5f5f5}
-
 /* ── フェードイン ── */
 .fi{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
 .fi.v{opacity:1;transform:translateY(0)}
@@ -208,11 +243,26 @@ footer a:hover{color:var(--gold-light)}
   nav a:not(.ncta){display:none}
   .hbr{display:block}
   .year-tabs{position:static}
-  .buzz-grid{grid-template-columns:repeat(2,1fr)}
+  .buzz-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .ns-thumb{width:76px}
 }
 @media(max-width:540px){
-  .buzz-grid{grid-template-columns:1fr}
-  .ytab{padding:12px 18px;font-size:.78rem}
+  .buzz-grid{grid-template-columns:1fr;gap:16px}
+  .ytab{padding:11px 13px;font-size:.74rem}
+  .ytab .ytab-count{display:none}
+  .bc-body{padding:12px 12px 14px}
+  .bc-title{font-size:.9rem}
+  .bc-btn{padding:10px 14px;font-size:.78rem}
+  .year-head{gap:6px;margin-bottom:20px}
+  .year-label{font-size:1.6rem}
+  .year-count{margin-left:0;width:100%}
+  .next-series{flex-direction:column;align-items:flex-start;gap:12px}
+  .next-series-thumbs{justify-content:flex-start}
+  .ns-thumb{width:80px}
+}
+@media(hover:none){
+  .buzz-card:active{transform:scale(.97);transition:transform .1s}
+  .bc-overlay{display:none}
 }
 </style>
 </head>
@@ -272,23 +322,23 @@ footer a:hover{color:var(--gold-light)}
   <!-- 年切替タブ -->
   <div class="year-tabs">
     <div class="year-tabs-inner">
-      <button class="ytab active" onclick="switchYear('2023',this)">
+      <button class="ytab active" data-year="2023" onclick="switchYear('2023',this)">
         2023年
         <span class="ytab-count">22件</span>
       </button>
-      <button class="ytab" onclick="switchYear('2024',this)">
+      <button class="ytab" data-year="2024" onclick="switchYear('2024',this)">
         2024年 上半期SP
         <span class="ytab-count">24件</span>
       </button>
-      <button class="ytab" onclick="switchYear('2024s',this)">
+      <button class="ytab" data-year="2024s" onclick="switchYear('2024s',this)">
         2024年 総決算SP
         <span class="ytab-count">24件</span>
       </button>
-      <button class="ytab" onclick="switchYear('2025k',this)">
+      <button class="ytab" data-year="2025k" onclick="switchYear('2025k',this)">
         2025年 上半期SP
         <span class="ytab-count">26件</span>
       </button>
-      <button class="ytab" onclick="switchYear('2025s',this)">
+      <button class="ytab" data-year="2025s" onclick="switchYear('2025s',this)">
         2025年 総決算SP
         <span class="ytab-count">24件</span>
       </button>
@@ -647,6 +697,16 @@ footer a:hover{color:var(--gold-light)}
         </a>
 
       </div><!-- /buzz-grid -->
+
+      <!-- 次シリーズ導線 -->
+      <div class="next-series fi">
+        <button class="next-series-btn" onclick="goNext('2024')">2024年 上半期SPへ &rsaquo;</button>
+        <div class="next-series-thumbs">
+          <div class="ns-thumb"><img src="images/buzz/2024_kamibuzz/2024kamibuzz01.png" alt="" loading="lazy"></div>
+          <div class="ns-thumb"><img src="images/buzz/2024_kamibuzz/2024kamibuzz02.png" alt="" loading="lazy"></div>
+          <div class="ns-thumb"><img src="images/buzz/2024_kamibuzz/2024kamibuzz03.png" alt="" loading="lazy"></div>
+        </div>
+      </div>
     </div><!-- /sec-2023 -->
 
     <!-- 2024年 上半期SP セクション -->
@@ -1021,6 +1081,16 @@ footer a:hover{color:var(--gold-light)}
         </a>
 
       </div><!-- /buzz-grid -->
+
+      <!-- 次シリーズ導線 -->
+      <div class="next-series fi">
+        <button class="next-series-btn" onclick="goNext('2024s')">2024年 総決算SPへ &rsaquo;</button>
+        <div class="next-series-thumbs">
+          <div class="ns-thumb"><img src="images/buzz/2024_soukessan/2024soukessan01.png" alt="" loading="lazy"></div>
+          <div class="ns-thumb"><img src="images/buzz/2024_soukessan/2024soukessan02.png" alt="" loading="lazy"></div>
+          <div class="ns-thumb"><img src="images/buzz/2024_soukessan/2024soukessan03.png" alt="" loading="lazy"></div>
+        </div>
+      </div>
     </div><!-- /sec-2024 -->
 
     <!-- 2024年 総決算SP セクション -->
@@ -1395,6 +1465,16 @@ footer a:hover{color:var(--gold-light)}
         </a>
 
       </div><!-- /buzz-grid -->
+
+      <!-- 次シリーズ導線 -->
+      <div class="next-series fi">
+        <button class="next-series-btn" onclick="goNext('2025k')">2025年 上半期SPへ &rsaquo;</button>
+        <div class="next-series-thumbs">
+          <div class="ns-thumb"><img src="images/buzz/2025_kamibuzz/2025h1buzz01.png" alt="" loading="lazy"></div>
+          <div class="ns-thumb"><img src="images/buzz/2025_kamibuzz/2025h1buzz02.png" alt="" loading="lazy"></div>
+          <div class="ns-thumb"><img src="images/buzz/2025_kamibuzz/2025h1buzz03.png" alt="" loading="lazy"></div>
+        </div>
+      </div>
     </div><!-- /sec-2024s -->
 
     <!-- 2025年 上半期SP セクション -->
@@ -1799,6 +1879,16 @@ footer a:hover{color:var(--gold-light)}
         </a>
 
       </div><!-- /buzz-grid -->
+
+      <!-- 次シリーズ導線 -->
+      <div class="next-series fi">
+        <button class="next-series-btn" onclick="goNext('2025s')">2025年 総決算SPへ &rsaquo;</button>
+        <div class="next-series-thumbs">
+          <div class="ns-thumb"><img src="images/buzz/2025_soukessan/2025sokessan-buzz01.png" alt="" loading="lazy"></div>
+          <div class="ns-thumb"><img src="images/buzz/2025_soukessan/2025sokessan-buzz02.png" alt="" loading="lazy"></div>
+          <div class="ns-thumb"><img src="images/buzz/2025_soukessan/2025sokessan-buzz03.png" alt="" loading="lazy"></div>
+        </div>
+      </div>
     </div><!-- /sec-2025k -->
 
     <!-- 2025年 総決算SP セクション -->
@@ -2173,6 +2263,16 @@ footer a:hover{color:var(--gold-light)}
         </a>
 
       </div><!-- /buzz-grid -->
+
+      <!-- 次シリーズ導線 -->
+      <div class="next-series fi">
+        <button class="next-series-btn" onclick="goNext('2023')">2023年へ戻る &rsaquo;</button>
+        <div class="next-series-thumbs">
+          <div class="ns-thumb"><img src="images/buzz/2023/2023buzz01.jpg" alt="" loading="lazy"></div>
+          <div class="ns-thumb"><img src="images/buzz/2023/2023buzz02.jpg" alt="" loading="lazy"></div>
+          <div class="ns-thumb"><img src="images/buzz/2023/2023buzz03.jpg" alt="" loading="lazy"></div>
+        </div>
+      </div>
     </div><!-- /sec-2025s -->
 
   </div><!-- /main-area -->
@@ -2197,6 +2297,14 @@ footer a:hover{color:var(--gold-light)}
 </footer>
 
 <script>
+/* ── 次シリーズへ移動 ── */
+function goNext(year) {
+  var btn = document.querySelector('.ytab[data-year="' + year + '"]');
+  if (btn) { switchYear(year, btn); }
+  var tabs = document.querySelector('.year-tabs');
+  if (tabs) { window.scrollTo({top: tabs.offsetTop - 10, behavior: 'smooth'}); }
+}
+
 /* ── 年タブ切替 ── */
 function switchYear(year, btn) {
   document.querySelectorAll('.ytab').forEach(t => t.classList.remove('active'));
