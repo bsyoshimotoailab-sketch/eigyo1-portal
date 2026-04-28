@@ -148,6 +148,15 @@ footer a:hover{color:var(--gold-light)}
 @media(max-width:680px){
   .card-grid{grid-template-columns:1fr}
 }
+/* ── UIアニメーション ── */
+.card img,.video-card img{transition:transform .35s ease}
+.card:hover img,.video-card:hover img{transform:scale(1.04)}
+.btn,a.button{transition:all .2s ease}
+.btn:hover,a.button:hover{opacity:.9;transform:translateY(-1px)}
+.btn:active,a.button:active,.br:active,.bg:active,.bottom-link:active,.pg-tab:active,.ytab:active{transform:translateY(1px)!important;opacity:.9!important}
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.fade-in.show{opacity:1;transform:translateY(0)}
+@media(hover:none){.card:hover img,.video-card:hover img{transform:none}}
 </style>
 </head>
 <body>
@@ -414,6 +423,8 @@ document.querySelectorAll('.fi').forEach(el => obs.observe(el));
 document.querySelectorAll('.mnav a').forEach(el => {
   el.addEventListener('click', () => document.getElementById('mn').classList.remove('open'));
 });
+/* fade-in observer */
+(function(){var fi=document.querySelectorAll('.fade-in');if(!fi.length)return;var o=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting)n.target.classList.add('show');});},{threshold:0.1});fi.forEach(function(el){o.observe(el);});})();
 </script>
 
 </body>
