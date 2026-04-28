@@ -8,9 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --white:#fff;--bg:#faf9f6;--bg-warm:#f5f2ec;
+  --white:#fff;--bg:#faf9f6;
   --text:#222;--text-sub:#555;--text-light:#888;
-  --gold:#b8922e;--gold-light:#f0d77b;--gold-dark:#8a6d1a;
+  --gold:#b8922e;--gold-light:#f0d77b;
   --red:#d72631;--red-dark:#b51d26;--black:#1a1a1a;
   --border:#e8e4dc;--shadow:rgba(0,0,0,.08);
   --font:'Noto Sans JP',sans-serif;--font-a:'Zen Kaku Gothic New',sans-serif;
@@ -49,71 +49,101 @@ nav a:hover{color:var(--red)}
 .page-hero{background:var(--black);padding:clamp(36px,6vw,64px) 0 clamp(28px,5vw,48px)}
 .page-hero-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
 .page-hero-label{font-size:.64rem;letter-spacing:.24em;color:var(--gold-light);font-weight:700;margin-bottom:12px}
-.page-hero-title{font-family:var(--font-a);font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;color:var(--white);line-height:1.25;margin-bottom:12px}
-.page-hero-desc{font-size:.88rem;color:#999;max-width:600px;line-height:1.85}
+.page-hero-title{font-family:var(--font-a);font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;color:var(--white);line-height:1.25}
 
 /* ── メイン ── */
 .page-wrap{padding-top:68px}
-.main-area{max-width:1180px;margin:0 auto;padding:clamp(36px,5vw,56px) clamp(16px,4vw,40px) clamp(60px,10vw,100px)}
+.main-area{max-width:1180px;margin:0 auto;padding:clamp(32px,5vw,56px) clamp(16px,4vw,40px) clamp(60px,10vw,100px)}
 
 /* ── セクション見出し ── */
-.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:28px;padding-bottom:14px;border-bottom:2px solid var(--border)}
-.sec-label{font-family:var(--font-a);font-size:1.6rem;font-weight:900;color:var(--black)}
+.sec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--border)}
+.sec-label{font-family:var(--font-a);font-size:1.5rem;font-weight:900;color:var(--black)}
 .sec-sub{font-size:.8rem;color:var(--text-sub)}
 .sec-count{font-size:.72rem;color:var(--text-light);margin-left:auto;font-weight:700}
 
-/* ── 写真グリッド ── */
-.photo-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
-}
-.photo-grid a{
-  display:block;
-  aspect-ratio:4/3;
-  overflow:hidden;
-  background:#ece9e2;
-  border-radius:4px;
-  cursor:pointer;
-}
-.photo-grid img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:transform .35s;
-}
-.photo-grid a:hover img{transform:scale(1.05)}
+/* ── セクション間余白 ── */
+.pg-section{margin-bottom:clamp(56px,8vw,96px)}
 
-/* ── ライトボックス ── */
-.lb{
-  display:none;
-  position:fixed;inset:0;z-index:2000;
-  background:rgba(0,0,0,.88);
-  align-items:center;justify-content:center;flex-direction:column;
-  gap:16px;
-  padding:24px;
+/* ── Masonry（営業現場写真） ── */
+.masonry{
+  columns:4;
+  column-gap:10px;
 }
-.lb.open{display:flex}
-.lb img{
-  max-width:min(90vw,960px);
-  max-height:80vh;
-  object-fit:contain;
-  border-radius:4px;
-  box-shadow:0 8px 48px rgba(0,0,0,.6);
+.ms-item{
+  break-inside:avoid;
+  margin-bottom:10px;
+  cursor:pointer;
+  overflow:hidden;
+  border-radius:6px;
+  background:#e8e5de;
 }
-.lb-cap{
-  color:#ddd;
-  font-size:.88rem;
-  text-align:center;
-  max-width:640px;
+.ms-item img{
+  width:100%;
+  height:auto;
+  display:block;
+  transition:transform .35s ease,opacity .2s;
+  opacity:.92;
 }
-.lb-close{
-  position:fixed;top:20px;right:24px;
+.ms-item:hover img{transform:scale(1.04);opacity:1}
+
+/* ── Gallery grid（スタジオ名場面集） ── */
+.gal-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+.gal-item{
+  aspect-ratio:16/9;
+  overflow:hidden;
+  border-radius:6px;
+  cursor:pointer;
+  background:#e8e5de;
+}
+.gal-item img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  transition:transform .35s ease,opacity .2s;
+  opacity:.92;
+}
+.gal-item:hover img{transform:scale(1.05);opacity:1}
+
+/* ── モーダル ── */
+.modal{
+  display:none;position:fixed;inset:0;z-index:2000;
+  background:rgba(0,0,0,.92);
+  align-items:center;justify-content:center;
+}
+.modal.open{display:flex}
+.modal-inner{
+  position:relative;max-width:90vw;max-height:90vh;
+  display:flex;align-items:center;gap:16px;
+}
+.modal-img{
+  max-width:80vw;max-height:86vh;
+  object-fit:contain;border-radius:4px;
+  user-select:none;
+}
+.modal-close{
+  position:fixed;top:18px;right:20px;
   background:none;border:none;color:#fff;font-size:2rem;
-  cursor:pointer;line-height:1;opacity:.7;
-  transition:opacity .2s;
+  cursor:pointer;line-height:1;z-index:2001;opacity:.7;transition:opacity .2s;
 }
-.lb-close:hover{opacity:1}
+.modal-close:hover{opacity:1}
+.modal-nav{
+  position:fixed;top:50%;transform:translateY(-50%);
+  background:rgba(255,255,255,.12);border:none;color:#fff;
+  font-size:1.6rem;width:48px;height:80px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;border-radius:4px;z-index:2001;
+  transition:background .2s;
+}
+.modal-nav:hover{background:rgba(255,255,255,.25)}
+.modal-nav.prev{left:10px}
+.modal-nav.next{right:10px}
+.modal-info{
+  position:fixed;bottom:14px;left:50%;transform:translateX(-50%);
+  color:#aaa;font-size:.76rem;white-space:nowrap;
+}
 
 /* ── 下部導線 ── */
 .bottom-nav{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px) clamp(60px,10vw,90px);display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
@@ -135,20 +165,31 @@ footer a:hover{color:var(--gold-light)}
 @media(max-width:960px){
   nav a:not(.ncta){display:none}
   .hbr{display:block}
-  .photo-grid{grid-template-columns:repeat(2,1fr)}
+  .masonry{columns:3}
+  .gal-grid{grid-template-columns:repeat(3,1fr)}
 }
-@media(max-width:540px){
-  .photo-grid{grid-template-columns:1fr}
+@media(max-width:640px){
+  .masonry{columns:2;column-gap:8px}
+  .ms-item{margin-bottom:8px}
+  .gal-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .modal-nav{width:40px;height:60px;font-size:1.2rem}
+  .modal-img{max-width:95vw;max-height:82vh}
+}
+@media(max-width:400px){
+  .masonry{columns:1}
+  .gal-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- ライトボックス -->
-<div class="lb" id="lb" onclick="closeLB(event)">
-  <button class="lb-close" onclick="closeLB()" aria-label="閉じる">×</button>
-  <img id="lb-img" src="" alt="">
-  <p class="lb-cap" id="lb-cap"></p>
+<!-- モーダル -->
+<div class="modal" id="modal" onclick="closeModalBg(event)">
+  <button class="modal-close" onclick="closeModal()" aria-label="閉じる">&times;</button>
+  <button class="modal-nav prev" onclick="navModal(-1)" aria-label="前へ">&#8249;</button>
+  <img class="modal-img" id="modal-img" src="" alt="">
+  <button class="modal-nav next" onclick="navModal(1)" aria-label="次へ">&#8250;</button>
+  <div class="modal-info" id="modal-info"></div>
 </div>
 
 <!-- ヘッダー -->
@@ -186,6 +227,7 @@ footer a:hover{color:var(--gold-light)}
 
 <div class="page-wrap">
 
+  <!-- パンくず -->
   <div class="breadcrumb">
     <div class="bc-inner">
       <a href="index.html">TOP</a>
@@ -194,44 +236,228 @@ footer a:hover{color:var(--gold-light)}
     </div>
   </div>
 
+  <!-- ページヒーロー -->
   <div class="page-hero">
     <div class="page-hero-inner">
       <div class="page-hero-label">PHOTO GALLERY</div>
       <h1 class="page-hero-title">写真館</h1>
-      <p class="page-hero-desc">番組の収録現場・営業現場の貴重な写真を公開しています。クリックで拡大表示できます。</p>
     </div>
   </div>
 
   <div class="main-area">
 
-    <div class="sec-head fi">
-      <span class="sec-label">フォトギャラリー</span>
-      <span class="sec-sub">収録風景・営業現場写真</span>
-      <span class="sec-count">全20件</span>
+    <!-- ── 営業現場写真アーカイブ ── -->
+    <div class="pg-section">
+      <div class="sec-head fi">
+        <span class="sec-label">営業現場写真アーカイブ</span>
+        <span class="sec-count">全77件</span>
+      </div>
+      <div class="masonry fi">
+      <div class="ms-item" onclick="openModal('scene',0)"><img src="images/scene/scene01.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',1)"><img src="images/scene/scene02.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',2)"><img src="images/scene/scene03.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',3)"><img src="images/scene/scene04.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',4)"><img src="images/scene/scene05.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',5)"><img src="images/scene/scene06.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',6)"><img src="images/scene/scene07.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',7)"><img src="images/scene/scene08.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',8)"><img src="images/scene/scene09.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',9)"><img src="images/scene/scene10.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',10)"><img src="images/scene/scene11.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',11)"><img src="images/scene/scene12.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',12)"><img src="images/scene/scene13.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',13)"><img src="images/scene/scene14.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',14)"><img src="images/scene/scene15.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',15)"><img src="images/scene/scene16.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',16)"><img src="images/scene/scene17.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',17)"><img src="images/scene/scene18.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',18)"><img src="images/scene/scene19.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',19)"><img src="images/scene/scene20.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',20)"><img src="images/scene/scene21.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',21)"><img src="images/scene/scene22.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',22)"><img src="images/scene/scene23.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',23)"><img src="images/scene/scene24.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',24)"><img src="images/scene/scene25.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',25)"><img src="images/scene/scene26.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',26)"><img src="images/scene/scene27.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',27)"><img src="images/scene/scene28.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',28)"><img src="images/scene/scene29.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',29)"><img src="images/scene/scene30.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',30)"><img src="images/scene/scene31.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',31)"><img src="images/scene/scene32.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',32)"><img src="images/scene/scene33.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',33)"><img src="images/scene/scene34.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',34)"><img src="images/scene/scene35.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',35)"><img src="images/scene/scene36.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',36)"><img src="images/scene/scene37.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',37)"><img src="images/scene/scene38.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',38)"><img src="images/scene/scene39.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',39)"><img src="images/scene/scene40.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',40)"><img src="images/scene/scene41.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',41)"><img src="images/scene/scene42.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',42)"><img src="images/scene/scene43.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',43)"><img src="images/scene/scene44.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',44)"><img src="images/scene/scene45.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',45)"><img src="images/scene/scene46.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',46)"><img src="images/scene/scene47.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',47)"><img src="images/scene/scene48.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',48)"><img src="images/scene/scene49.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',49)"><img src="images/scene/scene50.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',50)"><img src="images/scene/scene51.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',51)"><img src="images/scene/scene52.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',52)"><img src="images/scene/scene53.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',53)"><img src="images/scene/scene54.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',54)"><img src="images/scene/scene55.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',55)"><img src="images/scene/scene56.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',56)"><img src="images/scene/scene57.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',57)"><img src="images/scene/scene58.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',58)"><img src="images/scene/scene59.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',59)"><img src="images/scene/scene60.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',60)"><img src="images/scene/scene61.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',61)"><img src="images/scene/scene62.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',62)"><img src="images/scene/scene63.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',63)"><img src="images/scene/scene64.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',64)"><img src="images/scene/scene65.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',65)"><img src="images/scene/scene66.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',66)"><img src="images/scene/scene67.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',67)"><img src="images/scene/scene68.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',68)"><img src="images/scene/scene70.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',69)"><img src="images/scene/scene71.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',70)"><img src="images/scene/scene72.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',71)"><img src="images/scene/scene74.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',72)"><img src="images/scene/scene75.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',73)"><img src="images/scene/scene76.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',74)"><img src="images/scene/scene77.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',75)"><img src="images/scene/scene78.jpg" alt="" loading="lazy"></div>
+      <div class="ms-item" onclick="openModal('scene',76)"><img src="images/scene/scene79.jpg" alt="" loading="lazy"></div>
+      </div>
     </div>
 
-    <section class="photo-grid fi">
-      <a onclick="openLB('scenes/3.png','収録現場のワンシーン')"><img src="scenes/3.png" alt="収録現場のワンシーン"></a>
-      <a onclick="openLB('scenes/4.png','営業トーク中の一幕')"><img src="scenes/4.png" alt="営業トーク中の一幕"></a>
-      <a onclick="openLB('scenes/5.png','現場スナップ')"><img src="scenes/5.png" alt="現場スナップ"></a>
-      <a onclick="openLB('scenes/6.png','審査の瞬間')"><img src="scenes/6.png" alt="審査の瞬間"></a>
-      <a onclick="openLB('scenes/7.png','スタジオ収録風景')"><img src="scenes/7.png" alt="スタジオ収録風景"></a>
-      <a onclick="openLB('scenes/8.png','営業現場の緊張感')"><img src="scenes/8.png" alt="営業現場の緊張感"></a>
-      <a onclick="openLB('scenes/9.png','収録の一コマ')"><img src="scenes/9.png" alt="収録の一コマ"></a>
-      <a onclick="openLB('scenes/10.png','名場面スチール')"><img src="scenes/10.png" alt="名場面スチール"></a>
-      <a onclick="openLB('scenes/11.png','営業トーク名シーン')"><img src="scenes/11.png" alt="営業トーク名シーン"></a>
-      <a onclick="openLB('scenes/12.png','収録舞台裏')"><img src="scenes/12.png" alt="収録舞台裏"></a>
-      <a onclick="openLB('scenes/13.png','スタジオ名場面')"><img src="scenes/13.png" alt="スタジオ名場面"></a>
-      <a onclick="openLB('scenes/14.png','現場の一コマ')"><img src="scenes/14.png" alt="現場の一コマ"></a>
-      <a onclick="openLB('scenes/15.png','営業スナップ')"><img src="scenes/15.png" alt="営業スナップ"></a>
-      <a onclick="openLB('scenes/16.png','収録風景')"><img src="scenes/16.png" alt="収録風景"></a>
-      <a onclick="openLB('scenes/17.png','現場スナップ②')"><img src="scenes/17.png" alt="現場スナップ②"></a>
-      <a onclick="openLB('scenes/18.png','スタジオ収録風景②')"><img src="scenes/18.png" alt="スタジオ収録風景②"></a>
-      <a onclick="openLB('scenes/19.png','名場面の瞬間')"><img src="scenes/19.png" alt="名場面の瞬間"></a>
-      <a onclick="openLB('scenes/20.png','営業現場スナップ②')"><img src="scenes/20.png" alt="営業現場スナップ②"></a>
-      <a onclick="openLB('scenes/21.png','収録舞台裏の一場面')"><img src="scenes/21.png" alt="収録舞台裏の一場面"></a>
-      <a onclick="openLB('scenes/22.png','スタジオ最終場面')"><img src="scenes/22.png" alt="スタジオ最終場面"></a>
-    </section>
+    <!-- ── スタジオ名場面集 ── -->
+    <div class="pg-section">
+      <div class="sec-head fi">
+        <span class="sec-label">スタジオ名場面集</span>
+        <span class="sec-count">全116件</span>
+      </div>
+      <div class="gal-grid fi">
+      <div class="gal-item" onclick="openModal('gallery',0)"><img src="images/gallery/gallery001.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',1)"><img src="images/gallery/gallery002.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',2)"><img src="images/gallery/gallery003.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',3)"><img src="images/gallery/gallery004.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',4)"><img src="images/gallery/gallery005.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',5)"><img src="images/gallery/gallery006.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',6)"><img src="images/gallery/gallery007.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',7)"><img src="images/gallery/gallery008.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',8)"><img src="images/gallery/gallery009.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',9)"><img src="images/gallery/gallery010.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',10)"><img src="images/gallery/gallery011.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',11)"><img src="images/gallery/gallery012.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',12)"><img src="images/gallery/gallery013.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',13)"><img src="images/gallery/gallery014.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',14)"><img src="images/gallery/gallery015.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',15)"><img src="images/gallery/gallery016.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',16)"><img src="images/gallery/gallery017.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',17)"><img src="images/gallery/gallery018.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',18)"><img src="images/gallery/gallery019.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',19)"><img src="images/gallery/gallery020.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',20)"><img src="images/gallery/gallery021.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',21)"><img src="images/gallery/gallery022.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',22)"><img src="images/gallery/gallery023.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',23)"><img src="images/gallery/gallery024.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',24)"><img src="images/gallery/gallery025.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',25)"><img src="images/gallery/gallery026.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',26)"><img src="images/gallery/gallery027.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',27)"><img src="images/gallery/gallery028.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',28)"><img src="images/gallery/gallery029.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',29)"><img src="images/gallery/gallery030.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',30)"><img src="images/gallery/gallery031.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',31)"><img src="images/gallery/gallery032.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',32)"><img src="images/gallery/gallery033.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',33)"><img src="images/gallery/gallery034.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',34)"><img src="images/gallery/gallery035.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',35)"><img src="images/gallery/gallery036.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',36)"><img src="images/gallery/gallery037.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',37)"><img src="images/gallery/gallery038.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',38)"><img src="images/gallery/gallery039.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',39)"><img src="images/gallery/gallery040.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',40)"><img src="images/gallery/gallery041.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',41)"><img src="images/gallery/gallery042.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',42)"><img src="images/gallery/gallery043.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',43)"><img src="images/gallery/gallery044.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',44)"><img src="images/gallery/gallery045.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',45)"><img src="images/gallery/gallery046.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',46)"><img src="images/gallery/gallery047.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',47)"><img src="images/gallery/gallery048.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',48)"><img src="images/gallery/gallery049.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',49)"><img src="images/gallery/gallery050.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',50)"><img src="images/gallery/gallery051.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',51)"><img src="images/gallery/gallery052.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',52)"><img src="images/gallery/gallery053.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',53)"><img src="images/gallery/gallery054.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',54)"><img src="images/gallery/gallery055.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',55)"><img src="images/gallery/gallery056.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',56)"><img src="images/gallery/gallery057.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',57)"><img src="images/gallery/gallery058.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',58)"><img src="images/gallery/gallery059.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',59)"><img src="images/gallery/gallery060.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',60)"><img src="images/gallery/gallery061.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',61)"><img src="images/gallery/gallery062.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',62)"><img src="images/gallery/gallery063.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',63)"><img src="images/gallery/gallery064.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',64)"><img src="images/gallery/gallery065.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',65)"><img src="images/gallery/gallery066.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',66)"><img src="images/gallery/gallery067.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',67)"><img src="images/gallery/gallery068.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',68)"><img src="images/gallery/gallery069.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',69)"><img src="images/gallery/gallery070.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',70)"><img src="images/gallery/gallery071.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',71)"><img src="images/gallery/gallery072.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',72)"><img src="images/gallery/gallery073.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',73)"><img src="images/gallery/gallery074.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',74)"><img src="images/gallery/gallery075.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',75)"><img src="images/gallery/gallery076.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',76)"><img src="images/gallery/gallery077.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',77)"><img src="images/gallery/gallery078.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',78)"><img src="images/gallery/gallery079.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',79)"><img src="images/gallery/gallery080.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',80)"><img src="images/gallery/gallery081.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',81)"><img src="images/gallery/gallery082.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',82)"><img src="images/gallery/gallery083.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',83)"><img src="images/gallery/gallery084.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',84)"><img src="images/gallery/gallery085.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',85)"><img src="images/gallery/gallery086.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',86)"><img src="images/gallery/gallery087.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',87)"><img src="images/gallery/gallery088.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',88)"><img src="images/gallery/gallery089.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',89)"><img src="images/gallery/gallery090.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',90)"><img src="images/gallery/gallery091.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',91)"><img src="images/gallery/gallery092.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',92)"><img src="images/gallery/gallery093.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',93)"><img src="images/gallery/gallery094.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',94)"><img src="images/gallery/gallery095.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',95)"><img src="images/gallery/gallery096.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',96)"><img src="images/gallery/gallery097.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',97)"><img src="images/gallery/gallery098.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',98)"><img src="images/gallery/gallery099.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',99)"><img src="images/gallery/gallery100.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',100)"><img src="images/gallery/gallery101.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',101)"><img src="images/gallery/gallery102.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',102)"><img src="images/gallery/gallery103.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',103)"><img src="images/gallery/gallery104.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',104)"><img src="images/gallery/gallery105.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',105)"><img src="images/gallery/gallery106.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',106)"><img src="images/gallery/gallery107.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',107)"><img src="images/gallery/gallery108.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',108)"><img src="images/gallery/gallery109.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',109)"><img src="images/gallery/gallery110.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',110)"><img src="images/gallery/gallery111.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',111)"><img src="images/gallery/gallery112.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',112)"><img src="images/gallery/gallery113.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',113)"><img src="images/gallery/gallery114.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',114)"><img src="images/gallery/gallery115.png" alt="" loading="lazy"></div>
+      <div class="gal-item" onclick="openModal('gallery',115)"><img src="images/gallery/gallery116.png" alt="" loading="lazy"></div>
+      </div>
+    </div>
 
   </div>
 
@@ -253,26 +479,272 @@ footer a:hover{color:var(--gold-light)}
 </footer>
 
 <script>
-function openLB(src, cap){
-  document.getElementById('lb-img').src = src;
-  document.getElementById('lb-cap').textContent = cap;
-  document.getElementById('lb').classList.add('open');
+/* ── モーダル ── */
+var sceneFiles = [
+    "scene01.jpg",
+    "scene02.jpg",
+    "scene03.jpg",
+    "scene04.jpg",
+    "scene05.jpg",
+    "scene06.jpg",
+    "scene07.jpg",
+    "scene08.jpg",
+    "scene09.jpg",
+    "scene10.jpg",
+    "scene11.jpg",
+    "scene12.jpg",
+    "scene13.jpg",
+    "scene14.jpg",
+    "scene15.jpg",
+    "scene16.jpg",
+    "scene17.jpg",
+    "scene18.jpg",
+    "scene19.jpg",
+    "scene20.jpg",
+    "scene21.jpg",
+    "scene22.jpg",
+    "scene23.jpg",
+    "scene24.jpg",
+    "scene25.jpg",
+    "scene26.jpg",
+    "scene27.jpg",
+    "scene28.jpg",
+    "scene29.jpg",
+    "scene30.jpg",
+    "scene31.jpg",
+    "scene32.jpg",
+    "scene33.jpg",
+    "scene34.jpg",
+    "scene35.jpg",
+    "scene36.jpg",
+    "scene37.jpg",
+    "scene38.jpg",
+    "scene39.jpg",
+    "scene40.jpg",
+    "scene41.jpg",
+    "scene42.jpg",
+    "scene43.jpg",
+    "scene44.jpg",
+    "scene45.jpg",
+    "scene46.jpg",
+    "scene47.jpg",
+    "scene48.jpg",
+    "scene49.jpg",
+    "scene50.jpg",
+    "scene51.jpg",
+    "scene52.jpg",
+    "scene53.jpg",
+    "scene54.jpg",
+    "scene55.jpg",
+    "scene56.jpg",
+    "scene57.jpg",
+    "scene58.jpg",
+    "scene59.jpg",
+    "scene60.jpg",
+    "scene61.jpg",
+    "scene62.jpg",
+    "scene63.jpg",
+    "scene64.jpg",
+    "scene65.jpg",
+    "scene66.jpg",
+    "scene67.jpg",
+    "scene68.jpg",
+    "scene70.jpg",
+    "scene71.jpg",
+    "scene72.jpg",
+    "scene74.jpg",
+    "scene75.jpg",
+    "scene76.jpg",
+    "scene77.jpg",
+    "scene78.jpg",
+    "scene79.jpg"
+];
+var galleryFiles = [
+    "gallery001.png",
+    "gallery002.png",
+    "gallery003.png",
+    "gallery004.png",
+    "gallery005.png",
+    "gallery006.png",
+    "gallery007.png",
+    "gallery008.png",
+    "gallery009.png",
+    "gallery010.png",
+    "gallery011.png",
+    "gallery012.png",
+    "gallery013.png",
+    "gallery014.png",
+    "gallery015.png",
+    "gallery016.png",
+    "gallery017.png",
+    "gallery018.png",
+    "gallery019.png",
+    "gallery020.png",
+    "gallery021.png",
+    "gallery022.png",
+    "gallery023.png",
+    "gallery024.png",
+    "gallery025.png",
+    "gallery026.png",
+    "gallery027.png",
+    "gallery028.png",
+    "gallery029.png",
+    "gallery030.png",
+    "gallery031.png",
+    "gallery032.png",
+    "gallery033.png",
+    "gallery034.png",
+    "gallery035.png",
+    "gallery036.png",
+    "gallery037.png",
+    "gallery038.png",
+    "gallery039.png",
+    "gallery040.png",
+    "gallery041.png",
+    "gallery042.png",
+    "gallery043.png",
+    "gallery044.png",
+    "gallery045.png",
+    "gallery046.png",
+    "gallery047.png",
+    "gallery048.png",
+    "gallery049.png",
+    "gallery050.png",
+    "gallery051.png",
+    "gallery052.png",
+    "gallery053.png",
+    "gallery054.png",
+    "gallery055.png",
+    "gallery056.png",
+    "gallery057.png",
+    "gallery058.png",
+    "gallery059.png",
+    "gallery060.png",
+    "gallery061.png",
+    "gallery062.png",
+    "gallery063.png",
+    "gallery064.png",
+    "gallery065.png",
+    "gallery066.png",
+    "gallery067.png",
+    "gallery068.png",
+    "gallery069.png",
+    "gallery070.png",
+    "gallery071.png",
+    "gallery072.png",
+    "gallery073.png",
+    "gallery074.png",
+    "gallery075.png",
+    "gallery076.png",
+    "gallery077.png",
+    "gallery078.png",
+    "gallery079.png",
+    "gallery080.png",
+    "gallery081.png",
+    "gallery082.png",
+    "gallery083.png",
+    "gallery084.png",
+    "gallery085.png",
+    "gallery086.png",
+    "gallery087.png",
+    "gallery088.png",
+    "gallery089.png",
+    "gallery090.png",
+    "gallery091.png",
+    "gallery092.png",
+    "gallery093.png",
+    "gallery094.png",
+    "gallery095.png",
+    "gallery096.png",
+    "gallery097.png",
+    "gallery098.png",
+    "gallery099.png",
+    "gallery100.png",
+    "gallery101.png",
+    "gallery102.png",
+    "gallery103.png",
+    "gallery104.png",
+    "gallery105.png",
+    "gallery106.png",
+    "gallery107.png",
+    "gallery108.png",
+    "gallery109.png",
+    "gallery110.png",
+    "gallery111.png",
+    "gallery112.png",
+    "gallery113.png",
+    "gallery114.png",
+    "gallery115.png",
+    "gallery116.png"
+];
+
+var currentSection = 'scene';
+var currentIndex = 0;
+
+function openModal(section, idx) {
+  currentSection = section;
+  currentIndex = idx;
+  showModal();
+}
+
+function showModal() {
+  var files = currentSection === 'scene' ? sceneFiles : galleryFiles;
+  var dir   = currentSection === 'scene' ? 'images/scene/' : 'images/gallery/';
+  var total = files.length;
+  var fname = files[currentIndex];
+  var img = document.getElementById('modal-img');
+  img.src = dir + fname;
+  img.alt = fname;
+  document.getElementById('modal-info').textContent = (currentIndex + 1) + ' / ' + total;
+  document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-function closeLB(e){
-  if(e && e.target !== document.getElementById('lb') && !e.target.classList.contains('lb-close')) return;
-  document.getElementById('lb').classList.remove('open');
+
+function navModal(dir) {
+  var files = currentSection === 'scene' ? sceneFiles : galleryFiles;
+  currentIndex = (currentIndex + dir + files.length) % files.length;
+  showModal();
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
   document.body.style.overflow = '';
 }
-document.addEventListener('keydown', e => { if(e.key === 'Escape') { document.getElementById('lb').classList.remove('open'); document.body.style.overflow = ''; } });
 
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); obs.unobserve(e.target); } });
-}, { threshold: .04, rootMargin: '0px 0px -8px 0px' });
-document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+function closeModalBg(e) {
+  if (e.target === document.getElementById('modal')) closeModal();
+}
 
-document.querySelectorAll('.mnav a').forEach(a => {
-  a.addEventListener('click', () => document.getElementById('mn').classList.remove('open'));
+document.addEventListener('keydown', function(e) {
+  var m = document.getElementById('modal');
+  if (!m.classList.contains('open')) return;
+  if (e.key === 'Escape')      closeModal();
+  if (e.key === 'ArrowRight')  navModal(1);
+  if (e.key === 'ArrowLeft')   navModal(-1);
+});
+
+/* スワイプ対応 */
+(function() {
+  var startX = 0;
+  var m = document.getElementById('modal');
+  m.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive:true});
+  m.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) navModal(dx < 0 ? 1 : -1);
+  }, {passive:true});
+})();
+
+/* ── フェードイン ── */
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('v'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.04, rootMargin: '0px 0px -8px 0px' });
+document.querySelectorAll('.fi').forEach(function(el) { obs.observe(el); });
+
+/* ── ハンバーガー ── */
+document.querySelectorAll('.mnav a').forEach(function(a) {
+  a.addEventListener('click', function() { document.getElementById('mn').classList.remove('open'); });
 });
 </script>
 
