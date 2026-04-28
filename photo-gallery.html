@@ -145,6 +145,15 @@ nav a:hover{color:var(--red)}
   color:#aaa;font-size:.76rem;white-space:nowrap;
 }
 
+/* ── タブ ── */
+.pg-tabs{display:flex;gap:4px;margin-bottom:32px;border-bottom:2px solid var(--border)}
+.pg-tab{padding:10px 20px;font-size:.82rem;font-weight:700;background:none;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer;color:var(--text-sub);transition:color .2s,border-color .2s;white-space:nowrap}
+.pg-tab.active{color:var(--red);border-bottom-color:var(--red)}
+.pg-tab:hover:not(.active){color:var(--text)}
+.pg-panel{display:none}
+.pg-panel.active{display:block}
+@media(max-width:480px){.pg-tab{padding:10px 14px;font-size:.76rem}}
+
 /* ── 下部導線 ── */
 .bottom-nav{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px) clamp(60px,10vw,90px);display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .bottom-link{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:6px;font-size:.8rem;font-weight:700;border:1.5px solid var(--border);color:var(--text-sub);background:var(--white);transition:all .25s}
@@ -246,7 +255,14 @@ footer a:hover{color:var(--gold-light)}
 
   <div class="main-area">
 
+    <!-- タブ -->
+    <div class="pg-tabs">
+      <button class="pg-tab active" onclick="switchTab('panel-scene',this)">営業現場写真アーカイブ</button>
+      <button class="pg-tab" onclick="switchTab('panel-gallery',this)">スタジオ名場面集</button>
+    </div>
+
     <!-- ── 営業現場写真アーカイブ ── -->
+    <div class="pg-panel active" id="panel-scene">
     <div class="pg-section">
       <div class="sec-head fi">
         <span class="sec-label">営業現場写真アーカイブ</span>
@@ -332,8 +348,10 @@ footer a:hover{color:var(--gold-light)}
       <div class="ms-item" onclick="openModal('scene',76)"><img src="images/scene/scene79.jpg" alt="" loading="lazy"></div>
       </div>
     </div>
+    </div><!-- /panel-scene -->
 
     <!-- ── スタジオ名場面集 ── -->
+    <div class="pg-panel" id="panel-gallery">
     <div class="pg-section">
       <div class="sec-head fi">
         <span class="sec-label">スタジオ名場面集</span>
@@ -458,6 +476,7 @@ footer a:hover{color:var(--gold-light)}
       <div class="gal-item" onclick="openModal('gallery',115)"><img src="images/gallery/gallery116.png" alt="" loading="lazy"></div>
       </div>
     </div>
+    </div><!-- /panel-gallery -->
 
   </div>
 
@@ -733,6 +752,14 @@ document.addEventListener('keydown', function(e) {
     if (Math.abs(dx) > 40) navModal(dx < 0 ? 1 : -1);
   }, {passive:true});
 })();
+
+/* ── タブ切り替え ── */
+function switchTab(panelId, btn) {
+  document.querySelectorAll('.pg-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.pg-tab').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById(panelId).classList.add('active');
+  btn.classList.add('active');
+}
 
 /* ── フェードイン ── */
 var obs = new IntersectionObserver(function(entries) {
