@@ -153,6 +153,11 @@ nav a:hover{color:var(--red)}
 .pg-panel{display:none}
 .pg-panel.active{display:block}
 @media(max-width:480px){.pg-tab{padding:10px 14px;font-size:.76rem}}
+/* 下部タブ */
+.pg-tabs-bottom{display:flex;gap:8px;margin-top:32px;padding-top:20px;border-top:2px solid var(--border);justify-content:center}
+.pg-tabs-bottom .pg-tab{flex:1;max-width:260px;text-align:center;border-bottom:none;border:2px solid var(--border);border-radius:6px;margin-bottom:0;padding:14px 16px}
+.pg-tabs-bottom .pg-tab.active{border-color:var(--red);background:rgba(215,38,49,.06)}
+@media(max-width:480px){.pg-tabs-bottom .pg-tab{font-size:.8rem;padding:12px 10px}}
 
 /* ── 下部導線 ── */
 .bottom-nav{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px) clamp(60px,10vw,90px);display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
@@ -255,10 +260,10 @@ footer a:hover{color:var(--gold-light)}
 
   <div class="main-area">
 
-    <!-- タブ -->
+    <!-- タブ（上部） -->
     <div class="pg-tabs">
-      <button class="pg-tab active" onclick="switchTab('panel-scene',this)">営業現場写真アーカイブ</button>
-      <button class="pg-tab" onclick="switchTab('panel-gallery',this)">スタジオ名場面集</button>
+      <button class="pg-tab active" data-panel="panel-scene" onclick="switchTab('panel-scene')">営業現場写真アーカイブ</button>
+      <button class="pg-tab" data-panel="panel-gallery" onclick="switchTab('panel-gallery')">スタジオ名場面集</button>
     </div>
 
     <!-- ── 営業現場写真アーカイブ ── -->
@@ -268,85 +273,90 @@ footer a:hover{color:var(--gold-light)}
         <span class="sec-label">営業現場写真アーカイブ</span>
         <span class="sec-count">全77件</span>
       </div>
-      <div class="masonry fi">
-      <div class="ms-item" onclick="openModal('scene',0)"><img src="images/scene/scene01.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',1)"><img src="images/scene/scene02.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',2)"><img src="images/scene/scene03.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',3)"><img src="images/scene/scene04.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',4)"><img src="images/scene/scene05.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',5)"><img src="images/scene/scene06.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',6)"><img src="images/scene/scene07.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',7)"><img src="images/scene/scene08.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',8)"><img src="images/scene/scene09.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',9)"><img src="images/scene/scene10.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',10)"><img src="images/scene/scene11.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',11)"><img src="images/scene/scene12.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',12)"><img src="images/scene/scene13.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',13)"><img src="images/scene/scene14.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',14)"><img src="images/scene/scene15.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',15)"><img src="images/scene/scene16.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',16)"><img src="images/scene/scene17.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',17)"><img src="images/scene/scene18.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',18)"><img src="images/scene/scene19.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',19)"><img src="images/scene/scene20.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',20)"><img src="images/scene/scene21.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',21)"><img src="images/scene/scene22.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',22)"><img src="images/scene/scene23.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',23)"><img src="images/scene/scene24.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',24)"><img src="images/scene/scene25.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',25)"><img src="images/scene/scene26.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',26)"><img src="images/scene/scene27.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',27)"><img src="images/scene/scene28.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',28)"><img src="images/scene/scene29.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',29)"><img src="images/scene/scene30.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',30)"><img src="images/scene/scene31.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',31)"><img src="images/scene/scene32.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',32)"><img src="images/scene/scene33.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',33)"><img src="images/scene/scene34.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',34)"><img src="images/scene/scene35.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',35)"><img src="images/scene/scene36.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',36)"><img src="images/scene/scene37.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',37)"><img src="images/scene/scene38.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',38)"><img src="images/scene/scene39.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',39)"><img src="images/scene/scene40.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',40)"><img src="images/scene/scene41.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',41)"><img src="images/scene/scene42.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',42)"><img src="images/scene/scene43.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',43)"><img src="images/scene/scene44.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',44)"><img src="images/scene/scene45.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',45)"><img src="images/scene/scene46.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',46)"><img src="images/scene/scene47.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',47)"><img src="images/scene/scene48.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',48)"><img src="images/scene/scene49.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',49)"><img src="images/scene/scene50.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',50)"><img src="images/scene/scene51.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',51)"><img src="images/scene/scene52.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',52)"><img src="images/scene/scene53.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',53)"><img src="images/scene/scene54.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',54)"><img src="images/scene/scene55.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',55)"><img src="images/scene/scene56.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',56)"><img src="images/scene/scene57.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',57)"><img src="images/scene/scene58.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',58)"><img src="images/scene/scene59.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',59)"><img src="images/scene/scene60.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',60)"><img src="images/scene/scene61.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',61)"><img src="images/scene/scene62.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',62)"><img src="images/scene/scene63.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',63)"><img src="images/scene/scene64.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',64)"><img src="images/scene/scene65.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',65)"><img src="images/scene/scene66.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',66)"><img src="images/scene/scene67.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',67)"><img src="images/scene/scene68.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',68)"><img src="images/scene/scene70.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',69)"><img src="images/scene/scene71.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',70)"><img src="images/scene/scene72.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',71)"><img src="images/scene/scene74.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',72)"><img src="images/scene/scene75.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',73)"><img src="images/scene/scene76.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',74)"><img src="images/scene/scene77.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',75)"><img src="images/scene/scene78.jpg" alt="" loading="lazy"></div>
-      <div class="ms-item" onclick="openModal('scene',76)"><img src="images/scene/scene79.jpg" alt="" loading="lazy"></div>
+      <div class="masonry">
+      <div class="ms-item" onclick="openModal('scene',0)"><img src="images/scene/scene01.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',1)"><img src="images/scene/scene02.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',2)"><img src="images/scene/scene03.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',3)"><img src="images/scene/scene04.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',4)"><img src="images/scene/scene05.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',5)"><img src="images/scene/scene06.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',6)"><img src="images/scene/scene07.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',7)"><img src="images/scene/scene08.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',8)"><img src="images/scene/scene09.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',9)"><img src="images/scene/scene10.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',10)"><img src="images/scene/scene11.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',11)"><img src="images/scene/scene12.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',12)"><img src="images/scene/scene13.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',13)"><img src="images/scene/scene14.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',14)"><img src="images/scene/scene15.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',15)"><img src="images/scene/scene16.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',16)"><img src="images/scene/scene17.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',17)"><img src="images/scene/scene18.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',18)"><img src="images/scene/scene19.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',19)"><img src="images/scene/scene20.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',20)"><img src="images/scene/scene21.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',21)"><img src="images/scene/scene22.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',22)"><img src="images/scene/scene23.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',23)"><img src="images/scene/scene24.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',24)"><img src="images/scene/scene25.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',25)"><img src="images/scene/scene26.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',26)"><img src="images/scene/scene27.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',27)"><img src="images/scene/scene28.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',28)"><img src="images/scene/scene29.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',29)"><img src="images/scene/scene30.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',30)"><img src="images/scene/scene31.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',31)"><img src="images/scene/scene32.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',32)"><img src="images/scene/scene33.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',33)"><img src="images/scene/scene34.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',34)"><img src="images/scene/scene35.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',35)"><img src="images/scene/scene36.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',36)"><img src="images/scene/scene37.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',37)"><img src="images/scene/scene38.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',38)"><img src="images/scene/scene39.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',39)"><img src="images/scene/scene40.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',40)"><img src="images/scene/scene41.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',41)"><img src="images/scene/scene42.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',42)"><img src="images/scene/scene43.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',43)"><img src="images/scene/scene44.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',44)"><img src="images/scene/scene45.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',45)"><img src="images/scene/scene46.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',46)"><img src="images/scene/scene47.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',47)"><img src="images/scene/scene48.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',48)"><img src="images/scene/scene49.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',49)"><img src="images/scene/scene50.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',50)"><img src="images/scene/scene51.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',51)"><img src="images/scene/scene52.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',52)"><img src="images/scene/scene53.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',53)"><img src="images/scene/scene54.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',54)"><img src="images/scene/scene55.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',55)"><img src="images/scene/scene56.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',56)"><img src="images/scene/scene57.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',57)"><img src="images/scene/scene58.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',58)"><img src="images/scene/scene59.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',59)"><img src="images/scene/scene60.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',60)"><img src="images/scene/scene61.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',61)"><img src="images/scene/scene62.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',62)"><img src="images/scene/scene63.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',63)"><img src="images/scene/scene64.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',64)"><img src="images/scene/scene65.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',65)"><img src="images/scene/scene66.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',66)"><img src="images/scene/scene67.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',67)"><img src="images/scene/scene68.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',68)"><img src="images/scene/scene70.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',69)"><img src="images/scene/scene71.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',70)"><img src="images/scene/scene72.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',71)"><img src="images/scene/scene74.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',72)"><img src="images/scene/scene75.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',73)"><img src="images/scene/scene76.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',74)"><img src="images/scene/scene77.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',75)"><img src="images/scene/scene78.jpg" alt=""></div>
+      <div class="ms-item" onclick="openModal('scene',76)"><img src="images/scene/scene79.jpg" alt=""></div>
       </div>
+    </div>
+    <!-- タブ（下部） -->
+    <div class="pg-tabs-bottom">
+      <button class="pg-tab active" data-panel="panel-scene" onclick="switchTab('panel-scene')">営業現場写真アーカイブ</button>
+      <button class="pg-tab" data-panel="panel-gallery" onclick="switchTab('panel-gallery')">スタジオ名場面集</button>
     </div>
     </div><!-- /panel-scene -->
 
@@ -357,7 +367,7 @@ footer a:hover{color:var(--gold-light)}
         <span class="sec-label">スタジオ名場面集</span>
         <span class="sec-count">全116件</span>
       </div>
-      <div class="gal-grid fi">
+      <div class="gal-grid">
       <div class="gal-item" onclick="openModal('gallery',0)"><img src="images/gallery/gallery001.png" alt="" loading="lazy"></div>
       <div class="gal-item" onclick="openModal('gallery',1)"><img src="images/gallery/gallery002.png" alt="" loading="lazy"></div>
       <div class="gal-item" onclick="openModal('gallery',2)"><img src="images/gallery/gallery003.png" alt="" loading="lazy"></div>
@@ -475,6 +485,11 @@ footer a:hover{color:var(--gold-light)}
       <div class="gal-item" onclick="openModal('gallery',114)"><img src="images/gallery/gallery115.png" alt="" loading="lazy"></div>
       <div class="gal-item" onclick="openModal('gallery',115)"><img src="images/gallery/gallery116.png" alt="" loading="lazy"></div>
       </div>
+    </div>
+    <!-- タブ（下部） -->
+    <div class="pg-tabs-bottom">
+      <button class="pg-tab" data-panel="panel-scene" onclick="switchTab('panel-scene')">営業現場写真アーカイブ</button>
+      <button class="pg-tab active" data-panel="panel-gallery" onclick="switchTab('panel-gallery')">スタジオ名場面集</button>
     </div>
     </div><!-- /panel-gallery -->
 
@@ -754,12 +769,34 @@ document.addEventListener('keydown', function(e) {
 })();
 
 /* ── タブ切り替え ── */
-function switchTab(panelId, btn) {
+function switchTab(panelId) {
+  // パネル切り替え
   document.querySelectorAll('.pg-panel').forEach(function(p) { p.classList.remove('active'); });
-  document.querySelectorAll('.pg-tab').forEach(function(b) { b.classList.remove('active'); });
   document.getElementById(panelId).classList.add('active');
-  btn.classList.add('active');
+  // 全タブボタン同期（上部・下部）
+  document.querySelectorAll('.pg-tab').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.panel === panelId);
+  });
+  // 上部タブ先頭へスクロール
+  var tabsEl = document.querySelector('.pg-tabs');
+  if (tabsEl) { window.scrollTo({top: Math.max(0, tabsEl.offsetTop - 80), behavior: 'smooth'}); }
+  // masonry/grid reflow（orientationchange対策）
+  setTimeout(reflowActive, 100);
 }
+
+/* レイアウト再計算 */
+function reflowActive() {
+  var masonry = document.querySelector('.pg-panel.active .masonry');
+  if (masonry) {
+    masonry.style.display = 'none';
+    void masonry.offsetHeight;
+    masonry.style.display = '';
+  }
+}
+
+/* 画面回転・リサイズ時も再計算 */
+window.addEventListener('orientationchange', function() { setTimeout(reflowActive, 250); });
+window.addEventListener('resize', function() { clearTimeout(window._rfTimer); window._rfTimer = setTimeout(reflowActive, 200); });
 
 /* ── フェードイン ── */
 var obs = new IntersectionObserver(function(entries) {
