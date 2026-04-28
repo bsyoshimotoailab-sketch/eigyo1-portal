@@ -74,25 +74,53 @@ nav a:hover{color:var(--red)}
   border-radius:4px;
   overflow:hidden;
   cursor:pointer;
+  display:flex;
+  flex-direction:column;
 }
 .doc-item img{
   width:100%;
   aspect-ratio:4/3;
-  object-fit:cover;
+  object-fit:contain;
+  background:#f5f5f5;
   transition:transform .35s;
   display:block;
 }
 .doc-item:hover img{transform:scale(1.04)}
-.doc-item .doc-cap{
+.doc-cap{
   padding:8px 10px;
   font-size:.75rem;
   font-weight:700;
   color:var(--text-sub);
   border-top:1px solid var(--border);
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+  line-height:1.5;
+  flex:1;
 }
+.doc-year{
+  display:inline-block;
+  font-size:.6rem;
+  font-weight:700;
+  color:var(--gold-dark);
+  background:rgba(184,146,46,.1);
+  border:1px solid rgba(184,146,46,.2);
+  border-radius:3px;
+  padding:1px 6px;
+  margin-right:5px;
+  vertical-align:middle;
+  white-space:nowrap;
+}
+.doc-yt{
+  display:block;
+  text-align:center;
+  font-size:.72rem;
+  font-weight:700;
+  color:var(--red);
+  padding:7px 10px;
+  border-top:1px solid var(--border);
+  background:none;
+  text-decoration:none;
+  transition:background .2s;
+}
+.doc-yt:hover{background:rgba(215,38,49,.06)}
 
 /* ── ライトボックス ── */
 .lb{
@@ -125,6 +153,10 @@ nav a:hover{color:var(--red)}
 }
 .lb-close:hover{opacity:1}
 
+/* ── ランキングまとめ ── */
+.rank-year{margin-bottom:40px}
+.rank-year-head{font-family:var(--font-a);font-size:1rem;font-weight:900;color:var(--black);margin-bottom:14px;padding-bottom:8px;border-left:4px solid var(--gold);padding-left:12px}
+
 /* ── 下部導線 ── */
 .bottom-nav{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px) clamp(60px,10vw,90px);display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .bottom-link{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:6px;font-size:.8rem;font-weight:700;border:1.5px solid var(--border);color:var(--text-sub);background:var(--white);transition:all .25s}
@@ -140,11 +172,6 @@ footer a:hover{color:var(--gold-light)}
 /* ── フェードイン ── */
 .fi{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
 .fi.v{opacity:1;transform:translateY(0)}
-
-/* ── ランキングまとめ ── */
-.rank-year{margin-bottom:40px}
-.rank-year-head{font-family:var(--font-a);font-size:1rem;font-weight:900;color:var(--black);margin-bottom:14px;padding-bottom:8px;border-left:4px solid var(--gold);padding-left:12px}
-.rank-pending{background:var(--white);border:1px dashed var(--border);border-radius:4px;padding:24px;text-align:center;color:var(--text-light);font-size:.8rem;grid-column:1/-1}
 
 /* ── レスポンシブ ── */
 @media(max-width:960px){
@@ -217,188 +244,207 @@ footer a:hover{color:var(--gold-light)}
 
   <div class="main-area">
 
+    <!-- 八木解説資料 -->
     <div class="sec-head fi">
-      <span class="sec-label">番組資料アーカイブ</span>
-      <span class="sec-sub">台本・企画書・営業資料・イベント資料</span>
-      <span class="sec-count">全39件</span>
+      <span class="sec-label">八木解説資料</span>
+      <span class="sec-count">21件</span>
     </div>
-
     <section class="doc-grid fi">
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan001.jpg','番組資料 No.001')">
-        <img src="images/archive/shiryoukan001.jpg" alt="番組資料 No.001">
-        <div class="doc-cap">番組資料 No.001</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_01.jpg','八木解説資料：吉本営業年表①（サバンナ目線）')">
+        <img src="images/archive/yagi_shiryou_01.jpg" alt="八木解説資料：吉本営業年表①（サバンナ目線）">
+        <div class="doc-cap"><span class="doc-year">2023</span>八木解説資料：吉本営業年表①（サバンナ目線）</div>
+        <a href="https://youtu.be/2QzfVhMM7CQ?si=CDBd40h2PblZQ2hk&t=179" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan002.jpg','番組資料 No.002')">
-        <img src="images/archive/shiryoukan002.jpg" alt="番組資料 No.002">
-        <div class="doc-cap">番組資料 No.002</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_02.jpg','八木解説資料　吉本営業年表②（サバンナ目線）')">
+        <img src="images/archive/yagi_shiryou_02.jpg" alt="八木解説資料　吉本営業年表②（サバンナ目線）">
+        <div class="doc-cap"><span class="doc-year">2023</span>八木解説資料　吉本営業年表②（サバンナ目線）</div>
+        <a href="https://youtu.be/2QzfVhMM7CQ?si=CDBd40h2PblZQ2hk&t=179" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan003.jpg','番組資料 No.003')">
-        <img src="images/archive/shiryoukan003.jpg" alt="番組資料 No.003">
-        <div class="doc-cap">番組資料 No.003</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_03.jpg','八木解説資料　吉本営業年表③（サバンナ目線）2024年は営業戦国時代')">
+        <img src="images/archive/yagi_shiryou_03.jpg" alt="八木解説資料　吉本営業年表③（サバンナ目線）2024年は営業戦国時代">
+        <div class="doc-cap"><span class="doc-year">2023</span>八木解説資料　吉本営業年表③（サバンナ目線）2024年は営業戦国時代</div>
+        <a href="https://youtu.be/2QzfVhMM7CQ?si=CDBd40h2PblZQ2hk&t=179" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan004.jpg','番組資料 No.004')">
-        <img src="images/archive/shiryoukan004.jpg" alt="番組資料 No.004">
-        <div class="doc-cap">番組資料 No.004</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_04.jpg','営業芸人が東京進出したら住むべき場所①')">
+        <img src="images/archive/yagi_shiryou_04.jpg" alt="営業芸人が東京進出したら住むべき場所①">
+        <div class="doc-cap"><span class="doc-year">2024 上半期SP</span>営業芸人が東京進出したら住むべき場所①</div>
+        <a href="https://youtu.be/xg2Dfmhz4-U?si=ICXTGn5DYpExZFhg&t=5201" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan005.jpg','番組資料 No.005')">
-        <img src="images/archive/shiryoukan005.jpg" alt="番組資料 No.005">
-        <div class="doc-cap">番組資料 No.005</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_05.jpg','営業芸人が東京進出したら住むべき場所②')">
+        <img src="images/archive/yagi_shiryou_05.jpg" alt="営業芸人が東京進出したら住むべき場所②">
+        <div class="doc-cap"><span class="doc-year">2024 上半期SP</span>営業芸人が東京進出したら住むべき場所②</div>
+        <a href="https://youtu.be/xg2Dfmhz4-U?si=ICXTGn5DYpExZFhg&t=5201" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan006.jpg','番組資料 No.006')">
-        <img src="images/archive/shiryoukan006.jpg" alt="番組資料 No.006">
-        <div class="doc-cap">番組資料 No.006</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_06.jpg','八木解説資料　2024年 営業最前線①')">
+        <img src="images/archive/yagi_shiryou_06.jpg" alt="八木解説資料　2024年 営業最前線①">
+        <div class="doc-cap"><span class="doc-year">2024 上半期SP</span>八木解説資料　2024年 営業最前線①</div>
+        <a href="https://youtu.be/xg2Dfmhz4-U?si=WjCGdC3oCPwPc_Hn&t=793" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan007.jpg','番組資料 No.007')">
-        <img src="images/archive/shiryoukan007.jpg" alt="番組資料 No.007">
-        <div class="doc-cap">番組資料 No.007</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_07.jpg','八木解説資料　2024年 営業最前線②')">
+        <img src="images/archive/yagi_shiryou_07.jpg" alt="八木解説資料　2024年 営業最前線②">
+        <div class="doc-cap"><span class="doc-year">2024 上半期SP</span>八木解説資料　2024年 営業最前線②</div>
+        <a href="https://youtu.be/2QzfVhMM7CQ" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan008.jpg','番組資料 No.008')">
-        <img src="images/archive/shiryoukan008.jpg" alt="番組資料 No.008">
-        <div class="doc-cap">番組資料 No.008</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_08.jpg','八木解説資料　ズドンと行ける八王子のサンプル物件①')">
+        <img src="images/archive/yagi_shiryou_08.jpg" alt="八木解説資料　ズドンと行ける八王子のサンプル物件①">
+        <div class="doc-cap"><span class="doc-year">2024 上半期SP</span>八木解説資料　ズドンと行ける八王子のサンプル物件①</div>
+        <a href="https://youtu.be/xg2Dfmhz4-U?si=Nxj2E0DICVVIFPry&t=5524" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan009.jpg','番組資料 No.009')">
-        <img src="images/archive/shiryoukan009.jpg" alt="番組資料 No.009">
-        <div class="doc-cap">番組資料 No.009</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_09.jpg','八木解説資料　ズドンと行ける八王子のサンプル物件②')">
+        <img src="images/archive/yagi_shiryou_09.jpg" alt="八木解説資料　ズドンと行ける八王子のサンプル物件②">
+        <div class="doc-cap"><span class="doc-year">2024 上半期SP</span>八木解説資料　ズドンと行ける八王子のサンプル物件②</div>
+        <a href="https://youtu.be/xg2Dfmhz4-U?si=Nxj2E0DICVVIFPry&t=5524" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan010.jpg','番組資料 No.010')">
-        <img src="images/archive/shiryoukan010.jpg" alt="番組資料 No.010">
-        <div class="doc-cap">番組資料 No.010</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_10.jpg','八木解説資料　マイホーム購入芸人ローン完済表')">
+        <img src="images/archive/yagi_shiryou_10.jpg" alt="八木解説資料　マイホーム購入芸人ローン完済表">
+        <div class="doc-cap"><span class="doc-year">2024 上半期SP</span>八木解説資料　マイホーム購入芸人ローン完済表</div>
+        <a href="https://youtu.be/xg2Dfmhz4-U?si=hXTns3VdiBgtEhPa&t=5862" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan011.jpg','番組資料 No.011')">
-        <img src="images/archive/shiryoukan011.jpg" alt="番組資料 No.011">
-        <div class="doc-cap">番組資料 No.011</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_11.jpg','八木解説資料 よしもとから失われたもの/失ってはいけないもの')">
+        <img src="images/archive/yagi_shiryou_11.jpg" alt="八木解説資料 よしもとから失われたもの/失ってはいけないもの">
+        <div class="doc-cap"><span class="doc-year">2024 総決算SP</span>八木解説資料 よしもとから失われたもの/失ってはいけないもの</div>
+        <a href="https://youtu.be/S3r7y6_zRRE?si=DlLF2J-XNycmpqrZ&t=1926" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan012.jpg','番組資料 No.012')">
-        <img src="images/archive/shiryoukan012.jpg" alt="番組資料 No.012">
-        <div class="doc-cap">番組資料 No.012</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_12.jpg','八木解説資料 オレンジのスケジュール台帳')">
+        <img src="images/archive/yagi_shiryou_12.jpg" alt="八木解説資料 オレンジのスケジュール台帳">
+        <div class="doc-cap"><span class="doc-year">2024 総決算SP</span>八木解説資料 オレンジのスケジュール台帳</div>
+        <a href="https://youtu.be/S3r7y6_zRRE?si=yS0MwCSQ08c0MmKW&t=2167" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan013.jpg','番組資料 No.013')">
-        <img src="images/archive/shiryoukan013.jpg" alt="番組資料 No.013">
-        <div class="doc-cap">番組資料 No.013</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_13.jpg','八木解説資料　昭和・平成・令和 三時代別「営業の歴史」')">
+        <img src="images/archive/yagi_shiryou_13.jpg" alt="八木解説資料　昭和・平成・令和 三時代別「営業の歴史」">
+        <div class="doc-cap"><span class="doc-year">2024 総決算SP</span>八木解説資料　昭和・平成・令和 三時代別「営業の歴史」</div>
+        <a href="https://youtu.be/S3r7y6_zRRE?si=tm2RhdtEljE1I9wE&t=2490" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan014.jpg','番組資料 No.014')">
-        <img src="images/archive/shiryoukan014.jpg" alt="番組資料 No.014">
-        <div class="doc-cap">番組資料 No.014</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_14.jpg','八木解説資料 安村が住むべき物件①　焼津')">
+        <img src="images/archive/yagi_shiryou_14.jpg" alt="八木解説資料 安村が住むべき物件①　焼津">
+        <div class="doc-cap"><span class="doc-year">2025 上半期SP</span>八木解説資料 安村が住むべき物件①　焼津</div>
+        <a href="https://youtu.be/Ziy2GLyYYwQ?si=L_rBCRNybU1hZeSd&t=5883" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan015.jpg','番組資料 No.015')">
-        <img src="images/archive/shiryoukan015.jpg" alt="番組資料 No.015">
-        <div class="doc-cap">番組資料 No.015</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_15.jpg','八木解説資料 安村が住むべき物件②　焼津')">
+        <img src="images/archive/yagi_shiryou_15.jpg" alt="八木解説資料 安村が住むべき物件②　焼津">
+        <div class="doc-cap"><span class="doc-year">2025 上半期SP</span>八木解説資料 安村が住むべき物件②　焼津</div>
+        <a href="https://youtu.be/Ziy2GLyYYwQ?si=L_rBCRNybU1hZeSd&t=5883" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan016.jpg','番組資料 No.016')">
-        <img src="images/archive/shiryoukan016.jpg" alt="番組資料 No.016">
-        <div class="doc-cap">番組資料 No.016</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_16.jpg','八木解説資料 安村が住むべき物件③　焼津')">
+        <img src="images/archive/yagi_shiryou_16.jpg" alt="八木解説資料 安村が住むべき物件③　焼津">
+        <div class="doc-cap"><span class="doc-year">2025 上半期SP</span>八木解説資料 安村が住むべき物件③　焼津</div>
+        <a href="https://youtu.be/Ziy2GLyYYwQ?si=L_rBCRNybU1hZeSd&t=5883" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan017.jpg','番組資料 No.017')">
-        <img src="images/archive/shiryoukan017.jpg" alt="番組資料 No.017">
-        <div class="doc-cap">番組資料 No.017</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_17.jpg','八木解説資料 安村が住むべき物件④　焼津')">
+        <img src="images/archive/yagi_shiryou_17.jpg" alt="八木解説資料 安村が住むべき物件④　焼津">
+        <div class="doc-cap"><span class="doc-year">2025 上半期SP</span>八木解説資料 安村が住むべき物件④　焼津</div>
+        <a href="https://youtu.be/Ziy2GLyYYwQ?si=oaWV53zotTT4d_Oe&t=6123" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan018.jpg','番組資料 No.018')">
-        <img src="images/archive/shiryoukan018.jpg" alt="番組資料 No.018">
-        <div class="doc-cap">番組資料 No.018</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_18.jpg','八木が見た未来　2045年リニア行ってこい想定スケジュール')">
+        <img src="images/archive/yagi_shiryou_18.jpg" alt="八木が見た未来　2045年リニア行ってこい想定スケジュール">
+        <div class="doc-cap"><span class="doc-year">2025 総決算SP</span>八木が見た未来　2045年リニア行ってこい想定スケジュール</div>
+        <a href="https://youtu.be/68utLC3Inf4?si=X46NXU_H8nLv23Bz&t=4108" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan019.jpg','番組資料 No.019')">
-        <img src="images/archive/shiryoukan019.jpg" alt="番組資料 No.019">
-        <div class="doc-cap">番組資料 No.019</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_19.jpg','営業-１グランプリ24時間テレビ～営業は芸人を救う～ジョイマン24時間営業全国制覇プロジェクト')">
+        <img src="images/archive/yagi_shiryou_19.jpg" alt="営業-１グランプリ24時間テレビ～営業は芸人を救う～ジョイマン24時間営業全国制覇プロジェクト">
+        <div class="doc-cap"><span class="doc-year">2025 総決算SP</span>営業-１グランプリ24時間テレビ～営業は芸人を救う～ジョイマン24時間営業全国制覇プロジェクト</div>
+        <a href="https://youtu.be/68utLC3Inf4?si=6nOiLL2DWEt8TTGZ&t=3666" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan020.jpg','番組資料 No.020')">
-        <img src="images/archive/shiryoukan020.jpg" alt="番組資料 No.020">
-        <div class="doc-cap">番組資料 No.020</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_20.jpg','吉本を信じましょう①')">
+        <img src="images/archive/yagi_shiryou_20.jpg" alt="吉本を信じましょう①">
+        <div class="doc-cap"><span class="doc-year">2025 総決算SP</span>吉本を信じましょう①</div>
+        <a href="https://youtu.be/68utLC3Inf4?si=vp_m0lvg0y3Mlt-D&t=9334" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan21.jpg','番組資料 No.021')">
-        <img src="images/archive/shiryoukan21.jpg" alt="番組資料 No.021">
-        <div class="doc-cap">番組資料 No.021</div>
+      <div class="doc-item" onclick="openLB('images/archive/yagi_shiryou_21.jpg','吉本を信じましょう②')">
+        <img src="images/archive/yagi_shiryou_21.jpg" alt="吉本を信じましょう②">
+        <div class="doc-cap"><span class="doc-year">2025 総決算SP</span>吉本を信じましょう②</div>
+        <a href="https://youtu.be/68utLC3Inf4?si=vp_m0lvg0y3Mlt-D&t=9334" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan022.jpg','番組資料 No.022')">
-        <img src="images/archive/shiryoukan022.jpg" alt="番組資料 No.022">
-        <div class="doc-cap">番組資料 No.022</div>
+    </section>
+
+    <!-- 貴重資料 -->
+    <div class="sec-head fi" style="margin-top:60px">
+      <span class="sec-label">貴重資料</span>
+      <span class="sec-count">12件</span>
+    </div>
+    <section class="doc-grid fi">
+      <div class="doc-item" onclick="openLB('images/archive/rare_document_01.jpg','アタック西本作：黒板似顔絵タイトル')">
+        <img src="images/archive/rare_document_01.jpg" alt="アタック西本作：黒板似顔絵タイトル">
+        <div class="doc-cap"><span class="doc-year">2023</span>アタック西本作：黒板似顔絵タイトル</div>
+        <a href="https://youtu.be/2QzfVhMM7CQ" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan023.jpg','番組資料 No.023')">
-        <img src="images/archive/shiryoukan023.jpg" alt="番組資料 No.023">
-        <div class="doc-cap">番組資料 No.023</div>
+      <div class="doc-item" onclick="openLB('images/archive/rare_document_02.jpg','東西営業都市伝説資料① ジェラードンの移動手段とは')">
+        <img src="images/archive/rare_document_02.jpg" alt="東西営業都市伝説資料① ジェラードンの移動手段とは">
+        <div class="doc-cap"><span class="doc-year">2023</span>東西営業都市伝説資料① ジェラードンの移動手段とは</div>
+        <a href="https://youtu.be/2QzfVhMM7CQ?si=O8rZ6NVN8o6twgJy&t=1308" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan024.jpg','番組資料 No.024')">
-        <img src="images/archive/shiryoukan024.jpg" alt="番組資料 No.024">
-        <div class="doc-cap">番組資料 No.024</div>
+      <div class="doc-item" onclick="openLB('images/archive/rare_document_03.jpg','東西営業都市伝説資料② たむらけんじVS学生の結果')">
+        <img src="images/archive/rare_document_03.jpg" alt="東西営業都市伝説資料② たむらけんじVS学生の結果">
+        <div class="doc-cap"><span class="doc-year">2023</span>東西営業都市伝説資料② たむらけんじVS学生の結果</div>
+        <a href="https://youtu.be/2QzfVhMM7CQ?si=O8rZ6NVN8o6twgJy&t=1308" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan025.jpg','番組資料 No.025')">
-        <img src="images/archive/shiryoukan025.jpg" alt="番組資料 No.025">
-        <div class="doc-cap">番組資料 No.025</div>
+      <div class="doc-item" onclick="openLB('images/archive/rare_document_04.jpg','東西営業都市伝説資料③ 絶対やりたいことを絶対やりたい男')">
+        <img src="images/archive/rare_document_04.jpg" alt="東西営業都市伝説資料③ 絶対やりたいことを絶対やりたい男">
+        <div class="doc-cap"><span class="doc-year">2023</span>東西営業都市伝説資料③ 絶対やりたいことを絶対やりたい男</div>
+        <a href="https://youtu.be/2QzfVhMM7CQ?si=O8rZ6NVN8o6twgJy&t=1308" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan026.jpg','番組資料 No.026')">
-        <img src="images/archive/shiryoukan026.jpg" alt="番組資料 No.026">
-        <div class="doc-cap">番組資料 No.026</div>
+      <div class="doc-item" onclick="openLB('images/archive/rare_document_05.jpg','営業ジャンル徹底解剖　スペシャリスト芸人')">
+        <img src="images/archive/rare_document_05.jpg" alt="営業ジャンル徹底解剖　スペシャリスト芸人">
+        <div class="doc-cap"><span class="doc-year">2024 上半期SP</span>営業ジャンル徹底解剖　スペシャリスト芸人</div>
+        <a href="https://youtu.be/xg2Dfmhz4-U?si=BkeaUv4yTteepVFN&t=2380" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan027.jpg','番組資料 No.027')">
-        <img src="images/archive/shiryoukan027.jpg" alt="番組資料 No.027">
-        <div class="doc-cap">番組資料 No.027</div>
+      <div class="doc-item" onclick="openLB('images/archive/rare_document_06.jpg','吉本興業徹底解剖 スポーツ事業部の深層')">
+        <img src="images/archive/rare_document_06.jpg" alt="吉本興業徹底解剖 スポーツ事業部の深層">
+        <div class="doc-cap"><span class="doc-year">2024 総決算SP</span>吉本興業徹底解剖 スポーツ事業部の深層</div>
+        <a href="https://youtu.be/S3r7y6_zRRE?si=gJuWaLhxX0HqlsRg&t=4262" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan028.jpg','番組資料 No.028')">
-        <img src="images/archive/shiryoukan028.jpg" alt="番組資料 No.028">
-        <div class="doc-cap">番組資料 No.028</div>
+      <div class="doc-item" onclick="openLB('images/archive/rare_document_07.jpg','歴代王者パネル')">
+        <img src="images/archive/rare_document_07.jpg" alt="歴代王者パネル">
+        <div class="doc-cap"><span class="doc-year">2025 上半期SP</span>歴代王者パネル</div>
+        <a href="https://youtu.be/Ziy2GLyYYwQ?si=boE_twj2HSf7KpS3&t=45" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan029.jpg','番組資料 No.029')">
-        <img src="images/archive/shiryoukan029.jpg" alt="番組資料 No.029">
-        <div class="doc-cap">番組資料 No.029</div>
+      <div class="doc-item" onclick="openLB('images/archive/rare_document_08.jpg','吉本興業大改革2030～今やめるべきこと　そして今やるべきこと～')">
+        <img src="images/archive/rare_document_08.jpg" alt="吉本興業大改革2030～今やめるべきこと　そして今やるべきこと～">
+        <div class="doc-cap"><span class="doc-year">2025 上半期SP</span>吉本興業大改革2030～今やめるべきこと　そして今やるべきこと～</div>
+        <a href="https://youtu.be/Ziy2GLyYYwQ?si=FBU5hFw5ldgn5L0x&t=2240" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan030.jpg','番組資料 No.030')">
-        <img src="images/archive/shiryoukan030.jpg" alt="番組資料 No.030">
-        <div class="doc-cap">番組資料 No.030</div>
+      <div class="doc-item" onclick="openLB('images/archive/rare_document_09.jpg','営業ジャンル徹底解剖　講演会編')">
+        <img src="images/archive/rare_document_09.jpg" alt="営業ジャンル徹底解剖　講演会編">
+        <div class="doc-cap"><span class="doc-year">2025 上半期SP</span>営業ジャンル徹底解剖　講演会編</div>
+        <a href="https://youtu.be/Ziy2GLyYYwQ?si=IpxH1KP-r0HlzsiV&t=5294" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan031.jpg','番組資料 No.031')">
-        <img src="images/archive/shiryoukan031.jpg" alt="番組資料 No.031">
-        <div class="doc-cap">番組資料 No.031</div>
+      <div class="doc-item" onclick="openLB('images/archive/rare_document_10.jpg','吉本営業芸人円グラフ')">
+        <img src="images/archive/rare_document_10.jpg" alt="吉本営業芸人円グラフ">
+        <div class="doc-cap"><span class="doc-year">2025 総決算SP</span>吉本営業芸人円グラフ</div>
+        <a href="https://youtu.be/68utLC3Inf4?si=BMzX7fmIQTq2Yw6O&t=4348" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan032.jpg','番組資料 No.032')">
-        <img src="images/archive/shiryoukan032.jpg" alt="番組資料 No.032">
-        <div class="doc-cap">番組資料 No.032</div>
+      <div class="doc-item" onclick="openLB('images/archive/rare_document_11.jpg','営業の歴史資料（1912年～1982年）～吉本興業未来図～八木が見た未来～')">
+        <img src="images/archive/rare_document_11.jpg" alt="営業の歴史資料（1912年～1982年）～吉本興業未来図～八木が見た未来～">
+        <div class="doc-cap"><span class="doc-year">2025 総決算SP</span>営業の歴史資料（1912年～1982年）～吉本興業未来図～八木が見た未来～</div>
+        <a href="https://youtu.be/68utLC3Inf4?si=0KEFlnXKGGDwmEVY&t=2989" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan033.jpg','番組資料 No.033')">
-        <img src="images/archive/shiryoukan033.jpg" alt="番組資料 No.033">
-        <div class="doc-cap">番組資料 No.033</div>
-      </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan034.jpg','番組資料 No.034')">
-        <img src="images/archive/shiryoukan034.jpg" alt="番組資料 No.034">
-        <div class="doc-cap">番組資料 No.034</div>
-      </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan035.jpg','番組資料 No.035')">
-        <img src="images/archive/shiryoukan035.jpg" alt="番組資料 No.035">
-        <div class="doc-cap">番組資料 No.035</div>
-      </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan036.jpg','番組資料 No.036')">
-        <img src="images/archive/shiryoukan036.jpg" alt="番組資料 No.036">
-        <div class="doc-cap">番組資料 No.036</div>
-      </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan037.jpg','番組資料 No.037')">
-        <img src="images/archive/shiryoukan037.jpg" alt="番組資料 No.037">
-        <div class="doc-cap">番組資料 No.037</div>
-      </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan038.jpg','番組資料 No.038')">
-        <img src="images/archive/shiryoukan038.jpg" alt="番組資料 No.038">
-        <div class="doc-cap">番組資料 No.038</div>
-      </div>
-      <div class="doc-item" onclick="openLB('images/archive/shiryoukan039.jpg','番組資料 No.039')">
-        <img src="images/archive/shiryoukan039.jpg" alt="番組資料 No.039">
-        <div class="doc-cap">番組資料 No.039</div>
+      <div class="doc-item" onclick="openLB('images/archive/rare_document_12.jpg','吉本興業未来図～八木が見た未来～(2025年～2058年)')">
+        <img src="images/archive/rare_document_12.jpg" alt="吉本興業未来図～八木が見た未来～(2025年～2058年)">
+        <div class="doc-cap"><span class="doc-year">2025 総決算SP</span>吉本興業未来図～八木が見た未来～(2025年～2058年)</div>
+        <a href="https://youtu.be/68utLC3Inf4?si=S1D3nQit2CoP1fZc&t=3585" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
       </div>
     </section>
 
     <!-- ランキングまとめ -->
-    <div class="sec-head fi" style="margin-top:64px">
-      <span class="sec-label">営業-1グランプリ ランキングまとめ</span>
+    <div class="sec-head fi" style="margin-top:60px">
+      <span class="sec-label">ランキングまとめ</span>
       <span class="sec-sub">営業出演回数・学園祭出演回数の記録</span>
+      <span class="sec-count">6件</span>
     </div>
 
     <!-- 2025年 -->
     <div class="rank-year fi">
       <div class="rank-year-head">2025年</div>
       <div class="doc-grid">
-        <div class="doc-item" onclick="openLB('ranking/営業出演回数ランキングTOP10.jpg','営業出演回数ランキング TOP10')">
-          <img src="ranking/営業出演回数ランキングTOP10.jpg" alt="営業出演回数ランキングTOP10">
-          <div class="doc-cap">営業出演回数ランキング｜ジョイマンが3連覇を達成した年</div>
+        <div class="doc-item" onclick="openLB('images/archive/2025_sales_ranking.jpg','2025年 営業出演回数ランキング')">
+          <img src="images/archive/2025_sales_ranking.jpg" alt="2025年 営業出演回数ランキング">
+          <div class="doc-cap"><span class="doc-year">2025 総決算SP</span>2025年 営業出演回数ランキング</div>
+          <a href="https://youtu.be/68utLC3Inf4?si=HDhU8B6LF-_WGIgg&t=6462" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
         </div>
-        <div class="doc-item" onclick="openLB('ranking/学園祭出演回数ランキングTOP10.jpg','学園祭出演回数ランキング TOP10')">
-          <img src="ranking/学園祭出演回数ランキングTOP10.jpg" alt="学園祭出演回数ランキングTOP10">
-          <div class="doc-cap">学園祭ランキング｜スカチャンが悲願の初制覇を達成</div>
+        <div class="doc-item" onclick="openLB('images/archive/2025_gakusai_ranking.jpg','2025年 学園祭出演回数ランキング')">
+          <img src="images/archive/2025_gakusai_ranking.jpg" alt="2025年 学園祭出演回数ランキング">
+          <div class="doc-cap"><span class="doc-year">2025 総決算SP</span>2025年 学園祭出演回数ランキング</div>
+          <a href="https://youtu.be/68utLC3Inf4?si=HDhU8B6LF-_WGIgg&t=6462" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
         </div>
       </div>
     </div>
@@ -407,8 +453,16 @@ footer a:hover{color:var(--gold-light)}
     <div class="rank-year fi">
       <div class="rank-year-head">2024年</div>
       <div class="doc-grid">
-        <div class="rank-pending">2024年 営業出演回数ランキング画像（個別年度分は画像準備中）</div>
-        <div class="rank-pending">2024年 学園祭ランキング画像（個別年度分は画像準備中）</div>
+        <div class="doc-item" onclick="openLB('images/archive/2024_sales_ranking.jpg','2024年 営業出演回数ランキング')">
+          <img src="images/archive/2024_sales_ranking.jpg" alt="2024年 営業出演回数ランキング">
+          <div class="doc-cap"><span class="doc-year">2024 総決算SP</span>2024年 営業出演回数ランキング</div>
+          <a href="https://youtu.be/S3r7y6_zRRE?si=Zs8py-GwV0nzDmui&t=3809" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
+        </div>
+        <div class="doc-item" onclick="openLB('images/archive/2024_gakusai_ranking.jpg','2024年 学園祭出演回数ランキング')">
+          <img src="images/archive/2024_gakusai_ranking.jpg" alt="2024年 学園祭出演回数ランキング">
+          <div class="doc-cap"><span class="doc-year">2024 総決算SP</span>2024年 学園祭出演回数ランキング</div>
+          <a href="https://youtu.be/S3r7y6_zRRE?si=Zs8py-GwV0nzDmui&t=3809" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
+        </div>
       </div>
     </div>
 
@@ -416,8 +470,16 @@ footer a:hover{color:var(--gold-light)}
     <div class="rank-year fi">
       <div class="rank-year-head">2023年</div>
       <div class="doc-grid">
-        <div class="rank-pending">2023年 営業出演回数ランキング画像（個別年度分は画像準備中）</div>
-        <div class="rank-pending">2023年 学園祭ランキング画像（個別年度分は画像準備中）</div>
+        <div class="doc-item" onclick="openLB('images/archive/2023_sales_ranking.jpg','2023年 営業出演回数ランキング')">
+          <img src="images/archive/2023_sales_ranking.jpg" alt="2023年 営業出演回数ランキング">
+          <div class="doc-cap"><span class="doc-year">2023</span>2023年 営業出演回数ランキング</div>
+          <a href="https://youtu.be/2QzfVhMM7CQ?si=X11d4pC4j6mFdFsj&t=2142" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
+        </div>
+        <div class="doc-item" onclick="openLB('images/archive/2023_gakusai_ranking.jpg','2023年 学園祭出演回数ランキング')">
+          <img src="images/archive/2023_gakusai_ranking.jpg" alt="2023年 学園祭出演回数ランキング">
+          <div class="doc-cap"><span class="doc-year">2023</span>2023年 学園祭出演回数ランキング</div>
+          <a href="https://youtu.be/2QzfVhMM7CQ?si=X11d4pC4j6mFdFsj&t=2142" target="_blank" rel="noopener" class="doc-yt" onclick="event.stopPropagation()">該当シーンを見る</a>
+        </div>
       </div>
     </div>
 
