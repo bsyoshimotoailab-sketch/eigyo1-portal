@@ -164,7 +164,9 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 /* ── ローディング演出 [TEST] タイプライター風 ── */
 #ld-overlay{
   position:fixed;inset:0;z-index:9999;
-  background:#060606;
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(6px) brightness(.75);
+  -webkit-backdrop-filter:blur(6px) brightness(.75);
   display:flex;align-items:center;justify-content:center;
   padding:clamp(20px,5vw,60px);
   pointer-events:none;
