@@ -188,26 +188,25 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
   max-width:600px;width:100%;
   animation:ldFlicker 4s ease-in-out infinite;
 }
-.ld-label{
-  font-size:.68rem;letter-spacing:.28em;color:#555;
-  font-weight:700;margin-bottom:18px;min-height:1.3em;
-}
+/* 固定見出し（最初から表示） */
 .ld-title{
-  font-family:var(--font-a);font-size:clamp(.95rem,2.5vw,1.2rem);
-  color:#aaa;font-weight:700;letter-spacing:.1em;
-  margin-bottom:36px;min-height:1.6em;
-  padding-bottom:22px;
-  border-bottom:1px solid rgba(200,149,30,.18);
+  font-family:var(--font-a);font-size:clamp(.85rem,2.2vw,1.1rem);
+  color:#999;font-weight:700;letter-spacing:.12em;
+  margin-bottom:32px;
+  padding-bottom:20px;
+  border-bottom:1px solid rgba(200,149,30,.2);
 }
+/* #番号（金・大） */
 .ld-num{
   font-family:var(--font-a);font-size:clamp(3.8rem,13vw,7.5rem);
-  font-weight:900;line-height:1;margin-bottom:24px;min-height:1.1em;
+  font-weight:900;line-height:1;margin-bottom:22px;min-height:1.1em;
   color:#c8951e;
   text-shadow:0 0 24px rgba(200,149,30,.4),0 0 60px rgba(200,149,30,.15);
 }
+/* タイトル */
 .ld-rule{
   font-family:var(--font-a);font-size:clamp(1.2rem,4vw,2rem);
-  font-weight:900;color:#f0f0f0;line-height:1.5;min-height:1.7em;
+  font-weight:900;color:#f2f2f2;line-height:1.5;min-height:1.7em;
   letter-spacing:.02em;
 }
 /* 点滅カーソル */
@@ -217,18 +216,19 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 }
 .ld-cur.ld-done{visibility:hidden}
 @keyframes ldCurBlink{0%,100%{opacity:1}50%{opacity:0}}
-/* 本文フェードイン */
+/* 本文 スケール＋フェードイン */
 .ld-desc{
-  font-size:clamp(.78rem,1.9vw,.9rem);color:#888;
-  line-height:2;margin-top:20px;
-  opacity:0;transition:opacity .45s ease;
+  font-size:clamp(.84rem,1.9vw,.96rem);color:#c0c0c0;
+  line-height:2.1;margin-top:24px;
+  opacity:0;transform:scale(.98);
+  transition:opacity .5s ease,transform .5s ease;
   overflow-wrap:break-word;
 }
-.ld-desc.ld-show{opacity:1}
+.ld-desc.ld-show{opacity:1;transform:scale(1)}
 @media(max-width:480px){
   .ld-rule{font-size:clamp(1rem,4vw,1.5rem)}
   .ld-num{font-size:clamp(3rem,13vw,5rem)}
-  .ld-desc{font-size:.78rem;line-height:1.9}
+  .ld-desc{font-size:.82rem;line-height:1.95}
 }
 /* 微細ちらつき（昭和CRT風） */
 @keyframes ldFlicker{
@@ -243,8 +243,7 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 <!-- ローディング演出 [TEST] ここから -->
 <div id="ld-overlay" aria-hidden="true">
   <div class="ld-inner">
-    <p class="ld-label"><span id="ld-t1"></span><span class="ld-cur" id="ld-c1">_</span></p>
-    <p class="ld-title"><span id="ld-t2"></span><span class="ld-cur" id="ld-c2">_</span></p>
+    <p class="ld-title">吉本営業マニュアルベスト10</p>
     <p class="ld-num"><span id="ld-t3"></span><span class="ld-cur" id="ld-c3">_</span></p>
     <p class="ld-rule"><span id="ld-t4"></span><span class="ld-cur" id="ld-c4">_</span></p>
     <p class="ld-desc" id="ld-desc"></p>
@@ -540,12 +539,10 @@ initAutoImages();
     ol.style.opacity='1';
   },40);
 
-  // タイプシーケンス（固定2行 ＋ 選択パターンの#番号・タイトル）
+  // タイプシーケンス（#番号 → タイトルのみ）
   var seq=[
-    {t:document.getElementById('ld-t1'),c:document.getElementById('ld-c1'),str:'番組スタッフが選ぶ',      ms:50,wait:80},
-    {t:document.getElementById('ld-t2'),c:document.getElementById('ld-c2'),str:'吉本営業マニュアルベスト10',ms:42,wait:100},
-    {t:document.getElementById('ld-t3'),c:document.getElementById('ld-c3'),str:m.num,                    ms:120,wait:300},
-    {t:document.getElementById('ld-t4'),c:document.getElementById('ld-c4'),str:m.rule,                   ms:38,wait:200}
+    {t:document.getElementById('ld-t3'),c:document.getElementById('ld-c3'),str:m.num, ms:130,wait:120},
+    {t:document.getElementById('ld-t4'),c:document.getElementById('ld-c4'),str:m.rule,ms:40, wait:200}
   ];
 
   // 1文字ずつ打ち出す
@@ -561,10 +558,10 @@ initAutoImages();
   // 順番に実行
   function run(idx){
     if(idx>=seq.length){
-      // タイトル打ち終わり → 本文フェードイン
+      // タイトル打ち終わり → 0.2秒後に本文スケール＋フェード表示
       descEl.textContent=m.desc;
-      setTimeout(function(){descEl.classList.add('ld-show');},60);
-      // 本文表示後 1000ms 静止 → フェードアウト
+      setTimeout(function(){descEl.classList.add('ld-show');},200);
+      // 本文表示から2秒確保（計2200ms）→ フェードアウト
       setTimeout(function(){
         ol.style.transition='opacity .55s ease';
         ol.style.opacity='0';
@@ -572,13 +569,13 @@ initAutoImages();
           ol.classList.add('ld-gone');
           document.body.style.overflow='';
         },600);
-      },1000);
+      },2200);
       return;
     }
     setTimeout(function(){type(seq[idx],function(){run(idx+1);});},seq[idx].wait);
   }
 
-  // フェードイン後にタイプ開始
+  // 画面フェードイン後にタイプ開始
   setTimeout(function(){run(0);},350);
 })();
 </script>
