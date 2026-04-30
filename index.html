@@ -164,50 +164,52 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 /* ── ローディング演出 [TEST] ── */
 #ld-overlay{
   position:fixed;inset:0;z-index:9999;
-  background:#0b0b0b;
+  background:radial-gradient(ellipse 70% 50% at center,rgba(184,146,46,.08) 0%,transparent 65%),#0b0b0b;
   display:flex;align-items:center;justify-content:center;
   padding:24px;
-  animation:ldFade 3s ease forwards;
+  animation:ldFade 4.5s ease forwards;
   pointer-events:none;
 }
 #ld-overlay.ld-gone{display:none}
 .ld-inner{
   text-align:center;
-  animation:ldContentIn .5s ease both;
+  max-width:540px;width:100%;
+  border-top:1px solid rgba(184,146,46,.4);
+  border-bottom:1px solid rgba(184,146,46,.4);
+  padding:36px 28px;
+  animation:ldContentIn .4s ease both;
 }
 .ld-label{
-  font-size:.65rem;letter-spacing:.22em;color:#888;
-  font-weight:700;margin-bottom:10px;
+  font-size:.68rem;letter-spacing:.28em;color:#777;
+  font-weight:700;margin-bottom:14px;
 }
 .ld-title{
-  font-family:var(--font-a);font-size:clamp(.85rem,2vw,1rem);
-  color:#ccc;font-weight:700;letter-spacing:.08em;
+  font-family:var(--font-a);font-size:clamp(1rem,2.8vw,1.25rem);
+  color:#fff;font-weight:700;letter-spacing:.1em;
   margin-bottom:28px;
 }
 .ld-num{
-  font-family:var(--font-a);font-size:clamp(2.4rem,8vw,4rem);
-  font-weight:900;line-height:1;margin-bottom:14px;
-  background:linear-gradient(105deg,#8a6d1a,#b8922e,#f0d77b,#b8922e,#8a6d1a);
-  background-size:200% auto;
+  font-family:var(--font-a);font-size:clamp(3.2rem,10vw,6rem);
+  font-weight:900;line-height:1;margin-bottom:18px;
+  background:linear-gradient(135deg,#8a6d1a,#d4a72c,#f0d77b,#d4a72c,#8a6d1a);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  animation:gs 3s linear infinite;
 }
 .ld-rule{
-  font-family:var(--font-a);font-size:clamp(1.1rem,3.5vw,1.6rem);
-  font-weight:900;color:#fff;line-height:1.45;margin-bottom:16px;
+  font-family:var(--font-a);font-size:clamp(1.3rem,4vw,2rem);
+  font-weight:900;color:#fff;line-height:1.4;margin-bottom:22px;
 }
 .ld-desc{
-  font-size:clamp(.78rem,1.8vw,.88rem);color:#aaa;
-  line-height:1.9;
+  font-size:clamp(.86rem,2vw,1rem);color:#d0d0d0;
+  line-height:2.1;
 }
 @keyframes ldFade{
   0%{opacity:0}
-  17%{opacity:1}
-  83%{opacity:1}
+  9%{opacity:1}
+  87%{opacity:1}
   100%{opacity:0}
 }
 @keyframes ldContentIn{
-  from{opacity:0;transform:translateY(10px)}
+  from{opacity:0;transform:translateY(14px)}
   to{opacity:1;transform:translateY(0)}
 }
 </style>
@@ -479,11 +481,11 @@ initAutoImages();
   var ol=document.getElementById('ld-overlay');
   if(!ol)return;
   document.body.style.overflow='hidden';
-  // 3s animation + 100ms余裕 → 非表示 & スクロール解除
+  // 4.5s animation + 100ms余裕 → 非表示 & スクロール解除
   setTimeout(function(){
     ol.classList.add('ld-gone');
     document.body.style.overflow='';
-  },3100);
+  },4600);
 })();
 </script>
 
