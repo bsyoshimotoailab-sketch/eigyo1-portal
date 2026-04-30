@@ -66,8 +66,8 @@ nav a:hover{color:var(--red)}
 /* ── card-grid ── */
 .card-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
 }
 
 /* ── article.card ── */
@@ -79,58 +79,54 @@ article.card{
   display:flex;
   flex-direction:column;
   transition:box-shadow .3s,transform .3s;
+  cursor:pointer;
 }
 article.card:hover{
   box-shadow:0 10px 36px rgba(0,0,0,.13);
   transform:translateY(-4px);
 }
 
-/* ── グッズアイコンエリア ── */
-.card-icon{
+/* ── 商品画像エリア ── */
+.card-img{
+  aspect-ratio:1/1;
+  overflow:hidden;
+  background:var(--bg-warm);
+  border-bottom:1px solid var(--border);
   display:flex;
   align-items:center;
   justify-content:center;
-  height:140px;
-  font-size:3.2rem;
-  background:var(--bg-warm);
-  border-bottom:1px solid var(--border);
 }
+.card-img img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:10px;
+  transition:transform .35s ease;
+}
+article.card:hover .card-img img{transform:scale(1.06)}
 
-/* ── カード本文（他ページと共通） ── */
+/* ── カード本文 ── */
 .card-body{
-  padding:16px 18px 18px;
+  padding:12px 14px 14px;
   display:flex;
   flex-direction:column;
-  gap:8px;
+  gap:6px;
   flex:1;
 }
 .card-title{
-  font-size:.92rem;font-weight:900;
+  font-size:.82rem;font-weight:700;
   color:var(--black);line-height:1.5;
-}
-.card-desc{
-  font-size:.78rem;color:var(--text-sub);line-height:1.75;flex:1;
 }
 .card-price{
   font-family:var(--font-a);
-  font-size:1.1rem;font-weight:900;
+  font-size:1rem;font-weight:900;
   color:var(--gold-dark);
   letter-spacing:.04em;
 }
 .card-price small{
-  font-size:.62rem;font-weight:400;color:var(--text-light);
+  font-size:.6rem;font-weight:400;color:var(--text-light);
   font-family:var(--font);letter-spacing:0;
 }
-.card-btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:6px;
-  background:var(--red);color:#fff;
-  padding:9px 16px;
-  border-radius:5px;
-  font-size:.76rem;font-weight:700;
-  transition:background .25s;
-  margin-top:4px;
-}
-.card-btn:hover{background:var(--red-dark)}
 
 /* ── 注記バナー ── */
 .goods-note{background:rgba(184,146,46,.08);border:1px solid rgba(184,146,46,.25);border-radius:8px;padding:14px 18px;margin-bottom:28px;font-size:.78rem;color:var(--text-sub);line-height:1.8}
@@ -140,6 +136,54 @@ article.card:hover{
 .bottom-nav{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px) clamp(60px,10vw,90px);display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .bottom-link{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:6px;font-size:.8rem;font-weight:700;border:1.5px solid var(--border);color:var(--text-sub);background:var(--white);transition:all .25s}
 .bottom-link:hover{border-color:var(--text);color:var(--black)}
+
+/* ── モーダル ── */
+.modal-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  background:rgba(0,0,0,.84);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.modal-overlay.open{display:flex}
+.modal-box{
+  position:relative;
+  max-width:min(560px,90vw);
+  width:100%;
+}
+.modal-box img{
+  width:100%;
+  max-height:76vh;
+  object-fit:contain;
+  border-radius:10px;
+  background:var(--white);
+  padding:16px;
+}
+.modal-close{
+  position:absolute;
+  top:-14px;right:-14px;
+  background:var(--red);
+  color:#fff;
+  border:none;cursor:pointer;
+  width:34px;height:34px;
+  border-radius:50%;
+  font-size:1.1rem;
+  display:flex;align-items:center;justify-content:center;
+  line-height:1;
+  transition:background .2s;
+}
+.modal-close:hover{background:var(--red-dark)}
+.modal-caption{
+  text-align:center;
+  color:#ddd;
+  font-size:.8rem;
+  margin-top:10px;
+  line-height:1.5;
+}
+.modal-price{color:var(--gold-light);font-weight:700;display:block;margin-top:2px}
 
 /* ── フッター ── */
 footer{background:var(--black);color:#888;padding:32px 0}
@@ -156,20 +200,21 @@ footer a:hover{color:var(--gold-light)}
 @media(max-width:960px){
   nav a:not(.ncta){display:none}
   .hbr{display:block}
-  .card-grid{grid-template-columns:repeat(2,1fr)}
+  .card-grid{grid-template-columns:repeat(3,1fr)}
 }
-@media(max-width:540px){
-  .card-grid{grid-template-columns:1fr}
+@media(max-width:640px){
+  .card-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .card-body{padding:10px 12px 12px}
+  .card-title{font-size:.78rem}
+  .card-price{font-size:.9rem}
 }
 /* ── UIアニメーション ── */
-.card img,.video-card img{transition:transform .35s ease}
-.card:hover img,.video-card:hover img{transform:scale(1.04)}
 .btn,a.button{transition:all .2s ease}
 .btn:hover,a.button:hover{opacity:.9;transform:translateY(-1px)}
 .btn:active,a.button:active,.br:active,.bg:active,.bottom-link:active,.pg-tab:active,.ytab:active{transform:translateY(1px)!important;opacity:.9!important}
 .fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
 .fade-in.show{opacity:1;transform:translateY(0)}
-@media(hover:none){.card:hover img,.video-card:hover img{transform:none}}
+@media(hover:none){article.card:hover .card-img img{transform:none}}
 </style>
 </head>
 <body>
@@ -207,6 +252,18 @@ footer a:hover{color:var(--gold-light)}
   <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
 </div>
 
+<!-- モーダル -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="閉じる">✕</button>
+    <img id="modal-img" src="" alt="">
+    <div class="modal-caption">
+      <span id="modal-cap"></span>
+      <span class="modal-price" id="modal-price"></span>
+    </div>
+  </div>
+</div>
+
 <div class="page-wrap">
 
   <!-- パンくず -->
@@ -223,7 +280,6 @@ footer a:hover{color:var(--gold-light)}
     <div class="page-hero-inner">
       <div class="page-hero-label">OFFICIAL GOODS</div>
       <h1 class="page-hero-title">番組関連グッズ</h1>
-      <p class="page-hero-desc">営業-1グランプリの公式グッズ・書籍・関連商品を紹介します。番組の記念に、そして吉本営業文化を持ち帰るアイテムとしてどうぞ。</p>
     </div>
   </div>
 
@@ -231,80 +287,212 @@ footer a:hover{color:var(--gold-light)}
   <div class="main-area">
 
     <div class="goods-note fi">
-      <strong>お知らせ：</strong>掲載商品は順次更新予定です。購入・在庫状況は各リンク先の販売ページでご確認ください。
+      <strong>販売場所：</strong>番組イベント・吉本興業公式ショップにて販売中。在庫状況はイベント会場または公式SNSでご確認ください。
     </div>
 
     <div class="sec-head fi">
       <span class="sec-label">公式グッズ一覧</span>
-      <span class="sec-sub">書籍・アパレル・グッズ</span>
-      <span class="sec-count">全6件</span>
+      <span class="sec-sub">番組オリジナルグッズ</span>
+      <span class="sec-count">全22件</span>
     </div>
 
     <div class="card-grid">
 
-      <!-- 01 書籍 -->
-      <article class="card fi">
-        <div class="card-icon">📘</div>
+      <!-- 01 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/1.png','ミニチュアボトル＆ケース吉本 BRヨシモト','¥330（税込）')">
+        <div class="card-img"><img src="goods/goods_image/1.png" alt="ミニチュアボトル＆ケース吉本 BRヨシモト" loading="lazy"></div>
         <div class="card-body">
-          <div class="card-title">よしもと営業マニュアル【書籍版】</div>
-          <p class="card-desc">サバンナ八木真澄が番組で伝授した"吉本流営業の鉄則"を完全収録。SNSで大反響を呼んだ永久保存版マニュアルが待望の書籍化。</p>
-          <div class="card-price">¥1,650 <small>（税込・予定価格）</small></div>
-          <a href="https://www.yoshimoto.co.jp/" target="_blank" rel="noopener" class="card-btn">詳細を見る</a>
+          <div class="card-title">ミニチュアボトル＆ケース吉本 BRヨシモト</div>
+          <div class="card-price">¥330 <small>税込</small></div>
         </div>
       </article>
 
-      <!-- 02 Tシャツ -->
-      <article class="card fi">
-        <div class="card-icon">👕</div>
+      <!-- 02 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/2.png','ミニチュアボトル＆ケース吉本 GRヨシモト','¥330（税込）')">
+        <div class="card-img"><img src="goods/goods_image/2.png" alt="ミニチュアボトル＆ケース吉本 GRヨシモト" loading="lazy"></div>
         <div class="card-body">
-          <div class="card-title">営業-1グランプリ 公式Tシャツ</div>
-          <p class="card-desc">番組ロゴを大胆にプリントしたオフィシャルTシャツ。カラーはホワイト／ブラックの2展開。S〜XLサイズ対応。</p>
-          <div class="card-price">¥3,300 <small>（税込・予定価格）</small></div>
-          <a href="https://www.yoshimoto.co.jp/" target="_blank" rel="noopener" class="card-btn">詳細を見る</a>
+          <div class="card-title">ミニチュアボトル＆ケース吉本 GRヨシモト</div>
+          <div class="card-price">¥330 <small>税込</small></div>
         </div>
       </article>
 
-      <!-- 03 トートバッグ -->
-      <article class="card fi">
-        <div class="card-icon">👜</div>
+      <!-- 03 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/3.png','ミニチュアボトル＆ケース千日前 BRセンニチマエ','¥330（税込）')">
+        <div class="card-img"><img src="goods/goods_image/3.png" alt="ミニチュアボトル＆ケース千日前 BRセンニチマエ" loading="lazy"></div>
         <div class="card-body">
-          <div class="card-title">番組オリジナル トートバッグ</div>
-          <p class="card-desc">A4サイズ対応の丈夫なキャンバストートバッグ。「ノールック契約」の文字をさりげなくプリント。日常使いにも最適。</p>
-          <div class="card-price">¥2,200 <small>（税込・予定価格）</small></div>
-          <a href="https://www.yoshimoto.co.jp/" target="_blank" rel="noopener" class="card-btn">詳細を見る</a>
+          <div class="card-title">ミニチュアボトル＆ケース千日前 BRセンニチマエ</div>
+          <div class="card-price">¥330 <small>税込</small></div>
         </div>
       </article>
 
-      <!-- 04 ステッカー -->
-      <article class="card fi">
-        <div class="card-icon">🏷️</div>
+      <!-- 04 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/4.png','ミニチュアボトル＆ケース千日前 GRセンニチマエ','¥330（税込）')">
+        <div class="card-img"><img src="goods/goods_image/4.png" alt="ミニチュアボトル＆ケース千日前 GRセンニチマエ" loading="lazy"></div>
         <div class="card-body">
-          <div class="card-title">営業-1 ステッカーセット（5枚入り）</div>
-          <p class="card-desc">番組ロゴ・ランキングメダル・八木マニュアル格言など全5種のステッカーセット。手帳やPCデコにどうぞ。</p>
-          <div class="card-price">¥550 <small>（税込・予定価格）</small></div>
-          <a href="https://www.yoshimoto.co.jp/" target="_blank" rel="noopener" class="card-btn">詳細を見る</a>
+          <div class="card-title">ミニチュアボトル＆ケース千日前 GRセンニチマエ</div>
+          <div class="card-price">¥330 <small>税込</small></div>
         </div>
       </article>
 
-      <!-- 05 クリアファイル -->
-      <article class="card fi">
-        <div class="card-icon">📁</div>
+      <!-- 05 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/5.png','ミニチュアボトルキーホルダー千日前センニチマエ','¥220（税込）')">
+        <div class="card-img"><img src="goods/goods_image/5.png" alt="ミニチュアボトルキーホルダー千日前センニチマエ" loading="lazy"></div>
         <div class="card-body">
-          <div class="card-title">ジョイマン 3連覇記念 クリアファイル</div>
-          <p class="card-desc">2023〜2025の前人未到3連覇を記念した限定クリアファイル。ジョイマン高木の激闘の軌跡をデザインに凝縮。</p>
-          <div class="card-price">¥440 <small>（税込・予定価格）</small></div>
-          <a href="https://www.yoshimoto.co.jp/" target="_blank" rel="noopener" class="card-btn">詳細を見る</a>
+          <div class="card-title">ミニチュアボトルキーホルダー千日前センニチマエ</div>
+          <div class="card-price">¥220 <small>税込</small></div>
         </div>
       </article>
 
-      <!-- 06 ポスター -->
-      <article class="card fi">
-        <div class="card-icon">🖼️</div>
+      <!-- 06 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/6.png','ミニチュアボトルキーホルダー吉本ヨシモト','¥220（税込）')">
+        <div class="card-img"><img src="goods/goods_image/6.png" alt="ミニチュアボトルキーホルダー吉本ヨシモト" loading="lazy"></div>
         <div class="card-body">
-          <div class="card-title">八木マニュアル ポスター（A2サイズ）</div>
-          <p class="card-desc">番組スタッフ厳選の"吉本営業マニュアル10か条"をデザインしたA2判ポスター。オフィス・楽屋・部屋に貼って毎日確認。</p>
-          <div class="card-price">¥1,100 <small>（税込・予定価格）</small></div>
-          <a href="https://www.yoshimoto.co.jp/" target="_blank" rel="noopener" class="card-btn">詳細を見る</a>
+          <div class="card-title">ミニチュアボトルキーホルダー吉本ヨシモト</div>
+          <div class="card-price">¥220 <small>税込</small></div>
+        </div>
+      </article>
+
+      <!-- 07 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/7.png','日めくりメモ帳 ヒチョウ','¥220（税込）')">
+        <div class="card-img"><img src="goods/goods_image/7.png" alt="日めくりメモ帳 ヒチョウ" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-title">日めくりメモ帳 ヒチョウ</div>
+          <div class="card-price">¥220 <small>税込</small></div>
+        </div>
+      </article>
+
+      <!-- 08 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/8.jpg','フレークシールＡ','¥220（税込）')">
+        <div class="card-img"><img src="goods/goods_image/8.jpg" alt="フレークシールＡ" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-title">フレークシールＡ</div>
+          <div class="card-price">¥220 <small>税込</small></div>
+        </div>
+      </article>
+
+      <!-- 09 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/9.jpg','フレークシールＢ','¥220（税込）')">
+        <div class="card-img"><img src="goods/goods_image/9.jpg" alt="フレークシールＢ" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-title">フレークシールＢ</div>
+          <div class="card-price">¥220 <small>税込</small></div>
+        </div>
+      </article>
+
+      <!-- 10 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/10.png','シールＡ','¥220（税込）')">
+        <div class="card-img"><img src="goods/goods_image/10.png" alt="シールＡ" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-title">シールＡ</div>
+          <div class="card-price">¥220 <small>税込</small></div>
+        </div>
+      </article>
+
+      <!-- 11 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/11.png','シールＢ','¥220（税込）')">
+        <div class="card-img"><img src="goods/goods_image/11.png" alt="シールＢ" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-title">シールＢ</div>
+          <div class="card-price">¥220 <small>税込</small></div>
+        </div>
+      </article>
+
+      <!-- 12 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/12.jpg','アクリルスタンプ','¥330（税込）')">
+        <div class="card-img"><img src="goods/goods_image/12.jpg" alt="アクリルスタンプ" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-title">アクリルスタンプ</div>
+          <div class="card-price">¥330 <small>税込</small></div>
+        </div>
+      </article>
+
+      <!-- 13 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/13.jpg','トレーディングマグネット','¥330（税込）')">
+        <div class="card-img"><img src="goods/goods_image/13.jpg" alt="トレーディングマグネット" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-title">トレーディングマグネット</div>
+          <div class="card-price">¥330 <small>税込</small></div>
+        </div>
+      </article>
+
+      <!-- 14 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/14.png','えぇ感じビン200ml八木カンヤギ','¥440（税込）')">
+        <div class="card-img"><img src="goods/goods_image/14.png" alt="えぇ感じビン200ml八木カンヤギ" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-title">えぇ感じビン200ml八木カンヤギ</div>
+          <div class="card-price">¥440 <small>税込</small></div>
+        </div>
+      </article>
+
+      <!-- 15 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/15.png','えぇ感じビン200ml吉本','¥440（税込）')">
+        <div class="card-img"><img src="goods/goods_image/15.png" alt="えぇ感じビン200ml吉本" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-title">えぇ感じビン200ml吉本</div>
+          <div class="card-price">¥440 <small>税込</small></div>
+        </div>
+      </article>
+
+      <!-- 16 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/16.png','えぇ感じビン50ml八木ヤギ','¥220（税込）')">
+        <div class="card-img"><img src="goods/goods_image/16.png" alt="えぇ感じビン50ml八木ヤギ" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-title">えぇ感じビン50ml八木ヤギ</div>
+          <div class="card-price">¥220 <small>税込</small></div>
+        </div>
+      </article>
+
+      <!-- 17 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/17.png','えぇ感じビン50ml吉本','¥220（税込）')">
+        <div class="card-img"><img src="goods/goods_image/17.png" alt="えぇ感じビン50ml吉本" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-title">えぇ感じビン50ml吉本</div>
+          <div class="card-price">¥220 <small>税込</small></div>
+        </div>
+      </article>
+
+      <!-- 18 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/18.png','すべりにくい手袋 5双セット M','¥330（税込）')">
+        <div class="card-img"><img src="goods/goods_image/18.png" alt="すべりにくい手袋 5双セット M" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-title">すべりにくい手袋 5双セット M</div>
+          <div class="card-price">¥330 <small>税込</small></div>
+        </div>
+      </article>
+
+      <!-- 19 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/19.png','すべりにくい手袋 5双セット L','¥330（税込）')">
+        <div class="card-img"><img src="goods/goods_image/19.png" alt="すべりにくい手袋 5双セット L" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-title">すべりにくい手袋 5双セット L</div>
+          <div class="card-price">¥330 <small>税込</small></div>
+        </div>
+      </article>
+
+      <!-- 20 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/20.jpg','お弁当が入れやすい底マチ広めバッグ BK','¥660（税込）')">
+        <div class="card-img"><img src="goods/goods_image/20.jpg" alt="お弁当が入れやすい底マチ広めバッグ BK" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-title">お弁当が入れやすい底マチ広めバッグ BK</div>
+          <div class="card-price">¥660 <small>税込</small></div>
+        </div>
+      </article>
+
+      <!-- 21 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/21.jpg','お弁当が入れやすい底マチ広めバッグ ベージュ','¥660（税込）')">
+        <div class="card-img"><img src="goods/goods_image/21.jpg" alt="お弁当が入れやすい底マチ広めバッグ ベージュ" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-title">お弁当が入れやすい底マチ広めバッグ ベージュ</div>
+          <div class="card-price">¥660 <small>税込</small></div>
+        </div>
+      </article>
+
+      <!-- 22 -->
+      <article class="card fi" onclick="openModal('goods/goods_image/22.png','新大阪ロゴキャップ','¥2,200（税込）')">
+        <div class="card-img"><img src="goods/goods_image/22.png" alt="新大阪ロゴキャップ" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-title">新大阪ロゴキャップ</div>
+          <div class="card-price">¥2,200 <small>税込</small></div>
         </div>
       </article>
 
@@ -342,6 +530,24 @@ document.querySelectorAll('.fi').forEach(el => obs.observe(el));
 document.querySelectorAll('.mnav a').forEach(el => {
   el.addEventListener('click', () => document.getElementById('mn').classList.remove('open'));
 });
+
+/* ── モーダル ── */
+function openModal(src, name, price) {
+  document.getElementById('modal-img').src = src;
+  document.getElementById('modal-img').alt = name;
+  document.getElementById('modal-cap').textContent = name;
+  document.getElementById('modal-price').textContent = price;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
 /* fade-in observer */
 (function(){var fi=document.querySelectorAll('.fade-in');if(!fi.length)return;var o=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting)n.target.classList.add('show');});},{threshold:0.1});fi.forEach(function(el){o.observe(el);});})();
 </script>
