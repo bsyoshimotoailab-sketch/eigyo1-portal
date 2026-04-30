@@ -161,56 +161,67 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 .fade-in.show{opacity:1;transform:translateY(0)}
 @media(hover:none){.card:hover img,.video-card:hover img{transform:none}}
 
-/* ── ローディング演出 [TEST] ── */
+/* ── ローディング演出 [TEST] タイプライター風 ── */
 #ld-overlay{
   position:fixed;inset:0;z-index:9999;
-  background:radial-gradient(ellipse 70% 50% at center,rgba(184,146,46,.08) 0%,transparent 65%),#0b0b0b;
+  background:#060606;
   display:flex;align-items:center;justify-content:center;
-  padding:24px;
-  animation:ldFade 4.5s ease forwards;
+  padding:clamp(20px,5vw,60px);
   pointer-events:none;
+  opacity:0;
 }
 #ld-overlay.ld-gone{display:none}
+/* スキャンライン */
+#ld-overlay::before{
+  content:'';position:absolute;inset:0;z-index:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.1) 2px,rgba(0,0,0,.1) 4px);
+  pointer-events:none;
+}
+/* ビネット */
+#ld-overlay::after{
+  content:'';position:absolute;inset:0;z-index:0;
+  background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.72) 100%);
+  pointer-events:none;
+}
 .ld-inner{
-  text-align:center;
-  max-width:540px;width:100%;
-  border-top:1px solid rgba(184,146,46,.4);
-  border-bottom:1px solid rgba(184,146,46,.4);
-  padding:36px 28px;
-  animation:ldContentIn .4s ease both;
+  text-align:center;position:relative;z-index:1;
+  max-width:600px;width:100%;
+  animation:ldFlicker 4s ease-in-out infinite;
 }
 .ld-label{
-  font-size:.68rem;letter-spacing:.28em;color:#777;
-  font-weight:700;margin-bottom:14px;
+  font-size:.68rem;letter-spacing:.28em;color:#555;
+  font-weight:700;margin-bottom:18px;min-height:1.3em;
 }
 .ld-title{
-  font-family:var(--font-a);font-size:clamp(1rem,2.8vw,1.25rem);
-  color:#fff;font-weight:700;letter-spacing:.1em;
-  margin-bottom:28px;
+  font-family:var(--font-a);font-size:clamp(.95rem,2.5vw,1.2rem);
+  color:#aaa;font-weight:700;letter-spacing:.1em;
+  margin-bottom:36px;min-height:1.6em;
+  padding-bottom:22px;
+  border-bottom:1px solid rgba(200,149,30,.18);
 }
 .ld-num{
-  font-family:var(--font-a);font-size:clamp(3.2rem,10vw,6rem);
-  font-weight:900;line-height:1;margin-bottom:18px;
-  background:linear-gradient(135deg,#8a6d1a,#d4a72c,#f0d77b,#d4a72c,#8a6d1a);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-family:var(--font-a);font-size:clamp(3.8rem,13vw,7.5rem);
+  font-weight:900;line-height:1;margin-bottom:24px;min-height:1.1em;
+  color:#c8951e;
+  text-shadow:0 0 24px rgba(200,149,30,.4),0 0 60px rgba(200,149,30,.15);
 }
 .ld-rule{
-  font-family:var(--font-a);font-size:clamp(1.3rem,4vw,2rem);
-  font-weight:900;color:#fff;line-height:1.4;margin-bottom:22px;
+  font-family:var(--font-a);font-size:clamp(1.2rem,4vw,2rem);
+  font-weight:900;color:#f0f0f0;line-height:1.5;min-height:1.7em;
+  letter-spacing:.02em;
 }
-.ld-desc{
-  font-size:clamp(.86rem,2vw,1rem);color:#d0d0d0;
-  line-height:2.1;
+/* 点滅カーソル */
+.ld-cur{
+  color:#c8951e;font-weight:300;margin-left:1px;
+  animation:ldCurBlink .55s step-end infinite;
 }
-@keyframes ldFade{
-  0%{opacity:0}
-  9%{opacity:1}
-  87%{opacity:1}
-  100%{opacity:0}
-}
-@keyframes ldContentIn{
-  from{opacity:0;transform:translateY(14px)}
-  to{opacity:1;transform:translateY(0)}
+.ld-cur.ld-done{visibility:hidden}
+@keyframes ldCurBlink{0%,100%{opacity:1}50%{opacity:0}}
+/* 微細ちらつき（昭和CRT風） */
+@keyframes ldFlicker{
+  0%,100%{opacity:1}
+  91%{opacity:1}92%{opacity:.86}93%{opacity:1}
+  97%{opacity:.92}98%{opacity:1}
 }
 </style>
 </head>
@@ -219,11 +230,10 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 <!-- ローディング演出 [TEST] ここから -->
 <div id="ld-overlay" aria-hidden="true">
   <div class="ld-inner">
-    <p class="ld-label">番組スタッフが選ぶ</p>
-    <p class="ld-title">吉本営業マニュアルベスト10</p>
-    <p class="ld-num">#03</p>
-    <p class="ld-rule">楽屋弁当をスタッフに持たせない</p>
-    <p class="ld-desc">自分でマチの広い紙袋にいれましょう。<br>りくろーおじさんの紙袋は使えます。<br>細かい気配りが信頼を積み上げます。</p>
+    <p class="ld-label"><span id="ld-t1"></span><span class="ld-cur" id="ld-c1">_</span></p>
+    <p class="ld-title"><span id="ld-t2"></span><span class="ld-cur" id="ld-c2">_</span></p>
+    <p class="ld-num"><span id="ld-t3"></span><span class="ld-cur" id="ld-c3">_</span></p>
+    <p class="ld-rule"><span id="ld-t4"></span><span class="ld-cur" id="ld-c4">_</span></p>
   </div>
 </div>
 <!-- ローディング演出 [TEST] ここまで -->
@@ -476,16 +486,55 @@ initAutoImages();
 /* fade-in observer */
 (function(){var fi=document.querySelectorAll('.fade-in');if(!fi.length)return;var o=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting)n.target.classList.add('show');});},{threshold:0.1});fi.forEach(function(el){o.observe(el);});})();
 
-/* ── ローディング演出 [TEST] ── */
+/* ── ローディング演出 [TEST] タイプライター風 ── */
 (function(){
   var ol=document.getElementById('ld-overlay');
   if(!ol)return;
   document.body.style.overflow='hidden';
-  // 4.5s animation + 100ms余裕 → 非表示 & スクロール解除
+
+  // フェードイン
   setTimeout(function(){
-    ol.classList.add('ld-gone');
-    document.body.style.overflow='';
-  },4600);
+    ol.style.transition='opacity .35s ease';
+    ol.style.opacity='1';
+  },40);
+
+  // タイプシーケンス定義
+  var seq=[
+    {t:document.getElementById('ld-t1'),c:document.getElementById('ld-c1'),str:'番組スタッフが選ぶ',   ms:72, wait:450},
+    {t:document.getElementById('ld-t2'),c:document.getElementById('ld-c2'),str:'吉本営業マニュアルベスト10',ms:62, wait:160},
+    {t:document.getElementById('ld-t3'),c:document.getElementById('ld-c3'),str:'#03',                  ms:160,wait:420},
+    {t:document.getElementById('ld-t4'),c:document.getElementById('ld-c4'),str:'楽屋弁当をスタッフに持たせない',ms:50, wait:280}
+  ];
+
+  // 1文字ずつ打ち出す
+  function type(item,cb){
+    var i=0,s=item.str;
+    (function tick(){
+      item.t.textContent=s.slice(0,i);
+      if(i++<s.length){setTimeout(tick,item.ms);}
+      else{item.c.classList.add('ld-done');if(cb)cb();}
+    })();
+  }
+
+  // 順番に実行
+  function run(idx){
+    if(idx>=seq.length){
+      // 全文打ち終わり → 静止 → フェードアウト
+      setTimeout(function(){
+        ol.style.transition='opacity .75s ease';
+        ol.style.opacity='0';
+        setTimeout(function(){
+          ol.classList.add('ld-gone');
+          document.body.style.overflow='';
+        },800);
+      },900);
+      return;
+    }
+    setTimeout(function(){type(seq[idx],function(){run(idx+1);});},seq[idx].wait);
+  }
+
+  // フェードイン完了後にタイプ開始
+  setTimeout(function(){run(0);},400);
 })();
 </script>
 
