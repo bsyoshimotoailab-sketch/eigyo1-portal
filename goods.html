@@ -208,6 +208,26 @@ footer a:hover{color:var(--gold-light)}
   .card-title{font-size:.78rem}
   .card-price{font-size:.9rem}
 }
+/* ── Wattsコラボブロック ── */
+.collab-block{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px 28px;margin-bottom:28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.collab-logo{flex-shrink:0}
+.collab-logo img{height:44px;width:auto;object-fit:contain;display:block}
+.collab-info{flex:1;min-width:200px}
+.collab-tag{font-size:.62rem;letter-spacing:.2em;color:var(--gold-dark);font-weight:700;margin-bottom:4px}
+.collab-name{font-size:1.05rem;font-weight:900;color:var(--black);margin-bottom:8px}
+.collab-desc{font-size:.85rem;color:var(--text-sub);line-height:1.7;margin-bottom:6px}
+.collab-type{font-size:.8rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.collab-note{font-size:.7rem;color:var(--text-light);margin-bottom:14px}
+.collab-btn{display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;padding:9px 20px;font-size:.78rem;font-weight:700;border-radius:4px;text-decoration:none;transition:background .25s}
+.collab-btn:hover{background:var(--red-dark)}
+/* ── オンライン限定バッジ ── */
+.online-badge{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.06em;color:var(--gold-dark);background:rgba(184,146,46,.1);border:1px solid rgba(184,146,46,.35);border-radius:3px;padding:2px 8px;margin-bottom:5px}
+/* ── 商品説明（将来用） ── */
+.goods-desc{font-size:.75rem;color:var(--text-sub);line-height:1.65}
+@media(max-width:640px){
+  .collab-block{padding:18px 16px;gap:14px}
+  .collab-logo img{height:36px}
+}
 /* ── UIアニメーション ── */
 .btn,a.button{transition:all .2s ease}
 .btn:hover,a.button:hover{opacity:.9;transform:translateY(-1px)}
@@ -286,6 +306,21 @@ footer a:hover{color:var(--gold-light)}
   <!-- メインエリア -->
   <div class="main-area">
 
+    <!-- Wattsコラボブロック -->
+    <div class="collab-block fi">
+      <div class="collab-logo">
+        <img src="goods/watts_logo.png" alt="Watts ロゴ">
+      </div>
+      <div class="collab-info">
+        <div class="collab-tag">COLLABORATION</div>
+        <div class="collab-name">コラボグッズ</div>
+        <p class="collab-desc">全国約350店舗のWattsでご購入いただけます。</p>
+        <p class="collab-type">店頭販売10種 ＋ オンラインショップ限定1種</p>
+        <p class="collab-note">※帽子（新大阪ロゴキャップ）はオンライン限定商品です</p>
+        <a href="https://watts-online.jp/" target="_blank" rel="noopener" class="collab-btn">Wattsオンラインショップ →</a>
+      </div>
+    </div>
+
     <div class="goods-note fi">
       <strong>販売場所：</strong>番組イベント・吉本興業公式ショップにて販売中。在庫状況はイベント会場または公式SNSでご確認ください。
     </div>
@@ -304,6 +339,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">ミニチュアボトル＆ケース吉本 BRヨシモト</div>
           <div class="card-price">¥330 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -313,6 +349,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">ミニチュアボトル＆ケース吉本 GRヨシモト</div>
           <div class="card-price">¥330 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -322,6 +359,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">ミニチュアボトル＆ケース千日前 BRセンニチマエ</div>
           <div class="card-price">¥330 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -331,6 +369,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">ミニチュアボトル＆ケース千日前 GRセンニチマエ</div>
           <div class="card-price">¥330 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -340,6 +379,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">ミニチュアボトルキーホルダー千日前センニチマエ</div>
           <div class="card-price">¥220 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -349,6 +389,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">ミニチュアボトルキーホルダー吉本ヨシモト</div>
           <div class="card-price">¥220 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -358,6 +399,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">日めくりメモ帳 ヒチョウ</div>
           <div class="card-price">¥220 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -367,6 +409,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">フレークシールＡ</div>
           <div class="card-price">¥220 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -376,6 +419,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">フレークシールＢ</div>
           <div class="card-price">¥220 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -385,6 +429,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">シールＡ</div>
           <div class="card-price">¥220 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -394,6 +439,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">シールＢ</div>
           <div class="card-price">¥220 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -403,6 +449,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">アクリルスタンプ</div>
           <div class="card-price">¥330 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -412,6 +459,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">トレーディングマグネット</div>
           <div class="card-price">¥330 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -421,6 +469,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">えぇ感じビン200ml八木カンヤギ</div>
           <div class="card-price">¥440 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -430,6 +479,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">えぇ感じビン200ml吉本</div>
           <div class="card-price">¥440 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -439,6 +489,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">えぇ感じビン50ml八木ヤギ</div>
           <div class="card-price">¥220 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -448,6 +499,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">えぇ感じビン50ml吉本</div>
           <div class="card-price">¥220 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -457,6 +509,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">すべりにくい手袋 5双セット M</div>
           <div class="card-price">¥330 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -466,6 +519,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">すべりにくい手袋 5双セット L</div>
           <div class="card-price">¥330 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -475,6 +529,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">お弁当が入れやすい底マチ広めバッグ BK</div>
           <div class="card-price">¥660 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -484,6 +539,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-body">
           <div class="card-title">お弁当が入れやすい底マチ広めバッグ ベージュ</div>
           <div class="card-price">¥660 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
@@ -492,7 +548,9 @@ footer a:hover{color:var(--gold-light)}
         <div class="card-img"><img src="goods/goods_image/22.png" alt="新大阪ロゴキャップ" loading="lazy"></div>
         <div class="card-body">
           <div class="card-title">新大阪ロゴキャップ</div>
+          <span class="online-badge">オンライン限定</span>
           <div class="card-price">¥2,200 <small>税込</small></div>
+          <div class="goods-desc"></div>
         </div>
       </article>
 
