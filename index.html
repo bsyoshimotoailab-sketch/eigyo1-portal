@@ -160,9 +160,72 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 .fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
 .fade-in.show{opacity:1;transform:translateY(0)}
 @media(hover:none){.card:hover img,.video-card:hover img{transform:none}}
+
+/* ── ローディング演出 [TEST] ── */
+#ld-overlay{
+  position:fixed;inset:0;z-index:9999;
+  background:#0b0b0b;
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;
+  animation:ldFade 3s ease forwards;
+  pointer-events:none;
+}
+#ld-overlay.ld-gone{display:none}
+.ld-inner{
+  text-align:center;
+  animation:ldContentIn .5s ease both;
+}
+.ld-label{
+  font-size:.65rem;letter-spacing:.22em;color:#888;
+  font-weight:700;margin-bottom:10px;
+}
+.ld-title{
+  font-family:var(--font-a);font-size:clamp(.85rem,2vw,1rem);
+  color:#ccc;font-weight:700;letter-spacing:.08em;
+  margin-bottom:28px;
+}
+.ld-num{
+  font-family:var(--font-a);font-size:clamp(2.4rem,8vw,4rem);
+  font-weight:900;line-height:1;margin-bottom:14px;
+  background:linear-gradient(105deg,#8a6d1a,#b8922e,#f0d77b,#b8922e,#8a6d1a);
+  background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:gs 3s linear infinite;
+}
+.ld-rule{
+  font-family:var(--font-a);font-size:clamp(1.1rem,3.5vw,1.6rem);
+  font-weight:900;color:#fff;line-height:1.45;margin-bottom:16px;
+}
+.ld-desc{
+  font-size:clamp(.78rem,1.8vw,.88rem);color:#aaa;
+  line-height:1.9;
+}
+@keyframes ldFade{
+  0%{opacity:0}
+  17%{opacity:1}
+  83%{opacity:1}
+  100%{opacity:0}
+}
+@keyframes ldContentIn{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
 </style>
 </head>
 <body>
+
+<!-- ローディング演出 [TEST] ここから -->
+<div id="ld-overlay" aria-hidden="true">
+  <div class="ld-inner">
+    <p class="ld-label">番組スタッフが選ぶ</p>
+    <p class="ld-title">吉本営業マニュアルベスト10</p>
+    <p class="ld-num">#03</p>
+    <p class="ld-rule">楽屋弁当をスタッフに持たせない</p>
+    <p class="ld-desc">自分でマチの広い紙袋にいれましょう。<br>りくろーおじさんの紙袋は使えます。<br>細かい気配りが信頼を積み上げます。</p>
+  </div>
+</div>
+<!-- ローディング演出 [TEST] ここまで -->
+
 <header>
   <div class="container">
     <a href="#hero" class="logo"><img src="" data-candidates="assets/logos/eigyo1_logo.png|assets/logos/eigyo1_logo.jpg|assets/logos/eigyo1_logo.jpeg|assets/logos/eigyo1_logo.webp|営業-1ロゴ透明.png|営業-1ロゴ透明.jpg|営業-1ロゴ透明.jpeg|営業-1ロゴ透明.webp" alt="営業-1グランプリ ロゴ" class="auto-img logo-img" onerror="this.style.display='none'"></a>
@@ -410,6 +473,18 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 initAutoImages();
 /* fade-in observer */
 (function(){var fi=document.querySelectorAll('.fade-in');if(!fi.length)return;var o=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting)n.target.classList.add('show');});},{threshold:0.1});fi.forEach(function(el){o.observe(el);});})();
+
+/* ── ローディング演出 [TEST] ── */
+(function(){
+  var ol=document.getElementById('ld-overlay');
+  if(!ol)return;
+  document.body.style.overflow='hidden';
+  // 3s animation + 100ms余裕 → 非表示 & スクロール解除
+  setTimeout(function(){
+    ol.classList.add('ld-gone');
+    document.body.style.overflow='';
+  },3100);
+})();
 </script>
 
 <style>
