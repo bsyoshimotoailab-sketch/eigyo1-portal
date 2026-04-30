@@ -33,8 +33,34 @@ nav a{color:var(--text-sub);text-decoration:none;font-size:.74rem;font-weight:70
 .hbr{display:none;background:none;border:none;cursor:pointer;padding:6px}.hbr span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0}
 .mnav{display:none;position:fixed;top:68px;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:16px 24px;border-bottom:1px solid var(--border)}.mnav.open{display:block}.mnav a{display:block;padding:12px 0;color:var(--text-sub);text-decoration:none;font-size:.85rem;border-bottom:1px solid #eee}
 /* ── ヒーロービジュアル ── */
-.hero{width:100%}
-.hero .hero-bg{display:block;width:100%;height:auto}
+.hero{position:relative;width:100%;overflow:hidden}
+.hero-bg{display:block;width:100%;height:auto}
+.hero-logo-wrap{
+  position:absolute;left:50%;top:63%;
+  width:36%;max-width:560px;
+  transform:translate(-50%,-50%);
+  z-index:2;perspective:900px;
+  pointer-events:auto;
+}
+.hero-logo-wrap::after{
+  content:'';position:absolute;inset:0;z-index:3;
+  background:linear-gradient(120deg,rgba(255,255,255,.0) 30%,rgba(255,255,255,.18) 50%,rgba(255,255,255,.0) 70%);
+  background-size:200% 200%;background-position:200% 0%;
+  opacity:0;transition:opacity .3s ease;
+  pointer-events:none;border-radius:4px;
+}
+.hero-logo-wrap:hover::after{opacity:1;background-position:0% 100%}
+.hero-logo-main{
+  display:block;width:100%;height:auto;
+  filter:drop-shadow(0 14px 18px rgba(0,0,0,.35));
+  transition:transform .28s ease,filter .28s ease;
+  will-change:transform;
+}
+@media(max-width:640px){.hero-logo-wrap{top:64%;width:74%;max-width:none}}
+@media(prefers-reduced-motion:reduce){
+  .hero-logo-main{transition:none}
+  .hero-logo-wrap::after{transition:none;display:none}
+}
 #hero{padding-top:68px;background:var(--white)}
 .hero-visual{position:relative;width:100%;background:linear-gradient(135deg,#e8e0d0,#d4cabb,#c8bfaf)}
 .hero-visual img.hero-bg{width:100%;height:auto;display:block}
@@ -272,8 +298,11 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
   <a href="timeline.html">シリーズ年表</a>
   <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
 </div>
-<section class="hero">
+<section class="hero hero-visual">
   <img src="assets/images/hero/hero_bg.png" class="hero-bg" alt="営業-1グランプリ ビジュアル">
+  <div class="hero-logo-wrap" id="heroLogoWrap">
+    <img src="assets/logos/eigyo1_logo.png" class="hero-logo-main" id="heroLogoImg" alt="営業-1グランプリ">
+  </div>
 </section>
 <section id="hero">
   <div class="hero-text">
@@ -566,6 +595,30 @@ initAutoImages();
 
   // 画面フェードイン後にタイプ開始
   setTimeout(function(){run(0);},350);
+})();
+
+/* ── 2.5Dロゴホバー演出 ── */
+(function(){
+  var wrap=document.getElementById('heroLogoWrap');
+  var logo=document.getElementById('heroLogoImg');
+  if(!wrap||!logo)return;
+  var mq=window.matchMedia('(prefers-reduced-motion:reduce)');
+  if(mq.matches)return;
+  var MAX_X=4,MAX_Y=6,MAX_S=1.035;
+  wrap.addEventListener('mousemove',function(e){
+    var r=wrap.getBoundingClientRect();
+    var cx=r.left+r.width/2,cy=r.top+r.height/2;
+    var dx=(e.clientX-cx)/(r.width/2);   // -1〜1
+    var dy=(e.clientY-cy)/(r.height/2);  // -1〜1
+    var rx=(-dy*MAX_X).toFixed(2);        // 上に動かすと手前に傾く
+    var ry=(dx*MAX_Y).toFixed(2);
+    logo.style.transform='perspective(900px) rotateX('+rx+'deg) rotateY('+ry+'deg) scale('+MAX_S+')';
+    logo.style.filter='drop-shadow(0 18px 24px rgba(0,0,0,.45))';
+  });
+  wrap.addEventListener('mouseleave',function(){
+    logo.style.transform='';
+    logo.style.filter='';
+  });
 })();
 </script>
 
