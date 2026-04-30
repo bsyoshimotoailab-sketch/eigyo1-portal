@@ -35,6 +35,10 @@ nav a{color:var(--text-sub);text-decoration:none;font-size:.74rem;font-weight:70
 #hero{padding-top:68px;background:var(--white)}
 .hero-photo{position:relative;width:100%;background:linear-gradient(135deg,#e8e0d0,#d4cabb,#c8bfaf)}
 .hero-photo img{width:100%;height:auto;display:block}
+/* ── TOPロゴ二層構造 ── */
+.hero-logo-wrap{position:absolute;left:50%;top:62%;transform:translate(-50%,-50%) scale(1.05);z-index:2;width:44vw;max-width:520px;pointer-events:none}
+.hero-logo-wrap img{width:100%;height:auto;display:block}
+@media(max-width:640px){.hero-logo-wrap{width:78vw;max-width:none}}
 .media-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--text-light);font-size:.85rem;padding:24px;text-align:center;background:linear-gradient(135deg,#e8e0d0,#d4cabb,#c8bfaf)}
 .media-fallback .ic{font-size:3rem;margin-bottom:10px;opacity:.5}
 .hero-ov{display:none}
@@ -271,8 +275,12 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 </div>
 <section id="hero">
   <div class="hero-photo">
-    <img src="" data-candidates="hero/hero_group.jpg|hero/hero_group.jpeg|hero/hero_group.png|hero/hero_group.webp|assets/hero/hero_group.jpg|assets/hero/hero_group.jpeg|assets/hero/hero_group.png|assets/hero/hero_group.webp|営業-1グランプリ集合写真TOP画像.png|営業-1グランプリ集合写真TOP画像.jpg|営業-1グランプリ集合写真TOP画像.jpeg|営業-1グランプリ集合写真TOP画像.webp" alt="営業-1グランプリ 集合ビジュアル" class="auto-img hero-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-    <div class="media-fallback" style="display:none"><div class="ic">📸</div>集合写真を here に配置<br><small>推奨: assets/hero/hero_group.jpg</small></div>
+    <img src="" data-candidates="assets/images/hero/hero_bg.png|assets/images/hero/hero_bg.jpg|hero/TOP.png|hero/TOP.jpg" alt="営業-1グランプリ 背景ビジュアル" class="auto-img hero-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+    <div class="media-fallback" style="display:none"><div class="ic">📸</div>背景画像を here に配置<br><small>推奨: assets/images/hero/hero_bg.png</small></div>
+    <!-- TOPロゴ（二層構造・位置調整用） -->
+    <div class="hero-logo-wrap">
+      <img src="" data-candidates="assets/logos/eigyo1_logo.png|assets/logos/eigyo1_logo.jpg|assets/logos/eigyo1_logo.webp" alt="営業-1グランプリ ロゴ" class="auto-img" onerror="this.style.display='none'">
+    </div>
   </div>
   <div class="hero-text">
     <div class="container hero-inner">
