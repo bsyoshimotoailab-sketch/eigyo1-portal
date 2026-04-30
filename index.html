@@ -218,19 +218,9 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 }
 .ld-cur.ld-done{visibility:hidden}
 @keyframes ldCurBlink{0%,100%{opacity:1}50%{opacity:0}}
-/* 本文 スケール＋フェードイン */
-.ld-desc{
-  font-size:clamp(.84rem,1.9vw,.96rem);color:#c0c0c0;
-  line-height:2.1;margin-top:24px;
-  opacity:0;transform:scale(.98);
-  transition:opacity .5s ease,transform .5s ease;
-  overflow-wrap:break-word;
-}
-.ld-desc.ld-show{opacity:1;transform:scale(1)}
 @media(max-width:480px){
   .ld-rule{font-size:clamp(1rem,4vw,1.5rem)}
   .ld-num{font-size:clamp(3rem,13vw,5rem)}
-  .ld-desc{font-size:.82rem;line-height:1.95}
 }
 /* 微細ちらつき（昭和CRT風） */
 @keyframes ldFlicker{
@@ -248,7 +238,6 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
     <p class="ld-title">吉本営業マニュアルベスト10</p>
     <p class="ld-num"><span id="ld-t3"></span><span class="ld-cur" id="ld-c3">_</span></p>
     <p class="ld-rule"><span id="ld-t4"></span><span class="ld-cur" id="ld-c4">_</span></p>
-    <p class="ld-desc" id="ld-desc"></p>
   </div>
 </div>
 <!-- ローディング演出 [TEST] ここまで -->
@@ -533,7 +522,6 @@ initAutoImages();
 
   // ランダム選択
   var m=manuals[Math.floor(Math.random()*manuals.length)];
-  var descEl=document.getElementById('ld-desc');
 
   // フェードイン
   setTimeout(function(){
@@ -560,18 +548,15 @@ initAutoImages();
   // 順番に実行
   function run(idx){
     if(idx>=seq.length){
-      // タイトル打ち終わり → 0.2秒後に本文スケール＋フェード表示
-      descEl.textContent=m.desc;
-      setTimeout(function(){descEl.classList.add('ld-show');},200);
-      // 本文表示から2秒確保（計2200ms）→ フェードアウト
+      // タイトル打ち終わり → 1秒静止 → フェードアウト
       setTimeout(function(){
-        ol.style.transition='opacity .55s ease';
+        ol.style.transition='opacity .5s ease';
         ol.style.opacity='0';
         setTimeout(function(){
           ol.classList.add('ld-gone');
           document.body.style.overflow='';
-        },600);
-      },2200);
+        },550);
+      },1000);
       return;
     }
     setTimeout(function(){type(seq[idx],function(){run(idx+1);});},seq[idx].wait);
