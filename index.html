@@ -33,11 +33,11 @@ nav a{color:var(--text-sub);text-decoration:none;font-size:.74rem;font-weight:70
 .hbr{display:none;background:none;border:none;cursor:pointer;padding:6px}.hbr span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0}
 .mnav{display:none;position:fixed;top:68px;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:16px 24px;border-bottom:1px solid var(--border)}.mnav.open{display:block}.mnav a{display:block;padding:12px 0;color:var(--text-sub);text-decoration:none;font-size:.85rem;border-bottom:1px solid #eee}
 /* ── ヒーロービジュアル ── */
-.hero{position:relative;width:100%;overflow:hidden}
+.hero{position:relative;width:100%;overflow:hidden;padding-top:68px}
 .hero-bg{display:block;width:100%;height:auto}
 .hero-logo-wrap{
-  position:absolute;left:50%;top:63%;
-  width:36%;max-width:560px;
+  position:absolute;left:50%;top:66%;
+  width:40%;max-width:560px;
   transform:translate(-50%,-50%);
   z-index:2;perspective:900px;
   pointer-events:auto;
@@ -56,7 +56,7 @@ nav a{color:var(--text-sub);text-decoration:none;font-size:.74rem;font-weight:70
   transition:transform .28s ease,filter .28s ease;
   will-change:transform;
 }
-@media(max-width:640px){.hero-logo-wrap{top:64%;width:74%;max-width:none}}
+@media(max-width:640px){.hero-logo-wrap{top:67%;width:74%;max-width:none}}
 @media(prefers-reduced-motion:reduce){
   .hero-logo-main{transition:none}
   .hero-logo-wrap::after{transition:none;display:none}
