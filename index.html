@@ -61,20 +61,20 @@ nav a{color:var(--text-sub);text-decoration:none;font-size:.74rem;font-weight:70
   .hero-logo-main{transition:none}
   .hero-logo-wrap::after{transition:none;display:none}
 }
-#hero{padding-top:68px;background:var(--white)}
+#hero{padding-top:0;margin-top:0;background:var(--white)}
 .hero-visual{position:relative;width:100%;background:linear-gradient(135deg,#e8e0d0,#d4cabb,#c8bfaf)}
 .hero-visual img.hero-bg{width:100%;height:auto;display:block}
 .media-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--text-light);font-size:.85rem;padding:24px;text-align:center;background:linear-gradient(135deg,#e8e0d0,#d4cabb,#c8bfaf)}
 .media-fallback .ic{font-size:3rem;margin-bottom:10px;opacity:.5}
 .hero-ov{display:none}
-.hero-text{background:var(--bg);padding:clamp(22px,4vw,44px) 0 28px;text-align:center}
+.hero-text{background:var(--bg);padding:0 0 28px;margin-top:0;text-align:center}
 .hero-inner{text-align:center}
 .hero-yt{margin-top:28px}
 .hero-yt-wrap{position:relative;width:100%;max-width:720px;margin:0 auto;aspect-ratio:16/9;border-radius:8px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.15)}
 .hero-yt-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 /* TOP見出し画像 */
 .no-look-title-wrap{position:relative;display:inline-block;margin:0 auto;padding:0}
-.no-look-title-img{display:block;width:min(880px,92vw);height:auto;margin:-40px auto 12px;mix-blend-mode:multiply;filter:drop-shadow(0 14px 28px rgba(0,0,0,.35)) drop-shadow(0 4px 10px rgba(0,0,0,.25)) drop-shadow(0 1px 2px rgba(0,0,0,.2));opacity:0;transform:scale(.92)}
+.no-look-title-img{display:block;width:min(880px,92vw);height:auto;margin:-120px auto 12px;mix-blend-mode:multiply;filter:drop-shadow(0 14px 28px rgba(0,0,0,.35)) drop-shadow(0 4px 10px rgba(0,0,0,.25)) drop-shadow(0 1px 2px rgba(0,0,0,.2));opacity:0;transform:scale(.92)}
 body.hero-ready .no-look-title-img{animation:titleIn .8s cubic-bezier(.2,.8,.2,1) forwards}
 @keyframes titleIn{0%{opacity:0;transform:scale(.92)}60%{opacity:1;transform:scale(1.04)}100%{opacity:1;transform:scale(1)}}
 .title-glow{position:absolute;inset:0;background:radial-gradient(circle at 30% 40%,rgba(255,255,255,.6),transparent 40%);opacity:0;pointer-events:none}
