@@ -63,7 +63,9 @@ nav a{color:var(--text-sub);text-decoration:none;font-size:.74rem;font-weight:70
 }
 #hero{padding-top:0;margin-top:0;background:var(--white)}
 .hero-visual{position:relative;width:100%;background:linear-gradient(135deg,#e8e0d0,#d4cabb,#c8bfaf)}
+.hero-visual picture{display:block;width:100%;line-height:0}
 .hero-visual img.hero-bg{width:100%;height:auto;display:block}
+@media(max-width:768px){.hero-visual{background:none}}
 .media-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--text-light);font-size:.85rem;padding:24px;text-align:center;background:linear-gradient(135deg,#e8e0d0,#d4cabb,#c8bfaf)}
 .media-fallback .ic{font-size:3rem;margin-bottom:10px;opacity:.5}
 .hero-ov{display:none}
@@ -370,7 +372,10 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
   <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
 </div>
 <section class="hero hero-visual">
-  <img src="assets/images/hero/hero_bg.png" class="hero-bg" alt="営業-1グランプリ ビジュアル">
+  <picture>
+    <source media="(max-width:768px)" srcset="hero/TOP_SP.png">
+    <img src="hero/TOP.png" class="hero-bg" alt="営業-1グランプリ ビジュアル">
+  </picture>
   <div class="hero-logo-wrap" id="heroLogoWrap">
     <img src="assets/logos/eigyo1_logo.png" class="hero-logo-main" id="heroLogoImg" alt="営業-1グランプリ">
   </div>
