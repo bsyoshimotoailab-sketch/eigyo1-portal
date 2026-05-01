@@ -267,6 +267,76 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
   91%{opacity:1}92%{opacity:.86}93%{opacity:1}
   97%{opacity:.92}98%{opacity:1}
 }
+/* ── レアリティ演出 ── */
+@keyframes ldShake{
+  0%,100%{transform:translate(0,0)}
+  10%{transform:translate(-10px,3px)}20%{transform:translate(12px,-4px)}
+  30%{transform:translate(-14px,2px)}40%{transform:translate(14px,-2px)}
+  50%{transform:translate(-8px,4px)}60%{transform:translate(10px,-3px)}
+  70%{transform:translate(-6px,2px)}80%{transform:translate(6px,-1px)}
+  90%{transform:translate(-3px,1px)}
+}
+@keyframes ldGoldPulse{
+  0%,100%{text-shadow:0 0 40px rgba(255,215,0,.7),0 0 80px rgba(255,180,0,.4),0 0 0px rgba(255,140,0,0)}
+  50%{text-shadow:0 0 80px rgba(255,230,0,1),0 0 160px rgba(255,190,0,.9),0 0 300px rgba(255,140,0,.6)}
+}
+@keyframes ldRarePulse{
+  0%,100%{text-shadow:0 0 24px rgba(200,149,30,.4),0 0 0px rgba(200,100,255,0)}
+  50%{text-shadow:0 0 60px rgba(210,160,255,.95),0 0 120px rgba(160,100,255,.6),0 0 200px rgba(120,60,255,.35)}
+}
+@keyframes ldFlashBg{
+  0%{background:rgba(0,0,0,.72)}
+  8%{background:rgba(255,230,80,.45)}
+  18%{background:rgba(0,0,0,.88)}
+  30%{background:rgba(255,210,60,.25)}
+  45%{background:rgba(0,0,0,.90)}
+  65%{background:rgba(255,200,40,.15)}
+  100%{background:rgba(10,5,0,.90)}
+}
+@keyframes ldTitleFlash{
+  0%,100%{opacity:1}30%{opacity:.3}60%{opacity:1}80%{opacity:.6}
+}
+/* #01 超レア大当たり */
+#ld-overlay.rare1{animation:ldFlashBg .9s ease both}
+#ld-overlay.rare1 .ld-title{
+  color:#ffd700;letter-spacing:.28em;
+  border-bottom-color:rgba(255,215,0,.6);
+  text-shadow:0 0 20px rgba(255,215,0,.9),0 0 40px rgba(255,180,0,.6);
+  animation:ldTitleFlash .6s ease-in-out 3;
+}
+#ld-overlay.rare1 .ld-num{
+  color:#ffe040;
+  text-shadow:0 0 40px rgba(255,215,0,.8),0 0 80px rgba(255,180,0,.5);
+}
+#ld-overlay.rare1 .ld-num.ld-glow{animation:ldGoldPulse .8s ease-in-out infinite}
+#ld-overlay.rare1 .ld-rule{color:#fff8c0;text-shadow:0 0 16px rgba(255,215,0,.4)}
+#ld-overlay.rare1 .ld-cur{color:#ffd700}
+#ld-overlay.rare1 .ld-inner.ld-shaking{animation:ldShake .45s ease-in-out}
+/* #02 レア（紫） */
+#ld-overlay.rare2 .ld-title{
+  color:#c8a8ff;letter-spacing:.2em;
+  border-bottom-color:rgba(180,140,255,.5);
+  text-shadow:0 0 14px rgba(180,140,255,.7);
+}
+#ld-overlay.rare2 .ld-num{
+  color:#d8b8ff;
+  text-shadow:0 0 36px rgba(200,160,255,.8),0 0 72px rgba(160,100,255,.5);
+}
+#ld-overlay.rare2 .ld-num.ld-glow{animation:ldRarePulse 1.1s ease-in-out infinite}
+#ld-overlay.rare2 .ld-rule{color:#ede0ff;text-shadow:0 0 8px rgba(180,140,255,.3)}
+#ld-overlay.rare2 .ld-cur{color:#c8a0ff}
+/* #03 ちょっとレア（シアン） */
+#ld-overlay.rare3 .ld-title{
+  color:#70d8ff;letter-spacing:.16em;
+  border-bottom-color:rgba(80,200,255,.4);
+  text-shadow:0 0 10px rgba(80,200,255,.6);
+}
+#ld-overlay.rare3 .ld-num{
+  color:#90e4ff;
+  text-shadow:0 0 30px rgba(80,200,255,.8),0 0 60px rgba(40,160,255,.5);
+}
+#ld-overlay.rare3 .ld-rule{color:#ddf4ff;text-shadow:0 0 6px rgba(80,200,255,.25)}
+#ld-overlay.rare3 .ld-cur{color:#70c8ff}
 </style>
 </head>
 <body>
@@ -567,8 +637,33 @@ initAutoImages();
      desc:'新宿の東京本部はあなたのスマホに弱いwi-fiを与えてくれます。それでも、組織を信じて動くことが最後に勝つ芸人の共通点です。'}
   ];
 
-  // ランダム選択
-  var m=manuals[Math.floor(Math.random()*manuals.length)];
+  // ── 確率テーブル（重み付き） ──
+  // #01=0.1(超レア) / #02=0.4(レア) / #03=0.6(ちょいレア) / #04〜#10=1.0(通常)
+  var weights=[0.1,0.4,0.6,1,1,1,1,1,1,1];
+  // 前回大当たりなら#01を除外（連続防止）
+  if(sessionStorage.getItem('ldJack')==='1')weights[0]=0;
+  var total=weights.reduce(function(s,w){return s+w;},0);
+  var rv=Math.random()*total,picked=weights.length-1;
+  for(var i=0;i<weights.length;i++){rv-=weights[i];if(rv<=0){picked=i;break;}}
+  sessionStorage.setItem('ldJack',picked===0?'1':'0');
+
+  var m=manuals[picked];
+
+  // レアリティクラス付与
+  var rarity=picked===0?'rare1':picked===1?'rare2':picked===2?'rare3':'';
+  if(rarity)ol.classList.add(rarity);
+
+  // タイトルラベル上書き
+  var titleEl=ol.querySelector('.ld-title');
+  if(picked===0&&titleEl)      titleEl.textContent='⚡ 超レア大当たり ⚡';
+  else if(picked===1&&titleEl) titleEl.textContent='★ レア演出 ★';
+  else if(picked===2&&titleEl) titleEl.textContent='✦ ちょっとレア ✦';
+
+  // レアリティ別タイミング設定
+  var numMs   =picked===0?45 :130;           // #番号タイプ速度
+  var ruleMs  =picked===0?22 :picked<=2?32:40; // ルールタイプ速度
+  var ruleWait=picked===0?700:picked<=2?320:200; // #番号→ルール間隔
+  var holdTime=picked===0?2200:picked<=2?1600:1000; // 全打ち終わり後の静止
 
   // フェードイン
   setTimeout(function(){
@@ -576,10 +671,15 @@ initAutoImages();
     ol.style.opacity='1';
   },40);
 
-  // タイプシーケンス（#番号 → タイトルのみ）
+  var t3=document.getElementById('ld-t3'),c3=document.getElementById('ld-c3');
+  var t4=document.getElementById('ld-t4'),c4=document.getElementById('ld-c4');
+  var inner=ol.querySelector('.ld-inner');
+  var numEl =ol.querySelector('.ld-num');
+
+  // タイプシーケンス
   var seq=[
-    {t:document.getElementById('ld-t3'),c:document.getElementById('ld-c3'),str:m.num, ms:130,wait:120},
-    {t:document.getElementById('ld-t4'),c:document.getElementById('ld-c4'),str:m.rule,ms:40, wait:200}
+    {t:t3,c:c3,str:m.num, ms:numMs,  wait:120},
+    {t:t4,c:c4,str:m.rule,ms:ruleMs, wait:ruleWait}
   ];
 
   // 1文字ずつ打ち出す
@@ -587,15 +687,29 @@ initAutoImages();
     var i=0,s=item.str;
     (function tick(){
       item.t.textContent=s.slice(0,i);
-      if(i++<s.length){setTimeout(tick,item.ms);}
-      else{item.c.classList.add('ld-done');if(cb)cb();}
+      if(i++<s.length){
+        setTimeout(tick,item.ms);
+      } else {
+        item.c.classList.add('ld-done');
+        // #番号打ち終わり → レア演出トリガー
+        if(item.t===t3){
+          if(picked===0){
+            // 超レア：シェイク＋ゴールドグロー
+            if(inner){inner.classList.add('ld-shaking');setTimeout(function(){inner.classList.remove('ld-shaking');},550);}
+            if(numEl)numEl.classList.add('ld-glow');
+          } else if(picked===1){
+            // レア：パープルグロー
+            if(numEl)numEl.classList.add('ld-glow');
+          }
+        }
+        if(cb)cb();
+      }
     })();
   }
 
   // 順番に実行
   function run(idx){
     if(idx>=seq.length){
-      // タイトル打ち終わり → 1秒静止 → フェードアウト
       setTimeout(function(){
         ol.style.transition='opacity .5s ease';
         ol.style.opacity='0';
@@ -604,7 +718,7 @@ initAutoImages();
           document.body.style.overflow='';
           document.body.classList.add('hero-ready');
         },550);
-      },1000);
+      },holdTime);
       return;
     }
     setTimeout(function(){type(seq[idx],function(){run(idx+1);});},seq[idx].wait);
