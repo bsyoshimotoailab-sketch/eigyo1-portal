@@ -72,9 +72,10 @@ nav a{color:var(--text-sub);text-decoration:none;font-size:.74rem;font-weight:70
 .hero-yt{margin-top:28px}
 .hero-yt-wrap{position:relative;width:100%;max-width:720px;margin:0 auto;aspect-ratio:16/9;border-radius:8px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.15)}
 .hero-yt-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-/* 金文字タイトル（黒フチ＋白フチ二層構造） */
-.hero-copy{font-family:var(--font-a);font-size:clamp(2.6rem,7vw,5.5rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;display:inline-block;position:relative;animation:stampIn 1.05s cubic-bezier(.18,.89,.32,1.28) both;transform-origin:center;background:linear-gradient(180deg,#ffd200 0%,#f09400 55%,#a85c00 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;-webkit-text-stroke:5px #111;text-shadow:0 4px 6px rgba(0,0,0,.2)}
-.hero-copy::before{content:attr(data-text);position:absolute;inset:0;z-index:-1;-webkit-text-stroke:8px #fff;-webkit-text-fill-color:transparent;color:transparent;pointer-events:none}
+/* 金文字タイトル（外黒→白→内黒→金 三層構造） */
+.hero-copy{font-family:"Noto Sans JP","Zen Kaku Gothic New",sans-serif;font-size:clamp(2.6rem,7vw,5.5rem);font-weight:900;line-height:1.1;letter-spacing:-.01em;display:inline-block;position:relative;animation:stampIn 1.05s cubic-bezier(.18,.89,.32,1.28) both;transform-origin:center;background:linear-gradient(180deg,#fff27a 0%,#ffd400 35%,#ffb000 65%,#d88600 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;-webkit-text-stroke:2px #1a1a1a;text-shadow:0 2px 4px rgba(0,0,0,.15)}
+.hero-copy::before{content:attr(data-text);position:absolute;inset:0;z-index:-1;-webkit-text-stroke:4px #fff;-webkit-text-fill-color:transparent;color:transparent;pointer-events:none}
+.hero-copy::after{content:attr(data-text);position:absolute;inset:0;z-index:-2;-webkit-text-stroke:6px #1a1a1a;-webkit-text-fill-color:transparent;color:transparent;pointer-events:none}
 @keyframes stampIn{0%{opacity:0;transform:scale(1.35) rotate(-4deg);filter:blur(2px)}10%{opacity:0;transform:scale(1.35) rotate(-4deg)}45%{opacity:1;transform:scale(.92) rotate(1deg);filter:blur(0)}70%{transform:scale(1.04) rotate(-.5deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
 .hero-sub{font-size:clamp(.95rem,1.8vw,1.1rem);color:#333;margin-top:18px;font-weight:500;max-width:760px;line-height:1.8;margin-left:auto;margin-right:auto}
 .hero-note{background:rgba(255,255,255,.84);border:1px solid rgba(184,146,46,.25);border-radius:10px;padding:18px 18px 16px;backdrop-filter:blur(10px);align-self:start}
