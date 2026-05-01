@@ -200,156 +200,147 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 .fade-in.show{opacity:1;transform:translateY(0)}
 @media(hover:none){.card:hover img,.video-card:hover img{transform:none}}
 
-/* ── ローディング演出 [TEST] タイプライター風 ── */
-#ld-overlay{
-  position:fixed;inset:0;z-index:9999;
-  background:rgba(0,0,0,.72);
-  backdrop-filter:blur(6px) brightness(.75);
-  -webkit-backdrop-filter:blur(6px) brightness(.75);
-  display:flex;align-items:center;justify-content:center;
-  padding:clamp(20px,5vw,60px);
-  pointer-events:none;
-  opacity:0;
-}
+/* ── ローディング演出 ── */
+#ld-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.85);backdrop-filter:blur(6px) brightness(.75);-webkit-backdrop-filter:blur(6px) brightness(.75);display:flex;align-items:center;justify-content:center;padding:clamp(20px,5vw,60px);pointer-events:none;opacity:0}
 #ld-overlay.ld-gone{display:none}
-/* スキャンライン */
-#ld-overlay::before{
-  content:'';position:absolute;inset:0;z-index:0;
-  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.1) 2px,rgba(0,0,0,.1) 4px);
-  pointer-events:none;
-}
-/* ビネット */
-#ld-overlay::after{
-  content:'';position:absolute;inset:0;z-index:0;
-  background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.72) 100%);
-  pointer-events:none;
-}
-.ld-inner{
-  text-align:center;position:relative;z-index:1;
-  max-width:600px;width:100%;
-  animation:ldFlicker 4s ease-in-out infinite;
-}
-/* 固定見出し（最初から表示） */
-.ld-title{
-  font-family:var(--font-a);font-size:clamp(.85rem,2.2vw,1.1rem);
-  color:#999;font-weight:700;letter-spacing:.12em;
-  margin-bottom:32px;
-  padding-bottom:20px;
-  border-bottom:1px solid rgba(200,149,30,.2);
-}
-/* #番号（金・大） */
-.ld-num{
-  font-family:var(--font-a);font-size:clamp(3.8rem,13vw,7.5rem);
-  font-weight:900;line-height:1;margin-bottom:22px;min-height:1.1em;
-  color:#c8951e;
-  text-shadow:0 0 24px rgba(200,149,30,.4),0 0 60px rgba(200,149,30,.15);
-}
-/* タイトル */
-.ld-rule{
-  font-family:var(--font-a);font-size:clamp(1.2rem,4vw,2rem);
-  font-weight:900;color:#f2f2f2;line-height:1.5;min-height:1.7em;
-  letter-spacing:.02em;
-}
-/* 点滅カーソル */
-.ld-cur{
-  color:#c8951e;font-weight:300;margin-left:1px;
-  animation:ldCurBlink .55s step-end infinite;
-}
+#ld-overlay::before{content:'';position:absolute;inset:0;z-index:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.1) 2px,rgba(0,0,0,.1) 4px);pointer-events:none}
+#ld-overlay::after{content:'';position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.72) 100%);pointer-events:none}
+.ld-rays{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0}
+.ld-flash{position:absolute;inset:0;z-index:10;pointer-events:none;opacity:0}
+.ld-inner{text-align:center;position:relative;z-index:2;max-width:600px;width:100%;animation:ldFlicker 4s ease-in-out infinite}
+.ld-title{font-family:var(--font-a);font-size:clamp(.85rem,2.2vw,1.1rem);color:#999;font-weight:700;letter-spacing:.12em;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid rgba(200,149,30,.2)}
+.ld-num{font-family:var(--font-a);font-size:clamp(3.8rem,13vw,7.5rem);font-weight:900;line-height:1;margin-bottom:22px;min-height:1.1em;color:#c8951e;text-shadow:0 0 24px rgba(200,149,30,.4),0 0 60px rgba(200,149,30,.15)}
+.ld-rule{font-family:var(--font-a);font-size:clamp(1.2rem,4vw,2rem);font-weight:900;color:#f2f2f2;line-height:1.5;min-height:1.7em;letter-spacing:.02em}
+.ld-cur{color:#c8951e;font-weight:300;margin-left:1px;animation:ldCurBlink .55s step-end infinite}
 .ld-cur.ld-done{visibility:hidden}
 @keyframes ldCurBlink{0%,100%{opacity:1}50%{opacity:0}}
-@media(max-width:480px){
-  .ld-rule{font-size:clamp(1rem,4vw,1.5rem)}
-  .ld-num{font-size:clamp(3rem,13vw,5rem)}
+@media(max-width:480px){.ld-rule{font-size:clamp(1rem,4vw,1.5rem)}.ld-num{font-size:clamp(3rem,13vw,5rem)}}
+@keyframes ldFlicker{0%,100%{opacity:1}91%{opacity:1}92%{opacity:.86}93%{opacity:1}97%{opacity:.92}98%{opacity:1}}
+/* 共通: シェイク・光線回転 */
+@keyframes ldShake{0%,100%{transform:translate(0,0)}10%{transform:translate(-11px,4px)}20%{transform:translate(13px,-5px)}30%{transform:translate(-15px,3px)}40%{transform:translate(15px,-3px)}50%{transform:translate(-9px,4px)}60%{transform:translate(11px,-3px)}70%{transform:translate(-7px,2px)}80%{transform:translate(7px,-1px)}90%{transform:translate(-3px,1px)}}
+.ld-inner.ld-shaking{animation:ldShake .5s ease-in-out,ldFlicker 4s ease-in-out .5s infinite}
+@keyframes ldRayRot{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+/* ════════════════════════════════════
+   pattern-1: RAINBOW (#01)
+════════════════════════════════════ */
+@keyframes ldRainbow{
+  0%  {color:#ff4040;text-shadow:0 0 50px #ff0000,0 0 100px rgba(255,0,0,.6),0 0 200px rgba(255,0,0,.3)}
+  14% {color:#ff8800;text-shadow:0 0 50px #ff8800,0 0 100px rgba(255,136,0,.6),0 0 200px rgba(255,136,0,.3)}
+  28% {color:#ffee00;text-shadow:0 0 50px #ffee00,0 0 100px rgba(255,238,0,.6),0 0 200px rgba(255,238,0,.3)}
+  42% {color:#44ff66;text-shadow:0 0 50px #44ff66,0 0 100px rgba(68,255,102,.6),0 0 200px rgba(68,255,102,.3)}
+  57% {color:#44aaff;text-shadow:0 0 50px #44aaff,0 0 100px rgba(68,170,255,.6),0 0 200px rgba(68,170,255,.3)}
+  71% {color:#cc44ff;text-shadow:0 0 50px #cc44ff,0 0 100px rgba(204,68,255,.6),0 0 200px rgba(204,68,255,.3)}
+  85% {color:#ff44bb;text-shadow:0 0 50px #ff44bb,0 0 100px rgba(255,68,187,.6),0 0 200px rgba(255,68,187,.3)}
+  100%{color:#ff4040;text-shadow:0 0 50px #ff0000,0 0 100px rgba(255,0,0,.6),0 0 200px rgba(255,0,0,.3)}
 }
-/* 微細ちらつき（昭和CRT風） */
-@keyframes ldFlicker{
-  0%,100%{opacity:1}
-  91%{opacity:1}92%{opacity:.86}93%{opacity:1}
-  97%{opacity:.92}98%{opacity:1}
+@keyframes ldRainbowBg{
+  0%  {background:rgba(8,0,2,.97)} 14%{background:rgba(8,4,0,.97)}
+  28% {background:rgba(5,5,0,.97)} 42%{background:rgba(0,8,1,.97)}
+  57% {background:rgba(0,3,8,.97)} 71%{background:rgba(4,0,8,.97)}
+  85% {background:rgba(8,0,4,.97)} 100%{background:rgba(8,0,2,.97)}
 }
-/* ── レアリティ演出 ── */
-@keyframes ldShake{
-  0%,100%{transform:translate(0,0)}
-  10%{transform:translate(-10px,3px)}20%{transform:translate(12px,-4px)}
-  30%{transform:translate(-14px,2px)}40%{transform:translate(14px,-2px)}
-  50%{transform:translate(-8px,4px)}60%{transform:translate(10px,-3px)}
-  70%{transform:translate(-6px,2px)}80%{transform:translate(6px,-1px)}
-  90%{transform:translate(-3px,1px)}
+#ld-overlay.pattern-1{animation:ldRainbowBg 3s linear infinite}
+#ld-overlay.pattern-1 .ld-rays{
+  opacity:1;animation:ldRayRot 2s linear infinite;
+  background:conic-gradient(from 0deg,
+    rgba(255,0,0,.16) 0deg,transparent 22deg,
+    rgba(255,140,0,.14) 60deg,transparent 82deg,
+    rgba(255,255,0,.16) 120deg,transparent 142deg,
+    rgba(0,255,80,.14) 180deg,transparent 202deg,
+    rgba(0,120,255,.16) 240deg,transparent 262deg,
+    rgba(160,0,255,.14) 300deg,transparent 322deg,
+    rgba(255,0,0,.16) 360deg);
 }
-@keyframes ldGoldPulse{
-  0%,100%{text-shadow:0 0 40px rgba(255,215,0,.7),0 0 80px rgba(255,180,0,.4),0 0 0px rgba(255,140,0,0)}
-  50%{text-shadow:0 0 80px rgba(255,230,0,1),0 0 160px rgba(255,190,0,.9),0 0 300px rgba(255,140,0,.6)}
+#ld-overlay.pattern-1 .ld-title{animation:ldRainbow 1.8s linear infinite;border-bottom-color:rgba(255,100,100,.5);letter-spacing:.16em}
+#ld-overlay.pattern-1 .ld-num{animation:ldRainbow 1.2s linear infinite}
+#ld-overlay.pattern-1 .ld-rule{animation:ldRainbow 2.4s linear infinite}
+#ld-overlay.pattern-1 .ld-cur{animation:ldCurBlink .55s step-end infinite,ldRainbow 1.2s linear infinite}
+
+/* ════════════════════════════════════
+   pattern-2: RED (#02)
+════════════════════════════════════ */
+@keyframes ldRedGlow{
+  0%,100%{color:#ff3030;text-shadow:0 0 50px #ff0000,0 0 100px rgba(255,0,0,.7),0 0 200px rgba(255,0,0,.4)}
+  50%{color:#ff6060;text-shadow:0 0 80px #ff2020,0 0 160px rgba(255,20,20,.9),0 0 320px rgba(255,0,0,.6)}
 }
-@keyframes ldRarePulse{
-  0%,100%{text-shadow:0 0 24px rgba(200,149,30,.4),0 0 0px rgba(200,100,255,0)}
-  50%{text-shadow:0 0 60px rgba(210,160,255,.95),0 0 120px rgba(160,100,255,.6),0 0 200px rgba(120,60,255,.35)}
+@keyframes ldRedAlert{0%,42%,58%,100%{opacity:1}48%,52%{opacity:.12}}
+@keyframes ldRedBgPulse{0%,100%{background:rgba(10,0,0,.95)}40%{background:rgba(55,0,0,.92)}}
+#ld-overlay.pattern-2{animation:ldRedBgPulse 1.6s ease-in-out infinite}
+#ld-overlay.pattern-2 .ld-rays{
+  opacity:.7;animation:ldRayRot 3.2s linear infinite;
+  background:conic-gradient(from 0deg,
+    rgba(255,0,0,.15) 0deg,transparent 22deg,
+    rgba(200,0,0,.10) 60deg,transparent 82deg,
+    rgba(255,30,0,.13) 120deg,transparent 142deg,
+    rgba(180,0,0,.10) 180deg,transparent 202deg,
+    rgba(255,0,0,.15) 240deg,transparent 262deg,
+    rgba(200,0,0,.10) 300deg,transparent 322deg,
+    rgba(255,0,0,.15) 360deg);
 }
-@keyframes ldFlashBg{
-  0%{background:rgba(0,0,0,.72)}
-  8%{background:rgba(255,230,80,.45)}
-  18%{background:rgba(0,0,0,.88)}
-  30%{background:rgba(255,210,60,.25)}
-  45%{background:rgba(0,0,0,.90)}
-  65%{background:rgba(255,200,40,.15)}
-  100%{background:rgba(10,5,0,.90)}
+#ld-overlay.pattern-2 .ld-title{color:#ff3030;border-bottom-color:rgba(255,0,0,.5);text-shadow:0 0 16px rgba(255,0,0,.8);animation:ldRedAlert 1s ease-in-out infinite;letter-spacing:.14em}
+#ld-overlay.pattern-2 .ld-num{animation:ldRedGlow .9s ease-in-out infinite}
+#ld-overlay.pattern-2 .ld-rule{color:#ff8888;text-shadow:0 0 10px rgba(255,40,40,.5)}
+#ld-overlay.pattern-2 .ld-cur{color:#ff3030;animation:ldCurBlink .4s step-end infinite}
+
+/* ════════════════════════════════════
+   pattern-3: GREEN (#03)
+════════════════════════════════════ */
+@keyframes ldGreenGlow{
+  0%,100%{color:#00ff44;text-shadow:0 0 40px #00ff44,0 0 80px rgba(0,255,68,.7),0 0 160px rgba(0,255,68,.4)}
+  50%{color:#44ffaa;text-shadow:0 0 70px #00ff88,0 0 140px rgba(0,255,100,.9),0 0 280px rgba(0,255,80,.6)}
 }
-@keyframes ldTitleFlash{
-  0%,100%{opacity:1}30%{opacity:.3}60%{opacity:1}80%{opacity:.6}
+#ld-overlay.pattern-3{background:rgba(0,6,0,.97)}
+#ld-overlay.pattern-3 .ld-rays{
+  opacity:.5;animation:ldRayRot 4s linear infinite;
+  background:conic-gradient(from 0deg,
+    rgba(0,255,60,.13) 0deg,transparent 22deg,
+    rgba(0,180,40,.09) 60deg,transparent 82deg,
+    rgba(0,255,80,.13) 120deg,transparent 142deg,
+    rgba(0,160,40,.09) 180deg,transparent 202deg,
+    rgba(0,255,60,.13) 240deg,transparent 262deg,
+    rgba(0,180,40,.09) 300deg,transparent 322deg,
+    rgba(0,255,60,.13) 360deg);
 }
-/* #01 超レア大当たり */
-#ld-overlay.rare1{animation:ldFlashBg .9s ease both}
-#ld-overlay.rare1 .ld-title{
-  color:#ffd700;letter-spacing:.28em;
-  border-bottom-color:rgba(255,215,0,.6);
-  text-shadow:0 0 20px rgba(255,215,0,.9),0 0 40px rgba(255,180,0,.6);
-  animation:ldTitleFlash .6s ease-in-out 3;
+#ld-overlay.pattern-3 .ld-title{color:#00ff44;border-bottom-color:rgba(0,255,60,.4);text-shadow:0 0 14px rgba(0,255,60,.7)}
+#ld-overlay.pattern-3 .ld-num{animation:ldGreenGlow 1s ease-in-out infinite}
+#ld-overlay.pattern-3 .ld-rule{color:#88ffaa;text-shadow:0 0 8px rgba(0,200,60,.5)}
+#ld-overlay.pattern-3 .ld-cur{color:#00ff44}
+
+/* ════════════════════════════════════
+   pattern-4,5: YELLOW (#04, #05)
+════════════════════════════════════ */
+@keyframes ldYellowGlow{
+  0%,100%{color:#ffcc00;text-shadow:0 0 32px rgba(255,210,0,.7),0 0 64px rgba(255,190,0,.4)}
+  50%{color:#ffdd44;text-shadow:0 0 50px rgba(255,220,0,.9),0 0 100px rgba(255,200,0,.6)}
 }
-#ld-overlay.rare1 .ld-num{
-  color:#ffe040;
-  text-shadow:0 0 40px rgba(255,215,0,.8),0 0 80px rgba(255,180,0,.5);
-}
-#ld-overlay.rare1 .ld-num.ld-glow{animation:ldGoldPulse .8s ease-in-out infinite}
-#ld-overlay.rare1 .ld-rule{color:#fff8c0;text-shadow:0 0 16px rgba(255,215,0,.4)}
-#ld-overlay.rare1 .ld-cur{color:#ffd700}
-#ld-overlay.rare1 .ld-inner.ld-shaking{animation:ldShake .45s ease-in-out}
-/* #02 レア（紫） */
-#ld-overlay.rare2 .ld-title{
-  color:#c8a8ff;letter-spacing:.2em;
-  border-bottom-color:rgba(180,140,255,.5);
-  text-shadow:0 0 14px rgba(180,140,255,.7);
-}
-#ld-overlay.rare2 .ld-num{
-  color:#d8b8ff;
-  text-shadow:0 0 36px rgba(200,160,255,.8),0 0 72px rgba(160,100,255,.5);
-}
-#ld-overlay.rare2 .ld-num.ld-glow{animation:ldRarePulse 1.1s ease-in-out infinite}
-#ld-overlay.rare2 .ld-rule{color:#ede0ff;text-shadow:0 0 8px rgba(180,140,255,.3)}
-#ld-overlay.rare2 .ld-cur{color:#c8a0ff}
-/* #03 ちょっとレア（シアン） */
-#ld-overlay.rare3 .ld-title{
-  color:#70d8ff;letter-spacing:.16em;
-  border-bottom-color:rgba(80,200,255,.4);
-  text-shadow:0 0 10px rgba(80,200,255,.6);
-}
-#ld-overlay.rare3 .ld-num{
-  color:#90e4ff;
-  text-shadow:0 0 30px rgba(80,200,255,.8),0 0 60px rgba(40,160,255,.5);
-}
-#ld-overlay.rare3 .ld-rule{color:#ddf4ff;text-shadow:0 0 6px rgba(80,200,255,.25)}
-#ld-overlay.rare3 .ld-cur{color:#70c8ff}
+#ld-overlay.pattern-4 .ld-title,#ld-overlay.pattern-5 .ld-title{color:#ffdd00;border-bottom-color:rgba(255,210,0,.4);text-shadow:0 0 10px rgba(255,200,0,.5)}
+#ld-overlay.pattern-4 .ld-num,#ld-overlay.pattern-5 .ld-num{animation:ldYellowGlow 1.2s ease-in-out infinite}
+#ld-overlay.pattern-4 .ld-rule,#ld-overlay.pattern-5 .ld-rule{color:#fff0aa;text-shadow:0 0 6px rgba(255,200,0,.3)}
+#ld-overlay.pattern-4 .ld-cur,#ld-overlay.pattern-5 .ld-cur{color:#ffcc00}
+
+/* ════════════════════════════════════
+   pattern-6〜10: WHITE (#06〜#10)
+════════════════════════════════════ */
+#ld-overlay.pattern-6 .ld-title,#ld-overlay.pattern-7 .ld-title,#ld-overlay.pattern-8 .ld-title,#ld-overlay.pattern-9 .ld-title,#ld-overlay.pattern-10 .ld-title{color:#cccccc;border-bottom-color:rgba(200,200,200,.25)}
+#ld-overlay.pattern-6 .ld-num,#ld-overlay.pattern-7 .ld-num,#ld-overlay.pattern-8 .ld-num,#ld-overlay.pattern-9 .ld-num,#ld-overlay.pattern-10 .ld-num{color:#e8e8e8;text-shadow:0 0 14px rgba(255,255,255,.25),0 0 28px rgba(255,255,255,.1)}
+#ld-overlay.pattern-6 .ld-rule,#ld-overlay.pattern-7 .ld-rule,#ld-overlay.pattern-8 .ld-rule,#ld-overlay.pattern-9 .ld-rule,#ld-overlay.pattern-10 .ld-rule{color:#e0e0e0}
+#ld-overlay.pattern-6 .ld-cur,#ld-overlay.pattern-7 .ld-cur,#ld-overlay.pattern-8 .ld-cur,#ld-overlay.pattern-9 .ld-cur,#ld-overlay.pattern-10 .ld-cur{color:#cccccc}
 </style>
 </head>
 <body>
 
-<!-- ローディング演出 [TEST] ここから -->
+<!-- ローディング演出 ここから -->
 <div id="ld-overlay" aria-hidden="true">
-  <div class="ld-inner">
+  <div class="ld-rays" id="ldRays"></div>
+  <div class="ld-inner" id="ldInner">
     <p class="ld-title">吉本営業マニュアルベスト10</p>
     <p class="ld-num"><span id="ld-t3"></span><span class="ld-cur" id="ld-c3">_</span></p>
     <p class="ld-rule"><span id="ld-t4"></span><span class="ld-cur" id="ld-c4">_</span></p>
   </div>
+  <div class="ld-flash" id="ldFlash"></div>
 </div>
-<!-- ローディング演出 [TEST] ここまで -->
+<!-- ローディング演出 ここまで -->
 
 <header>
   <div class="container">
@@ -607,41 +598,29 @@ initAutoImages();
 /* fade-in observer */
 (function(){var fi=document.querySelectorAll('.fade-in');if(!fi.length)return;var o=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting)n.target.classList.add('show');});},{threshold:0.1});fi.forEach(function(el){o.observe(el);});})();
 
-/* ── ローディング演出 [TEST] タイプライター風 ── */
+/* ── ローディング演出 ── */
 (function(){
   var ol=document.getElementById('ld-overlay');
   if(!ol)return;
   document.body.style.overflow='hidden';
 
-  // ── 吉本営業マニュアル 10パターン ──
+  // 吉本営業マニュアル 10パターン
   var manuals=[
-    {num:'#01',rule:'「これ、一本前の電車で帰れるんちゃう？」は禁句',
-     desc:'急ぐのはクライアントに失礼です。一本早く帰っていったい何があるのでしょうか。営業は「場を大切にすること」から始まります。'},
-    {num:'#02',rule:'空港や駅の集合場所で気配を消さない',
-     desc:'スタッフが心配します。一度顔をだしましょう。存在感を消すことは"プロ失格"の第一歩です。'},
-    {num:'#03',rule:'楽屋弁当をスタッフに持たせない',
-     desc:'自分でマチの広い紙袋にいれましょう。りくろーおじさんの紙袋は使えます。細かい気配りが信頼を積み上げます。'},
-    {num:'#04',rule:'演出には逆らわない',
-     desc:'演出はめちゃくちゃ力持ってます。逆らわないでください。現場の権力構造を読む力が、長く営業で生き残るコツです。'},
-    {num:'#05',rule:'東京ではギャグと中学・高校時代の写真を消費させられる',
-     desc:'東京の営業現場は独特のノリがあります。ギャグと若い頃の写真は"東京必需品"として事前に用意しておきましょう。'},
-    {num:'#06',rule:'大阪で東京の話をしない',
-     desc:'三宿、三茶、中目黒、CX、TMCなど、東京の地名・局名・人名を大阪の場で出してはいけません。空気が一瞬で変わります。'},
-    {num:'#07',rule:'仮押さえはバラすならお早めに！',
-     desc:'主催者・スタッフ双方の予定が動いています。ドタキャンは信頼を失う最短ルート。早めの連絡が次の仕事につながります。'},
-    {num:'#08',rule:'白＜黄＜緑＜赤＜レインボー 営業の決まり方を知る',
-     desc:'ライバルは北海道物産展。営業の案件がどの優先度で動いているかを色で把握する「営業色分け理論」。序列を知ることが戦略の出発点です。'},
-    {num:'#09',rule:'吉本湾の仕事を大切にする',
-     desc:'吉本湾とは、吉本制作・仕切りのイベント・案件のこと。社内の仕事を軽視すると、外の仕事も巡ってこなくなります。'},
-    {num:'#10',rule:'吉本を信じましょう',
-     desc:'新宿の東京本部はあなたのスマホに弱いwi-fiを与えてくれます。それでも、組織を信じて動くことが最後に勝つ芸人の共通点です。'}
+    {num:'#01',rule:'「これ、一本前の電車で帰れるんちゃう？」は禁句'},
+    {num:'#02',rule:'空港や駅の集合場所で気配を消さない'},
+    {num:'#03',rule:'楽屋弁当をスタッフに持たせない'},
+    {num:'#04',rule:'演出には逆らわない'},
+    {num:'#05',rule:'東京ではギャグと中学・高校時代の写真を消費させられる'},
+    {num:'#06',rule:'大阪で東京の話をしない'},
+    {num:'#07',rule:'仮押さえはバラすならお早めに！'},
+    {num:'#08',rule:'白＜黄＜緑＜赤＜レインボー 営業の決まり方を知る'},
+    {num:'#09',rule:'吉本湾の仕事を大切にする'},
+    {num:'#10',rule:'吉本を信じましょう'}
   ];
 
-  // ── 確率テーブル（重み付き） ──
-  // #01=0.1(超レア) / #02=0.4(レア) / #03=0.6(ちょいレア) / #04〜#10=1.0(通常)
+  // 重み付き確率: #01=0.1 / #02=0.4 / #03=0.6 / #04〜#10=1.0
   var weights=[0.1,0.4,0.6,1,1,1,1,1,1,1];
-  // 前回大当たりなら#01を除外（連続防止）
-  if(sessionStorage.getItem('ldJack')==='1')weights[0]=0;
+  if(sessionStorage.getItem('ldJack')==='1')weights[0]=0; // 連続防止
   var total=weights.reduce(function(s,w){return s+w;},0);
   var rv=Math.random()*total,picked=weights.length-1;
   for(var i=0;i<weights.length;i++){rv-=weights[i];if(rv<=0){picked=i;break;}}
@@ -649,32 +628,33 @@ initAutoImages();
 
   var m=manuals[picked];
 
-  // レアリティクラス付与
-  var rarity=picked===0?'rare1':picked===1?'rare2':picked===2?'rare3':'';
-  if(rarity)ol.classList.add(rarity);
+  // パターンクラス付与 (#01→pattern-1 〜 #10→pattern-10)
+  ol.classList.add('pattern-'+(picked+1));
 
-  // タイトルラベル上書き
-  var titleEl=ol.querySelector('.ld-title');
-  if(picked===0&&titleEl)      titleEl.textContent='⚡ 超レア大当たり ⚡';
-  else if(picked===1&&titleEl) titleEl.textContent='★ レア演出 ★';
-  else if(picked===2&&titleEl) titleEl.textContent='✦ ちょっとレア ✦';
+  // タイミング設定（パターンごとに変化）
+  var numMs   =picked===0?45  :picked===1?70  :picked===2?85  :picked<=4?110 :130;
+  var ruleMs  =picked===0?22  :picked===1?30  :picked===2?35  :picked<=4?40  :40;
+  var ruleWait=picked===0?580 :picked===1?420 :picked===2?300 :picked<=4?200 :200;
+  var holdTime=picked===0?1800:picked===1?1500:picked===2?1300:picked<=4?1100:1000;
 
-  // レアリティ別タイミング設定
-  var numMs   =picked===0?45 :130;           // #番号タイプ速度
-  var ruleMs  =picked===0?22 :picked<=2?32:40; // ルールタイプ速度
-  var ruleWait=picked===0?700:picked<=2?320:200; // #番号→ルール間隔
-  var holdTime=picked===0?2200:picked<=2?1600:1000; // 全打ち終わり後の静止
+  var t3=document.getElementById('ld-t3'),c3=document.getElementById('ld-c3');
+  var t4=document.getElementById('ld-t4'),c4=document.getElementById('ld-c4');
+  var inner=document.getElementById('ldInner')||ol.querySelector('.ld-inner');
+  var flashEl=document.getElementById('ldFlash');
+
+  // フラッシュ発火（#ldFlash div を使った瞬間光）
+  function triggerFlash(r,g,b,a,dur){
+    if(!flashEl)return;
+    flashEl.style.cssText='position:absolute;inset:0;z-index:10;pointer-events:none;background:rgba('+r+','+g+','+b+','+a+');opacity:1;transition:opacity '+(dur||400)+'ms ease-out';
+    void flashEl.offsetWidth;
+    flashEl.style.opacity='0';
+  }
 
   // フェードイン
   setTimeout(function(){
     ol.style.transition='opacity .3s ease';
     ol.style.opacity='1';
   },40);
-
-  var t3=document.getElementById('ld-t3'),c3=document.getElementById('ld-c3');
-  var t4=document.getElementById('ld-t4'),c4=document.getElementById('ld-c4');
-  var inner=ol.querySelector('.ld-inner');
-  var numEl =ol.querySelector('.ld-num');
 
   // タイプシーケンス
   var seq=[
@@ -691,15 +671,19 @@ initAutoImages();
         setTimeout(tick,item.ms);
       } else {
         item.c.classList.add('ld-done');
-        // #番号打ち終わり → レア演出トリガー
+        // #番号打ち終わり → パターン別トリガー
         if(item.t===t3){
           if(picked===0){
-            // 超レア：シェイク＋ゴールドグロー
-            if(inner){inner.classList.add('ld-shaking');setTimeout(function(){inner.classList.remove('ld-shaking');},550);}
-            if(numEl)numEl.classList.add('ld-glow');
+            // レインボー: シェイク + 白フラッシュ
+            if(inner){inner.classList.add('ld-shaking');setTimeout(function(){inner.classList.remove('ld-shaking');},540);}
+            triggerFlash(255,255,255,.72,420);
           } else if(picked===1){
-            // レア：パープルグロー
-            if(numEl)numEl.classList.add('ld-glow');
+            // レッド: シェイク + 赤フラッシュ
+            if(inner){inner.classList.add('ld-shaking');setTimeout(function(){inner.classList.remove('ld-shaking');},500);}
+            triggerFlash(255,20,20,.65,380);
+          } else if(picked===2){
+            // グリーン: フラッシュ
+            triggerFlash(0,255,80,.52,360);
           }
         }
         if(cb)cb();
@@ -710,14 +694,20 @@ initAutoImages();
   // 順番に実行
   function run(idx){
     if(idx>=seq.length){
+      // 終了フラッシュ → フェードアウト
       setTimeout(function(){
-        ol.style.transition='opacity .5s ease';
-        ol.style.opacity='0';
+        if(picked===0)      triggerFlash(255,255,255,.88,500);
+        else if(picked===1) triggerFlash(255,20,20,.72,450);
+        else if(picked===2) triggerFlash(0,255,80,.60,400);
         setTimeout(function(){
-          ol.classList.add('ld-gone');
-          document.body.style.overflow='';
-          document.body.classList.add('hero-ready');
-        },550);
+          ol.style.transition='opacity .5s ease';
+          ol.style.opacity='0';
+          setTimeout(function(){
+            ol.classList.add('ld-gone');
+            document.body.style.overflow='';
+            document.body.classList.add('hero-ready');
+          },550);
+        }, picked<=2?320:0);
       },holdTime);
       return;
     }
