@@ -76,9 +76,11 @@ nav a{color:var(--text-sub);text-decoration:none;font-size:.74rem;font-weight:70
 .hero-yt-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 /* TOP見出し画像 */
 .no-look-title-wrap{position:relative;display:inline-block;margin:0 auto;padding:0}
-.no-look-title-img{display:block;width:min(880px,92vw);height:auto;margin:0 auto 12px;mix-blend-mode:multiply;filter:drop-shadow(0 14px 28px rgba(0,0,0,.35)) drop-shadow(0 4px 10px rgba(0,0,0,.25)) drop-shadow(0 1px 2px rgba(0,0,0,.2));opacity:0;transform:scale(.92)}
+.no-look-link{display:block;line-height:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.no-look-link:hover .no-look-title-img{opacity:.88;transition:opacity .2s ease}
+.no-look-title-img{display:block;width:min(880px,92vw);height:auto;margin:0 auto 12px;mix-blend-mode:multiply;filter:drop-shadow(0 14px 28px rgba(0,0,0,.35)) drop-shadow(0 4px 10px rgba(0,0,0,.25)) drop-shadow(0 1px 2px rgba(0,0,0,.2));transform:scale(.92)}
 body.hero-ready .no-look-title-img{animation:titleIn .8s cubic-bezier(.2,.8,.2,1) forwards}
-@keyframes titleIn{0%{opacity:0;transform:scale(.92)}60%{opacity:1;transform:scale(1.04)}100%{opacity:1;transform:scale(1)}}
+@keyframes titleIn{0%{transform:scale(.92)}60%{transform:scale(1.04)}100%{transform:scale(1)}}
 .title-glow{position:absolute;inset:0;background:radial-gradient(circle at 30% 40%,rgba(255,255,255,.6),transparent 40%);opacity:0;pointer-events:none}
 body.hero-ready .title-glow{animation:glowFlash .9s ease-out .3s}
 @keyframes glowFlash{0%{opacity:0}40%{opacity:.8}100%{opacity:0}}
@@ -152,8 +154,8 @@ body.hero-ready .title-glow{animation:glowFlash .9s ease-out .3s}
 #video{background:var(--bg)}.vg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:40px}.vc{background:var(--white);border-radius:10px;padding:24px;border:1px solid var(--border);transition:transform .3s}.vc:hover{transform:translateY(-3px)}.vc h4{font-size:.9rem;font-weight:700;margin-bottom:6px}.vc p{font-size:.76rem;color:var(--text-sub);line-height:1.7;margin-bottom:10px}.vl{font-size:.72rem;color:var(--red);text-decoration:none;font-weight:700}.vl:hover{text-decoration:underline}
 #faq{background:var(--white)}.fl{margin-top:40px;max-width:760px}.fqi{border-bottom:1px solid var(--border)}.fq{width:100%;background:none;border:none;font-family:var(--font);font-size:.92rem;font-weight:700;text-align:left;padding:20px 0;cursor:pointer;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .3s}.fq:hover{color:var(--red)}.fq::after{content:'+';font-size:1.3rem;color:var(--gold);transition:transform .3s;flex-shrink:0}.fqi.open .fq::after{transform:rotate(45deg)}.fa{max-height:0;overflow:hidden;transition:max-height .4s}.fqi.open .fa{max-height:300px;padding-bottom:20px}.fa p{font-size:.82rem;color:var(--text-sub);line-height:1.9}
 footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;margin-bottom:30px}.ftl{font-family:var(--font-a);font-weight:900;font-size:1rem;color:#fff;margin-bottom:8px}.ftl .g{color:var(--gold-bright)}.ftd{font-size:.7rem;color:#888;max-width:280px;line-height:1.7}.ftk{display:flex;gap:36px}.ftc h4{font-size:.62rem;letter-spacing:.2em;color:var(--gold);margin-bottom:10px}.ftc a{display:block;font-size:.72rem;color:#888;text-decoration:none;margin-bottom:6px;transition:color .3s}.ftc a:hover{color:var(--gold-light)}.ftb{border-top:1px solid #333;padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}.ftb p{font-size:.6rem;color:#555}
-@media(max-width:980px){nav a:not(.ncta){display:none}.hbr{display:block}.hero-inner,.video-grid,.manual-lead,.history-wrap,.cta-grid,.champ-grid{grid-template-columns:1fr}.hero-inner{padding-top:120px}.r2c,.split-highlights{grid-template-columns:1fr}.qg{grid-template-columns:repeat(2,minmax(0,1fr))}.ftk{flex-direction:column;gap:20px}}
-@media(max-width:640px){.hero-sr{gap:12px}.hero-photo{min-height:460px}.hero-inner{padding-top:110px}.qg{grid-template-columns:1fr}.gg{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}.ri{grid-template-columns:36px 1fr auto;gap:10px;padding:12px 10px}.sc{grid-template-columns:1fr}.gi.wide{grid-column:span 1}.hero-note{display:none}.hero-sub{font-size:.86rem;line-height:1.75;letter-spacing:0}}
+@media(max-width:980px){nav a:not(.ncta){display:none}.hbr{display:block}.hero-inner,.video-grid,.manual-lead,.history-wrap,.cta-grid,.champ-grid{grid-template-columns:1fr}.r2c,.split-highlights{grid-template-columns:1fr}.qg{grid-template-columns:repeat(2,minmax(0,1fr))}.ftk{grid-template-columns:1fr;flex-direction:column;gap:20px}}
+@media(max-width:640px){.hero-sr{gap:12px}.hero-photo{min-height:460px}.qg{grid-template-columns:1fr}.gg{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}.ri{grid-template-columns:36px 1fr auto;gap:10px;padding:12px 10px}.sc{grid-template-columns:1fr}.gi.wide{grid-column:span 1}.hero-note{display:none}.hero-sub{font-size:.86rem;line-height:1.75;letter-spacing:0}}
 /* ── 最新情報カード ── */
 .news-info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:20px}
 .news-info-box{background:rgba(255,255,255,.06);border-radius:8px;padding:16px}
@@ -346,7 +348,7 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 
 <header>
   <div class="container">
-    <a href="#hero" class="logo"><img src="" data-candidates="assets/logos/eigyo1_logo.png|assets/logos/eigyo1_logo.jpg|assets/logos/eigyo1_logo.jpeg|assets/logos/eigyo1_logo.webp|営業-1ロゴ透明.png|営業-1ロゴ透明.jpg|営業-1ロゴ透明.jpeg|営業-1ロゴ透明.webp" alt="営業-1グランプリ ロゴ" class="auto-img logo-img" onerror="this.style.display='none'"></a>
+    <a href="index.html" class="logo"><img src="" data-candidates="assets/logos/eigyo1_logo.png|assets/logos/eigyo1_logo.jpg|assets/logos/eigyo1_logo.jpeg|assets/logos/eigyo1_logo.webp|営業-1ロゴ透明.png|営業-1ロゴ透明.jpg|営業-1ロゴ透明.jpeg|営業-1ロゴ透明.webp" alt="営業-1グランプリ ロゴ" class="auto-img logo-img" onerror="this.style.display='none'"></a>
     <nav>
       <a href="index.html#lv">最新情報</a>
       <a href="buzz100.html">バズり動画100</a>
@@ -373,7 +375,7 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 </div>
 <section class="hero hero-visual">
   <picture>
-    <source media="(max-width:768px)" srcset="hero/TOP_SP.png">
+    <source media="(max-width:768px)" srcset="hero/TOP_SP.png?v=20260501">
     <img src="hero/TOP.png" class="hero-bg" alt="営業-1グランプリ ビジュアル">
   </picture>
   <div class="hero-logo-wrap" id="heroLogoWrap">
@@ -384,7 +386,9 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
   <div class="hero-text">
     <div class="container hero-inner">
       <div class="no-look-title-wrap">
-        <img src="assets/images/hero/no_look_contract.png" class="no-look-title-img" alt="ノールック契約">
+        <a href="https://youtu.be/68utLC3Inf4?si=ynQtE0eNs2Clw8lO&amp;t=9176" target="_blank" rel="noopener noreferrer" class="no-look-link">
+          <img src="assets/images/hero/no_look_contract.png" class="no-look-title-img" alt="ノールック契約">
+        </a>
         <span class="title-glow" aria-hidden="true"></span>
       </div>
       <p class="hero-sub">営業-１グランプリのオフィシャルホームページです。営業現場のリアル写真、秘蔵のスタジオ写真、番組資料など営業-１グランプリのすべてがここでみることができます。</p>
@@ -749,6 +753,8 @@ initAutoImages();
 </script>
 
 <style>
+/* SP: TOP_SP.png直下の余白ゼロ — ここが最終カスケードなので!importantで確実に上書き */
+@media(max-width:768px){.hero-text{padding-top:0!important}.hero-inner{padding-top:0!important}}
 .event-cta{display:block!important;width:100%!important;background:#181818!important;color:#fff!important;padding:72px 20px!important;text-align:center!important;box-sizing:border-box!important;margin:0!important}
 .event-cta-inner{max-width:960px!important;margin:0 auto!important;background:transparent!important}
 .event-cta .event-label{color:#c9a227!important;font-size:12px!important;letter-spacing:.18em!important;margin:0 0 16px!important;font-weight:700!important}
