@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>営業-1グランプリ 公式アーカイブ｜BSよしもと</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{--white:#fff;--bg:#faf9f6;--bg-warm:#f5f2ec;--text:#222;--text-sub:#555;--text-light:#888;--gold:#b8922e;--gold-bright:#d4a72c;--gold-light:#f0d77b;--gold-dark:#8a6d1a;--red:#d72631;--red-dark:#b51d26;--black:#1a1a1a;--border:#e8e4dc;--shadow:rgba(0,0,0,.08);--font:'Noto Sans JP',sans-serif;--font-a:'Zen Kaku Gothic New',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold-light);color:var(--black)}
+img{max-width:100%;display:block}
+a{color:inherit}
+.container{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.sp{padding:clamp(80px,11vw,140px) 0}
+.small{font-size:.76rem;color:var(--text-light)}
+@keyframes gs{0%{background-position:-200% center}100%{background-position:200% center}}
+.gt{background:linear-gradient(105deg,var(--gold-dark) 0%,var(--gold) 20%,var(--gold-light) 40%,#fff8dc 50%,var(--gold-light) 60%,var(--gold) 80%,var(--gold-dark) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gs 4s linear infinite}
+.gs{background:linear-gradient(135deg,var(--gold-dark),var(--gold-bright),var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sl{display:inline-block;font-size:.7rem;letter-spacing:.25em;color:var(--gold);font-weight:700;border:1.5px solid var(--gold);padding:4px 14px;margin-bottom:14px}
+.st{font-family:var(--font-a);font-size:clamp(1.8rem,4vw,2.9rem);font-weight:900;line-height:1.3;margin-bottom:14px}
+.ss{font-size:.95rem;color:var(--text-sub);max-width:720px;line-height:1.9}
+.fi{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.fi.v{opacity:1;transform:translateY(0)}
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+header .container{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{text-decoration:none;display:flex;align-items:center}.logo-img{width:auto;height:60px;object-fit:contain}
+nav{display:flex;align-items:center;gap:18px}
+nav a{color:var(--text-sub);text-decoration:none;font-size:.74rem;font-weight:700;transition:color .3s}nav a:hover{color:var(--red)}
+.ncta{background:var(--red);color:#fff!important;padding:8px 18px;font-weight:700!important;font-size:.72rem!important;border-radius:4px;transition:background .3s!important}.ncta:hover{background:var(--red-dark)!important}
+.hbr{display:none;background:none;border:none;cursor:pointer;padding:6px}.hbr span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0}
+.mnav{display:none;position:fixed;top:68px;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:16px 24px;border-bottom:1px solid var(--border)}.mnav.open{display:block}.mnav a{display:block;padding:12px 0;color:var(--text-sub);text-decoration:none;font-size:.85rem;border-bottom:1px solid #eee}
+/* ── ヒーロービジュアル ── */
+.hero{width:100%}
+.hero .hero-bg{display:block;width:100%;height:auto}
+#hero{padding-top:68px;background:var(--white)}
+.hero-visual{position:relative;width:100%;background:linear-gradient(135deg,#e8e0d0,#d4cabb,#c8bfaf)}
+.hero-visual img.hero-bg{width:100%;height:auto;display:block}
+.media-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--text-light);font-size:.85rem;padding:24px;text-align:center;background:linear-gradient(135deg,#e8e0d0,#d4cabb,#c8bfaf)}
+.media-fallback .ic{font-size:3rem;margin-bottom:10px;opacity:.5}
+.hero-ov{display:none}
+.hero-text{background:var(--white);padding:clamp(22px,4vw,44px) 0 28px;text-align:center}
+.hero-inner{text-align:center}
+.hero-yt{margin-top:28px}
+.hero-yt-wrap{position:relative;width:100%;max-width:720px;margin:0 auto;aspect-ratio:16/9;border-radius:8px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.15)}
+.hero-yt-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.hero-copy{font-family:var(--font-a);font-size:clamp(2.6rem,7vw,5.5rem);font-weight:900;line-height:1.1;letter-spacing:-.03em;color:#000;text-shadow:2px 2px 6px rgba(0,0,0,.2);animation:stampIn 1.05s cubic-bezier(.18,.89,.32,1.28) both;transform-origin:center;display:inline-block}
+@keyframes stampIn{0%{opacity:0;transform:scale(1.35) rotate(-4deg);filter:blur(2px)}10%{opacity:0;transform:scale(1.35) rotate(-4deg)}45%{opacity:1;transform:scale(.92) rotate(1deg);filter:blur(0)}70%{transform:scale(1.04) rotate(-.5deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+.hero-sub{font-size:clamp(.95rem,1.8vw,1.1rem);color:#333;margin-top:18px;font-weight:500;max-width:760px;line-height:1.8;margin-left:auto;margin-right:auto}
+.hero-note{background:rgba(255,255,255,.84);border:1px solid rgba(184,146,46,.25);border-radius:10px;padding:18px 18px 16px;backdrop-filter:blur(10px);align-self:start}
+.hero-note h3{font-size:.82rem;letter-spacing:.14em;color:var(--gold-dark);margin-bottom:8px}
+.hero-note p{font-size:.8rem;line-height:1.8;color:var(--text-sub)}
+.hero-bar{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;padding:32px clamp(20px,5vw,60px);background:var(--white);border-top:1px solid var(--border)}
+.hero-sr{display:flex;gap:clamp(18px,3vw,42px);flex-wrap:wrap}
+.hs-n{font-family:var(--font-a);font-size:clamp(1.4rem,3vw,2rem);font-weight:900}
+.hs-l{font-size:.66rem;color:var(--text-light);letter-spacing:.06em}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
+.br{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;padding:12px 28px;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-decoration:none;border-radius:4px;transition:all .3s}.br:hover{background:var(--red-dark);transform:translateY(-2px)}
+.bg{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--gold);color:var(--gold-dark);padding:10px 28px;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-decoration:none;border-radius:4px;transition:all .3s}.bg:hover{background:var(--gold);color:#fff}
+.qg{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:34px;margin-bottom:clamp(32px,5vw,52px)}
+.qc{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:18px 16px 14px;box-shadow:0 4px 16px var(--shadow);transition:box-shadow .25s,transform .25s;cursor:pointer;display:flex;flex-direction:column;gap:6px}
+.qc:hover{box-shadow:0 12px 36px rgba(0,0,0,.13);transform:translateY(-3px)}
+.qc-ico{font-size:1.5rem;line-height:1}
+.qc h3{font-size:.82rem;font-weight:900;color:var(--black);line-height:1.4;margin:0}
+.qc-arrow{font-size:.7rem;font-weight:700;color:var(--red);margin-top:auto;padding-top:4px}
+.qc-img{width:100%;aspect-ratio:4/3;object-fit:contain;border-radius:6px;margin-bottom:2px;background:#f5f5f5}
+#lv{background:var(--black);padding:clamp(40px,6vw,80px) 0}
+.video-grid{display:grid;grid-template-columns:minmax(0,1.2fr) 320px;gap:24px;align-items:start}
+.vew{margin-top:30px;position:relative;width:100%;aspect-ratio:16/9;border:3px solid var(--gold);box-shadow:0 0 40px rgba(184,146,46,.25);border-radius:6px;overflow:hidden}
+.vew iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-side{margin-top:30px;background:rgba(255,255,255,.06);border:1px solid rgba(240,215,123,.16);border-radius:10px;padding:22px}
+.video-side h3{font-size:.86rem;letter-spacing:.14em;color:var(--gold-light);margin-bottom:12px}
+.video-side ul{list-style:none;display:flex;flex-direction:column;gap:12px}.video-side li{padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.08)}.video-side li:last-child{border-bottom:none;padding-bottom:0}
+.video-side a{font-size:.8rem;color:#fff;text-decoration:none;font-weight:700}.video-side a:hover{text-decoration:underline}
+.video-side p{font-size:.72rem;color:#bbb;line-height:1.7;margin-top:4px}
+#about{background:var(--white)}
+.ag{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:40px}
+.ac{background:var(--bg);border-radius:8px;padding:28px 22px;border:1px solid var(--border);transition:transform .3s,box-shadow .3s}.ac:hover{transform:translateY(-4px);box-shadow:0 12px 30px var(--shadow)}
+.ac-n{font-family:var(--font-a);font-size:2rem;font-weight:900;line-height:1;margin-bottom:10px}
+.ac h3{font-size:1rem;font-weight:900;margin-bottom:8px}.ac p{font-size:.8rem;color:var(--text-sub);line-height:1.8}
+.scenebar{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;margin-bottom:24px}.scenebar span{font-size:.72rem;font-weight:700;padding:7px 12px;border-radius:999px;background:#fff;border:1px solid var(--border);color:var(--text-sub)}
+.gg{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.gi{aspect-ratio:4/3;background:#d8d0c4;border-radius:6px;overflow:hidden;position:relative;transition:transform .3s;cursor:pointer}.gi:hover{transform:scale(1.03);z-index:2}
+.gi img{width:100%;height:100%;object-fit:cover}.gi .media-fallback{font-size:.7rem;padding:12px;background:#ddd5c9}
+.gi.tall{grid-row:span 2;aspect-ratio:auto}.gi.wide{grid-column:span 2}
+.gnote{margin-top:18px;font-size:.74rem;color:var(--text-light)}
+#timeline{background:var(--white)}
+.tt{margin-top:40px;position:relative}.tt::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--gold),var(--gold-light),var(--gold));border-radius:3px}
+.ti{display:grid;grid-template-columns:40px 1fr;gap:24px;margin-bottom:32px}.td{width:14px;height:14px;background:var(--gold-bright);border:3px solid var(--white);border-radius:50%;justify-self:center;margin-top:6px;box-shadow:0 0 0 3px var(--gold-bright),0 0 12px rgba(184,146,46,.3);z-index:1}
+.tc{background:var(--bg);border-radius:10px;padding:28px;border:1px solid var(--border);transition:transform .3s}.tc:hover{transform:translateX(4px)}
+.ty{font-family:var(--font-a);font-size:1.5rem;font-weight:900}.te{font-weight:700;font-size:.95rem;margin-bottom:8px}
+.tm,.tw{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}.tm span{font-size:.68rem;color:var(--text-sub);background:var(--white);padding:3px 10px;border-radius:20px;border:1px solid var(--border)}
+.wb{font-size:.72rem;font-weight:700;padding:5px 14px;border-radius:4px}.wb.we{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--black)}.wb.wg{background:var(--red);color:#fff}
+.tde{font-size:.82rem;color:var(--text-sub);line-height:1.8}.th{margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}.th h4{font-size:.68rem;color:var(--gold-dark);letter-spacing:.15em;margin-bottom:6px}.th p{font-size:.78rem;color:var(--text-sub);line-height:1.8}
+.cb{margin-top:30px;background:linear-gradient(135deg,#1a1a1a,#2a2520,#1a1a1a);border-radius:12px;padding:40px;color:#fff;position:relative;overflow:hidden;border:2px solid var(--gold)}
+.cb::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(212,167,44,.15),transparent 60%)}
+.champ-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px;align-items:center}
+.cbl{font-size:.65rem;letter-spacing:.3em;color:var(--gold-light);margin-bottom:8px}.cbn{font-family:var(--font-a);font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:1.15}.cbd{font-size:.85rem;color:#ccc;margin-top:8px;max-width:600px;line-height:1.8}.cbs{margin-top:16px;display:inline-flex;align-items:baseline;gap:8px}.cbs strong{font-family:var(--font-a);font-size:3rem;font-weight:900}.cbs span{font-size:.85rem;color:#aaa}
+.champ-media{aspect-ratio:4/5;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);position:relative}
+.champ-media img{width:100%;height:100%;object-fit:contain;object-position:center center;background:#fff}.champ-media .media-fallback{background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(212,167,44,.08));color:#d9d9d9}
+.split-highlights{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}.split-box{background:var(--white);border-radius:10px;padding:20px;border:1px solid var(--border)}.split-box h3{font-size:.92rem;font-weight:900;margin-bottom:4px}.split-box p{font-size:.78rem;color:var(--text-sub);line-height:1.8}
+.rtabs{display:flex;gap:4px;margin-top:30px;margin-bottom:20px;flex-wrap:wrap}.rtab{padding:10px 22px;font-size:.75rem;font-weight:700;background:var(--white);border:1px solid var(--border);color:var(--text-sub);cursor:pointer;border-radius:4px;transition:all .3s;font-family:var(--font)}.rtab.active,.rtab:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
+.rp{display:none}.rp.active{display:block}.rst{font-family:var(--font-a);font-size:1.2rem;font-weight:900;margin-bottom:4px}.rss{font-size:.72rem;color:var(--text-light);margin-bottom:16px}.rl{list-style:none}
+.ri{display:grid;grid-template-columns:50px 1fr auto;align-items:center;gap:16px;padding:14px 16px;border-bottom:1px solid var(--border);transition:background .3s;border-radius:6px}.ri:hover{background:var(--white)}
+.ri.t1{background:linear-gradient(90deg,rgba(212,167,44,.1),transparent);border-left:4px solid var(--gold-bright)}.ri.t2{border-left:4px solid #aaa}.ri.t3{border-left:4px solid #b07540}.rn{font-family:var(--font-a);font-size:1.3rem;font-weight:900;text-align:center}.t1 .rn{color:var(--gold-bright)}.t2 .rn{color:#aaa}.t3 .rn{color:#b07540}
+.rin h4{font-size:.9rem;font-weight:700}.rin .rnt{font-size:.68rem;color:var(--gold-dark);font-weight:700;margin-top:1px}.rc{font-family:var(--font-a);font-size:1.2rem;font-weight:900;color:var(--gold-dark)}.rc small{font-size:.6rem;color:var(--text-light);font-weight:400}.r2c{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:20px}
+.scl{margin-top:40px;display:flex;flex-direction:column;gap:12px}.sc{background:var(--bg);border-radius:10px;padding:28px;border:1px solid var(--border);display:grid;grid-template-columns:90px 1fr;gap:20px;transition:transform .3s}.sc:hover{transform:translateX(4px)}.scb{text-align:center}.scy{font-family:var(--font-a);font-size:.9rem;font-weight:900;color:var(--gold-dark)}.scc{font-size:.58rem;color:var(--text-light);display:block;margin-top:2px}.scbd h3{font-size:1rem;font-weight:900;margin-bottom:8px;line-height:1.5}.scbd p{font-size:.82rem;color:var(--text-sub);line-height:1.9}
+#highlights{background:var(--bg-warm)}
+.hlg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:40px}.hlc{background:var(--white);border-radius:10px;padding:28px;border:1px solid var(--border);transition:transform .3s,box-shadow .3s}.hlc:hover{transform:translateY(-4px);box-shadow:0 16px 40px var(--shadow)}.hlt{font-size:.62rem;color:var(--red);font-weight:700;letter-spacing:.15em;margin-bottom:10px}.hlc h3{font-size:1.05rem;font-weight:900;margin-bottom:8px}.hlc p{font-size:.8rem;color:var(--text-sub);line-height:1.8}
+.manual-lead{display:grid;grid-template-columns:300px 1fr;gap:22px;align-items:stretch;margin-top:28px}.manual-media{position:relative;border-radius:12px;overflow:hidden;background:#ddd5c9;min-height:280px}.manual-media img{width:100%;height:100%;object-fit:cover}.manual-copy{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:26px}.manual-copy h3{font-size:1.06rem;font-weight:900;margin-bottom:10px}.manual-copy p{font-size:.84rem;color:var(--text-sub);line-height:1.9}.mg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}.mc{background:var(--bg);border-radius:10px;padding:28px;border-top:4px solid var(--gold);border-left:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:transform .3s}.mc:hover{transform:translateY(-4px)}.my{font-family:var(--font-a);font-size:1.8rem;font-weight:900;color:var(--gold-dark);margin-bottom:4px}.me{font-weight:700;margin-bottom:8px;font-size:.9rem}.md{font-size:.8rem;color:var(--text-sub);line-height:1.8}
+#history{background:var(--bg)}
+.history-wrap{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:22px;align-items:start}.hg{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:40px}.ec{background:var(--white);border-radius:10px;padding:28px;border:1px solid var(--border);border-bottom:3px solid var(--gold);transition:transform .3s}.ec:hover{transform:translateY(-4px)}.ep{font-size:.65rem;letter-spacing:.15em;color:var(--gold-dark);font-weight:700;margin-bottom:8px}.ec h3{font-size:1.05rem;font-weight:900;margin-bottom:8px}.ec p{font-size:.8rem;color:var(--text-sub);line-height:1.8}.history-side{margin-top:40px;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:22px}.history-side h3{font-size:.88rem;letter-spacing:.12em;color:var(--gold-dark);margin-bottom:10px}.history-side p{font-size:.78rem;color:var(--text-sub);line-height:1.85}.history-side a{color:var(--red);font-weight:700;text-decoration:none}.history-side a:hover{text-decoration:underline}
+#cast{background:var(--white)}
+.csg{margin-top:40px}.csgi{margin-bottom:32px}.cgl{font-size:.65rem;letter-spacing:.2em;font-weight:700;color:var(--gold-dark);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--gold);display:inline-block}.cgr{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}.cc{background:var(--bg);border-radius:10px;padding:20px;display:flex;gap:14px;align-items:flex-start;border:1px solid var(--border);transition:transform .3s}.cc:hover{transform:translateY(-3px)}.ca{width:44px;height:44px;flex-shrink:0;background:linear-gradient(135deg,var(--gold-dark),var(--gold-bright));border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem;color:#fff}.ci h4{font-size:.88rem;font-weight:700}.ci .cr{font-size:.65rem;color:var(--gold-dark);font-weight:700;margin-bottom:4px}.ci p{font-size:.73rem;color:var(--text-sub);line-height:1.7}
+#video{background:var(--bg)}.vg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:40px}.vc{background:var(--white);border-radius:10px;padding:24px;border:1px solid var(--border);transition:transform .3s}.vc:hover{transform:translateY(-3px)}.vc h4{font-size:.9rem;font-weight:700;margin-bottom:6px}.vc p{font-size:.76rem;color:var(--text-sub);line-height:1.7;margin-bottom:10px}.vl{font-size:.72rem;color:var(--red);text-decoration:none;font-weight:700}.vl:hover{text-decoration:underline}
+#faq{background:var(--white)}.fl{margin-top:40px;max-width:760px}.fqi{border-bottom:1px solid var(--border)}.fq{width:100%;background:none;border:none;font-family:var(--font);font-size:.92rem;font-weight:700;text-align:left;padding:20px 0;cursor:pointer;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .3s}.fq:hover{color:var(--red)}.fq::after{content:'+';font-size:1.3rem;color:var(--gold);transition:transform .3s;flex-shrink:0}.fqi.open .fq::after{transform:rotate(45deg)}.fa{max-height:0;overflow:hidden;transition:max-height .4s}.fqi.open .fa{max-height:300px;padding-bottom:20px}.fa p{font-size:.82rem;color:var(--text-sub);line-height:1.9}
+footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;margin-bottom:30px}.ftl{font-family:var(--font-a);font-weight:900;font-size:1rem;color:#fff;margin-bottom:8px}.ftl .g{color:var(--gold-bright)}.ftd{font-size:.7rem;color:#888;max-width:280px;line-height:1.7}.ftk{display:flex;gap:36px}.ftc h4{font-size:.62rem;letter-spacing:.2em;color:var(--gold);margin-bottom:10px}.ftc a{display:block;font-size:.72rem;color:#888;text-decoration:none;margin-bottom:6px;transition:color .3s}.ftc a:hover{color:var(--gold-light)}.ftb{border-top:1px solid #333;padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}.ftb p{font-size:.6rem;color:#555}
+@media(max-width:980px){nav a:not(.ncta){display:none}.hbr{display:block}.hero-inner,.video-grid,.manual-lead,.history-wrap,.cta-grid,.champ-grid{grid-template-columns:1fr}.hero-inner{padding-top:120px}.r2c,.split-highlights{grid-template-columns:1fr}.qg{grid-template-columns:repeat(2,minmax(0,1fr))}.ftk{flex-direction:column;gap:20px}}
+@media(max-width:640px){.hero-sr{gap:12px}.hero-photo{min-height:460px}.hero-inner{padding-top:110px}.qg{grid-template-columns:1fr}.gg{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}.ri{grid-template-columns:36px 1fr auto;gap:10px;padding:12px 10px}.sc{grid-template-columns:1fr}.gi.wide{grid-column:span 1}.hero-note{display:none}.hero-sub{font-size:.86rem;line-height:1.75;letter-spacing:0}}
+/* ── 最新情報カード ── */
+.news-info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:20px}
+.news-info-box{background:rgba(255,255,255,.06);border-radius:8px;padding:16px}
+.news-info-label{font-size:.6rem;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:6px}
+.news-info-val{color:#fff;font-weight:700;font-size:.9rem}
+.news-info-sub{color:#aaa;font-size:.78rem;margin-top:3px}
+.news-cast{border-top:1px solid rgba(255,255,255,.1);margin-top:20px;padding-top:16px}
+.news-cast-label{font-size:.6rem;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:8px}
+/* ── コメントアコーディオン ── */
+.cmnt-wrap{margin-top:32px}
+.cmnt-sec-label{font-size:.6rem;letter-spacing:.25em;color:var(--gold);font-weight:700;margin-bottom:14px}
+.cmnt-block{border-bottom:1px solid rgba(255,255,255,.12);overflow:hidden}
+.cmnt-toggle{width:100%;background:none;border:none;font-family:var(--font);font-size:.88rem;font-weight:700;text-align:left;padding:16px 0;cursor:pointer;color:#ddd;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .3s}
+.cmnt-toggle:hover{color:var(--gold-light)}
+.cmnt-icon{font-size:1.2rem;color:var(--gold);flex-shrink:0;transition:transform .3s}
+.cmnt-block.open .cmnt-icon{transform:rotate(45deg)}
+.cmnt-body{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.cmnt-block.open .cmnt-body{max-height:1200px}
+.cmnt-inner{display:grid;grid-template-columns:180px 1fr;gap:22px;padding:4px 0 24px;align-items:start}
+.cmnt-photo{width:100%;border-radius:10px;object-fit:contain;background:rgba(255,255,255,.05)}
+.cmnt-person{margin-top:18px}.cmnt-person:first-child{margin-top:0}
+.cmnt-name{display:block;font-size:.7rem;font-weight:700;color:var(--gold-light);letter-spacing:.1em;margin-bottom:5px}
+.cmnt-body p,.cmnt-inner p{font-size:.82rem;color:#eaeaea;line-height:1.9}
+/* ── 書籍化ブロック ── */
+.book-block{background:rgba(255,255,255,.06);border:1px solid rgba(240,215,123,.2);border-radius:12px;padding:28px;margin-top:32px}
+.book-inner{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:start;margin-top:16px}
+.book-img{width:100%;border-radius:8px;object-fit:contain;background:#fff;padding:4px}
+.book-title{font-family:var(--font-a);font-size:1.15rem;font-weight:900;color:#fff;line-height:1.5;margin-bottom:6px}
+.book-sub{font-size:.82rem;color:var(--gold-light);margin-bottom:14px}
+.book-meta{font-size:.76rem;color:#aaa;line-height:2}
+.book-reserve{font-size:.8rem;color:var(--red);font-weight:700;margin-top:10px}
+.book-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.book-btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--gold);color:var(--gold-light);padding:8px 20px;font-size:.76rem;font-weight:700;border-radius:4px;text-decoration:none;transition:all .3s}
+.book-btn:hover{background:var(--gold);color:var(--black)}
+@media(max-width:640px){.cmnt-inner{grid-template-columns:1fr}.book-inner{grid-template-columns:1fr}}
+/* ── UIアニメーション ── */
+.card img,.video-card img{transition:transform .35s ease}
+.card:hover img,.video-card:hover img{transform:scale(1.04)}
+.btn,a.button{transition:all .2s ease}
+.btn:hover,a.button:hover{opacity:.9;transform:translateY(-1px)}
+.btn:active,a.button:active,.br:active,.bg:active,.bottom-link:active,.pg-tab:active,.ytab:active{transform:translateY(1px)!important;opacity:.9!important}
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.fade-in.show{opacity:1;transform:translateY(0)}
+@media(hover:none){.card:hover img,.video-card:hover img{transform:none}}
+
+/* ── ローディング演出 [TEST] タイプライター風 ── */
+#ld-overlay{
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(6px) brightness(.75);
+  -webkit-backdrop-filter:blur(6px) brightness(.75);
+  display:flex;align-items:center;justify-content:center;
+  padding:clamp(20px,5vw,60px);
+  pointer-events:none;
+  opacity:0;
+}
+#ld-overlay.ld-gone{display:none}
+/* スキャンライン */
+#ld-overlay::before{
+  content:'';position:absolute;inset:0;z-index:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.1) 2px,rgba(0,0,0,.1) 4px);
+  pointer-events:none;
+}
+/* ビネット */
+#ld-overlay::after{
+  content:'';position:absolute;inset:0;z-index:0;
+  background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.72) 100%);
+  pointer-events:none;
+}
+.ld-inner{
+  text-align:center;position:relative;z-index:1;
+  max-width:600px;width:100%;
+  animation:ldFlicker 4s ease-in-out infinite;
+}
+/* 固定見出し（最初から表示） */
+.ld-title{
+  font-family:var(--font-a);font-size:clamp(.85rem,2.2vw,1.1rem);
+  color:#999;font-weight:700;letter-spacing:.12em;
+  margin-bottom:32px;
+  padding-bottom:20px;
+  border-bottom:1px solid rgba(200,149,30,.2);
+}
+/* #番号（金・大） */
+.ld-num{
+  font-family:var(--font-a);font-size:clamp(3.8rem,13vw,7.5rem);
+  font-weight:900;line-height:1;margin-bottom:22px;min-height:1.1em;
+  color:#c8951e;
+  text-shadow:0 0 24px rgba(200,149,30,.4),0 0 60px rgba(200,149,30,.15);
+}
+/* タイトル */
+.ld-rule{
+  font-family:var(--font-a);font-size:clamp(1.2rem,4vw,2rem);
+  font-weight:900;color:#f2f2f2;line-height:1.5;min-height:1.7em;
+  letter-spacing:.02em;
+}
+/* 点滅カーソル */
+.ld-cur{
+  color:#c8951e;font-weight:300;margin-left:1px;
+  animation:ldCurBlink .55s step-end infinite;
+}
+.ld-cur.ld-done{visibility:hidden}
+@keyframes ldCurBlink{0%,100%{opacity:1}50%{opacity:0}}
+@media(max-width:480px){
+  .ld-rule{font-size:clamp(1rem,4vw,1.5rem)}
+  .ld-num{font-size:clamp(3rem,13vw,5rem)}
+}
+/* 微細ちらつき（昭和CRT風） */
+@keyframes ldFlicker{
+  0%,100%{opacity:1}
+  91%{opacity:1}92%{opacity:.86}93%{opacity:1}
+  97%{opacity:.92}98%{opacity:1}
+}
+</style>
+</head>
+<body>
+
+<!-- ローディング演出 [TEST] ここから -->
+<div id="ld-overlay" aria-hidden="true">
+  <div class="ld-inner">
+    <p class="ld-title">吉本営業マニュアルベスト10</p>
+    <p class="ld-num"><span id="ld-t3"></span><span class="ld-cur" id="ld-c3">_</span></p>
+    <p class="ld-rule"><span id="ld-t4"></span><span class="ld-cur" id="ld-c4">_</span></p>
+  </div>
+</div>
+<!-- ローディング演出 [TEST] ここまで -->
+
+<header>
+  <div class="container">
+    <a href="#hero" class="logo"><img src="" data-candidates="assets/logos/eigyo1_logo.png|assets/logos/eigyo1_logo.jpg|assets/logos/eigyo1_logo.jpeg|assets/logos/eigyo1_logo.webp|営業-1ロゴ透明.png|営業-1ロゴ透明.jpg|営業-1ロゴ透明.jpeg|営業-1ロゴ透明.webp" alt="営業-1グランプリ ロゴ" class="auto-img logo-img" onerror="this.style.display='none'"></a>
+    <nav>
+      <a href="index.html#lv">最新情報</a>
+      <a href="buzz100.html">バズり動画100</a>
+      <a href="manual-best.html">吉本営業マニュアル＆ベスト企画</a>
+      <a href="photo-gallery.html">写真館</a>
+      <a href="archive-docs.html">資料館</a>
+      <a href="goods.html">グッズ</a>
+      <a href="timeline.html">シリーズ年表</a>
+      <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ncta">イベント出演依頼</a>
+      <button class="hbr" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<div class="mnav" id="mn">
+  <a href="index.html">TOP</a>
+  <a href="index.html#lv">最新情報</a>
+  <a href="buzz100.html">バズり動画100</a>
+  <a href="manual-best.html">吉本営業マニュアル＆ベスト企画</a>
+  <a href="photo-gallery.html">写真館</a>
+  <a href="archive-docs.html">資料館</a>
+  <a href="goods.html">グッズ</a>
+  <a href="timeline.html">シリーズ年表</a>
+  <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
+</div>
+<section class="hero">
+  <img src="assets/images/hero/hero_bg.png" class="hero-bg" alt="営業-1グランプリ ビジュアル">
+</section>
+<section id="hero">
+  <div class="hero-text">
+    <div class="container hero-inner">
+      <h1 class="hero-copy">ノールック契約</h1>
+      <p class="hero-sub">営業-１グランプリのオフィシャルホームページです。営業現場のリアル写真、秘蔵のスタジオ写真、番組資料など営業-１グランプリのすべてがここでみることができます。</p>
+      <div class="hero-yt">
+        <div class="hero-yt-wrap">
+          <iframe src="https://www.youtube.com/embed/68utLC3Inf4" title="営業-1グランプリ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bar">
+    <div class="hero-ctas">
+      <a href="timeline.html" class="br">シリーズ年表を見る →</a>
+      <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="bg">イベント出演依頼へ →</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="qg fi">
+      <a href="buzz100.html" class="qc">
+        <span class="qc-ico">🎬</span>
+        <h3>番組スタッフが選ぶバズり動画ベスト100</h3>
+        <span class="qc-arrow">見る →</span>
+      </a>
+      <a href="manual-best.html" class="qc">
+        <span class="qc-ico">📋</span>
+        <h3>吉本営業マニュアルベスト10 &amp; 番組企画ベスト5</h3>
+        <span class="qc-arrow">見る →</span>
+      </a>
+      <a href="photo-gallery.html" class="qc">
+        <span class="qc-ico">📸</span>
+        <h3>営業-1写真館</h3>
+        <span class="qc-arrow">見る →</span>
+      </a>
+      <a href="archive-docs.html" class="qc">
+        <span class="qc-ico">🗂️</span>
+        <h3>営業-1資料館</h3>
+        <span class="qc-arrow">見る →</span>
+      </a>
+      <a href="goods.html" class="qc">
+        <span class="qc-ico">🛍️</span>
+        <h3>番組関連グッズ</h3>
+        <span class="qc-arrow">見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+<section id="lv">
+  <div class="container">
+    <div class="sl fi" style="border-color:var(--gold-light);color:var(--gold-light)">NEWS</div>
+    <h2 class="st fi" style="color:#fff">最新情報</h2>
+
+    <!-- 番組情報カード -->
+    <div class="fi" style="background:rgba(255,255,255,.06);border:1px solid rgba(240,215,123,.2);border-radius:12px;padding:28px 28px 24px;margin-top:24px">
+      <div class="sl" style="border-color:var(--gold-light);color:var(--gold-light);margin-bottom:14px">2026 上半期スペシャル</div>
+      <h3 style="font-family:var(--font-a);font-size:clamp(1.15rem,3vw,1.7rem);font-weight:900;color:#fff;line-height:1.45;margin-bottom:10px">『営業‐1グランプリ2026上半期スペシャル』</h3>
+      <p style="color:var(--gold-light);font-weight:700;font-size:.88rem;margin-bottom:20px">原点回帰のシリーズ第６弾！サバンナ八木流「営業マニュアル」待望の書籍化も発表！</p>
+      <div class="news-info-grid">
+        <div class="news-info-box">
+          <div class="news-info-label">放送情報</div>
+          <div class="news-info-val">2026年7月5日（日）13:00～15:00</div>
+          <div class="news-info-sub">BSよしもと（BS265ch）無料放送</div>
+        </div>
+        <div class="news-info-box">
+          <div class="news-info-label">配信情報</div>
+          <div class="news-info-val"><a href="https://youtube.com/@bsyoshimoto?si=yVymT4-cgCPo7-l8" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">BSよしもと公式YouTube</a>プレミア配信（完全版）15:00～</div>
+          <div class="news-info-sub">TVer配信：15:00～</div>
+        </div>
+      </div>
+      <div class="news-cast">
+        <div class="news-cast-label">出演者</div>
+        <p style="color:#ccc;font-size:.8rem;line-height:1.95">サバンナ、かつみ♡さゆり・かつみ♡、トータルテンボス、椿鬼奴、平成ノブシコブシ、とにかく明るい安村、ミサイルマン・西代、グランジ・大、スリムクラブ、ガクテンソク、ジャングルポケット、ジェラードン、ツートライブ、鬼越トマホーク、コロコロチキチキペッパーズ、ダブルヒガシ、たくろう、フースーヤ、ドンデコルテ</p>
+      </div>
+    </div>
+
+    <!-- 出演者コメント アコーディオン -->
+    <div class="cmnt-wrap fi">
+      <div class="cmnt-sec-label">出演者コメント</div>
+
+      <!-- サバンナ -->
+      <div class="cmnt-inner">
+        <img src="images/news/savanna.jpg" alt="サバンナ" class="cmnt-photo" onerror="this.style.display='none'">
+        <div>
+          <div class="cmnt-person">
+            <span class="cmnt-name">八木 真澄</span>
+            <p>営業-1グランプリ2026年上半期スペシャルの放送が決定しました。<br>すでに、ものすごい数の打ち合わせをして準備しています。もう営業マニュアルないかなと思うんですが、まだありました。<br>そして、書籍化決定しました。芸人だけでなく、皆さまにも使える内容になっています。<br>営業-1グランプリの最新をチェックしてくださいね。</p>
+          </div>
+          <div class="cmnt-person">
+            <span class="cmnt-name">高橋 茂雄</span>
+            <p>芸人のすごさ。芸人のつらさ。芸人のおもしろさ。<br>営業-1グランプリを見ると芸人の本当の姿がよくわかります。<br>今回もそんな芸人の素晴らしさが爆発することと思います。上半期に起こった事件の数々を楽しみましょう！</p>
+          </div>
+        </div>
+      </div>
+    </div><!-- /cmnt-wrap -->
+
+    <!-- 書籍化情報 -->
+    <div class="book-block fi" id="book-info">
+      <div class="sl" style="border-color:var(--gold-light);color:var(--gold-light);margin-bottom:12px">書籍情報</div>
+      <h3 style="font-family:var(--font-a);font-size:1.3rem;font-weight:900;color:var(--gold-light)">営業-1グランプリからの待望の書籍化！</h3>
+      <div class="book-inner">
+        <img src="images/news/book.jpg" alt="ウケる現場のつくり方" class="book-img" onerror="this.style.display='none'">
+        <div>
+          <div class="book-title">ウケる現場のつくり方</div>
+          <div class="book-sub">どんなアウェイもホームに変えるサバンナ八木流「コミュ力」の教科書</div>
+          <div class="book-meta">
+            著者：サバンナ八木真澄<br>
+            監修：営業-1グランプリ製作委員会<br>
+            発売日：2026年7月1日（水）電子書籍同日配信予定<br>
+            定価：1,980円（本体1,800円＋税）<br>
+            発行：KADOKAWA
+          </div>
+          <div class="book-reserve">4月30日（木）11:00～予約受付中！</div>
+          <div class="book-links">
+            <a href="https://www.kadokawa.co.jp/product/322511000524/" target="_blank" rel="noopener" class="book-btn">KADOKAWA →</a>
+            <a href="https://www.amazon.co.jp/dp/4041172292" target="_blank" rel="noopener" class="book-btn">Amazon →</a>
+          </div>
+        </div>
+      </div>
+    </div><!-- /book-block -->
+
+  </div>
+</section>
+<section id="about" class="sp">
+  <div class="container">
+    <div class="sl fi">ABOUT</div>
+    <h2 class="st fi"><span class="gs">営業-1グランプリ</span>とは？</h2>
+    <p class="ss fi">「営業」にスポットを当てた年2回の吉本興業リアルドキュメンタリー特番（BSよしもと）。<br>営業現場で起きたハプニングを全公開、年間の営業出演回数ランキングを発表。<br>創業１１０年を超える吉本興業の歴史を芸人目線で斬るなど<br>吉本でしか出来ない企画にこだわります。<br>吉本興業の「今」をお伝えします。<br>このホームページをみれば「営業-１グランプリ」の全てがわかります。</p>
+    <div class="fi" style="margin-top:28px">
+      <a href="timeline.html" class="br">シリーズ年表を見る →</a>
+    </div>
+  </div>
+</section>
+<section class="event-cta" style="background:#181818;color:#fff;padding:72px 20px;text-align:center;margin:0;width:100%;box-sizing:border-box;">
+  <div class="event-cta-inner" style="max-width:960px;margin:0 auto;background:transparent;">
+    <p class="event-label" style="color:#c9a227;font-size:12px;letter-spacing:0.18em;margin:0 0 16px;font-weight:700;">EVENT BOOKING</p>
+    <h2 style="color:#fff;font-size:32px;line-height:1.5;margin:0 0 24px;">この熱量を、<br>あなたの現場へ。</h2>
+    <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="event-btn" style="display:inline-block;background:#d9272e;color:#fff;text-decoration:none;padding:14px 28px;border-radius:4px;font-weight:700;">吉本興業へのイベント出演依頼はこちら →</a>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="ftt">
+      <div><div class="ftl"><span class="g">営業-1</span>グランプリ</div></div>
+      <div class="ftk">
+        <div class="ftc"><h4>CONTENTS</h4>
+          <a href="buzz100.html">バズり動画100</a>
+          <a href="manual-best.html">吉本営業マニュアル＆ベスト企画</a>
+          <a href="photo-gallery.html">写真館</a>
+          <a href="archive-docs.html">資料館</a>
+          <a href="goods.html">グッズ</a>
+          <a href="timeline.html">シリーズ年表</a>
+        </div>
+        <div class="ftc"><h4>LINKS</h4>
+          <a href="https://bsy.co.jp" target="_blank" rel="noopener">BSよしもと</a>
+          <a href="https://www.youtube.com/@bsyoshimoto" target="_blank" rel="noopener">公式YouTube</a>
+          <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
+        </div>
+      </div>
+    </div>
+    <div class="ftb"><p>© BSよしもと 営業-1グランプリ 公式アーカイブ</p><p>本サイトの記載は公開情報に基づきます。</p></div>
+  </div>
+</footer>
+
+<script>
+function tryCandidates(cands, ok, fail){
+  const list = cands.split('|').map(s=>s.trim()).filter(Boolean);
+  let idx = 0;
+  const testNext = ()=>{
+    if(idx >= list.length){ if(fail) fail(); return; }
+    const src = list[idx++];
+    const img = new Image();
+    img.onload = ()=> ok(src);
+    img.onerror = testNext;
+    img.src = src;
+  };
+  testNext();
+}
+
+
+function initAutoImages(){
+  document.querySelectorAll('img.auto-img[data-candidates]').forEach(img=>{
+    const fallback = img.nextElementSibling && img.nextElementSibling.classList.contains('media-fallback') ? img.nextElementSibling : null;
+    tryCandidates(img.dataset.candidates,
+      src=>{ img.src = src; img.style.display = ''; if(fallback) fallback.style.display='none'; },
+      ()=>{ img.style.display='none'; if(fallback) fallback.style.display='flex'; }
+    );
+  });
+}
+
+
+
+function toggleCmnt(btn){
+  const block=btn.parentElement;
+  const isOpen=block.classList.contains('open');
+  document.querySelectorAll('.cmnt-block').forEach(b=>b.classList.remove('open'));
+  if(!isOpen) block.classList.add('open');
+}
+
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})
+},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+    document.getElementById('mn').classList.remove('open');
+  });
+});
+
+initAutoImages();
+/* fade-in observer */
+(function(){var fi=document.querySelectorAll('.fade-in');if(!fi.length)return;var o=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting)n.target.classList.add('show');});},{threshold:0.1});fi.forEach(function(el){o.observe(el);});})();
+
+/* ── ローディング演出 [TEST] タイプライター風 ── */
+(function(){
+  var ol=document.getElementById('ld-overlay');
+  if(!ol)return;
+  document.body.style.overflow='hidden';
+
+  // ── 吉本営業マニュアル 10パターン ──
+  var manuals=[
+    {num:'#01',rule:'「これ、一本前の電車で帰れるんちゃう？」は禁句',
+     desc:'急ぐのはクライアントに失礼です。一本早く帰っていったい何があるのでしょうか。営業は「場を大切にすること」から始まります。'},
+    {num:'#02',rule:'空港や駅の集合場所で気配を消さない',
+     desc:'スタッフが心配します。一度顔をだしましょう。存在感を消すことは"プロ失格"の第一歩です。'},
+    {num:'#03',rule:'楽屋弁当をスタッフに持たせない',
+     desc:'自分でマチの広い紙袋にいれましょう。りくろーおじさんの紙袋は使えます。細かい気配りが信頼を積み上げます。'},
+    {num:'#04',rule:'演出には逆らわない',
+     desc:'演出はめちゃくちゃ力持ってます。逆らわないでください。現場の権力構造を読む力が、長く営業で生き残るコツです。'},
+    {num:'#05',rule:'東京ではギャグと中学・高校時代の写真を消費させられる',
+     desc:'東京の営業現場は独特のノリがあります。ギャグと若い頃の写真は"東京必需品"として事前に用意しておきましょう。'},
+    {num:'#06',rule:'大阪で東京の話をしない',
+     desc:'三宿、三茶、中目黒、CX、TMCなど、東京の地名・局名・人名を大阪の場で出してはいけません。空気が一瞬で変わります。'},
+    {num:'#07',rule:'仮押さえはバラすならお早めに！',
+     desc:'主催者・スタッフ双方の予定が動いています。ドタキャンは信頼を失う最短ルート。早めの連絡が次の仕事につながります。'},
+    {num:'#08',rule:'白＜黄＜緑＜赤＜レインボー 営業の決まり方を知る',
+     desc:'ライバルは北海道物産展。営業の案件がどの優先度で動いているかを色で把握する「営業色分け理論」。序列を知ることが戦略の出発点です。'},
+    {num:'#09',rule:'吉本湾の仕事を大切にする',
+     desc:'吉本湾とは、吉本制作・仕切りのイベント・案件のこと。社内の仕事を軽視すると、外の仕事も巡ってこなくなります。'},
+    {num:'#10',rule:'吉本を信じましょう',
+     desc:'新宿の東京本部はあなたのスマホに弱いwi-fiを与えてくれます。それでも、組織を信じて動くことが最後に勝つ芸人の共通点です。'}
+  ];
+
+  // ランダム選択
+  var m=manuals[Math.floor(Math.random()*manuals.length)];
+
+  // フェードイン
+  setTimeout(function(){
+    ol.style.transition='opacity .3s ease';
+    ol.style.opacity='1';
+  },40);
+
+  // タイプシーケンス（#番号 → タイトルのみ）
+  var seq=[
+    {t:document.getElementById('ld-t3'),c:document.getElementById('ld-c3'),str:m.num, ms:130,wait:120},
+    {t:document.getElementById('ld-t4'),c:document.getElementById('ld-c4'),str:m.rule,ms:40, wait:200}
+  ];
+
+  // 1文字ずつ打ち出す
+  function type(item,cb){
+    var i=0,s=item.str;
+    (function tick(){
+      item.t.textContent=s.slice(0,i);
+      if(i++<s.length){setTimeout(tick,item.ms);}
+      else{item.c.classList.add('ld-done');if(cb)cb();}
+    })();
+  }
+
+  // 順番に実行
+  function run(idx){
+    if(idx>=seq.length){
+      // タイトル打ち終わり → 1秒静止 → フェードアウト
+      setTimeout(function(){
+        ol.style.transition='opacity .5s ease';
+        ol.style.opacity='0';
+        setTimeout(function(){
+          ol.classList.add('ld-gone');
+          document.body.style.overflow='';
+        },550);
+      },1000);
+      return;
+    }
+    setTimeout(function(){type(seq[idx],function(){run(idx+1);});},seq[idx].wait);
+  }
+
+  // 画面フェードイン後にタイプ開始
+  setTimeout(function(){run(0);},350);
+})();
+</script>
+
+<style>
+.event-cta{display:block!important;width:100%!important;background:#181818!important;color:#fff!important;padding:72px 20px!important;text-align:center!important;box-sizing:border-box!important;margin:0!important}
+.event-cta-inner{max-width:960px!important;margin:0 auto!important;background:transparent!important}
+.event-cta .event-label{color:#c9a227!important;font-size:12px!important;letter-spacing:.18em!important;margin:0 0 16px!important;font-weight:700!important}
+.event-cta h2{color:#fff!important;font-size:32px!important;line-height:1.5!important;margin:0 0 24px!important}
+.event-cta .event-btn{display:inline-block!important;background:#d9272e!important;color:#fff!important;text-decoration:none!important;padding:14px 28px!important;border-radius:4px!important;font-weight:700!important}
+</style>
+</body>
+</html>
