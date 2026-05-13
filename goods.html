@@ -64,19 +64,30 @@ nav a:hover{color:var(--red)}
 .sec-count{font-size:.72rem;color:var(--text-light);margin-left:auto;font-weight:700}
 
 /* ── Wattsコラボブロック ── */
-.collab-block{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px 28px;margin-bottom:20px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.collab-block{
+  background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:24px 28px;margin-bottom:20px;
+  display:grid;
+  grid-template-columns:1fr minmax(0,400px);
+  gap:28px;
+  align-items:center;
+}
+.collab-left{display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap}
 .collab-logo{flex-shrink:0}
 .collab-logo img{height:44px;width:auto;object-fit:contain;display:block}
-.collab-info{flex:1;min-width:200px}
+.collab-info{flex:1;min-width:160px}
 .collab-tag{font-size:.62rem;letter-spacing:.2em;color:var(--gold-dark);font-weight:700;margin-bottom:4px}
 .collab-name{font-size:1.05rem;font-weight:900;color:var(--black);margin-bottom:8px}
 .collab-desc{font-size:.85rem;color:var(--text-sub);line-height:1.7;margin-bottom:4px}
 .collab-type{font-size:.8rem;font-weight:700;color:var(--text);margin-bottom:14px}
 .collab-btn{display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;padding:9px 20px;font-size:.78rem;font-weight:700;border-radius:4px;text-decoration:none;transition:background .25s}
 .collab-btn:hover{background:var(--red-dark)}
-@media(max-width:640px){
-  .collab-block{padding:18px 16px;gap:14px}
+.collab-visual{background:#f7f7f5;border-radius:14px;padding:16px;box-shadow:0 4px 16px rgba(0,0,0,.07);overflow:hidden}
+.collab-visual img{width:100%;height:auto;display:block;object-fit:contain}
+@media(max-width:768px){
+  .collab-block{grid-template-columns:1fr;padding:18px 16px;gap:18px}
   .collab-logo img{height:36px}
+  .collab-visual{margin-top:4px}
 }
 
 /* ── スライドガイド ── */
@@ -192,6 +203,10 @@ nav a:hover{color:var(--red)}
 }
 .prod-count{
   font-size:.7rem;color:var(--text-light);
+}
+.prod-price{
+  font-size:.8rem;font-weight:700;color:var(--text-sub);
+  margin-top:3px;
 }
 
 /* ── オンライン限定バッジ ── */
@@ -345,15 +360,20 @@ footer a:hover{color:var(--gold-light)}
 
     <!-- Wattsコラボブロック -->
     <div class="collab-block fi">
-      <div class="collab-logo">
-        <img src="goods/watts_logo.png" alt="Watts ロゴ">
+      <div class="collab-left">
+        <div class="collab-logo">
+          <img src="goods/watts_logo.png" alt="Watts ロゴ">
+        </div>
+        <div class="collab-info">
+          <div class="collab-tag">COLLABORATION</div>
+          <div class="collab-name">営業-1グランプリ × Watts コラボグッズ</div>
+          <p class="collab-desc">全国約350店舗のWattsでご購入いただけます。</p>
+          <p class="collab-type">店頭販売10種 ＋ オンラインショップ限定1種</p>
+          <a href="https://watts-online.jp/" target="_blank" rel="noopener" class="collab-btn">Wattsオンラインショップ →</a>
+        </div>
       </div>
-      <div class="collab-info">
-        <div class="collab-tag">COLLABORATION</div>
-        <div class="collab-name">営業-1グランプリ × Watts コラボグッズ</div>
-        <p class="collab-desc">全国約350店舗のWattsでご購入いただけます。</p>
-        <p class="collab-type">店頭販売10種 ＋ オンラインショップ限定1種</p>
-        <a href="https://watts-online.jp/" target="_blank" rel="noopener" class="collab-btn">Wattsオンラインショップ →</a>
+      <div class="collab-visual">
+        <img src="goods/goods_image/商品集合.jpg" alt="営業-1グランプリ Wattsコラボグッズ 商品集合">
       </div>
     </div>
 
@@ -397,6 +417,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="prod-body">
           <div class="prod-name">アクリルスタンプ</div>
           <div class="prod-count">全13デザイン</div>
+          <div class="prod-price">税込 330円</div>
         </div>
       </div>
 
@@ -433,6 +454,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="prod-body">
           <div class="prod-name">ええ感じビン</div>
           <div class="prod-count">全21バリエーション</div>
+          <div class="prod-price">50ml：税込 220円 / 200ml：税込 440円</div>
         </div>
       </div>
 
@@ -467,6 +489,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="prod-body">
           <div class="prod-name">お弁当が入れやすい底マチ広めバッグ</div>
           <div class="prod-count">全19バリエーション（ベージュ・ブラック）</div>
+          <div class="prod-price">税込 660円</div>
         </div>
       </div>
 
@@ -485,6 +508,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="prod-body">
           <div class="prod-name">シール</div>
           <div class="prod-count">全3デザイン</div>
+          <div class="prod-price">税込 220円</div>
         </div>
       </div>
 
@@ -505,6 +529,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="prod-body">
           <div class="prod-name">トレーディングマグネット</div>
           <div class="prod-count">全5種</div>
+          <div class="prod-price">税込 330円</div>
         </div>
       </div>
 
@@ -528,6 +553,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="prod-body">
           <div class="prod-name">フレークシール</div>
           <div class="prod-count">全8バリエーション</div>
+          <div class="prod-price">税込 220円</div>
         </div>
       </div>
 
@@ -551,6 +577,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="prod-body">
           <div class="prod-name">ミニチュアボトルキーホルダー</div>
           <div class="prod-count">全8バリエーション</div>
+          <div class="prod-price">税込 220円</div>
         </div>
       </div>
 
@@ -585,6 +612,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="prod-body">
           <div class="prod-name">ミニチュアボトルケース</div>
           <div class="prod-count">全19バリエーション（吉本・千日前 × ブラウン・グリーン）</div>
+          <div class="prod-price">税込 330円</div>
         </div>
       </div>
 
@@ -597,7 +625,8 @@ footer a:hover{color:var(--gold-light)}
         </div>
         <div class="prod-body">
           <div class="prod-name">滑りにくい手袋</div>
-          <div class="prod-count">1種</div>
+          <div class="prod-count">5双セット（M・L）</div>
+          <div class="prod-price">税込 330円</div>
         </div>
       </div>
 
@@ -619,6 +648,7 @@ footer a:hover{color:var(--gold-light)}
         <div class="prod-body">
           <div class="prod-name">日めくりメモ帳</div>
           <div class="prod-count">全6デザイン</div>
+          <div class="prod-price">税込 220円</div>
         </div>
       </div>
 
@@ -632,7 +662,7 @@ footer a:hover{color:var(--gold-light)}
         <span class="sec-count">1種</span>
       </div>
 
-      <p class="online-note fi">オンラインショップ限定商品については、詳細が確認でき次第掲載します。<br>
+      <p class="online-note fi">新大阪ロゴキャップ（税込 2,200円）はWattsオンラインショップ限定販売です。画像は確認でき次第掲載します。<br>
       <a href="https://watts-online.jp/" target="_blank" rel="noopener" class="online-note-link">Wattsオンラインショップを確認する →</a></p>
     </div><!-- /online-section -->
 
