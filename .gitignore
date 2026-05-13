@@ -9,3 +9,8 @@ backup/
 # 作業用スクリプト・テキスト
 *.py
 *.txt
+
+# goods: コピー元・バックアップは除外
+goods/商品画像/
+goods/goods_image_sample_backup/
+goods.html.bak_*
