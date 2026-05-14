@@ -135,7 +135,7 @@ nav a:hover{color:var(--red)}
   transition:filter .2s,transform .15s;
 }
 .btn-copy:hover{filter:brightness(1.08);transform:translateY(-1px)}
-.btn-copy.copied{background:linear-gradient(135deg,#4a9;#6bc);color:#fff}
+.btn-copy.copied{background:linear-gradient(135deg,#4a9,#6bc);color:#fff}
 .btn-retry{
   display:inline-flex;align-items:center;gap:8px;
   background:var(--white);color:var(--text-sub);
@@ -202,14 +202,13 @@ footer a:hover{color:var(--gold-light)}
         もしもあなたが営業芸人として現場に立つなら、どんな営業スタイルになるのか。<br>
         10問で、あなたの"営業のクセ"を診断します。
       </p>
-      <p class="diag-hero-note">※この診断は営業-1グランプリ的な遊びコンテンツです。実際の営業成績、契約率、ノールック契約力を保証するものではありません。</p>
     </div>
   </div>
 
   <div class="main-area">
     <!-- スタート -->
     <div id="start-section" class="start-wrap">
-      <button class="start-btn" onclick="startDiagnosis()">診断スタート</button>
+      <button class="start-btn" id="start-btn">診断スタート</button>
     </div>
 
     <!-- 診断フォーム -->
@@ -242,8 +241,8 @@ footer a:hover{color:var(--gold-light)}
       </div>
       <div class="result-body" id="result-body"></div>
       <div class="result-actions">
-        <button class="btn-copy" id="btn-copy" onclick="copyResult()">📋 結果をコピーする</button>
-        <button class="btn-retry" onclick="retryDiagnosis()">🔄 もう一度診断する</button>
+        <button class="btn-copy" id="btn-copy">📋 結果をコピーする</button>
+        <button class="btn-retry" id="btn-retry">🔄 もう一度診断する</button>
       </div>
     </div>
   </div>
@@ -569,6 +568,11 @@ function retryDiagnosis() {
   document.getElementById('start-section').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+// ボタンイベント
+document.getElementById('start-btn').addEventListener('click', startDiagnosis);
+document.getElementById('btn-copy').addEventListener('click', copyResult);
+document.getElementById('btn-retry').addEventListener('click', retryDiagnosis);
 
 // ハンバーガー閉じ
 document.querySelectorAll('.mnav a').forEach(el => {
