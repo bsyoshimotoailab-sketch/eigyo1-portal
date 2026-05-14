@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
 <style>
-:root{--white:#fff;--bg:#faf9f6;--bg-warm:#f5f2ec;--text:#222;--text-sub:#555;--text-light:#888;--gold:#b8922e;--gold-bright:#d4a72c;--gold-light:#f0d77b;--gold-dark:#8a6d1a;--red:#d72631;--red-dark:#b51d26;--black:#1a1a1a;--border:#e8e4dc;--shadow:rgba(0,0,0,.08);--font:'Noto Sans JP',sans-serif;--font-a:'Zen Kaku Gothic New',sans-serif}
+:root{--white:#fff;--bg:#faf9f6;--bg-warm:#f5f2ec;--text:#222;--text-sub:#555;--text-light:#888;--gold:#b8922e;--gold-bright:#d4a72c;--gold-light:#f0d77b;--gold-dark:#8a6d1a;--red:#d72631;--red-dark:#b51d26;--black:#1a1a1a;--border:#e8e4dc;--shadow:rgba(0,0,0,.08);--font:'Noto Sans JP',sans-serif;--font-a:'Zen Kaku Gothic New',sans-serif;--gold-grad:linear-gradient(135deg,#c9a227,#f0d060,#c9a227)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
@@ -30,6 +30,8 @@ header .container{display:flex;align-items:center;justify-content:space-between;
 nav{display:flex;align-items:center;gap:18px}
 nav a{color:var(--text-sub);text-decoration:none;font-size:.74rem;font-weight:700;transition:color .3s}nav a:hover{color:var(--red)}
 .ncta{background:var(--red);color:#fff!important;padding:8px 18px;font-weight:700!important;font-size:.72rem!important;border-radius:4px;transition:background .3s!important}.ncta:hover{background:var(--red-dark)!important}
+.nav-diagnosis-button{background:var(--gold-grad);color:#3a2800!important;padding:8px 14px;font-weight:700!important;font-size:.72rem!important;border-radius:4px;white-space:nowrap;box-shadow:0 2px 6px rgba(184,146,46,.35);transition:filter .25s,box-shadow .25s!important}.nav-diagnosis-button:hover{filter:brightness(1.1);box-shadow:0 4px 12px rgba(184,146,46,.45)!important;color:#3a2800!important}
+.mnav .mnav-diagnosis{color:var(--gold-dark);font-weight:700}
 .hbr{display:none;background:none;border:none;cursor:pointer;padding:6px}.hbr span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0}
 .mnav{display:none;position:fixed;top:68px;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:16px 24px;border-bottom:1px solid var(--border)}.mnav.open{display:block}.mnav a{display:block;padding:12px 0;color:var(--text-sub);text-decoration:none;font-size:.85rem;border-bottom:1px solid #eee}
 /* ── ヒーロービジュアル ── */
@@ -154,7 +156,7 @@ body.hero-ready .title-glow{animation:glowFlash .9s ease-out .3s}
 #video{background:var(--bg)}.vg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:40px}.vc{background:var(--white);border-radius:10px;padding:24px;border:1px solid var(--border);transition:transform .3s}.vc:hover{transform:translateY(-3px)}.vc h4{font-size:.9rem;font-weight:700;margin-bottom:6px}.vc p{font-size:.76rem;color:var(--text-sub);line-height:1.7;margin-bottom:10px}.vl{font-size:.72rem;color:var(--red);text-decoration:none;font-weight:700}.vl:hover{text-decoration:underline}
 #faq{background:var(--white)}.fl{margin-top:40px;max-width:760px}.fqi{border-bottom:1px solid var(--border)}.fq{width:100%;background:none;border:none;font-family:var(--font);font-size:.92rem;font-weight:700;text-align:left;padding:20px 0;cursor:pointer;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .3s}.fq:hover{color:var(--red)}.fq::after{content:'+';font-size:1.3rem;color:var(--gold);transition:transform .3s;flex-shrink:0}.fqi.open .fq::after{transform:rotate(45deg)}.fa{max-height:0;overflow:hidden;transition:max-height .4s}.fqi.open .fa{max-height:300px;padding-bottom:20px}.fa p{font-size:.82rem;color:var(--text-sub);line-height:1.9}
 footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;margin-bottom:30px}.ftl{font-family:var(--font-a);font-weight:900;font-size:1rem;color:#fff;margin-bottom:8px}.ftl .g{color:var(--gold-bright)}.ftd{font-size:.7rem;color:#888;max-width:280px;line-height:1.7}.ftk{display:flex;gap:36px}.ftc h4{font-size:.62rem;letter-spacing:.2em;color:var(--gold);margin-bottom:10px}.ftc a{display:block;font-size:.72rem;color:#888;text-decoration:none;margin-bottom:6px;transition:color .3s}.ftc a:hover{color:var(--gold-light)}.ftb{border-top:1px solid #333;padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}.ftb p{font-size:.6rem;color:#555}
-@media(max-width:980px){nav a:not(.ncta){display:none}.hbr{display:block}.hero-inner,.video-grid,.manual-lead,.history-wrap,.cta-grid,.champ-grid{grid-template-columns:1fr}.r2c,.split-highlights{grid-template-columns:1fr}.qg{grid-template-columns:repeat(2,minmax(0,1fr))}.ftk{grid-template-columns:1fr;flex-direction:column;gap:20px}}
+@media(max-width:980px){nav a:not(.ncta):not(.nav-diagnosis-button){display:none}.hbr{display:block}.hero-inner,.video-grid,.manual-lead,.history-wrap,.cta-grid,.champ-grid{grid-template-columns:1fr}.r2c,.split-highlights{grid-template-columns:1fr}.qg{grid-template-columns:repeat(2,minmax(0,1fr))}.ftk{grid-template-columns:1fr;flex-direction:column;gap:20px}}
 @media(max-width:640px){.hero-sr{gap:12px}.hero-photo{min-height:460px}.qg{grid-template-columns:1fr}.gg{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}.ri{grid-template-columns:36px 1fr auto;gap:10px;padding:12px 10px}.sc{grid-template-columns:1fr}.gi.wide{grid-column:span 1}.hero-note{display:none}.hero-sub{font-size:.86rem;line-height:1.75;letter-spacing:0}}
 /* ── 最新情報カード ── */
 .news-info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:20px}
@@ -357,6 +359,7 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
       <a href="archive-docs.html">資料館</a>
       <a href="goods.html">グッズ</a>
       <a href="timeline.html">シリーズ年表</a>
+      <a href="diagnosis.html" class="nav-diagnosis-button">営業タイプ診断</a>
       <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ncta">イベント出演依頼</a>
       <button class="hbr" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="メニュー"><span></span><span></span><span></span></button>
     </nav>
@@ -371,6 +374,7 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
   <a href="archive-docs.html">資料館</a>
   <a href="goods.html">グッズ</a>
   <a href="timeline.html">シリーズ年表</a>
+  <a href="diagnosis.html" class="mnav-diagnosis">営業タイプ診断</a>
   <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
 </div>
 <section class="hero hero-visual">
