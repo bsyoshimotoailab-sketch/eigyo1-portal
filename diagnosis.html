@@ -145,6 +145,72 @@ nav a:hover{color:var(--red)}
 }
 .btn-retry:hover{border-color:var(--text);color:var(--black)}
 
+/* ── SNS共有カード ── */
+.share-result-card{
+  margin:0 0 24px;
+  padding:24px 22px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#fff9e6,#fffdf6);
+  border:2px solid rgba(190,140,40,.35);
+  box-shadow:0 8px 28px rgba(0,0,0,.1);
+}
+.share-result-kicker{
+  font-size:.72rem;font-weight:800;letter-spacing:.1em;
+  color:#9a6a00;margin-bottom:6px;
+}
+.share-result-type-sub{
+  font-size:.82rem;color:var(--text-light);margin-bottom:4px;
+}
+.share-result-title{
+  font-family:var(--font-a);
+  font-size:clamp(1.55rem,5vw,2.3rem);
+  font-weight:900;color:var(--black);
+  line-height:1.25;margin:0 0 8px;
+}
+.share-result-catch{
+  font-size:.95rem;font-weight:700;
+  color:var(--gold-dark);line-height:1.65;
+  margin-bottom:0;
+}
+.share-result-divider{
+  height:1px;background:rgba(190,140,40,.22);margin:14px 0;
+}
+.share-result-sublabel{
+  font-size:.72rem;font-weight:800;letter-spacing:.08em;
+  color:#9a6a00;margin-bottom:8px;
+}
+.share-result-bullets{
+  margin:0;padding-left:1.1em;
+}
+.share-result-bullets li{
+  font-size:.86rem;color:var(--text);line-height:1.65;margin-bottom:5px;
+}
+.share-result-genre{
+  margin-top:14px;padding:10px 14px;border-radius:10px;
+  background:rgba(255,255,255,.8);
+  font-size:.84rem;line-height:1.65;color:var(--text-sub);
+}
+.share-result-genre-label{
+  font-size:.68rem;font-weight:800;color:#9a6a00;
+  display:block;margin-bottom:4px;letter-spacing:.06em;
+}
+.share-result-hashtags{
+  margin-top:12px;font-size:.76rem;color:#aaa;
+}
+/* ── 結果注意書き ── */
+.result-disclaimer{
+  margin-top:18px;padding-top:12px;
+  border-top:1px solid rgba(0,0,0,.1);
+  font-size:.76rem;line-height:1.65;
+  color:#888;text-align:center;
+}
+@media(max-width:640px){
+  .share-result-card{padding:18px 16px;border-radius:16px}
+  .share-result-title{font-size:1.45rem}
+  .share-result-catch{font-size:.9rem}
+  .share-result-bullets li{font-size:.84rem}
+}
+
 /* ── フッター ── */
 footer{background:var(--black);color:#888;padding:32px 0}
 .ft-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
@@ -234,17 +300,15 @@ footer a:hover{color:var(--gold-light)}
 
     <!-- 結果 -->
     <div id="result-section" class="result-wrap">
-      <div class="result-header">
-        <div class="result-label">YOUR TYPE</div>
-        <div class="result-type-main" id="result-type-display"></div>
-        <div class="result-type-sub" id="result-type-sub"></div>
-        <div class="result-copy-tag">#営業1グランプリ #営業タイプ診断</div>
-      </div>
+      <!-- SNS共有カード（JS で構築） -->
+      <div id="share-result-card-wrap"></div>
+      <!-- 詳細 -->
       <div class="result-body" id="result-body"></div>
       <div class="result-actions">
         <button class="btn-copy" id="btn-copy">📋 結果をコピーする</button>
         <button class="btn-retry" id="btn-retry">🔄 もう一度診断する</button>
       </div>
+      <p class="result-disclaimer">※この診断は営業-1グランプリ的な遊びコンテンツです。実際の営業成績、契約率、ノールック契約力を保証するものではありません。</p>
     </div>
   </div>
 </div>
@@ -492,49 +556,93 @@ function showResult() {
 
   const data = TYPES[mainType];
   const hasSubtype = secondType && scores[secondType] > 0 && scores[secondType] >= maxScore - 1;
+  const typeLabel = (hasSubtype && secondType !== mainType)
+    ? mainType + ' 寄りの ' + secondType
+    : mainType;
+  const typeSub = (hasSubtype && secondType !== mainType)
+    ? 'あなたは「' + typeLabel + '」です。'
+    : 'あなたは「' + mainType + '」です。';
 
-  let typeDisplay = 'あなたは ' + mainType;
-  let typeSub = '';
-  if (hasSubtype && secondType !== mainType) {
-    typeDisplay = mainType + ' 寄りの ' + secondType;
-    typeSub = 'あなたは「' + typeDisplay + '」です。';
-  } else {
-    typeSub = 'あなたは「' + mainType + '」です。';
-  }
+  // 強み文を最大3文に分割
+  const strengthSentences = data.strength
+    .split('。')
+    .map(function(s){ return s.trim(); })
+    .filter(function(s){ return s.length > 0; })
+    .slice(0, 3)
+    .map(function(s){ return s + '。'; });
 
-  document.getElementById('result-type-display').textContent = typeDisplay;
-  document.getElementById('result-type-sub').textContent = typeSub;
+  // ── SNS共有カード構築 ──
+  const liItems = strengthSentences.map(function(s){ return '<li>' + s + '</li>'; }).join('');
+  document.getElementById('share-result-card-wrap').innerHTML = [
+    '<div class="share-result-card">',
+    '  <div class="share-result-kicker">営業-1グランプリ 営業タイプ診断</div>',
+    '  <div class="share-result-type-sub">' + typeSub + '</div>',
+    '  <h2 class="share-result-title">' + typeLabel + '</h2>',
+    '  <p class="share-result-catch">「' + data.hitokoto + '」</p>',
+    '  <div class="share-result-divider"></div>',
+    '  <div class="share-result-sublabel">あなたの強み</div>',
+    '  <ul class="share-result-bullets">' + liItems + '</ul>',
+    '  <div class="share-result-genre">',
+    '    <span class="share-result-genre-label">向いている営業ジャンル</span>',
+    '    ' + data.geinin,
+    '  </div>',
+    '  <div class="share-result-hashtags">#営業1グランプリ &nbsp;#営業タイプ診断</div>',
+    '</div>'
+  ].join('\n');
 
+  // ── 詳細ボディ ──
   const body = document.getElementById('result-body');
-  body.innerHTML = `
-    <div class="result-section">
-      <div class="result-section-label">タイプ解説</div>
-      <div class="result-section-text">${data.main}</div>
-    </div>
-    <div class="result-section">
-      <div class="result-section-label">強み</div>
-      <div class="result-section-text">${data.strength}</div>
-    </div>
-    <div class="result-section">
-      <div class="result-section-label">注意点</div>
-      <div class="result-section-text">${data.caution}</div>
-    </div>
-    <div class="result-section">
-      <div class="result-section-label">営業芸人でいうと</div>
-      <div class="result-section-text">${data.geinin}</div>
-    </div>
-    <div class="result-section">
-      <div class="result-section-label">講演会営業でいうと</div>
-      <div class="result-section-text">${data.kouenkai}</div>
-    </div>
-    <div class="result-hitokoto">
-      <p>「${data.hitokoto}」</p>
-    </div>
-  `;
+  body.innerHTML = [
+    '<div class="result-section">',
+    '  <div class="result-section-label">タイプ解説</div>',
+    '  <div class="result-section-text">' + data.main + '</div>',
+    '</div>',
+    '<div class="result-section">',
+    '  <div class="result-section-label">強み</div>',
+    '  <div class="result-section-text">' + data.strength + '</div>',
+    '</div>',
+    '<div class="result-section">',
+    '  <div class="result-section-label">注意点</div>',
+    '  <div class="result-section-text">' + data.caution + '</div>',
+    '</div>',
+    '<div class="result-section">',
+    '  <div class="result-section-label">営業芸人でいうと</div>',
+    '  <div class="result-section-text">' + data.geinin + '</div>',
+    '</div>',
+    '<div class="result-section">',
+    '  <div class="result-section-label">講演会営業でいうと</div>',
+    '  <div class="result-section-text">' + data.kouenkai + '</div>',
+    '</div>',
+    '<div class="result-hitokoto"><p>「' + data.hitokoto + '」</p></div>'
+  ].join('\n');
 
-  // コピー用テキスト保存
-  const subLabel = (hasSubtype && secondType !== mainType) ? mainType + ' 寄りの ' + secondType : mainType;
-  window._copyText = `私の営業タイプは「${mainType}」でした。\n営業芸人でいうと、${data.geinin.split('。')[0]}。\n#営業1グランプリ #営業タイプ診断`;
+  // ── SNS向けコピー文生成 ──
+  const bulletLines = strengthSentences.map(function(s){ return '・' + s; }).join('\n');
+  const copyUrl = window.location.href;
+  window._copyText = [
+    '【営業-1グランプリ営業タイプ診断】',
+    '',
+    '私の結果は…',
+    '「' + mainType + '」！',
+    '',
+    data.hitokoto,
+    '',
+    '▼あなたの営業的強み',
+    bulletLines,
+    '',
+    '▼向いている営業ジャンル',
+    data.geinin,
+    '',
+    'ノールック契約できるかはさておき、',
+    '営業現場ではかなり"えぇ感じ"に輝けるタイプかもしれません。',
+    '',
+    'あなたも診断してみてください。',
+    copyUrl,
+    '',
+    '#営業1グランプリ',
+    '#営業タイプ診断',
+    '#BSよしもと'
+  ].join('\n');
   window._mainType = mainType;
 
   document.getElementById('result-section').style.display = 'block';
@@ -542,23 +650,33 @@ function showResult() {
 }
 
 function copyResult() {
-  navigator.clipboard.writeText(window._copyText || '').then(() => {
-    const btn = document.getElementById('btn-copy');
-    btn.textContent = '✓ コピーしました';
+  const text = window._copyText || '';
+  const btn = document.getElementById('btn-copy');
+  function onSuccess() {
+    btn.textContent = '✓ 結果をコピーしました！';
     btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = '📋 結果をコピーする'; btn.classList.remove('copied'); }, 2200);
-  }).catch(() => {
-    // fallback
-    const ta = document.createElement('textarea');
-    ta.value = window._copyText || '';
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    const btn = document.getElementById('btn-copy');
-    btn.textContent = '✓ コピーしました';
-    setTimeout(() => { btn.textContent = '📋 結果をコピーする'; }, 2200);
-  });
+    setTimeout(function(){ btn.textContent = '📋 結果をコピーする'; btn.classList.remove('copied'); }, 2500);
+  }
+  function onFail() {
+    alert('コピーできませんでした。お手数ですが、テキストを手動で選択してください。');
+  }
+  function fallbackCopy() {
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.cssText = 'position:fixed;top:-9999px;left:-9999px;opacity:0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      onSuccess();
+    } catch(e) { onFail(); }
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(onSuccess).catch(fallbackCopy);
+  } else {
+    fallbackCopy();
+  }
 }
 
 function retryDiagnosis() {
