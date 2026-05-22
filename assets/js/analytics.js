@@ -125,9 +125,6 @@
   }
 
   window._fetchDiagnosisCounter = function (resultType) {
-    console.log('[counter] _fetchDiagnosisCounter called', resultType);
-    console.log('[counter] API URL:', GAS_URL);
-
     // 同一セッション内で既にカウント済みなら保存値を再表示
     try {
       var already = sessionStorage.getItem(COUNTED_KEY);
@@ -136,7 +133,6 @@
         showCounterText(stored
           ? 'あなたは' + stored + '人目の営業芸人です'
           : '今日からあなたも営業芸人です');
-        console.log('[counter] already counted this session, stored total:', stored);
         return;
       }
     } catch (e) {}
@@ -149,7 +145,6 @@
       if (!done) {
         done = true;
         cleanup();
-        console.log('[counter] timeout (7s)');
         showCounterText('今日からあなたも営業芸人です');
       }
     }, 7000);
@@ -159,17 +154,14 @@
       done = true;
       clearTimeout(timer);
       cleanup();
-      console.log('[counter] callback received:', data);
       try {
         if (data && data.ok === true && typeof data.total === 'number') {
-          console.log('[counter] total:', data.total);
           try {
             sessionStorage.setItem(COUNTED_KEY, '1');
             sessionStorage.setItem(TOTAL_KEY, String(data.total));
           } catch (e) {}
           showCounterText('あなたは' + data.total + '人目の営業芸人です');
         } else {
-          console.log('[counter] unexpected response, showing fallback');
           showCounterText('今日からあなたも営業芸人です');
         }
       } catch (e) {
@@ -187,8 +179,6 @@
       + '&resultType=' + encodeURIComponent(resultType || '')
       + '&callback=' + cbName;
 
-    console.log('[counter] JSONP request:', GAS_URL + params);
-
     var script = document.createElement('script');
     script.id = '_eigyo1CScript';
     script.src = GAS_URL + params;
@@ -197,7 +187,6 @@
         done = true;
         clearTimeout(timer);
         cleanup();
-        console.log('[counter] script.onerror fired');
         showCounterText('今日からあなたも営業芸人です');
       }
     };
