@@ -4,6 +4,15 @@
  * 本番公開前に GA_MEASUREMENT_ID を正式IDに差し替えてください。
  * 仮ID（G-XXXXXXXXXX）のままではGA4スクリプトを読み込まず、
  * サイト表示・ボタン動作に一切影響しません。
+ *
+ * 計測イベント一覧:
+ *   booking_click          - イベント出演依頼ボタン (.ncta) クリック
+ *   diagnosis_start        - 診断スタートボタン クリック
+ *   diagnosis_result_shown - 診断結果画面 表示完了
+ *   result_copy            - 結果コピーボタン クリック
+ *   youtube_click          - YouTube外部リンク クリック
+ *   goods_page_view        - グッズページ 表示
+ *   click_goods_link       - Wattsオンラインショップリンク クリック
  */
 (function () {
   'use strict';
@@ -40,14 +49,14 @@
 
   // ── クリック計測セットアップ ──
   function setupTracking() {
-    // イベント出演依頼ボタン（.ncta）
+    // イベント出演依頼ボタン（.ncta）→ booking_click
     document.querySelectorAll('a.ncta').forEach(function (el) {
       el.addEventListener('click', function () {
-        sendEvent('click_cta_event_request', { link_url: el.href });
+        sendEvent('booking_click', { link_url: el.href });
       });
     });
 
-    // 診断スタートボタン
+    // 診断スタートボタン → diagnosis_start
     var startBtn = document.getElementById('start-btn');
     if (startBtn) {
       startBtn.addEventListener('click', function () {
@@ -55,7 +64,15 @@
       });
     }
 
-    // 診断結果コピーボタン
+    // 診断結果画面 表示完了 → diagnosis_result_shown
+    // diagnosis.html の showResult() がカスタムイベントを dispatch する
+    document.addEventListener('diagnosisResultShown', function (e) {
+      sendEvent('diagnosis_result_shown', {
+        diagnosis_type: (e.detail && e.detail.type) || ''
+      });
+    });
+
+    // 診断結果コピーボタン → result_copy
     var copyBtn = document.getElementById('btn-copy');
     if (copyBtn) {
       copyBtn.addEventListener('click', function () {
@@ -63,22 +80,28 @@
       });
     }
 
-    // YouTubeへの外部リンク
+    // YouTubeへの外部リンク → youtube_click
     document.querySelectorAll('a[href*="youtube.com"], a[href*="youtu.be"]').forEach(function (el) {
       el.addEventListener('click', function () {
-        sendEvent('click_youtube', {
+        sendEvent('youtube_click', {
           link_url: el.href,
           link_text: (el.textContent || '').trim().slice(0, 100)
         });
       });
     });
 
-    // Wattsオンラインショップ（グッズ系）リンク
+    // Wattsオンラインショップリンク → click_goods_link
     document.querySelectorAll('a[href*="watts-online.jp"]').forEach(function (el) {
       el.addEventListener('click', function () {
         sendEvent('click_goods_link', { link_url: el.href });
       });
     });
+
+    // グッズページビュー → goods_page_view
+    // goods.html でのみ発火（pathname に "goods" を含む場合）
+    if (/goods/.test(window.location.pathname)) {
+      sendEvent('goods_page_view');
+    }
   }
 
   // defer属性で読み込まれるため、DOM解析完了後に実行される
@@ -89,3 +112,85 @@
     setupTracking();
   }
 })();
+
+// ── 診断カウンター (JSONP) ────────────────────────────────
+(function () {
+  var GAS_URL = 'https://script.google.com/macros/s/AKfycbwMIAHZxjcHD-cXu_Y21Oe_wsXjy8WzzSfyIiK5ghDI8Mq6P1DpKdaYoAA_-0FQwi2Pfg/exec';
+  var COUNTED_KEY = 'eigyo1_counted';
+  var TOTAL_KEY   = 'eigyo1_counter_total';
+
+  function showCounterText(text) {
+    var el = document.getElementById('diagnosis-counter-text');
+    if (el) el.textContent = text;
+  }
+
+  window._fetchDiagnosisCounter = function (resultType) {
+    // 同一セッション内で既にカウント済みなら保存値を再表示
+    try {
+      var already = sessionStorage.getItem(COUNTED_KEY);
+      if (already) {
+        var stored = sessionStorage.getItem(TOTAL_KEY);
+        showCounterText(stored
+          ? 'あなたは' + stored + '人目の営業芸人です'
+          : '今日からあなたも営業芸人です');
+        return;
+      }
+    } catch (e) {}
+
+    // JSONP 呼び出し（コールバック名にタイムスタンプで重複回避）
+    var cbName = '_eigyo1Cb' + Date.now();
+    var done = false;
+
+    var timer = setTimeout(function () {
+      if (!done) {
+        done = true;
+        cleanup();
+        showCounterText('今日からあなたも営業芸人です');
+      }
+    }, 7000);
+
+    window[cbName] = function (data) {
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      cleanup();
+      try {
+        if (data && data.ok === true && typeof data.total === 'number') {
+          try {
+            sessionStorage.setItem(COUNTED_KEY, '1');
+            sessionStorage.setItem(TOTAL_KEY, String(data.total));
+          } catch (e) {}
+          showCounterText('あなたは' + data.total + '人目の営業芸人です');
+        } else {
+          showCounterText('今日からあなたも営業芸人です');
+        }
+      } catch (e) {
+        showCounterText('今日からあなたも営業芸人です');
+      }
+    };
+
+    function cleanup() {
+      try { delete window[cbName]; } catch (e) {}
+      var s = document.getElementById('_eigyo1CScript');
+      if (s && s.parentNode) s.parentNode.removeChild(s);
+    }
+
+    var params = '?action=diagnosis_complete'
+      + '&resultType=' + encodeURIComponent(resultType || '')
+      + '&callback=' + cbName;
+
+    var script = document.createElement('script');
+    script.id = '_eigyo1CScript';
+    script.src = GAS_URL + params;
+    script.onerror = function () {
+      if (!done) {
+        done = true;
+        clearTimeout(timer);
+        cleanup();
+        showCounterText('今日からあなたも営業芸人です');
+      }
+    };
+    document.head.appendChild(script);
+  };
+})();
+// ─────────────────────────────────────────────────────────

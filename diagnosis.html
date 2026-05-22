@@ -235,7 +235,7 @@ footer a:hover{color:var(--gold-light)}
       <a href="archive-docs.html">資料館</a>
       <a href="goods.html">グッズ</a>
       <a href="timeline.html">シリーズ年表</a>
-      <a href="diagnosis.html" class="nav-diagnosis-button">営業タイプ診断</a>
+      <a href="diagnosis.html" class="nav-diagnosis-button">営業タイプAI診断</a>
       <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ncta">イベント出演依頼</a>
       <button class="hbr" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="メニュー">
         <span></span><span></span><span></span>
@@ -253,7 +253,7 @@ footer a:hover{color:var(--gold-light)}
   <a href="archive-docs.html">資料館</a>
   <a href="goods.html">グッズ</a>
   <a href="timeline.html">シリーズ年表</a>
-  <a href="diagnosis.html" class="mnav-diagnosis">営業タイプ診断</a>
+  <a href="diagnosis.html" class="mnav-diagnosis">営業タイプAI診断</a>
   <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
 </div>
 
@@ -577,7 +577,7 @@ function showResult() {
   document.getElementById('share-result-card-wrap').innerHTML = [
     '<div class="share-result-card">',
     '  <div class="share-result-kicker">営業-1グランプリ 営業タイプ診断</div>',
-    '  <div class="share-result-type-sub">' + typeSub + '</div>',
+    '  <div class="share-result-type-sub" id="diagnosis-counter-text">今日からあなたも営業芸人です</div>',
     '  <h2 class="share-result-title">' + typeLabel + '</h2>',
     '  <p class="share-result-catch">「' + data.hitokoto + '」</p>',
     '  <div class="share-result-divider"></div>',
@@ -647,6 +647,13 @@ function showResult() {
 
   document.getElementById('result-section').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // 診断カウンター呼び出し
+  if (typeof window._fetchDiagnosisCounter === 'function') {
+    window._fetchDiagnosisCounter(mainType);
+  }
+  // GA4 カスタムイベント通知
+  document.dispatchEvent(new CustomEvent('diagnosisResultShown', { detail: { type: mainType } }));
 }
 
 function copyResult() {
