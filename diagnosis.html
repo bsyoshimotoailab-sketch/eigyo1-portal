@@ -211,6 +211,20 @@ nav a:hover{color:var(--red)}
   .share-result-bullets li{font-size:.84rem}
 }
 
+/* ── 診断カウンター ── */
+.diagnosis-counter{
+  text-align:center;
+  margin:0 0 18px;
+  padding:10px 18px;
+  background:rgba(184,146,46,.07);
+  border:1px solid rgba(184,146,46,.3);
+  border-radius:24px;
+  font-size:.82rem;
+  font-weight:700;
+  color:var(--gold-dark);
+  letter-spacing:.04em;
+}
+
 /* ── フッター ── */
 footer{background:var(--black);color:#888;padding:32px 0}
 .ft-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
@@ -303,6 +317,8 @@ footer a:hover{color:var(--gold-light)}
     <div id="result-section" class="result-wrap">
       <!-- SNS共有カード（JS で構築） -->
       <div id="share-result-card-wrap"></div>
+      <!-- 診断カウンター（JS で構築） -->
+      <div id="diagnosis-counter-wrap"></div>
       <!-- 詳細 -->
       <div class="result-body" id="result-body"></div>
       <div class="result-actions">
@@ -419,6 +435,87 @@ const QUESTIONS = [
     ]
   }
 ];
+
+// ── 診断カウンター ──────────────────────────────────────
+// 本番反映前に Google Apps Script の WebアプリURLを差し替えること
+const DIAGNOSIS_COUNTER_API_URL = 'PASTE_GAS_URL_HERE';
+
+(function() {
+  var _IS_REAL_COUNTER_URL = (function() {
+    var u = DIAGNOSIS_COUNTER_API_URL;
+    return u !== 'PASTE_GAS_URL_HERE' && /^https:\/\/script\.google\.com\//.test(u);
+  })();
+  var _COUNTED_KEY   = 'eigyo1_counted';
+  var _TOTAL_KEY     = 'eigyo1_counter_total';
+
+  function _showCounter(html) {
+    var wrap = document.getElementById('diagnosis-counter-wrap');
+    if (wrap) wrap.innerHTML = '<div class="diagnosis-counter">' + html + '</div>';
+  }
+
+  window._fetchDiagnosisCounter = function(resultType) {
+    if (!_IS_REAL_COUNTER_URL) {
+      _showCounter('今日からあなたも営業芸人です');
+      return;
+    }
+
+    // 同一セッション内で既にカウント済みなら保存済み数値を再表示
+    try {
+      var alreadyCounted = sessionStorage.getItem(_COUNTED_KEY);
+      if (alreadyCounted) {
+        var storedTotal = sessionStorage.getItem(_TOTAL_KEY);
+        _showCounter(storedTotal
+          ? 'あなたは' + storedTotal + '人目の営業芸人です'
+          : '今日からあなたも営業芸人です');
+        return;
+      }
+    } catch(e) {}
+
+    // JSONP 呼び出し
+    var cbName = '_eigyo1CounterCb';
+    var done = false;
+
+    var timer = setTimeout(function() {
+      if (!done) { done = true; _cleanup(); _showCounter('今日からあなたも営業芸人です'); }
+    }, 5000);
+
+    window[cbName] = function(data) {
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      _cleanup();
+      try {
+        if (data && data.ok === true && typeof data.total === 'number') {
+          try {
+            sessionStorage.setItem(_COUNTED_KEY, '1');
+            sessionStorage.setItem(_TOTAL_KEY, String(data.total));
+          } catch(e) {}
+          _showCounter('あなたは' + data.total + '人目の営業芸人です');
+        } else {
+          _showCounter('今日からあなたも営業芸人です');
+        }
+      } catch(e) { _showCounter('今日からあなたも営業芸人です'); }
+    };
+
+    function _cleanup() {
+      try { delete window[cbName]; } catch(e) {}
+      var s = document.getElementById('_eigyo1CounterScript');
+      if (s && s.parentNode) s.parentNode.removeChild(s);
+    }
+
+    var params = '?callback=' + cbName;
+    if (resultType) params += '&type=' + encodeURIComponent(resultType);
+
+    var script = document.createElement('script');
+    script.id = '_eigyo1CounterScript';
+    script.src = DIAGNOSIS_COUNTER_API_URL + params;
+    script.onerror = function() {
+      if (!done) { done = true; clearTimeout(timer); _cleanup(); _showCounter('今日からあなたも営業芸人です'); }
+    };
+    document.head.appendChild(script);
+  };
+})();
+// ────────────────────────────────────────────────────────
 
 const TYPES = {
   "戦略提案型": {
@@ -647,6 +744,13 @@ function showResult() {
 
   document.getElementById('result-section').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // 診断カウンター呼び出し
+  if (typeof window._fetchDiagnosisCounter === 'function') {
+    window._fetchDiagnosisCounter(mainType);
+  }
+  // GA4 カスタムイベント通知
+  document.dispatchEvent(new CustomEvent('diagnosisResultShown', { detail: { type: mainType } }));
 }
 
 function copyResult() {
