@@ -211,20 +211,6 @@ nav a:hover{color:var(--red)}
   .share-result-bullets li{font-size:.84rem}
 }
 
-/* ── 診断カウンター ── */
-.diagnosis-counter{
-  text-align:center;
-  margin:0 0 18px;
-  padding:10px 18px;
-  background:rgba(184,146,46,.07);
-  border:1px solid rgba(184,146,46,.3);
-  border-radius:24px;
-  font-size:.82rem;
-  font-weight:700;
-  color:var(--gold-dark);
-  letter-spacing:.04em;
-}
-
 /* ── フッター ── */
 footer{background:var(--black);color:#888;padding:32px 0}
 .ft-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
@@ -317,8 +303,6 @@ footer a:hover{color:var(--gold-light)}
     <div id="result-section" class="result-wrap">
       <!-- SNS共有カード（JS で構築） -->
       <div id="share-result-card-wrap"></div>
-      <!-- 診断カウンター（JS で構築） -->
-      <div id="diagnosis-counter-wrap"></div>
       <!-- 詳細 -->
       <div class="result-body" id="result-body"></div>
       <div class="result-actions">
@@ -448,9 +432,9 @@ const DIAGNOSIS_COUNTER_API_URL = 'PASTE_GAS_URL_HERE';
   var _COUNTED_KEY   = 'eigyo1_counted';
   var _TOTAL_KEY     = 'eigyo1_counter_total';
 
-  function _showCounter(html) {
-    var wrap = document.getElementById('diagnosis-counter-wrap');
-    if (wrap) wrap.innerHTML = '<div class="diagnosis-counter">' + html + '</div>';
+  function _showCounter(text) {
+    var el = document.getElementById('diagnosis-counter-text');
+    if (el) el.textContent = text;
   }
 
   window._fetchDiagnosisCounter = function(resultType) {
@@ -674,7 +658,7 @@ function showResult() {
   document.getElementById('share-result-card-wrap').innerHTML = [
     '<div class="share-result-card">',
     '  <div class="share-result-kicker">営業-1グランプリ 営業タイプ診断</div>',
-    '  <div class="share-result-type-sub">' + typeSub + '</div>',
+    '  <div class="share-result-type-sub" id="diagnosis-counter-text">今日からあなたも営業芸人です</div>',
     '  <h2 class="share-result-title">' + typeLabel + '</h2>',
     '  <p class="share-result-catch">「' + data.hitokoto + '」</p>',
     '  <div class="share-result-divider"></div>',
