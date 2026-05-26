@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -33,7 +33,8 @@ nav a{color:var(--text-sub);font-size:.74rem;font-weight:700;transition:color .3
 nav a:hover{color:var(--red)}
 .ncta{background:var(--red);color:#fff!important;padding:8px 18px;font-weight:700!important;font-size:.72rem!important;border-radius:4px;transition:background .3s!important}
 .ncta:hover{background:var(--red-dark)!important}
-.nav-diagnosis-button{background:var(--gold-grad);color:#3a2800!important;padding:8px 14px;font-weight:700!important;font-size:.72rem!important;border-radius:4px;white-space:nowrap;box-shadow:0 2px 6px rgba(184,146,46,.35);transition:filter .25s,box-shadow .25s!important}.nav-diagnosis-button:hover{filter:brightness(1.1);box-shadow:0 4px 12px rgba(184,146,46,.45)!important;color:#3a2800!important}
+.nav-diagnosis-button{background:var(--gold-grad);color:#3a2800!important;padding:8px 14px;font-weight:700!important;font-size:.72rem!important;border-radius:4px;white-space:nowrap;box-shadow:0 2px 6px rgba(184,146,46,.35);transition:filter .25s,box-shadow .25s!important}
+.nav-diagnosis-button:hover{filter:brightness(1.1);box-shadow:0 4px 12px rgba(184,146,46,.45)!important;color:#3a2800!important}
 .mnav .mnav-diagnosis{color:var(--gold-dark);font-weight:700}
 .hbr{display:none;background:none;border:none;cursor:pointer;padding:6px}
 .hbr span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0}
@@ -53,235 +54,67 @@ nav a:hover{color:var(--red)}
 .page-hero{background:var(--black);padding:clamp(36px,6vw,64px) 0 clamp(28px,5vw,48px)}
 .page-hero-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
 .page-hero-label{font-size:.64rem;letter-spacing:.24em;color:var(--gold-light);font-weight:700;margin-bottom:12px}
-.page-hero-title{font-family:var(--font-a);font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;color:var(--white);line-height:1.25;margin-bottom:12px}
-.page-hero-desc{font-size:.88rem;color:#999;max-width:600px;line-height:1.85}
+.page-hero-title{font-family:var(--font-a);font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;color:var(--white);line-height:1.25}
 
 /* ── メイン ── */
 .page-wrap{padding-top:68px}
-.main-area{max-width:1180px;margin:0 auto;padding:clamp(36px,5vw,56px) clamp(16px,4vw,40px) clamp(60px,10vw,100px)}
+.main-area{max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,80px) clamp(16px,4vw,40px) clamp(80px,12vw,120px)}
 
-/* ── セクション見出し ── */
-.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:24px;padding-bottom:14px;border-bottom:2px solid var(--border)}
-.sec-label{font-family:var(--font-a);font-size:1.4rem;font-weight:900;color:var(--black)}
-.sec-sub{font-size:.8rem;color:var(--text-sub)}
-.sec-count{font-size:.72rem;color:var(--text-light);margin-left:auto;font-weight:700}
-
-/* ── Wattsコラボブロック ── */
-.collab-block{
-  background:var(--white);border:1px solid var(--border);border-radius:10px;
-  padding:24px 28px;margin-bottom:20px;
-  display:grid;
-  grid-template-columns:1fr minmax(0,400px);
-  gap:28px;
-  align-items:center;
-}
-.collab-left{display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap}
-.collab-logo{flex-shrink:0}
-.collab-logo img{height:58px;width:auto;object-fit:contain;display:block}
-.collab-info{flex:1;min-width:160px}
-.collab-tag{font-size:.62rem;letter-spacing:.2em;color:var(--gold-dark);font-weight:700;margin-bottom:4px}
-.collab-name{font-size:1.05rem;font-weight:900;color:var(--black);margin-bottom:8px}
-.collab-desc{font-size:.85rem;color:var(--text-sub);line-height:1.7;margin-bottom:4px}
-.collab-type{font-size:.8rem;font-weight:700;color:var(--text);margin-bottom:10px}
-.watts-sales-info{margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(184,146,46,.08);border:1px solid rgba(184,146,46,.22);font-size:.9rem;line-height:1.8;font-weight:700;color:#3a2800;margin-bottom:14px}
-.watts-sales-info span{font-size:.82rem;font-weight:500;color:#666}
-.collab-btn{display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;padding:9px 20px;font-size:.78rem;font-weight:700;border-radius:4px;text-decoration:none;transition:background .25s}
-.collab-btn:hover{background:var(--red-dark)}
-.collab-visual{background:#f7f7f5;border-radius:14px;padding:16px;box-shadow:0 4px 16px rgba(0,0,0,.07);overflow:hidden}
-.collab-visual img{width:100%;height:auto;display:block;object-fit:contain}
-@media(max-width:768px){
-  .collab-block{grid-template-columns:1fr;padding:18px 16px;gap:18px}
-  .collab-logo img{height:46px}
-  .collab-visual{margin-top:4px}
-}
-
-/* ── スライドガイド ── */
-.slide-guide{background:rgba(184,146,46,.07);border:1px solid rgba(184,146,46,.22);border-radius:8px;padding:12px 18px;margin-bottom:28px;font-size:.78rem;color:var(--text-sub);display:flex;align-items:center;gap:10px}
-.slide-guide-icon{font-size:1.1rem;flex-shrink:0}
-
-/* ── 商品グリッド ── */
-.prod-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  margin-bottom:48px;
-}
-@media(max-width:960px){.prod-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.prod-grid{grid-template-columns:1fr;gap:16px}}
-
-/* ── 商品カード ── */
-.prod-card{
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:12px;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  box-shadow:0 2px 8px var(--shadow);
-  transition:box-shadow .3s,transform .3s;
-}
-.prod-card:hover{
-  box-shadow:0 8px 28px rgba(0,0,0,.12);
-  transform:translateY(-3px);
-}
-@media(hover:none){.prod-card:hover{transform:none}}
-
-/* ── スライダー ── */
-.slide-wrap{
+/* ── Coming Soonセクション ── */
+.cs-card{
+  max-width:600px;
+  margin:0 auto;
+  background:var(--black);
+  border-radius:16px;
+  padding:clamp(48px,8vw,72px) clamp(28px,5vw,56px);
+  text-align:center;
+  box-shadow:0 8px 40px rgba(0,0,0,.18);
   position:relative;
-  background:#f7f7f5;
-  border-bottom:1px solid var(--border);
-  aspect-ratio:1/1;
   overflow:hidden;
 }
-.slide-track{
-  display:flex;
-  height:100%;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  scrollbar-width:none;
-  -ms-overflow-style:none;
-}
-.slide-track::-webkit-scrollbar{display:none}
-.slide-item{
-  flex:0 0 100%;
-  scroll-snap-align:start;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px;
-  cursor:zoom-in;
-}
-.slide-item img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  transition:transform .3s ease;
-}
-.slide-item:hover img{transform:scale(1.04)}
-@media(hover:none){.slide-item:hover img{transform:none}}
-
-.slide-btn{
+.cs-card::before{
+  content:'';
   position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:2;
-  background:rgba(255,255,255,.88);
-  border:1px solid rgba(0,0,0,.12);
-  border-radius:50%;
-  width:30px;height:30px;
-  cursor:pointer;
-  font-size:1rem;line-height:1;
-  display:flex;align-items:center;justify-content:center;
-  transition:background .2s,opacity .2s;
-  color:var(--black);
-  box-shadow:0 1px 4px rgba(0,0,0,.12);
-}
-.slide-btn:hover{background:#fff}
-.slide-btn.prev-btn{left:6px}
-.slide-btn.next-btn{right:6px}
-.slide-btn.hidden{display:none}
-
-.slide-counter{
-  position:absolute;
-  bottom:7px;right:9px;
-  font-size:.62rem;color:#666;
-  background:rgba(255,255,255,.78);
-  padding:2px 7px;border-radius:10px;
+  inset:0;
+  border-radius:16px;
+  padding:1px;
+  background:linear-gradient(135deg,rgba(201,162,39,.6),rgba(240,208,96,.25),rgba(201,162,39,.6));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
   pointer-events:none;
+}
+.cs-label{
+  font-size:.62rem;
+  letter-spacing:.28em;
+  color:var(--gold-light);
   font-weight:700;
-  letter-spacing:.04em;
+  margin-bottom:20px;
+  opacity:.8;
 }
-.slide-counter.hidden{display:none}
-
-/* ── 商品カード本文 ── */
-.prod-body{
-  padding:13px 15px 15px;
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-  flex:1;
+.cs-title{
+  font-family:var(--font-a);
+  font-size:clamp(2rem,6vw,3.2rem);
+  font-weight:900;
+  background:var(--gold-grad);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  line-height:1.1;
+  margin-bottom:28px;
+  letter-spacing:.06em;
 }
-.prod-name{
-  font-size:.87rem;font-weight:700;
-  color:var(--black);line-height:1.5;
+.cs-divider{
+  width:40px;
+  height:2px;
+  background:linear-gradient(90deg,transparent,rgba(201,162,39,.6),transparent);
+  margin:0 auto 28px;
 }
-.prod-count{
-  font-size:.7rem;color:var(--text-light);
+.cs-body{
+  font-size:.95rem;
+  color:#bbb;
+  line-height:1.95;
 }
-.prod-price{
-  font-size:.8rem;font-weight:700;color:var(--text-sub);
-  margin-top:3px;
-}
-.prod-description{
-  margin-top:10px;
-  font-size:.85rem;
-  line-height:1.75;
-  color:var(--text-sub);
-}
-.prod-note{
-  margin-top:6px;
-  font-size:.78rem;
-  line-height:1.6;
-  color:var(--text-light);
-}
-
-/* ── オンライン限定バッジ ── */
-.online-badge{
-  display:inline-block;
-  font-size:.6rem;font-weight:700;letter-spacing:.06em;
-  color:var(--gold-dark);
-  background:rgba(184,146,46,.1);
-  border:1px solid rgba(184,146,46,.35);
-  border-radius:3px;padding:2px 8px;
-  width:fit-content;
-}
-
-/* ── オンライン限定注釈 ── */
-.online-note{
-  font-size:.85rem;color:var(--text-sub);line-height:1.85;
-  padding:20px 24px;
-  background:rgba(184,146,46,.06);
-  border:1px solid rgba(184,146,46,.2);
-  border-radius:8px;
-  max-width:640px;
-}
-.online-note-link{color:var(--red);font-weight:700;font-size:.8rem}
-.online-note-link:hover{text-decoration:underline}
-
-/* ── オンライン限定セクション区切り ── */
-.online-section{
-  margin-top:8px;
-  padding-top:40px;
-  border-top:2px solid var(--border);
-}
-
-/* ── 下部導線 ── */
-.bottom-nav{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px) clamp(60px,10vw,90px);display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.bottom-link{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:6px;font-size:.8rem;font-weight:700;border:1.5px solid var(--border);color:var(--text-sub);background:var(--white);transition:all .25s}
-.bottom-link:hover{border-color:var(--text);color:var(--black)}
-
-/* ── モーダル ── */
-.modal-overlay{
-  display:none;
-  position:fixed;inset:0;z-index:2000;
-  background:rgba(0,0,0,.84);
-  align-items:center;justify-content:center;
-  padding:20px;
-}
-.modal-overlay.open{display:flex}
-.modal-box{position:relative;max-width:min(600px,90vw);width:100%}
-.modal-box img{width:100%;max-height:78vh;object-fit:contain;border-radius:10px;background:var(--white);padding:16px}
-.modal-close{
-  position:absolute;top:-14px;right:-14px;
-  background:var(--red);color:#fff;
-  border:none;cursor:pointer;
-  width:34px;height:34px;border-radius:50%;
-  font-size:1.1rem;display:flex;align-items:center;justify-content:center;
-  transition:background .2s;
-}
-.modal-close:hover{background:var(--red-dark)}
-.modal-caption{text-align:center;color:#ddd;font-size:.8rem;margin-top:10px;line-height:1.5}
 
 /* ── フッター ── */
 footer{background:var(--black);color:#888;padding:32px 0}
@@ -293,11 +126,6 @@ footer a:hover{color:var(--gold-light)}
 /* ── フェードイン ── */
 .fi{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
 .fi.v{opacity:1;transform:translateY(0)}
-
-/* ── アニメーション ── */
-.btn,a.button{transition:all .2s ease}
-.btn:hover,a.button:hover{opacity:.9;transform:translateY(-1px)}
-.bottom-link:active{transform:translateY(1px)!important;opacity:.9!important}
 
 /* ── タブレット以下 nav ── */
 @media(max-width:960px){
@@ -346,15 +174,6 @@ footer a:hover{color:var(--gold-light)}
   <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
 </div>
 
-<!-- モーダル -->
-<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()" aria-label="閉じる">✕</button>
-    <img id="modal-img" src="" alt="">
-    <div class="modal-caption" id="modal-cap"></div>
-  </div>
-</div>
-
 <div class="page-wrap">
 
   <!-- パンくず -->
@@ -371,337 +190,20 @@ footer a:hover{color:var(--gold-light)}
     <div class="page-hero-inner">
       <div class="page-hero-label">OFFICIAL GOODS</div>
       <h1 class="page-hero-title">番組関連グッズ</h1>
-      <p class="page-hero-desc">営業-1グランプリ × Watts コラボグッズ。店頭販売10種 ＋ オンラインショップ限定1種。</p>
     </div>
   </div>
 
   <!-- メインエリア -->
   <div class="main-area">
-
-    <!-- Wattsコラボブロック -->
-    <div class="collab-block fi">
-      <div class="collab-left">
-        <div class="collab-logo">
-          <img src="goods/watts_logo.png" alt="Watts ロゴ">
-        </div>
-        <div class="collab-info">
-          <div class="collab-tag">COLLABORATION</div>
-          <div class="collab-name">営業-1グランプリ × Watts コラボグッズ</div>
-          <p class="collab-desc">全国約350店舗のWattsでご購入いただけます。</p>
-          <p class="collab-type">店頭販売10種 ＋ オンラインショップ限定1種</p>
-          <p class="watts-sales-info">
-            7月9日より 全国350店舗で順次展開<br>
-            <span>※店舗によって取扱商品が変わります。</span><br>
-            オンラインショップは、7月15日からとなります。
-          </p>
-          <a href="https://watts-online.jp/" target="_blank" rel="noopener" class="collab-btn">Wattsオンラインショップ →</a>
-        </div>
-      </div>
-      <div class="collab-visual">
-        <img src="goods/goods_image/商品集合.jpg" alt="営業-1グランプリ Wattsコラボグッズ 商品集合">
-      </div>
+    <div class="cs-card fi">
+      <div class="cs-label">GOODS PAGE</div>
+      <div class="cs-title">COMING<br>SOON</div>
+      <div class="cs-divider"></div>
+      <p class="cs-body">
+        営業-1グランプリ関連グッズは、現在公開準備中です。<br>
+        詳細は後日こちらのページでお知らせします。
+      </p>
     </div>
-
-    <!-- スライド案内 -->
-    <div class="slide-guide fi">
-      <span class="slide-guide-icon">👆</span>
-      <span>色違い・デザイン違いは、各商品カード内で横にスライドして確認できます。画像をタップ／クリックすると拡大表示されます。</span>
-    </div>
-
-    <!-- 店頭販売10種 -->
-    <div class="sec-head fi">
-      <span class="sec-label">店頭販売</span>
-      <span class="sec-sub">全国約350店舗のWattsで販売中</span>
-      <span class="sec-count">10種</span>
-    </div>
-
-    <div class="prod-grid">
-
-      <!-- 1. アクリルスタンプ -->
-      <div class="prod-card fi">
-        <div class="slide-wrap">
-          <button class="slide-btn prev-btn" onclick="slideGo(this,-1)" aria-label="前へ">&#8249;</button>
-          <div class="slide-track">
-            <div class="slide-item" onclick="openModal('goods/goods_image/アクリルスタンプ_01.jpg','アクリルスタンプ')"><img src="goods/goods_image/アクリルスタンプ_01.jpg" alt="アクリルスタンプ 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/アクリルスタンプ_02.jpg','アクリルスタンプ')"><img src="goods/goods_image/アクリルスタンプ_02.jpg" alt="アクリルスタンプ 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/アクリルスタンプ_03.jpg','アクリルスタンプ')"><img src="goods/goods_image/アクリルスタンプ_03.jpg" alt="アクリルスタンプ 03" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/アクリルスタンプ_04.jpg','アクリルスタンプ')"><img src="goods/goods_image/アクリルスタンプ_04.jpg" alt="アクリルスタンプ 04" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/アクリルスタンプ_05.jpg','アクリルスタンプ')"><img src="goods/goods_image/アクリルスタンプ_05.jpg" alt="アクリルスタンプ 05" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/アクリルスタンプ_06.jpg','アクリルスタンプ')"><img src="goods/goods_image/アクリルスタンプ_06.jpg" alt="アクリルスタンプ 06" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/アクリルスタンプ_07.jpg','アクリルスタンプ')"><img src="goods/goods_image/アクリルスタンプ_07.jpg" alt="アクリルスタンプ 07" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/アクリルスタンプ_08.jpg','アクリルスタンプ')"><img src="goods/goods_image/アクリルスタンプ_08.jpg" alt="アクリルスタンプ 08" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/アクリルスタンプ_09.jpg','アクリルスタンプ')"><img src="goods/goods_image/アクリルスタンプ_09.jpg" alt="アクリルスタンプ 09" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/アクリルスタンプ_10.jpg','アクリルスタンプ')"><img src="goods/goods_image/アクリルスタンプ_10.jpg" alt="アクリルスタンプ 10" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/アクリルスタンプ_11.jpg','アクリルスタンプ')"><img src="goods/goods_image/アクリルスタンプ_11.jpg" alt="アクリルスタンプ 11" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/アクリルスタンプ_12.jpg','アクリルスタンプ')"><img src="goods/goods_image/アクリルスタンプ_12.jpg" alt="アクリルスタンプ 12" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/アクリルスタンプ_13.jpg','アクリルスタンプ')"><img src="goods/goods_image/アクリルスタンプ_13.jpg" alt="アクリルスタンプ 13" loading="lazy"></div>
-          </div>
-          <button class="slide-btn next-btn" onclick="slideGo(this,1)" aria-label="次へ">&#8250;</button>
-          <div class="slide-counter">1 / 13</div>
-        </div>
-        <div class="prod-body">
-          <div class="prod-name">アクリルスタンプ</div>
-          <div class="prod-price">税込 330円</div>
-          <p class="prod-description">営業-1の人気芸人たちが、ちょこんと立つアクリルスタンプに。透明感のあるアクリル素材と立体感のあるデザインで、デスクや棚に飾って楽しめます。吹き出し部分には好きな文字やメッセージを書き込めるので、ひとことメモや推し活アレンジにもぴったり。台座付きで飾りやすいコレクションアイテムです。</p>
-          <p class="prod-note">※店頭では箱ガチャのため、種類は選べません。</p>
-        </div>
-      </div>
-
-      <!-- 2. ええ感じビン -->
-      <div class="prod-card fi">
-        <div class="slide-wrap">
-          <button class="slide-btn prev-btn" onclick="slideGo(this,-1)" aria-label="前へ">&#8249;</button>
-          <div class="slide-track">
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_01.jpg','ええ感じビン')"><img src="goods/goods_image/ええ感じビン_01.jpg" alt="ええ感じビン 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_02.jpg','ええ感じビン')"><img src="goods/goods_image/ええ感じビン_02.jpg" alt="ええ感じビン 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_八木_01.jpg','ええ感じビン 八木')"><img src="goods/goods_image/ええ感じビン_八木_01.jpg" alt="ええ感じビン 八木" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_吉本_01.jpg','ええ感じビン 吉本')"><img src="goods/goods_image/ええ感じビン_吉本_01.jpg" alt="ええ感じビン 吉本" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_200ml_01.jpg','ええ感じビン 200ml')"><img src="goods/goods_image/ええ感じビン_200ml_01.jpg" alt="ええ感じビン 200ml 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_200ml_02.jpg','ええ感じビン 200ml')"><img src="goods/goods_image/ええ感じビン_200ml_02.jpg" alt="ええ感じビン 200ml 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_200ml_八木_01.jpg','ええ感じビン 200ml 八木')"><img src="goods/goods_image/ええ感じビン_200ml_八木_01.jpg" alt="ええ感じビン 200ml 八木 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_200ml_八木_02.jpg','ええ感じビン 200ml 八木')"><img src="goods/goods_image/ええ感じビン_200ml_八木_02.jpg" alt="ええ感じビン 200ml 八木 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_200ml_八木_03.jpg','ええ感じビン 200ml 八木')"><img src="goods/goods_image/ええ感じビン_200ml_八木_03.jpg" alt="ええ感じビン 200ml 八木 03" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_200ml_八木_04.jpg','ええ感じビン 200ml 八木')"><img src="goods/goods_image/ええ感じビン_200ml_八木_04.jpg" alt="ええ感じビン 200ml 八木 04" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_200ml_八木_05.jpg','ええ感じビン 200ml 八木')"><img src="goods/goods_image/ええ感じビン_200ml_八木_05.jpg" alt="ええ感じビン 200ml 八木 05" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_200ml_吉本_01.jpg','ええ感じビン 200ml 吉本')"><img src="goods/goods_image/ええ感じビン_200ml_吉本_01.jpg" alt="ええ感じビン 200ml 吉本 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_200ml_吉本_02.jpg','ええ感じビン 200ml 吉本')"><img src="goods/goods_image/ええ感じビン_200ml_吉本_02.jpg" alt="ええ感じビン 200ml 吉本 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_200ml_吉本_03.jpg','ええ感じビン 200ml 吉本')"><img src="goods/goods_image/ええ感じビン_200ml_吉本_03.jpg" alt="ええ感じビン 200ml 吉本 03" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_200ml_吉本_05.jpg','ええ感じビン 200ml 吉本')"><img src="goods/goods_image/ええ感じビン_200ml_吉本_05.jpg" alt="ええ感じビン 200ml 吉本 05" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_50ml_01.jpg','ええ感じビン 50ml')"><img src="goods/goods_image/ええ感じビン_50ml_01.jpg" alt="ええ感じビン 50ml 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_50ml_02.jpg','ええ感じビン 50ml')"><img src="goods/goods_image/ええ感じビン_50ml_02.jpg" alt="ええ感じビン 50ml 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_50ml_03.jpg','ええ感じビン 50ml')"><img src="goods/goods_image/ええ感じビン_50ml_03.jpg" alt="ええ感じビン 50ml 03" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_50ml_八木_01.jpg','ええ感じビン 50ml 八木')"><img src="goods/goods_image/ええ感じビン_50ml_八木_01.jpg" alt="ええ感じビン 50ml 八木 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_50ml_八木_02.jpg','ええ感じビン 50ml 八木')"><img src="goods/goods_image/ええ感じビン_50ml_八木_02.jpg" alt="ええ感じビン 50ml 八木 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ええ感じビン_50ml_吉本_01.jpg','ええ感じビン 50ml 吉本')"><img src="goods/goods_image/ええ感じビン_50ml_吉本_01.jpg" alt="ええ感じビン 50ml 吉本" loading="lazy"></div>
-          </div>
-          <button class="slide-btn next-btn" onclick="slideGo(this,1)" aria-label="次へ">&#8250;</button>
-          <div class="slide-counter">1 / 21</div>
-        </div>
-        <div class="prod-body">
-          <div class="prod-name">ええ感じビン</div>
-          <div class="prod-price">50ml：税込 220円 / 200ml：税込 440円</div>
-          <p class="prod-description">八木さんの"節約術"から生まれた、こだわりのミニボトル。「宿泊先でも、ちょっとえぇ感じの気分を味わいたい」そんな想いを形にしました。持ち運びしやすい50mlと、普段使いにも便利な200mlの2サイズ展開。ロゴは「八木」と「吉本」の2種。ネタ感と実用性を兼ね備えた、"えぇ感じ"なアイテムです。</p>
-          <p class="prod-note">※完全密封ではありません。持ち運ぶ際は袋に入れると安心です。</p>
-        </div>
-      </div>
-
-      <!-- 3. お弁当が入れやすい底マチ広めバッグ -->
-      <div class="prod-card fi">
-        <div class="slide-wrap">
-          <button class="slide-btn prev-btn" onclick="slideGo(this,-1)" aria-label="前へ">&#8249;</button>
-          <div class="slide-track">
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_01.jpg','お弁当が入れやすい底マチ広めバッグ（ベージュ）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_01.jpg" alt="お弁当バッグ ベージュ 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_02.jpg','お弁当が入れやすい底マチ広めバッグ（ベージュ）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_02.jpg" alt="お弁当バッグ ベージュ 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_03.jpg','お弁当が入れやすい底マチ広めバッグ（ベージュ）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_03.jpg" alt="お弁当バッグ ベージュ 03" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_04.jpg','お弁当が入れやすい底マチ広めバッグ（ベージュ）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_04.jpg" alt="お弁当バッグ ベージュ 04" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_05.jpg','お弁当が入れやすい底マチ広めバッグ（ベージュ）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_05.jpg" alt="お弁当バッグ ベージュ 05" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_06.jpg','お弁当が入れやすい底マチ広めバッグ（ベージュ）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_06.jpg" alt="お弁当バッグ ベージュ 06" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_07.jpg','お弁当が入れやすい底マチ広めバッグ（ベージュ）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_07.jpg" alt="お弁当バッグ ベージュ 07" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_08.jpg','お弁当が入れやすい底マチ広めバッグ（ベージュ）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_08.jpg" alt="お弁当バッグ ベージュ 08" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_09.jpg','お弁当が入れやすい底マチ広めバッグ（ベージュ）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbg_09.jpg" alt="お弁当バッグ ベージュ 09" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_01.jpg','お弁当が入れやすい底マチ広めバッグ（ブラック）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_01.jpg" alt="お弁当バッグ ブラック 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_02.jpg','お弁当が入れやすい底マチ広めバッグ（ブラック）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_02.jpg" alt="お弁当バッグ ブラック 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_03.jpg','お弁当が入れやすい底マチ広めバッグ（ブラック）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_03.jpg" alt="お弁当バッグ ブラック 03" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_04.jpg','お弁当が入れやすい底マチ広めバッグ（ブラック）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_04.jpg" alt="お弁当バッグ ブラック 04" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_05.jpg','お弁当が入れやすい底マチ広めバッグ（ブラック）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_05.jpg" alt="お弁当バッグ ブラック 05" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_06.jpg','お弁当が入れやすい底マチ広めバッグ（ブラック）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_06.jpg" alt="お弁当バッグ ブラック 06" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_07.jpg','お弁当が入れやすい底マチ広めバッグ（ブラック）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_07.jpg" alt="お弁当バッグ ブラック 07" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_08.jpg','お弁当が入れやすい底マチ広めバッグ（ブラック）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_08.jpg" alt="お弁当バッグ ブラック 08" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_09.jpg','お弁当が入れやすい底マチ広めバッグ（ブラック）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_09.jpg" alt="お弁当バッグ ブラック 09" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_10.jpg','お弁当が入れやすい底マチ広めバッグ（ブラック）')"><img src="goods/goods_image/お弁当が入れやすい底マチ広めバッグbk_10.jpg" alt="お弁当バッグ ブラック 10" loading="lazy"></div>
-          </div>
-          <button class="slide-btn next-btn" onclick="slideGo(this,1)" aria-label="次へ">&#8250;</button>
-          <div class="slide-counter">1 / 19</div>
-        </div>
-        <div class="prod-body">
-          <div class="prod-name">お弁当が入れやすい底マチ広めバッグ</div>
-          <div class="prod-price">税込 660円</div>
-          <p class="prod-description">「営業先でもらったお弁当を、きれいに持ち帰れるバッグが欲しいねん」。そんな一言から生まれた、底マチ広めの便利バッグ。約30×25cmの広めの底マチで、大きめのお弁当も持ち運びやすい仕様です。持ち手は短め・長めの2パターンで、手持ち・肩掛けを使い分け可能。普段のお買い物にも活躍し、使わない時はコンパクトに折りたためます。</p>
-        </div>
-      </div>
-
-      <!-- 4. シール -->
-      <div class="prod-card fi">
-        <div class="slide-wrap">
-          <button class="slide-btn prev-btn" onclick="slideGo(this,-1)" aria-label="前へ">&#8249;</button>
-          <div class="slide-track">
-            <div class="slide-item" onclick="openModal('goods/goods_image/シール_01.jpg','シール')"><img src="goods/goods_image/シール_01.jpg" alt="シール 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/シール_02.jpg','シール')"><img src="goods/goods_image/シール_02.jpg" alt="シール 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/シール_03.jpg','シール')"><img src="goods/goods_image/シール_03.jpg" alt="シール 03" loading="lazy"></div>
-          </div>
-          <button class="slide-btn next-btn" onclick="slideGo(this,1)" aria-label="次へ">&#8250;</button>
-          <div class="slide-counter">1 / 3</div>
-        </div>
-        <div class="prod-body">
-          <div class="prod-name">シール</div>
-          <div class="prod-price">税込 220円</div>
-          <p class="prod-description">「営業-1」で飛び出した名言や、現場で役立つ"心がまえ"を詰め込んだクリアシール。手帳やノート、スマホケース、メッセージカードのデコにもぴったりです。</p>
-        </div>
-      </div>
-
-      <!-- 5. トレーディングマグネット -->
-      <div class="prod-card fi">
-        <div class="slide-wrap">
-          <button class="slide-btn prev-btn" onclick="slideGo(this,-1)" aria-label="前へ">&#8249;</button>
-          <div class="slide-track">
-            <div class="slide-item" onclick="openModal('goods/goods_image/トレーディングマグネット_01.jpg','トレーディングマグネット')"><img src="goods/goods_image/トレーディングマグネット_01.jpg" alt="トレーディングマグネット 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/トレーディングマグネット_02.jpg','トレーディングマグネット')"><img src="goods/goods_image/トレーディングマグネット_02.jpg" alt="トレーディングマグネット 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/トレーディングマグネット_03.jpg','トレーディングマグネット')"><img src="goods/goods_image/トレーディングマグネット_03.jpg" alt="トレーディングマグネット 03" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/トレーディングマグネット_04.jpg','トレーディングマグネット')"><img src="goods/goods_image/トレーディングマグネット_04.jpg" alt="トレーディングマグネット 04" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/トレーディングマグネット_05.jpg','トレーディングマグネット')"><img src="goods/goods_image/トレーディングマグネット_05.jpg" alt="トレーディングマグネット 05" loading="lazy"></div>
-          </div>
-          <button class="slide-btn next-btn" onclick="slideGo(this,1)" aria-label="次へ">&#8250;</button>
-          <div class="slide-counter">1 / 5</div>
-        </div>
-        <div class="prod-body">
-          <div class="prod-name">トレーディングマグネット</div>
-          <div class="prod-price">税込 330円</div>
-          <p class="prod-description">営業-1の人気芸人たちが、存在感たっぷりのアクリルマグネットに。透明感のあるアクリル素材に、ポップでインパクトのあるデザインを落とし込みました。冷蔵庫やデスク、ホワイトボードに貼って楽しめるほか、メモ留めとしても使えます。並べて飾りたくなるコレクションアイテムです。</p>
-          <p class="prod-note">※店頭では箱ガチャのため、種類は選べません。</p>
-        </div>
-      </div>
-
-      <!-- 6. フレークシール -->
-      <div class="prod-card fi">
-        <div class="slide-wrap">
-          <button class="slide-btn prev-btn" onclick="slideGo(this,-1)" aria-label="前へ">&#8249;</button>
-          <div class="slide-track">
-            <div class="slide-item" onclick="openModal('goods/goods_image/フレークシール.jpg','フレークシール')"><img src="goods/goods_image/フレークシール.jpg" alt="フレークシール" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/フレークシール1_01.jpg','フレークシール A')"><img src="goods/goods_image/フレークシール1_01.jpg" alt="フレークシール1 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/フレークシール1_02.jpg','フレークシール A')"><img src="goods/goods_image/フレークシール1_02.jpg" alt="フレークシール1 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/フレークシール1_03.jpg','フレークシール A')"><img src="goods/goods_image/フレークシール1_03.jpg" alt="フレークシール1 03" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/フレークシール1_04.jpg','フレークシール A')"><img src="goods/goods_image/フレークシール1_04.jpg" alt="フレークシール1 04" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/フレークシール2_01.jpg','フレークシール B')"><img src="goods/goods_image/フレークシール2_01.jpg" alt="フレークシール2 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/フレークシール2_02.jpg','フレークシール B')"><img src="goods/goods_image/フレークシール2_02.jpg" alt="フレークシール2 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/フレークシール2_03.jpg','フレークシール B')"><img src="goods/goods_image/フレークシール2_03.jpg" alt="フレークシール2 03" loading="lazy"></div>
-          </div>
-          <button class="slide-btn next-btn" onclick="slideGo(this,1)" aria-label="次へ">&#8250;</button>
-          <div class="slide-counter">1 / 8</div>
-        </div>
-        <div class="prod-body">
-          <div class="prod-name">フレークシール</div>
-          <div class="prod-price">税込 220円</div>
-          <p class="prod-description">「営業-1」で飛び出した名言や、現場で役立つ"心がまえ"をぎゅっと詰め込んだフレークシール。手帳やノート、スマホケース、メッセージカードのデコにもぴったり。貼るだけで"営業力"がちょっぴり上がるかもしれない、笑いと共感たっぷりのアイテムです。</p>
-        </div>
-      </div>
-
-      <!-- 7. ミニチュアボトルキーホルダー -->
-      <div class="prod-card fi">
-        <div class="slide-wrap">
-          <button class="slide-btn prev-btn" onclick="slideGo(this,-1)" aria-label="前へ">&#8249;</button>
-          <div class="slide-track">
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルキーホルダー_01.jpg','ミニチュアボトルキーホルダー')"><img src="goods/goods_image/ミニチュアボトルキーホルダー_01.jpg" alt="ミニチュアボトルキーホルダー 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルキーホルダー_02.jpg','ミニチュアボトルキーホルダー')"><img src="goods/goods_image/ミニチュアボトルキーホルダー_02.jpg" alt="ミニチュアボトルキーホルダー 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルキーホルダー_03.jpg','ミニチュアボトルキーホルダー')"><img src="goods/goods_image/ミニチュアボトルキーホルダー_03.jpg" alt="ミニチュアボトルキーホルダー 03" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルキーホルダー_04.jpg','ミニチュアボトルキーホルダー')"><img src="goods/goods_image/ミニチュアボトルキーホルダー_04.jpg" alt="ミニチュアボトルキーホルダー 04" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルキーホルダー_千日前_01.jpg','ミニチュアボトルキーホルダー 千日前')"><img src="goods/goods_image/ミニチュアボトルキーホルダー_千日前_01.jpg" alt="ミニチュアボトルキーホルダー 千日前 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルキーホルダー_千日前_02.jpg','ミニチュアボトルキーホルダー 千日前')"><img src="goods/goods_image/ミニチュアボトルキーホルダー_千日前_02.jpg" alt="ミニチュアボトルキーホルダー 千日前 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルキーホルダー_吉本_01.jpg','ミニチュアボトルキーホルダー 吉本')"><img src="goods/goods_image/ミニチュアボトルキーホルダー_吉本_01.jpg" alt="ミニチュアボトルキーホルダー 吉本 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルキーホルダー_吉本_02.jpg','ミニチュアボトルキーホルダー 吉本')"><img src="goods/goods_image/ミニチュアボトルキーホルダー_吉本_02.jpg" alt="ミニチュアボトルキーホルダー 吉本 02" loading="lazy"></div>
-          </div>
-          <button class="slide-btn next-btn" onclick="slideGo(this,1)" aria-label="次へ">&#8250;</button>
-          <div class="slide-counter">1 / 8</div>
-        </div>
-        <div class="prod-body">
-          <div class="prod-name">ミニチュアボトルキーホルダー</div>
-          <div class="prod-price">税込 220円</div>
-          <p class="prod-description">八木さんこだわりの"えぇ感じビン"が、持ち歩けるミニチュアキーホルダーに。特徴的なデザインを細部まで再現し、小さいながら存在感のある仕上がりです。バッグやポーチ、鍵につければアクセントに。いつでも気軽に"えぇ感じ"を楽しめる、遊び心たっぷりのミニチュアアイテムです。</p>
-        </div>
-      </div>
-
-      <!-- 8. ミニチュアボトルケース -->
-      <div class="prod-card fi">
-        <div class="slide-wrap">
-          <button class="slide-btn prev-btn" onclick="slideGo(this,-1)" aria-label="前へ">&#8249;</button>
-          <div class="slide-track">
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_01.jpg','ミニチュアボトルケース')"><img src="goods/goods_image/ミニチュアボトルケース_01.jpg" alt="ミニチュアボトルケース 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_02.jpg','ミニチュアボトルケース')"><img src="goods/goods_image/ミニチュアボトルケース_02.jpg" alt="ミニチュアボトルケース 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_03.jpg','ミニチュアボトルケース')"><img src="goods/goods_image/ミニチュアボトルケース_03.jpg" alt="ミニチュアボトルケース 03" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_br_01.jpg','ミニチュアボトルケース ブラウン')"><img src="goods/goods_image/ミニチュアボトルケース_br_01.jpg" alt="ミニチュアボトルケース br 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_br_02.jpg','ミニチュアボトルケース ブラウン')"><img src="goods/goods_image/ミニチュアボトルケース_br_02.jpg" alt="ミニチュアボトルケース br 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_gr_01.jpg','ミニチュアボトルケース グリーン')"><img src="goods/goods_image/ミニチュアボトルケース_gr_01.jpg" alt="ミニチュアボトルケース gr 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_gr_02.jpg','ミニチュアボトルケース グリーン')"><img src="goods/goods_image/ミニチュアボトルケース_gr_02.jpg" alt="ミニチュアボトルケース gr 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_千日前_br_01.jpg','ミニチュアボトルケース 千日前 ブラウン')"><img src="goods/goods_image/ミニチュアボトルケース_千日前_br_01.jpg" alt="ミニチュアボトルケース 千日前 br 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_千日前_br_02.jpg','ミニチュアボトルケース 千日前 ブラウン')"><img src="goods/goods_image/ミニチュアボトルケース_千日前_br_02.jpg" alt="ミニチュアボトルケース 千日前 br 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_千日前_br_03.jpg','ミニチュアボトルケース 千日前 ブラウン')"><img src="goods/goods_image/ミニチュアボトルケース_千日前_br_03.jpg" alt="ミニチュアボトルケース 千日前 br 03" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_千日前_gr_01.jpg','ミニチュアボトルケース 千日前 グリーン')"><img src="goods/goods_image/ミニチュアボトルケース_千日前_gr_01.jpg" alt="ミニチュアボトルケース 千日前 gr 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_千日前_gr_02.jpg','ミニチュアボトルケース 千日前 グリーン')"><img src="goods/goods_image/ミニチュアボトルケース_千日前_gr_02.jpg" alt="ミニチュアボトルケース 千日前 gr 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_千日前_gr_03.jpg','ミニチュアボトルケース 千日前 グリーン')"><img src="goods/goods_image/ミニチュアボトルケース_千日前_gr_03.jpg" alt="ミニチュアボトルケース 千日前 gr 03" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_吉本_br_01.jpg','ミニチュアボトルケース 吉本 ブラウン')"><img src="goods/goods_image/ミニチュアボトルケース_吉本_br_01.jpg" alt="ミニチュアボトルケース 吉本 br 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_吉本_br_02.jpg','ミニチュアボトルケース 吉本 ブラウン')"><img src="goods/goods_image/ミニチュアボトルケース_吉本_br_02.jpg" alt="ミニチュアボトルケース 吉本 br 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_吉本_br_03.jpg','ミニチュアボトルケース 吉本 ブラウン')"><img src="goods/goods_image/ミニチュアボトルケース_吉本_br_03.jpg" alt="ミニチュアボトルケース 吉本 br 03" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_吉本_gr_01.jpg','ミニチュアボトルケース 吉本 グリーン')"><img src="goods/goods_image/ミニチュアボトルケース_吉本_gr_01.jpg" alt="ミニチュアボトルケース 吉本 gr 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_吉本_gr_02.jpg','ミニチュアボトルケース 吉本 グリーン')"><img src="goods/goods_image/ミニチュアボトルケース_吉本_gr_02.jpg" alt="ミニチュアボトルケース 吉本 gr 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/ミニチュアボトルケース_吉本_gr_03.jpg','ミニチュアボトルケース 吉本 グリーン')"><img src="goods/goods_image/ミニチュアボトルケース_吉本_gr_03.jpg" alt="ミニチュアボトルケース 吉本 gr 03" loading="lazy"></div>
-          </div>
-          <button class="slide-btn next-btn" onclick="slideGo(this,1)" aria-label="次へ">&#8250;</button>
-          <div class="slide-counter">1 / 19</div>
-        </div>
-        <div class="prod-body">
-          <div class="prod-name">ミニチュアボトルケース</div>
-          <div class="prod-price">税込 330円</div>
-          <p class="prod-description">八木さんこだわりの"えぇ感じビン"をミニチュアフィギュア化。デスクや棚に飾ったり、他のアイテムと組み合わせて自分だけのミニチュア空間を作ったりして楽しめます。ケースはペン立てとしても使用可能。ロゴは「吉本」と、吉本ゆかりの場所「千日前」の2種です。</p>
-        </div>
-      </div>
-
-      <!-- 9. 滑りにくい手袋 -->
-      <div class="prod-card fi">
-        <div class="slide-wrap">
-          <div class="slide-track">
-            <div class="slide-item" onclick="openModal('goods/goods_image/滑りにくい手袋.jpg','滑りにくい手袋')"><img src="goods/goods_image/滑りにくい手袋.jpg" alt="滑りにくい手袋" loading="lazy"></div>
-          </div>
-        </div>
-        <div class="prod-body">
-          <div class="prod-name">滑りにくい手袋</div>
-          <div class="prod-price">税込 330円</div>
-          <p class="prod-description">公園で懸垂！？…に使う人は少ないかもしれませんが、DIYや掃除、滑りやすい作業をサポートする両面グリップ仕様の手袋です。利き手を気にせず使いやすく、日常のさまざまなシーンで活躍。実用性とちょっとした遊び心を兼ね備えたアイテムです。</p>
-          <p class="prod-note">※M・Lの2サイズ展開です。</p>
-        </div>
-      </div>
-
-      <!-- 10. 日めくりメモ帳 -->
-      <div class="prod-card fi">
-        <div class="slide-wrap">
-          <button class="slide-btn prev-btn" onclick="slideGo(this,-1)" aria-label="前へ">&#8249;</button>
-          <div class="slide-track">
-            <div class="slide-item" onclick="openModal('goods/goods_image/日めくりメモ帳_01.jpg','日めくりメモ帳')"><img src="goods/goods_image/日めくりメモ帳_01.jpg" alt="日めくりメモ帳 01" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/日めくりメモ帳_02.jpg','日めくりメモ帳')"><img src="goods/goods_image/日めくりメモ帳_02.jpg" alt="日めくりメモ帳 02" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/日めくりメモ帳_03.jpg','日めくりメモ帳')"><img src="goods/goods_image/日めくりメモ帳_03.jpg" alt="日めくりメモ帳 03" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/日めくりメモ帳_04.jpg','日めくりメモ帳')"><img src="goods/goods_image/日めくりメモ帳_04.jpg" alt="日めくりメモ帳 04" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/日めくりメモ帳_05.jpg','日めくりメモ帳')"><img src="goods/goods_image/日めくりメモ帳_05.jpg" alt="日めくりメモ帳 05" loading="lazy"></div>
-            <div class="slide-item" onclick="openModal('goods/goods_image/日めくりメモ帳_06.jpg','日めくりメモ帳')"><img src="goods/goods_image/日めくりメモ帳_06.jpg" alt="日めくりメモ帳 06" loading="lazy"></div>
-          </div>
-          <button class="slide-btn next-btn" onclick="slideGo(this,1)" aria-label="次へ">&#8250;</button>
-          <div class="slide-counter">1 / 6</div>
-        </div>
-        <div class="prod-body">
-          <div class="prod-name">日めくりメモ帳</div>
-          <div class="prod-price">税込 220円</div>
-          <p class="prod-description">スケジュール管理はもちろん、忘れてはいけない予定や日々のちょっとしたひらめきまで気軽にメモできる便利なメモ帳。毎日使いやすいシンプルな構成の中に、八木さん語録をデザインした特別感のあるページも収録しています。実用性だけでなく、思わずクスッと楽しめる遊び心も詰め込んだ、毎日持ち歩きたくなるアイテムです。</p>
-        </div>
-      </div>
-
-    </div><!-- /prod-grid 店頭 -->
-
-    <!-- オンラインショップ限定 -->
-    <div class="online-section">
-      <div class="sec-head fi">
-        <span class="sec-label">オンラインショップ限定</span>
-        <span class="sec-sub">Wattsオンラインショップ専用</span>
-        <span class="sec-count">1種</span>
-      </div>
-
-      <p class="online-note fi">新大阪ロゴキャップ（税込 2,200円）はWattsオンラインショップ限定販売です。番組内で生まれた"ボツ企画"から、まさかのオンラインショップ限定商品化。新大阪ロゴをあしらったキャップです。店頭販売では取り扱いのない、EC限定アイテムです。画像は確認でき次第掲載します。<br>
-      <a href="https://watts-online.jp/" target="_blank" rel="noopener" class="online-note-link">Wattsオンラインショップを確認する →</a></p>
-    </div><!-- /online-section -->
-
-  </div><!-- /main-area -->
-
-  <!-- 下部導線 -->
-  <div class="bottom-nav">
-    <a href="manual-best.html" class="bottom-link">吉本営業マニュアル＆ベスト企画</a>
-    <a href="buzz100.html" class="bottom-link">バズり動画ベスト100</a>
-    <a href="index.html" class="bottom-link">TOPへ戻る</a>
   </div>
 
 </div><!-- /page-wrap -->
@@ -726,50 +228,6 @@ document.querySelectorAll('.fi').forEach(el => obs.observe(el));
 /* ── ハンバーガー ── */
 document.querySelectorAll('.mnav a').forEach(el => {
   el.addEventListener('click', () => document.getElementById('mn').classList.remove('open'));
-});
-
-/* ── モーダル ── */
-function openModal(src, name) {
-  document.getElementById('modal-img').src = src;
-  document.getElementById('modal-img').alt = name;
-  document.getElementById('modal-cap').textContent = name;
-  document.getElementById('modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal() {
-  document.getElementById('modal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-/* ── スライダー ── */
-function slideGo(btn, dir) {
-  const wrap = btn.closest('.slide-wrap');
-  const track = wrap.querySelector('.slide-track');
-  track.scrollBy({ left: dir * track.clientWidth, behavior: 'smooth' });
-}
-
-function updateCounter(track) {
-  const wrap = track.closest('.slide-wrap');
-  const counter = wrap.querySelector('.slide-counter');
-  if (!counter) return;
-  const total = track.querySelectorAll('.slide-item').length;
-  const idx = Math.round(track.scrollLeft / track.clientWidth) + 1;
-  counter.textContent = idx + ' / ' + total;
-}
-
-document.querySelectorAll('.slide-track').forEach(track => {
-  track.addEventListener('scroll', () => updateCounter(track), { passive: true });
-});
-
-/* 画像1枚のカードは矢印・カウンターを非表示 */
-document.querySelectorAll('.slide-wrap').forEach(wrap => {
-  const items = wrap.querySelectorAll('.slide-item');
-  if (items.length <= 1) {
-    wrap.querySelectorAll('.slide-btn').forEach(b => b.classList.add('hidden'));
-    const c = wrap.querySelector('.slide-counter');
-    if (c) c.classList.add('hidden');
-  }
 });
 </script>
 
