@@ -186,6 +186,10 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 .news-podcast-item img{width:100%;border-radius:8px;display:block;margin-bottom:10px;object-fit:cover}
 .news-podcast-name{font-size:.82rem;font-weight:700;color:var(--gold-light);margin-bottom:8px}
 .news-extra-note{font-size:.75rem;color:#888;margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08)}
+.news-extra-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.news-extra-btn{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--gold);color:var(--gold-light);padding:7px 16px;font-size:.75rem;font-weight:700;border-radius:4px;text-decoration:none;transition:all .3s}
+.news-extra-btn:hover{background:var(--gold);color:var(--black)}
+.news-extra-btn.is-disabled{border-color:#555;color:#666;pointer-events:none;opacity:.55;cursor:not-allowed}
 @media(max-width:640px){.news-podcast-duo{grid-template-columns:1fr}.news-extra-card{padding:20px 18px}}
 /* ── コメントアコーディオン ── */
 .cmnt-wrap{margin-top:32px}
@@ -474,13 +478,27 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
         <div class="news-sub-num">①</div>
         <div class="news-sub-title">営業出演回数3連覇！ジョイマンが行く岩手イオン＆久慈春祭りに密着</div>
         <div class="news-sub-text">4週連続放送。次回放送 6/8(月)20:00～</div>
-        <a href="https://youtu.be/ZARgpn_3Ygc" target="_blank" rel="noopener noreferrer" class="news-yt-btn">▶ #1はこちら</a>
+        <div class="news-extra-btns">
+          <a href="https://youtu.be/ZARgpn_3Ygc" target="_blank" rel="noopener noreferrer" class="news-extra-btn">▶ #1を見る</a>
+          <!-- ジョイマン #2 URL公開後、このdisabledボタンをaタグに変更 -->
+          <span class="news-extra-btn is-disabled" aria-disabled="true">#2 近日公開</span>
+          <!-- ジョイマン #3 URL公開後、このdisabledボタンをaタグに変更 -->
+          <span class="news-extra-btn is-disabled" aria-disabled="true">#3 近日公開</span>
+          <!-- ジョイマン #4 URL公開後、このdisabledボタンをaタグに変更 -->
+          <span class="news-extra-btn is-disabled" aria-disabled="true">#4 近日公開</span>
+        </div>
       </div>
 
       <div class="news-sub-block">
         <div class="news-sub-num">②</div>
         <div class="news-sub-title">営業-1といえばこの人!? サバンナ八木の「犬と営業」に密着</div>
         <div class="news-sub-text">2週連続放送。初回放送 6/29(月)20:00～</div>
+        <div class="news-extra-btns">
+          <!-- サバンナ八木 #1 URL公開後、このdisabledボタンをaタグに変更 -->
+          <span class="news-extra-btn is-disabled" aria-disabled="true">#1 近日公開</span>
+          <!-- サバンナ八木 #2 URL公開後、このdisabledボタンをaタグに変更 -->
+          <span class="news-extra-btn is-disabled" aria-disabled="true">#2 近日公開</span>
+        </div>
       </div>
     </div><!-- /ニコイチ出張カード -->
 
