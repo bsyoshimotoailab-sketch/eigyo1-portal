@@ -169,6 +169,23 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 .news-logo{text-align:center;margin:24px 0 28px}
 .news-logo img{width:360px;max-width:80%;height:auto;filter:drop-shadow(0 10px 18px rgba(0,0,0,.45))}
 @media(max-width:640px){.news-logo{margin:20px 0 24px}.news-logo img{width:260px;max-width:90%}}
+/* ── 追加ニュースカード ── */
+.news-extra-card{background:rgba(255,255,255,.06);border:1px solid rgba(240,215,123,.2);border-radius:12px;padding:24px 28px;margin-top:24px;box-sizing:border-box}
+.news-extra-tag{font-size:.6rem;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:10px}
+.news-extra-thumb{width:100%;border-radius:8px;display:block;margin-bottom:16px;max-height:240px;object-fit:cover}
+.news-extra-title{font-family:var(--font-a);font-size:clamp(1rem,2.5vw,1.4rem);font-weight:900;color:#fff;margin-bottom:12px;line-height:1.4}
+.news-sub-block{border-top:1px solid rgba(255,255,255,.1);padding-top:14px;margin-top:14px}
+.news-sub-num{font-size:.72rem;font-weight:700;color:var(--gold-light);margin-bottom:4px}
+.news-sub-title{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:6px;line-height:1.5}
+.news-sub-text{font-size:.8rem;color:#ccc;line-height:1.8;margin-bottom:10px}
+.news-yt-btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--gold);color:var(--gold-light);padding:7px 18px;font-size:.75rem;font-weight:700;border-radius:4px;text-decoration:none;transition:all .3s}
+.news-yt-btn:hover{background:var(--gold);color:var(--black)}
+.news-podcast-duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.news-podcast-item{text-align:center}
+.news-podcast-item img{width:100%;border-radius:8px;display:block;margin-bottom:10px;object-fit:cover}
+.news-podcast-name{font-size:.82rem;font-weight:700;color:var(--gold-light);margin-bottom:8px}
+.news-extra-note{font-size:.75rem;color:#888;margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08)}
+@media(max-width:640px){.news-podcast-duo{grid-template-columns:1fr}.news-extra-card{padding:20px 18px}}
 /* ── コメントアコーディオン ── */
 .cmnt-wrap{margin-top:32px}
 .cmnt-sec-label{font-size:.6rem;letter-spacing:.25em;color:var(--gold);font-weight:700;margin-bottom:14px}
@@ -444,6 +461,52 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
   <div class="container">
     <div class="sl fi" style="border-color:var(--gold-light);color:var(--gold-light)">NEWS</div>
     <h2 class="st fi" style="color:#fff">最新情報</h2>
+
+    <!-- ニコイチ出張×営業-1グランプリ 特別企画 -->
+    <div class="news-extra-card fi">
+      <div class="news-extra-tag">SPECIAL</div>
+      <img src="assets/images/news/news-podcast.nikoichi.jpg" alt="ニコイチ出張×営業-1グランプリ 特別企画" class="news-extra-thumb" loading="lazy">
+      <h3 class="news-extra-title">ニコイチ出張×営業-1グランプリ 特別企画</h3>
+      <p style="font-size:.84rem;color:#ccc;line-height:1.85;margin-bottom:4px">ニコイチ出張 と 営業-1グランプリ がコラボ！<br>2026上半期スペシャル放送決定を記念して、営業-1で話題の2組の営業現場に密着。</p>
+
+      <div class="news-sub-block">
+        <div class="news-sub-num">①</div>
+        <div class="news-sub-title">営業出演回数3連覇！ジョイマンが行く岩手イオン＆久慈春祭りに密着</div>
+        <div class="news-sub-text">4週連続放送。次回放送 6/8(月)20:00～</div>
+        <a href="https://youtu.be/ZARgpn_3Ygc" target="_blank" rel="noopener noreferrer" class="news-yt-btn">▶ #1はこちら</a>
+      </div>
+
+      <div class="news-sub-block">
+        <div class="news-sub-num">②</div>
+        <div class="news-sub-title">営業-1といえばこの人!? サバンナ八木の「犬と営業」に密着</div>
+        <div class="news-sub-text">2週連続放送。初回放送 6/29(月)20:00～</div>
+      </div>
+    </div><!-- /ニコイチ出張カード -->
+
+    <!-- 営業-1グランプリ Podcast -->
+    <div class="news-extra-card fi">
+      <div class="news-extra-tag">PODCAST</div>
+      <h3 class="news-extra-title">営業-1グランプリ初のPodcast企画 配信決定</h3>
+      <p style="font-size:.84rem;color:#ccc;line-height:1.85;margin-bottom:4px">営業-1グランプリ初のPodcast企画が配信決定。<br>2026上半期SP放送を盛り上げるべく、MC・サバンナ八木が、上京したての初参戦2組と60分トーク。<br>大阪の濃すぎる話や、今回の営業-1収録の予想まで語ります。</p>
+
+      <div class="news-podcast-duo">
+        <div class="news-podcast-item">
+          <a href="https://youtu.be/4Ulemlat370?si=LFeCYLk6zY3kEU1W" target="_blank" rel="noopener noreferrer">
+            <img src="assets/images/news/news-podcast.higashi.png" alt="営業-1グランプリPodcast ダブルヒガシ" loading="lazy">
+          </a>
+          <div class="news-podcast-name">ダブルヒガシ</div>
+          <a href="https://youtu.be/4Ulemlat370?si=LFeCYLk6zY3kEU1W" target="_blank" rel="noopener noreferrer" class="news-yt-btn">▶ 動画を見る</a>
+        </div>
+        <div class="news-podcast-item">
+          <a href="https://youtu.be/0Cz2YCgY7sM?si=erT8Xfttluogo42p" target="_blank" rel="noopener noreferrer">
+            <img src="assets/images/news/news-podcast.tuto.png" alt="営業-1グランプリPodcast ツートライブ" loading="lazy">
+          </a>
+          <div class="news-podcast-name">ツートライブ</div>
+          <a href="https://youtu.be/0Cz2YCgY7sM?si=erT8Xfttluogo42p" target="_blank" rel="noopener noreferrer" class="news-yt-btn">▶ 動画を見る</a>
+        </div>
+      </div>
+      <div class="news-extra-note">Spotify、Amazon Music、YouTube Musicでも配信中。</div>
+    </div><!-- /Podcast カード -->
 
     <!-- 番組情報カード -->
     <div class="fi" style="background:rgba(255,255,255,.06);border:1px solid rgba(240,215,123,.2);border-radius:12px;padding:28px 28px 24px;margin-top:24px">
