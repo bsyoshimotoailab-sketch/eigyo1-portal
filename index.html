@@ -37,32 +37,6 @@ nav a{color:var(--text-sub);text-decoration:none;font-size:.74rem;font-weight:70
 /* ── ヒーロービジュアル ── */
 .hero{position:relative;width:100%;overflow:hidden;padding-top:68px}
 .hero-bg{display:block;width:100%;height:auto}
-.hero-logo-wrap{
-  position:absolute;left:50%;top:71%;
-  width:46%;max-width:640px;
-  transform:translate(-50%,-50%);
-  z-index:2;perspective:900px;
-  pointer-events:auto;
-}
-.hero-logo-wrap::after{
-  content:'';position:absolute;inset:0;z-index:3;
-  background:linear-gradient(120deg,rgba(255,255,255,.0) 30%,rgba(255,255,255,.18) 50%,rgba(255,255,255,.0) 70%);
-  background-size:200% 200%;background-position:200% 0%;
-  opacity:0;transition:opacity .3s ease;
-  pointer-events:none;border-radius:4px;
-}
-.hero-logo-wrap:hover::after{opacity:1;background-position:0% 100%}
-.hero-logo-main{
-  display:block;width:100%;height:auto;
-  filter:drop-shadow(0 14px 18px rgba(0,0,0,.35));
-  transition:transform .28s ease,filter .28s ease;
-  will-change:transform;
-}
-@media(max-width:768px){.hero-logo-wrap{display:none}}
-@media(prefers-reduced-motion:reduce){
-  .hero-logo-main{transition:none}
-  .hero-logo-wrap::after{transition:none;display:none}
-}
 #hero{padding-top:0;margin-top:0;background:var(--white)}
 .hero-visual{position:relative;width:100%;background:linear-gradient(135deg,#e8e0d0,#d4cabb,#c8bfaf)}
 .hero-visual picture{display:block;width:100%;line-height:0}
@@ -402,12 +376,9 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 </div>
 <section class="hero hero-visual">
   <picture>
-    <source media="(max-width:768px)" srcset="hero/TOP_SP.png?v=20260501">
-    <img src="hero/TOP.png" class="hero-bg" alt="営業-1グランプリ ビジュアル">
+    <source media="(max-width:768px)" srcset="hero/TOP_SP.png?v=20260717">
+    <img src="hero/TOP.png?v=20260717" class="hero-bg" alt="営業-1グランプリ ビジュアル">
   </picture>
-  <div class="hero-logo-wrap" id="heroLogoWrap">
-    <img src="assets/logos/eigyo1_logo.png" class="hero-logo-main" id="heroLogoImg" alt="営業-1グランプリ">
-  </div>
 </section>
 <section id="hero">
   <div class="hero-text">
@@ -809,29 +780,6 @@ initAutoImages();
   setTimeout(function(){run(0);},350);
 })();
 
-/* ── 2.5Dロゴホバー演出 ── */
-(function(){
-  var wrap=document.getElementById('heroLogoWrap');
-  var logo=document.getElementById('heroLogoImg');
-  if(!wrap||!logo)return;
-  var mq=window.matchMedia('(prefers-reduced-motion:reduce)');
-  if(mq.matches)return;
-  var MAX_X=4,MAX_Y=6,MAX_S=1.035;
-  wrap.addEventListener('mousemove',function(e){
-    var r=wrap.getBoundingClientRect();
-    var cx=r.left+r.width/2,cy=r.top+r.height/2;
-    var dx=(e.clientX-cx)/(r.width/2);   // -1〜1
-    var dy=(e.clientY-cy)/(r.height/2);  // -1〜1
-    var rx=(-dy*MAX_X).toFixed(2);        // 上に動かすと手前に傾く
-    var ry=(dx*MAX_Y).toFixed(2);
-    logo.style.transform='perspective(900px) rotateX('+rx+'deg) rotateY('+ry+'deg) scale('+MAX_S+')';
-    logo.style.filter='drop-shadow(0 18px 24px rgba(0,0,0,.45))';
-  });
-  wrap.addEventListener('mouseleave',function(){
-    logo.style.transform='';
-    logo.style.filter='';
-  });
-})();
 </script>
 
 <style>
