@@ -49,8 +49,41 @@ nav a{white-space:nowrap}
 @media(max-width:1180px){nav a:not(.ncta):not(.nav-diagnosis-button){display:none}.hbr{display:block}}
 .mnav{max-height:calc(100dvh - 68px);overflow-y:auto}
 
-main{min-height:100svh;padding:100px 24px 32px;display:grid;place-items:center;text-align:center}
-h1{font-family:var(--font-a);font-size:clamp(2.2rem,8vw,5rem);font-weight:900;color:var(--gold-dark)}
+/* Gold premiere stage */
+body{background:#090807}
+main{position:relative;isolation:isolate;min-height:100svh;padding:136px 24px 68px;display:grid;place-items:center;text-align:center;overflow:hidden;background:radial-gradient(ellipse at 50% 44%,#39271755 0%,#12100d 44%,#080807 80%)}
+.stage-halo{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 48%,#ffd67519,transparent 48%);animation:halo-breathe 6s ease-in-out infinite}
+.spotlight{position:absolute;top:-35%;width:75%;height:140%;pointer-events:none;background:conic-gradient(from 165deg at 50% 0%,transparent 0deg,#e6bd6014 7deg,#fff5c91c 15deg,transparent 26deg);filter:blur(14px);transform-origin:50% 0%;animation:spot-sweep 12s ease-in-out infinite alternate}
+.spotlight.left{left:-15%;transform:rotate(-24deg)}
+.spotlight.right{right:-15%;animation-delay:-6s;animation-direction:alternate-reverse}
+.stage-frame{position:absolute;inset:100px clamp(18px,4vw,56px) 32px;pointer-events:none;border:1px solid #d5ac4e24;border-radius:2px}
+.stage-frame::before,.stage-frame::after{content:'';position:absolute;width:40px;height:40px;border-color:#e8c87588;border-style:solid}
+.stage-frame::before{top:-1px;left:-1px;border-width:1px 0 0 1px}
+.stage-frame::after{bottom:-1px;right:-1px;border-width:0 1px 1px 0}
+.title-scene{position:relative;z-index:2;width:min(100%,1100px);padding:80px 0;animation:premiere-reveal 1.8s cubic-bezier(.16,1,.3,1) both}
+.title-scene::before{content:'';position:absolute;left:12%;right:12%;top:50%;height:1px;background:linear-gradient(90deg,transparent,#ffe69b99,transparent);box-shadow:0 0 50px 14px #e8b84119;transform:translateY(48px)}
+h1{position:relative;font-family:var(--font-a);font-size:clamp(3rem,8.2vw,7.5rem);font-weight:900;line-height:1.18;letter-spacing:-.025em;color:#e7c462;filter:drop-shadow(0 5px 0 #705018) drop-shadow(0 10px 12px #000b);animation:title-float 7s ease-in-out 1.8s infinite}
+.gold-word{display:inline-block;position:relative;background:linear-gradient(115deg,#9a671d 0%,#eac975 12%,#fff5bf 21%,#c89235 30%,#ffe597 43%,#a77420 49%,#fff6cd 51%,#e8ba51 56%,#bc8229 68%,#fff0ad 82%,#a77520 100%);background-size:250% 100%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gold-flow 7s ease-in-out infinite}
+.gold-word + .gold-word{margin-left:.15em;animation-delay:-.25s}
+.title-orbit{position:absolute;left:50%;top:50%;width:min(88vw,830px);height:340px;transform:translate(-50%,-50%) rotate(-12deg);border:1px solid #dcb7611f;border-radius:50%;pointer-events:none}
+.title-orbit::after{content:'';position:absolute;inset:-1px;border-radius:50%;border-top:1px solid #f8df9c80;transform:rotate(0);animation:orbit-turn 16s linear infinite}
+.sparkle{position:absolute;z-index:3;width:4px;height:4px;border-radius:50%;background:#fff6cc;box-shadow:0 0 8px 2px #ffe49699,0 0 24px #e7b74277;animation:star-breathe 4s ease-in-out infinite;pointer-events:none}
+.sparkle::before,.sparkle::after{content:'';position:absolute;left:50%;top:50%;background:linear-gradient(transparent,#fff5d3,transparent);transform:translate(-50%,-50%)}
+.sparkle::before{width:1px;height:28px}.sparkle::after{width:28px;height:1px;background:linear-gradient(90deg,transparent,#fff5d3,transparent)}
+.sparkle.one{left:24%;top:35%}.sparkle.two{right:18%;top:55%;animation-delay:-1.7s}.sparkle.three{left:57%;top:27%;animation-delay:-2.9s}
+.particles{position:absolute;inset:68px 0 0;pointer-events:none;overflow:hidden}
+.particle{position:absolute;bottom:-20px;left:var(--x);width:var(--size);height:var(--size);background:#edcc7b;border-radius:50%;box-shadow:0 0 9px #ffda8c88;opacity:0;animation:gold-rise var(--duration) linear var(--delay) infinite}
+.stage-floor{position:absolute;bottom:-10%;left:-25%;width:150%;height:35%;background:radial-gradient(ellipse at 50% 50%,#c1933926,transparent 58%);transform:perspective(400px) rotateX(60deg);pointer-events:none}
+@keyframes gold-flow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes premiere-reveal{from{opacity:0;transform:translateY(34px) scale(.92);filter:blur(12px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes title-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes halo-breathe{0%,100%{opacity:.55;transform:scale(.98)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes spot-sweep{from{transform:rotate(-24deg)}to{transform:rotate(24deg)}}
+@keyframes orbit-turn{to{transform:rotate(360deg)}}
+@keyframes star-breathe{0%,100%{opacity:.12;transform:scale(.55)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes gold-rise{0%{opacity:0;transform:translate3d(0,0,0)}15%{opacity:var(--opacity)}85%{opacity:var(--opacity)}100%{opacity:0;transform:translate3d(var(--drift),-95svh,0)}}
+@media(max-width:640px){main{padding:116px 28px 68px}.title-scene{padding:80px 0}.gold-word{display:block}.gold-word + .gold-word{margin:0}.title-orbit{height:300px;width:110%;transform:translate(-50%,-50%) rotate(-25deg)}h1{font-size:clamp(3rem,14vw,5.4rem);line-height:1.16}.title-scene::before{transform:translateY(84px)}.sparkle.one{left:9%;top:33%}.sparkle.two{right:7%;top:65%}.sparkle.three{left:75%;top:25%}}
+@media(prefers-reduced-motion:reduce){.title-scene,h1,.gold-word,.stage-halo,.spotlight,.sparkle,.title-orbit::after,.particle{animation:none}.title-scene{opacity:1;transform:none;filter:none}.gold-word{background-position:45% 50%}.particle{opacity:.25;bottom:var(--rest-y)}}
 </style>
 <script defer src="assets/js/analytics.js"></script>
 </head>
@@ -92,8 +125,31 @@ h1{font-family:var(--font-a);font-size:clamp(2.2rem,8vw,5rem);font-weight:900;co
   <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
 </div>
 
-<main><h1>Coming Soon！</h1></main>
+<main>
+  <div class="stage-halo" aria-hidden="true"></div>
+  <div class="spotlight left" aria-hidden="true"></div>
+  <div class="spotlight right" aria-hidden="true"></div>
+  <div class="stage-frame" aria-hidden="true"></div>
+  <div class="particles" aria-hidden="true"></div>
+  <div class="stage-floor" aria-hidden="true"></div>
+  <div class="title-scene">
+    <div class="title-orbit" aria-hidden="true"></div>
+    <h1 aria-label="Coming Soon！"><span class="gold-word" aria-hidden="true">Coming</span> <span class="gold-word" aria-hidden="true">Soon！</span></h1>
+    <span class="sparkle one" aria-hidden="true"></span>
+    <span class="sparkle two" aria-hidden="true"></span>
+    <span class="sparkle three" aria-hidden="true"></span>
+  </div>
+</main>
 <script>
+const particles = document.querySelector('.particles');
+const fragment = document.createDocumentFragment();
+for (let i = 0; i < 44; i++) {
+  const particle = document.createElement('span');
+  particle.className = 'particle';
+  particle.style.cssText = '--x:' + ((i * 37.7) % 100) + '%;--size:' + (1 + i % 3) + 'px;--duration:' + (12 + i % 13) + 's;--delay:-' + (i * .83) + 's;--opacity:' + (.18 + (i % 5) * .1) + ';--drift:' + ((i % 2 ? 1 : -1) * (12 + i % 50)) + 'px;--rest-y:' + ((i * 19) % 100) + '%';
+  fragment.appendChild(particle);
+}
+particles.appendChild(fragment);
 document.querySelectorAll('.mnav a').forEach(function(link){
   link.addEventListener('click',function(){document.getElementById('mn').classList.remove('open')});
 });
