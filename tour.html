@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全国ツアー｜営業-1グランプリ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --white:#fff;--bg:#faf9f6;--bg-warm:#f5f2ec;
+  --text:#222;--text-sub:#555;--text-light:#888;
+  --gold:#b8922e;--gold-light:#f0d77b;--gold-dark:#8a6d1a;
+  --gold-grad:linear-gradient(135deg,#c9a227,#f0d060,#c9a227);
+  --red:#d72631;--red-dark:#b51d26;--black:#1a1a1a;
+  --border:#e8e4dc;--shadow:rgba(0,0,0,.08);
+  --font:'Noto Sans JP',sans-serif;--font-a:'Zen Kaku Gothic New',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ── ヘッダー ── */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.h-inner{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center}
+.logo img{height:52px;width:auto;object-fit:contain}
+nav{display:flex;align-items:center;gap:10px;flex-wrap:nowrap}
+nav a{color:var(--text-sub);font-size:.74rem;font-weight:700;transition:color .3s;white-space:nowrap}
+nav a:hover{color:var(--red)}
+.ncta{background:var(--red);color:#fff!important;padding:8px 18px;font-weight:700!important;font-size:.72rem!important;border-radius:4px;transition:background .3s!important;white-space:nowrap}
+.ncta:hover{background:var(--red-dark)!important}
+.nav-diagnosis-button{background:var(--gold-grad);color:#3a2800!important;padding:8px 14px;font-weight:700!important;font-size:.72rem!important;border-radius:4px;white-space:nowrap;box-shadow:0 2px 6px rgba(184,146,46,.35);transition:filter .25s,box-shadow .25s!important}
+.nav-diagnosis-button:hover{filter:brightness(1.1);box-shadow:0 4px 12px rgba(184,146,46,.45)!important;color:#3a2800!important}
+.hbr{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.hbr span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0}
+.mnav{display:none;position:fixed;top:68px;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:16px 24px;border-bottom:1px solid var(--border)}
+.mnav.open{display:block}
+.mnav a{display:block;padding:12px 0;color:var(--text-sub);font-size:.85rem;border-bottom:1px solid #eee}
+.mnav .mnav-diagnosis{color:var(--gold-dark);font-weight:700}
+
+
+/* 全国ツアー navigation */
+.nav-tour-button{border:1px solid var(--gold);color:var(--gold-dark);padding:7px 12px;border-radius:4px;white-space:nowrap}
+nav a{white-space:nowrap}
+@media(max-width:1180px){nav a:not(.ncta):not(.nav-diagnosis-button){display:none}.hbr{display:block}}
+.mnav{max-height:calc(100dvh - 68px);overflow-y:auto}
+
+main{min-height:100svh;padding:100px 24px 32px;display:grid;place-items:center;text-align:center}
+h1{font-family:var(--font-a);font-size:clamp(2.2rem,8vw,5rem);font-weight:900;color:var(--gold-dark)}
+</style>
+<script defer src="assets/js/analytics.js"></script>
+</head>
+<body>
+<header>
+  <div class="h-inner">
+    <a href="index.html" class="logo">
+      <img src="assets/logos/eigyo1_logo.png" alt="営業-1グランプリ ロゴ" onerror="this.style.display='none'">
+    </a>
+    <nav>
+      <a href="index.html#lv">最新情報</a>
+      <a href="buzz100.html">バズり動画100</a>
+      <a href="manual-best.html">吉本営業マニュアル＆ベスト企画</a>
+      <a href="photo-gallery.html">写真館</a>
+      <a href="archive-docs.html">資料館</a>
+      <a href="goods.html">グッズ</a>
+      <a href="timeline.html">シリーズ年表</a>
+      <a href="tour.html" class="nav-tour-button" aria-current="page">全国ツアー</a>
+      <a href="diagnosis.html" class="nav-diagnosis-button">営業タイプAI診断</a>
+      <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ncta">イベント出演依頼</a>
+      <button class="hbr" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="mnav" id="mn">
+  <a href="index.html">TOP</a>
+  <a href="index.html#lv">最新情報</a>
+  <a href="buzz100.html">バズり動画100</a>
+  <a href="manual-best.html">吉本営業マニュアル＆ベスト企画</a>
+  <a href="photo-gallery.html">写真館</a>
+  <a href="archive-docs.html">資料館</a>
+  <a href="goods.html">グッズ</a>
+  <a href="timeline.html">シリーズ年表</a>
+  <a href="tour.html" aria-current="page">全国ツアー</a>
+  <a href="diagnosis.html" class="mnav-diagnosis">営業タイプAI診断</a>
+  <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
+</div>
+
+<main><h1>Coming Soon！</h1></main>
+<script>
+document.querySelectorAll('.mnav a').forEach(function(link){
+  link.addEventListener('click',function(){document.getElementById('mn').classList.remove('open')});
+});
+</script>
+</body>
+</html>

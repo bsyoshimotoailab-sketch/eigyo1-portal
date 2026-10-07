@@ -328,6 +328,12 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
 #ld-overlay.pattern-6 .ld-num,#ld-overlay.pattern-7 .ld-num,#ld-overlay.pattern-8 .ld-num,#ld-overlay.pattern-9 .ld-num,#ld-overlay.pattern-10 .ld-num{color:#e8e8e8;text-shadow:0 0 14px rgba(255,255,255,.25),0 0 28px rgba(255,255,255,.1)}
 #ld-overlay.pattern-6 .ld-rule,#ld-overlay.pattern-7 .ld-rule,#ld-overlay.pattern-8 .ld-rule,#ld-overlay.pattern-9 .ld-rule,#ld-overlay.pattern-10 .ld-rule{color:#e0e0e0}
 #ld-overlay.pattern-6 .ld-cur,#ld-overlay.pattern-7 .ld-cur,#ld-overlay.pattern-8 .ld-cur,#ld-overlay.pattern-9 .ld-cur,#ld-overlay.pattern-10 .ld-cur{color:#cccccc}
+
+/* 全国ツアー navigation */
+.nav-tour-button{border:1px solid var(--gold);color:var(--gold-dark);padding:7px 12px;border-radius:4px;white-space:nowrap}
+nav a{white-space:nowrap}
+@media(max-width:1180px){nav a:not(.ncta):not(.nav-diagnosis-button){display:none}.hbr{display:block}}
+.mnav{max-height:calc(100dvh - 68px);overflow-y:auto}
 </style>
 <script defer src="assets/js/analytics.js"></script>
 </head>
@@ -356,6 +362,7 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
       <a href="archive-docs.html">資料館</a>
       <a href="goods.html">グッズ</a>
       <a href="timeline.html">シリーズ年表</a>
+      <a href="tour.html" class="nav-tour-button">全国ツアー</a>
       <a href="diagnosis.html" class="nav-diagnosis-button">営業タイプAI診断</a>
       <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener" class="ncta">イベント出演依頼</a>
       <button class="hbr" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="メニュー"><span></span><span></span><span></span></button>
@@ -371,6 +378,7 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
   <a href="archive-docs.html">資料館</a>
   <a href="goods.html">グッズ</a>
   <a href="timeline.html">シリーズ年表</a>
+  <a href="tour.html">全国ツアー</a>
   <a href="diagnosis.html" class="mnav-diagnosis">営業タイプAI診断</a>
   <a href="https://www.yoshimoto.co.jp/kogyo-eigyo/" target="_blank" rel="noopener">イベント出演依頼</a>
 </div>
@@ -437,37 +445,6 @@ footer{background:var(--black);color:#ccc;padding:50px 0 24px}.ftt{display:flex;
   <div class="container">
     <div class="sl fi" style="border-color:var(--gold-light);color:var(--gold-light)">NEWS</div>
     <h2 class="st fi" style="color:#fff">最新情報</h2>
-
-    <!-- ニコイチ出張×営業-1グランプリ 特別企画 -->
-    <div class="news-extra-card fi">
-      <div class="news-extra-tag">SPECIAL</div>
-      <img src="assets/images/news/news-podcast.nikoichi.jpg" alt="ニコイチ出張×営業-1グランプリ 特別企画" class="news-extra-thumb-contain" loading="lazy">
-      <h3 class="news-extra-title">ニコイチ出張×営業-1グランプリ 特別企画</h3>
-      <p style="font-size:.84rem;color:#ccc;line-height:1.85;margin-bottom:4px">ニコイチ出張 と 営業-1グランプリ がコラボ！<br>2026上半期スペシャル放送決定を記念して、営業-1で話題の2組の営業現場に密着。</p>
-
-      <div class="news-sub-block">
-        <div class="news-sub-num">①</div>
-        <div class="news-sub-title">営業出演回数3連覇！ジョイマンが行く岩手イオン＆久慈春祭りに密着</div>
-        <div class="news-sub-text">4週連続放送。次回放送 6/8(月)20:00～</div>
-        <div class="news-extra-btns">
-          <a href="https://youtu.be/ZARgpn_3Ygc" target="_blank" rel="noopener noreferrer" class="news-extra-btn">▶ #1を見る</a>
-          <a href="https://youtu.be/SzxBpUTMUYM?si=SJ94nj2QWGB4H6gC" target="_blank" rel="noopener noreferrer" class="news-extra-btn">▶ #2を見る</a>
-          <a href="https://youtu.be/ftfE1upRiaY?si=tvst-nDrsI7lvMIm" target="_blank" rel="noopener noreferrer" class="news-extra-btn">▶ #3を見る</a>
-          <a href="https://youtu.be/xutyATSGzC0?si=WxNTvL3oEmAVcv7I" target="_blank" rel="noopener noreferrer" class="news-extra-btn">▶ #4を見る</a>
-        </div>
-      </div>
-
-      <div class="news-sub-block">
-        <div class="news-sub-num">②</div>
-        <div class="news-sub-title">営業-1といえばこの人!? サバンナ八木の「犬と営業」に密着</div>
-        <div class="news-sub-text">2週連続放送。初回放送 6/29(月)20:00～</div>
-        <div class="news-extra-btns">
-          <a href="https://youtu.be/mythPbmSLZk?si=WiE97dNzW7IrNu1x" target="_blank" rel="noopener noreferrer" class="news-extra-btn">▶ #1を見る</a>
-          <!-- サバンナ八木 #2 URL公開後、このdisabledボタンをaタグに変更 -->
-          <span class="news-extra-btn is-disabled" aria-disabled="true">#2 近日公開</span>
-        </div>
-      </div>
-    </div><!-- /ニコイチ出張カード -->
 
     <!-- 営業-1グランプリ Podcast -->
     <div class="news-extra-card fi">
